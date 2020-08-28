@@ -1,0 +1,18 @@
+assets/res/runtime/atlas/atlas_logo:be37a31587af38244bbbc6ec6a099f2a
+assets/res/runtime/atlas/new sprite atlas:d6b701a9968dbd1fd333f0dbd71695b1
+assets/res/runtime/cube4:5af94a4d67f7bf1b2dcda97a3b340a8d
+assets/res/runtime/prefabs/cuberigidbody:4023e99e3bbb942292afa24560caae43
+assets/res/runtime/prefabs/testchilditem:1ad14399cdd9f550a0997c1197d4e21d
+assets/res/runtime/prefabs/testhotfixview:30c41535510a8f8c49dd1f2f5363d0b0
+assets/res/runtime/prefabs/uiroot:e705615288fe3bb711bed0bd9bf1df3c
+assets/res/runtime/prefabs/uiroot2:5d18a504ad5a658b9f31a60a7aa1fbe8
+assets/res/runtime/prefabs/uiroot3:888284fb8dea2eb38d78788943ca8684
+assets/res/runtime/scenes/init:5714125e09163085fa6cf822227a4f4b
+assets/res/runtime/scenes/test:93643d4680e409aebf44bf21cb33a912
+assets/res/runtime/sprites/blacksquare:085215248170d061ffc41399cea341b2
+assets/res/runtime/sprites/common_image_bg:5e6f0f37b0b62e458f3d87185a5cbcae
+assets/res/runtime/sprites/log2:f84c354ccd9f4d22f7266a4c91bece2c
+assets/res/runtime/sprites/log3:cc2f093d9c09cb11808ebb54b055216b
+assets/res/runtime/sprites/unitylogo:cdb2b0d2299d09582fb6c5fa13f3c307
+manifest:7511c008122b8579f91f9294f47299f1
+hotfix.dll:0EF8DD82450C2EA647C2E9CFD307C27F4B0A583A

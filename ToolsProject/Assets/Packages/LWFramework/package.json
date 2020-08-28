@@ -1,0 +1,13 @@
+{
+    "name": "com.cb.lwframework",
+    "displayName": "LWFramework",
+    "version": "1.0.0",
+    "description": "自用工具",
+    "author": "chenbin",
+    "license": "MIT",
+    "unity": "2018.4",
+    "type": "library",
+    "dependencies": {
+        "com.cysharp.unitask": "2.0.31"
+    }
+}

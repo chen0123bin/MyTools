@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e8c5eb90654c0d4e910377c17cce778, type: 3}
+  m_Name: Manifest
+  m_EditorClassIdentifier: 
+  downloadURL: http://192.168.200.199:8089/
+  activeVariants: []
+  bundles:
+  - assets/res/runtime/atlas/atlas_logo
+  - assets/res/runtime/atlas/new sprite atlas
+  - assets/res/runtime/cube4
+  - assets/res/runtime/prefabs/cuberigidbody
+  - assets/res/runtime/prefabs/testchilditem
+  - assets/res/runtime/prefabs/testhotfixview
+  - assets/res/runtime/prefabs/uiroot
+  - assets/res/runtime/prefabs/uiroot2
+  - assets/res/runtime/prefabs/uiroot3
+  - assets/res/runtime/scenes/init
+  - assets/res/runtime/scenes/test
+  - assets/res/runtime/sprites/blacksquare
+  - assets/res/runtime/sprites/common_image_bg
+  - assets/res/runtime/sprites/log2
+  - assets/res/runtime/sprites/log3
+  - assets/res/runtime/sprites/unitylogo
+  - manifest
+  dirs:
+  - Assets/Res/Runtime/Atlas
+  - Assets/Res/Runtime
+  - Assets/Res/Runtime/Prefabs
+  - Assets/Res/Runtime/Scenes
+  - Assets/Res/Runtime/Sprites
+  - Assets
+  assets:
+  - bundle: 0
+    dir: 0
+    name: atlas_logo.spriteatlas
+  - bundle: 1
+    dir: 0
+    name: New Sprite Atlas.spriteatlas
+  - bundle: 2
+    dir: 1
+    name: Cube1.prefab
+  - bundle: 3
+    dir: 2
+    name: CubeRigidbody.prefab
+  - bundle: 4
+    dir: 2
+    name: TestChildItem.prefab
+  - bundle: 5
+    dir: 2
+    name: TestHotfixView.prefab
+  - bundle: 6
+    dir: 2
+    name: UIRoot.prefab
+  - bundle: 7
+    dir: 2
+    name: UIRoot2.prefab
+  - bundle: 8
+    dir: 2
+    name: UIRoot3.prefab
+  - bundle: 9
+    dir: 3
+    name: Init.unity
+  - bundle: 10
+    dir: 3
+    name: Test.unity
+  - bundle: 11
+    dir: 4
+    name: blackSquare.png
+  - bundle: 12
+    dir: 4
+    name: common_image_bg.png
+  - bundle: 13
+    dir: 4
+    name: log2.png
+  - bundle: 14
+    dir: 4
+    name: log3.png
+  - bundle: 15
+    dir: 4
+    name: UnityLogo.png
+  - bundle: 16
+    dir: 5
+    name: Manifest.asset
