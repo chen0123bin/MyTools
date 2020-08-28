@@ -9,5 +9,7 @@
     "type": "library",
     "dependencies": {
         "com.cysharp.unitask": "2.0.31"
-    }
+    },
+    "enableLockFile": true,
+    "resolutionStrategy": "highest"
 }
