@@ -20,7 +20,7 @@ namespace LWFramework.Asset
         /// <summary>
         /// 热更dll的名称
         /// </summary>
-        public static string HotfixFileName { get; private set; }= "hotfix.dll";
+        public static string HotfixFileName { get; private set; }= "hotfix.dll.byte";
 
         public static LoadDelegate loadDelegate = null;
         public static GetPlatformDelegate getPlatformDelegate = null;
