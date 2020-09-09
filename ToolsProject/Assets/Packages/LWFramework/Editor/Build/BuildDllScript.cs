@@ -17,26 +17,30 @@ public class BuildDllScript
 
 
     private static string DLLPATH = "/Hotfix/"+ LWFramework.Asset.LWUtility.HotfixFileName;
-
-
     /// <summary>
-    /// 编译模式
+    /// 使用unity的 AssemblyBuilder编译
     /// </summary>
-    /// <param name="mode"></param>
-    public static void RoslynBuild(BuildDllTools.BuildMode mode)
-    {
+    public static void AssemblyBuild(string[] filterStrArray) {
         var cmd = new DllBuild(Application.streamingAssetsPath + "/Hotfix");
-        cmd.onFinished += ((DllBuild self, bool isSuccess) =>
+        cmd.onFinished = ((DllBuild self, bool isSuccess) =>
         {
             var tip = isSuccess ? "Dll生成成功!" : "Dll生成失败!";
             Debug.Log(tip);
         });
+        cmd.filterStrArray = filterStrArray;
         cmd.Execute();
-
-        //1.build dll
-      //  var outpath_win = Application.streamingAssetsPath + "/";
-       // BuildDllTools.BuildDll(Application.dataPath, outpath_win, mode);
-        //3.生成CLRBinding
+        AssetDatabase.Refresh();
+    }
+    /// <summary>
+    /// Roslyn编译模式
+    /// </summary>
+    /// <param name="mode"></param>
+    public static void RoslynBuild(BuildDllTools.BuildMode mode)
+    {
+       // 1.build dll
+        var outpath_win = Application.streamingAssetsPath + "/";
+        BuildDllTools.BuildDll(Application.dataPath, outpath_win, mode);
+       // 3.生成CLRBinding
         GenCLRBindingByAnalysis();
         AssetDatabase.Refresh();
         Debug.Log("脚本打包完毕");

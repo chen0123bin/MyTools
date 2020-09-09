@@ -52,7 +52,7 @@ public class AssetsInit : MonoBehaviour
             // GameObject  go = await Test22Async();    // await模式
             //StartCoroutine(LoadAsync());    //协程模式
             //回调模式
-            asset = Assets.LoadAsync(assetPath, typeof(UnityEngine.Object));
+            asset = Assets.LoadAsync<UnityEngine.Object>(assetPath);
             asset.completed += delegate (AssetRequest a)
             {
                 go = (GameObject)Instantiate(a.asset);
@@ -80,7 +80,7 @@ public class AssetsInit : MonoBehaviour
     }
     public async UniTask<AssetRequest> LoadTest()
     {
-        asset = Assets.LoadAsync(assetPath, typeof(UnityEngine.Object));
+        asset = Assets.LoadAsync<UnityEngine.Object>(assetPath);
         await UniTask.WaitUntil(() =>
         {
 
@@ -90,7 +90,7 @@ public class AssetsInit : MonoBehaviour
     }
     IEnumerator LoadAsync()
     {
-        asset = Assets.LoadAsync(assetPath, typeof(UnityEngine.Object));
+        asset = Assets.LoadAsync<UnityEngine.Object>(assetPath);
         while (!asset.isDone)
         {
             LWDebug.Log(asset.progress);

@@ -13,7 +13,8 @@ public class DllBuild
     /// <summary>
     /// 打包完成，返回一个bool表示成功还是失败
     /// </summary>
-    public event Action<DllBuild, bool> onFinished;
+    public  Action<DllBuild, bool> onFinished;
+    public string[] filterStrArray;
     string _outputDir;
     string _outputAssemblyPath;
     /// <summary>
@@ -85,10 +86,13 @@ public class DllBuild
         List<string> list0 = new List<string>(dllList0);
         for (int i = 0; i < list0.Count; i++)
         {
-            if (list0[i].Contains("sqlite3.dll") || list0[i].Contains(LWUtility.HotfixFileName))
+            for (int j = 0; j < filterStrArray.Length; j++)
             {
-                list0.RemoveAt(i);
-                i--;
+                if (list0[i].Contains(filterStrArray[j]) || list0[i].Contains(LWUtility.HotfixFileName))
+                {
+                    list0.RemoveAt(i);
+                    i--;
+                }
             }
         }
         List<string> list1 = new List<string>(dllList1);

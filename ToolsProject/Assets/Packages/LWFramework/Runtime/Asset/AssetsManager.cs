@@ -179,11 +179,7 @@ namespace LWFramework.Asset
             }
         }
 
-        public string[] GetAllDependencies(string path)
-        {
-            string assetBundleName;
-            return GetAssetBundleName(path, out assetBundleName) ? Bundles.GetAllDependencies(assetBundleName) : null;
-        }
+       
 
         public SceneAssetRequest LoadScene(string path, bool async, bool addictive)
         {
@@ -210,19 +206,10 @@ namespace LWFramework.Asset
         {
             return Load(path, typeof(T), false);
         }
-        public AssetRequest Load(string path, Type type)
-        {
-            return Load(path, type, false);
-        }
         public AssetRequest LoadAsync<T>(string path)
         {
             return Load(path, typeof(T), true);
         }
-        public AssetRequest LoadAsync(string path, Type type)
-        {
-            return Load(path, type, true);
-        }
-
        
         public async UniTask<AssetRequest> LoadAsyncTask<T>(string path)
         {
@@ -323,6 +310,7 @@ namespace LWFramework.Asset
         {
             return !File.Exists(Path.Combine(updatePath, bundleName)) ? null : updatePath;
         }
+
     }
 }
 

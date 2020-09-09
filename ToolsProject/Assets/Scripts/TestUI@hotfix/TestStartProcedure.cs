@@ -6,6 +6,7 @@ using LWFramework.UI;
 using LWFramework.Core;
 using LWFramework.Asset;
 using System;
+using UnityEngine.SceneManagement;
 
 [FSMTypeAttribute(nameof(FSMName.Procedure), true)]
 public class TestStartProcedure : BaseFSMState
@@ -15,7 +16,7 @@ public class TestStartProcedure : BaseFSMState
         LWDebug.Log("进入流程 状态机OnEnterOnEnterOnEnterOnEnterOnEnter");
         MainManager.Instance.GetManager<UIManager>().OpenView<TestHotfixView>();
         GameObject.Find("Canvas").AddComponent(typeof(TestHotfixMono));
-       // MainManager.Instance.GetManager<AssetsManager>().LoadScene("Assets/Res/Runtime/Scenes/PolygonSamurai.unity", true, true);
+        MainManager.Instance.GetManager<AssetsManager>().LoadScene("Assets/Res/Runtime/Scenes/Test.unity", true, true);
         var asset =  MainManager.Instance.GetManager<AssetsManager>().Load<GameObject>("Assets/Res/Runtime/Prefabs/CubeRigidbody.prefab");
         GameObject cube =  GameObject.Instantiate(asset.asset, Vector3.zero, Quaternion.identity) as GameObject;
         PhysicsEventListener.Get(cube).onTriggerEnter = OnMonoEventAction2;

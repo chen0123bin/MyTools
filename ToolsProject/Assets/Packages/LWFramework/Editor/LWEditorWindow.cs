@@ -163,18 +163,38 @@ public class ABManager
 
 public class DLLManager
 {
+    public DLLManager() {
+        string filterStr = EditorPrefs.GetString("filterString");
+        filterStrArray = filterStr.Split(';');
+    }
+    [LabelText("过滤的dll名称或文件夹名称")]
+    [OnValueChanged("SetFilterStrArray")]
+    public string[] filterStrArray;
+    [Button("编译dll", ButtonSizes.Medium)]
+    public void BuildButton()
+    {
+        BuildDllScript.AssemblyBuild(filterStrArray);
+    }
+    public void SetFilterStrArray() {
+        string filterStr = "";
+        for (int i = 0; i < filterStrArray.Length; i++)
+        {
+            filterStr += (i == filterStrArray.Length - 1 ? filterStrArray[i] : filterStrArray[i] + ";");
+        }
+        EditorPrefs.SetString("filterString", filterStr);
+    }
     //   [HorizontalGroup("Split",0.5f)]
-    [Button("编译dll(Release)", ButtonSizes.Medium)]
-    public void Button()
-    {
-        BuildDllScript.RoslynBuild(BuildDllTools.BuildMode.Release);
-    }
-    //   [HorizontalGroup("Split", 0.5f)]
-    [Button("编译dll(Debug)", ButtonSizes.Medium)]
-    public void Button2()
-    {
-        BuildDllScript.RoslynBuild(BuildDllTools.BuildMode.Debug);
-    }
+    //[Button("编译dll(Release)", ButtonSizes.Medium)]
+    //public void Button()
+    //{
+    //    BuildDllScript.RoslynBuild(BuildDllTools.BuildMode.Release);
+    //}
+    ////   [HorizontalGroup("Split", 0.5f)]
+    //[Button("编译dll(Debug)", ButtonSizes.Medium)]
+    //public void Button2()
+    //{
+    //    BuildDllScript.RoslynBuild(BuildDllTools.BuildMode.Debug);
+    //}
 #if ILRUNTIME
     [Button("分析DLL生成绑定", ButtonSizes.Medium)]
     public void Button3()

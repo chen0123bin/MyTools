@@ -69,7 +69,7 @@ namespace LWFramework.Core {
                 if (!File.Exists(path))
                 {
                     //加载StreamingAssets下的的版本文件
-                    var asset = MainManager.Instance.GetManager<AssetsManager>().LoadAsync(LWUtility.GetWebUrlFromDataPath(versionsTxt), typeof(TextAsset));
+                    var asset = MainManager.Instance.GetManager<AssetsManager>().LoadAsync<TextAsset>(LWUtility.GetWebUrlFromDataPath(versionsTxt));
                     asset.completed += delegate
                     {
                         if (asset.error != null)
@@ -171,7 +171,7 @@ namespace LWFramework.Core {
             //解析本地版本文件
             LoadText2Map(text, ref _versions);
             //加载服务器版本文件
-            var asset = MainManager.Instance.GetManager<AssetsManager>().LoadAsync(LWUtility.GetDownloadURL(versionsTxt), typeof(TextAsset));
+            var asset = MainManager.Instance.GetManager<AssetsManager>().LoadAsync<TextAsset>(LWUtility.GetDownloadURL(versionsTxt));
 
             asset.completed += delegate {
                 if (asset.error != null)

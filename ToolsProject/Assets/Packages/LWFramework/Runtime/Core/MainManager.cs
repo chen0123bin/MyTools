@@ -75,7 +75,12 @@ namespace LWFramework.Core {
                 }
             }
         }
-
+       
+        public void AddManager(string name, IManager t) {
+            t.Init();
+            _managerDic.Add(name, t);
+            _managerList.Add(t);
+        }
         public void AddManager(IManager t)
         {
             t.Init();
