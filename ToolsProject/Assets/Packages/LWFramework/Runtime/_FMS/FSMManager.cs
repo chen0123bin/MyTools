@@ -7,7 +7,7 @@ namespace LWFramework.FMS
     /// <summary>
     /// 有限状态机管理者
     /// </summary>
-    [ManagerClass(ManagerType.Normal)]
+    //[ManagerClass(ManagerType.Normal)]
     public sealed class FSMManager : IManager
     {
         private Dictionary<string, FSMStateMachine> _fsms = new Dictionary<string, FSMStateMachine>();
@@ -103,10 +103,6 @@ namespace LWFramework.FMS
             }
         }
        
-        public void LateUpdate()
-        {
-        }
-
         public void Init()
         {
         }

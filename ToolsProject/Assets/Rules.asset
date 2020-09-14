@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
+  m_Name: Rules
+  m_EditorClassIdentifier: 
+  build: 3
+  major: 0
+  minor: 0
+  autoRecord: 0
+  autoGroupByDirectories: []
+  validateAssetPath: 0
+  allAssetsToBuild: 0
+  patchesInBuild: []
+  scenesInBuild: []
+  extension: 
+  nameByHash: 0
+  options: 256
+  assets:
+  - name: Assets/@Resources/Prefabs/TestHotfixView.prefab
+    group: 
+    bundle: prefabs_testhotfixview
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/CubeRigidbody.prefab
+    group: 
+    bundle: prefabs_cuberigidbody
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/UIRoot3.prefab
+    group: 
+    bundle: prefabs_uiroot3
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/UIRoot2.prefab
+    group: 
+    bundle: prefabs_uiroot2
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/UIRoot.prefab
+    group: 
+    bundle: prefabs_uiroot
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/TestChildItem.prefab
+    group: 
+    bundle: prefabs_testchilditem
+    id: 0
+    groupBy: 2
+  patches: []
+  bundles:
+  - assetBundleName: prefabs_testhotfixview
+    assetNames:
+    - Assets/@Resources/Prefabs/TestHotfixView.prefab
+  - assetBundleName: prefabs_cuberigidbody
+    assetNames:
+    - Assets/@Resources/Prefabs/CubeRigidbody.prefab
+  - assetBundleName: prefabs_uiroot3
+    assetNames:
+    - Assets/@Resources/Prefabs/UIRoot3.prefab
+  - assetBundleName: prefabs_uiroot2
+    assetNames:
+    - Assets/@Resources/Prefabs/UIRoot2.prefab
+  - assetBundleName: prefabs_uiroot
+    assetNames:
+    - Assets/@Resources/Prefabs/UIRoot.prefab
+  - assetBundleName: prefabs_testchilditem
+    assetNames:
+    - Assets/@Resources/Prefabs/TestChildItem.prefab
+  currentScene: 

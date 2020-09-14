@@ -79,7 +79,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, childName);
+                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -97,7 +97,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", childName);
+                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");
@@ -154,7 +154,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, childName);
+                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -173,7 +173,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", childName);
+                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");
@@ -241,6 +241,7 @@ public class ViewElement : MonoBehaviour
         }
 
     }
+    
     void CreateView(string viewName, string logicName)
     {
         string generateFilePath = savePath + "/" + viewName + ".cs";
@@ -267,7 +268,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, childName);
+                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName) );
                 strBuilder.AppendLine();
             }
         }
@@ -334,5 +335,12 @@ public class ViewElement : MonoBehaviour
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 #endif
+    }
+    string ConvertName(string name)
+    {
+        string s1 = name.Substring(0, 1);//截取str的一个子字符串，从0开始，到1截止
+        string s2 = s1.ToLower();
+        string s3 = name.Substring(1);//截取str的一个子字符串，从1开始至str字符串结束
+        return s2 + s3;
     }
 }

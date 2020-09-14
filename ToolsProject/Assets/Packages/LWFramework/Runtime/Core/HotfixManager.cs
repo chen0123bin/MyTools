@@ -20,7 +20,7 @@ namespace LWFramework.Core {
     /// <summary>
     /// 热更环境初始化处理
     /// </summary>
-    [ManagerClass(ManagerType.Normal)]
+    //[ManagerClass(ManagerType.Normal)]
     public class HotfixManager : IManager
     {
         public Assembly Assembly { get; private set; }

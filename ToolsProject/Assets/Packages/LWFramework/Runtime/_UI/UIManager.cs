@@ -9,7 +9,7 @@ namespace LWFramework.UI {
     /// <summary>
     /// 所有的UI管理器
     /// </summary>
-    [ManagerClass(ManagerType.Normal)]
+    //[ManagerClass(ManagerType.Normal)]
     public class UIManager : IManager
     {
         /// <summary>
@@ -43,11 +43,6 @@ namespace LWFramework.UI {
             _uiParentDic = new Dictionary<string, Transform>();
             //启动之后隐藏编辑层
             EditTransform.gameObject.SetActive(false);
-        }
-
-        public void LateUpdate()
-        {
-           
         }
         /// <summary>
         /// 更新所有的View
@@ -91,47 +86,12 @@ namespace LWFramework.UI {
             LWDebug.Log("UIManager：" + typeof(T).ToString());
             return uiView;
         }
-        /// <summary>
-        /// 创建一个VIEW
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        public BaseUIView CreateView<T>()
-        {
-            BaseUIView uiView = Activator.CreateInstance(typeof(T)) as BaseUIView;
-            //获取UIViewDataAttribute特性
-            var attr = (UIViewDataAttribute)typeof(T).GetCustomAttributes(typeof(UIViewDataAttribute), true).FirstOrDefault();
-            if (attr != null)
-            {
-                GameObject uiGameObject = null;
-                //创建UI对象
-                uiGameObject = UIUtility.Instance.CreateViewEntity(attr.loadPath);
-                Transform parent = GetParent(attr.findType, attr.param);
-                if (uiGameObject == null) {
-                    LWDebug.LogError("没有找到这个UI对象" + attr.loadPath);
-                }
-                if (parent == null)
-                {
-                    LWDebug.LogError("没有找到这个UI父节点" + attr.param);
-                }
-                if (parent != null) {
-                    uiGameObject.transform.SetParent(parent,false);
-                }            
-                //初始化UI
-                uiView.CreateView(uiGameObject);
-            }
-            else
-            {
-                LWDebug.Log("没有找到UIViewDataAttribute这个特性");
-            }
-            LWDebug.Log("UIManager：" + typeof(T).ToString());
-            return uiView;
-        }
+      
         /// <summary>
         /// 打开View
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public T OpenView<T>()
+        public void OpenView<T>()
         {
             IUIView uiViewBase;
             if (!_uiViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase)) {
@@ -140,32 +100,41 @@ namespace LWFramework.UI {
             }
             if(!uiViewBase.IsOpen)
                 uiViewBase.OpenView();
-            return (T)uiViewBase;
+            //return (T)uiViewBase;
+        }
+        public void OpenView<T>(string viewName, GameObject uiGameObject = null) {
+            IUIView uiViewBase;
+            if (!_uiViewDic.TryGetValue(viewName, out uiViewBase))
+            {
+                uiViewBase = CreateView<T>(uiGameObject);
+                _uiViewDic.Add(viewName, uiViewBase);
+            }
+            if (!uiViewBase.IsOpen)
+                uiViewBase.OpenView();
         }
         /// <summary>
         /// 关闭View
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public T CloseView<T>()
+        public void CloseView<T>()
         {
             IUIView uiViewBase;
             if (_uiViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
             {
                 uiViewBase.CloseView();
             }
-            return (T)uiViewBase;
+           // return (T)uiViewBase;
         }
         /// <summary>
-        /// 关闭其他所有的View
+        /// 关闭View
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public void CloseOtherView<T>() {
-            string viewName = typeof(T).ToString();
-            foreach (var item in _uiViewDic.Keys)
+        public void CloseView(string viewName)
+        {
+            IUIView uiViewBase;
+            if (_uiViewDic.TryGetValue(viewName, out uiViewBase))
             {
-                if (item != viewName) {
-                    _uiViewDic[item].CloseView();
-                }
+                uiViewBase.CloseView();
             }
         }
         /// <summary>
@@ -173,8 +142,27 @@ namespace LWFramework.UI {
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public T GetView<T>() {
-            return (T)_uiViewDic[typeof(T).ToString()];
+        public T GetView<T>(string viewName=null) {
+            if(viewName==null)
+                return (T)_uiViewDic[typeof(T).ToString()];
+            else
+                return (T)_uiViewDic[viewName];
+        }
+        
+        /// <summary>
+        /// 关闭其他所有的View
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public void CloseOtherView<T>()
+        {
+            string viewName = typeof(T).ToString();
+            foreach (var item in _uiViewDic.Keys)
+            {
+                if (item != viewName)
+                {
+                    _uiViewDic[item].CloseView();
+                }
+            }
         }
         /// <summary>
         /// 清理所有的view
@@ -186,13 +174,55 @@ namespace LWFramework.UI {
             }
             _uiViewDic.Clear();
         }
+        
+        /// <summary>
+        /// 创建一个VIEW
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private BaseUIView CreateView<T>(GameObject uiGameObject = null)
+        {
+            BaseUIView uiView = Activator.CreateInstance(typeof(T)) as BaseUIView;
+            //获取UIViewDataAttribute特性
+            var attr = (UIViewDataAttribute)typeof(T).GetCustomAttributes(typeof(UIViewDataAttribute), true).FirstOrDefault();
+            if (attr != null)
+            {
+                //GameObject uiGameObject = null;
+                //创建UI对象
+                if (uiGameObject == null) {
+                    uiGameObject = UIUtility.Instance.CreateViewEntity(attr.loadPath);
+                }           
+                Transform parent = GetParent(attr.findType, attr.param);
+                if (uiGameObject == null)
+                {
+                    LWDebug.LogError("没有找到这个UI对象" + attr.loadPath);
+                }
+                if (parent == null)
+                {
+                    LWDebug.LogError("没有找到这个UI父节点" + attr.param);
+                }
+                if (parent != null)
+                {
+                    uiGameObject.transform.SetParent(parent, false);
+                }
+                //初始化UI
+                uiView.CreateView(uiGameObject);
+            }
+            else
+            {
+                LWDebug.Log("没有找到UIViewDataAttribute这个特性");
+            }
+            LWDebug.Log("UIManager：" + typeof(T).ToString());
+            return uiView;
+        }
         /// <summary>
         /// 根据特性 获取父级
         /// </summary>
         /// <param name="findType"></param>
         /// <param name="param"></param>
         /// <returns></returns>
-        private Transform GetParent(FindType findType,string param) {
+        private Transform GetParent(FindType findType, string param)
+        {
             Transform ret = null;
             if (_uiParentDic.ContainsKey(param))
             {
@@ -208,7 +238,8 @@ namespace LWFramework.UI {
                 ret = gameObject.transform;
                 _uiParentDic.Add(param, ret);
             }
-            else if (findType == FindType.Tag) {
+            else if (findType == FindType.Tag)
+            {
                 GameObject gameObject = GameObject.FindGameObjectWithTag(param);
                 if (gameObject == null)
                 {

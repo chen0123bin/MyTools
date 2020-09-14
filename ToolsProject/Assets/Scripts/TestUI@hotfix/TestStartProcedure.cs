@@ -14,6 +14,8 @@ public class TestStartProcedure : BaseFSMState
     public override void OnEnter(BaseFSMState lastState)
     {
         LWDebug.Log("进入流程 状态机OnEnterOnEnterOnEnterOnEnterOnEnter");
+       
+
         MainManager.Instance.GetManager<UIManager>().OpenView<TestHotfixView>();
         GameObject.Find("Canvas").AddComponent(typeof(TestHotfixMono));
         MainManager.Instance.GetManager<AssetsManager>().LoadScene("Assets/Res/Runtime/Scenes/Test.unity", true, true);
@@ -23,6 +25,8 @@ public class TestStartProcedure : BaseFSMState
         MonoEventListener.Get(cube).onMonoEventAction = OnMonoEventAction;       
     }
 
+
+
     private void OnMonoEventAction2(Collider obj)
     {
         LWDebug.Log( obj);
@@ -30,7 +34,7 @@ public class TestStartProcedure : BaseFSMState
 
     private void OnMonoEventAction(string monoFun, UnityEngine.Object obj)
     {
-        LWDebug.Log(monoFun +"  "+obj);
+       // LWDebug.Log(monoFun +"  "+obj);
 
     }
 

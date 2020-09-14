@@ -16,7 +16,7 @@ public class BuildDllScript
 {
 
 
-    private static string DLLPATH = "/Hotfix/"+ LWFramework.Asset.LWUtility.HotfixFileName;
+    private static string DLLPATH = "/Hotfix/"+ LWFramework.Core.LWUtility.HotfixFileName;
     /// <summary>
     /// 使用unity的 AssemblyBuilder编译
     /// </summary>

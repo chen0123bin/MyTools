@@ -8,7 +8,7 @@ namespace LWFramework.Message {
     /// <summary>
     /// 总消息控制 ，可以发消息给热更域
     /// </summary>
-    [ManagerClass(ManagerType.Normal)]
+    //[ManagerClass(ManagerType.Normal)]
     public class GlobalMessageManager : BaseMessageManager, IManager
     {
         public void Init()

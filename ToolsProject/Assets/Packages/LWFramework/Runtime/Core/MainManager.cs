@@ -8,7 +8,7 @@ namespace LWFramework.Core {
     /// <summary>
     /// 非热更环境主管理器
     /// </summary>
-    [ManagerClass(ManagerType.Main)]
+   // [ManagerClass(ManagerType.Main)]
     public class MainManager : Singleton<MainManager>, IManager
     {  
         //热更DLL中所有的type
@@ -102,10 +102,7 @@ namespace LWFramework.Core {
         }
         public void Init()
         {
-            //foreach (var item in managerDic.Values)
-            //{
-            //    item.Init();
-            //}
+          
         }
 
         public void Update()
@@ -116,13 +113,7 @@ namespace LWFramework.Core {
             }  
         }
 
-        public void LateUpdate()
-        {
-            for (int i = 0; i < _managerList.Count; i++)
-            {
-                _managerList[i].LateUpdate();
-            }
-        }
+       
         /// <summary>
         /// 启动流程管理
         /// </summary>

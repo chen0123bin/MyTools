@@ -14,4 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connServer: 1
   assetBundleMode: 1
-  hotfixCodeRunMode: 1
+  hotfixCodeRunMode: 2
+  loggable: 1
+  verifyBy: 1
+  downloadURL: http://192.168.200.199:8089/
+  development: 0
+  dontDestroyOnLoad: 1
+  launchScene: 
+  searchPaths: []
+  patches4Init: []
+  updateAll: 1

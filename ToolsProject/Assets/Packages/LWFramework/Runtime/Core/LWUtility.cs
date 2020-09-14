@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace LWFramework.Asset
+namespace LWFramework.Core
 {
     public delegate Object LoadDelegate(string path, Type type);
 

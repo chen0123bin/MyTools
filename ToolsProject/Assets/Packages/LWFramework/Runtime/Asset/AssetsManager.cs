@@ -9,7 +9,7 @@ using Cysharp.Threading.Tasks;
 
 namespace LWFramework.Asset
 {
-    [ManagerClass(ManagerType.Normal)]
+   // [ManagerClass(ManagerType.Normal)]
     public class AssetsManager : IManager
     {
         public void Init()

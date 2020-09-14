@@ -6,7 +6,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 namespace LWFramework.Core {
-    [ManagerClass(ManagerType.Normal)]
+    //[ManagerClass(ManagerType.Normal)]
     public class UpdateManager : IManager
     {
         public enum State
@@ -40,7 +40,7 @@ namespace LWFramework.Core {
             {
                 onError(e);
             }
-            LWDebug.LogError("Android 出现 未知错误 需要将target api 修改为 非最高" + e);
+            LWDebug.LogError("(Android 出现 未知错误 需要将target api 修改为 非最高)-----" + e);
             state = State.Error;
         }
         public async void Check()

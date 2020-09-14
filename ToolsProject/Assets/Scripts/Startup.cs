@@ -3,6 +3,7 @@ using LWFramework.Asset;
 using LWFramework.Core;
 using LWFramework.FMS;
 using LWFramework.Message;
+using LWFramework.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,14 +16,28 @@ public class Startup : MonoBehaviour
     public static Action OnStart { get; set; }
     public static Action OnUpdate { get; set; }
     public static Action OnLateUpdate { get; set; }
-    void Awake()
+    void Start()
     {
         DontDestroyOnLoad(gameObject);      
         MainManager.Instance.Init();
-        MainManager.Instance.GetManager<UpdateManager>().onCompleted = OnCompleted;
-        MainManager.Instance.GetManager<UpdateManager>().onProgress = OnProgress;
-        MainManager.Instance.GetManager<UpdateManager>().onError = OnError;
-        MainManager.Instance.GetManager<UpdateManager>().Check();
+        // MainManager.Instance.AddManager(typeof(UpdateManager).ToString(), new UpdateManager());
+        //  MainManager.Instance.AddManager(typeof(AssetsManager).ToString(), new AssetsManager());
+        MainManager.Instance.AddManager(typeof(IAssetManager).ToString(), new ABAssetManger());
+        MainManager.Instance.AddManager(typeof(UIManager).ToString(), new UIManager());
+        MainManager.Instance.AddManager(typeof(FSMManager).ToString(), new FSMManager());
+        MainManager.Instance.AddManager(typeof(HotfixManager).ToString(), new HotfixManager());
+        MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
+
+        GameObject go = Instantiate(Resources.Load<GameObject>("MessageBoxView"));
+        MessageBoxViewHelp.Instance.OpenMessageBox("VV", go, (flag)=> {
+            Debug.Log(flag);
+            
+        }, "哈哈");
+
+        //MainManager.Instance.GetManager<UpdateManager>().onCompleted = OnCompleted;
+        //MainManager.Instance.GetManager<UpdateManager>().onProgress = OnProgress;
+        //MainManager.Instance.GetManager<UpdateManager>().onError = OnError;
+        //MainManager.Instance.GetManager<UpdateManager>().Check();
     }
  
     private void OnError(string obj)
@@ -40,8 +55,6 @@ public class Startup : MonoBehaviour
     private void OnCompleted()
     {
         LWDebug.Log("下载完成");
-     //   MainManager.Instance.StartProcedure();
-        // Launch();
         //启动热更代码
          StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript(LWUtility.GlobalConfig.hotfixCodeRunMode));     
     }
@@ -57,15 +70,7 @@ public class Startup : MonoBehaviour
             OnUpdate();
         }
     }
-    private void LateUpdate()
-    {
-        MainManager.Instance.LateUpdate();
-        if (OnLateUpdate != null)
-        {
-            OnLateUpdate();
-        }
-    }
-
+   
     void OnDestroy()
     {
     }
