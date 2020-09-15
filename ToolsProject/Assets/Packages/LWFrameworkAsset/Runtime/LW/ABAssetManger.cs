@@ -7,6 +7,9 @@ using LWFramework.Core;
 
 public class ABAssetManger : IAssetManager,IManager
 {
+    private Action<bool> _onUpdateCallback;
+    public Action<bool> OnUpdateCallback { get => _onUpdateCallback; set => _onUpdateCallback =value; }
+
     public void Init()
     {
         LWGlobalConfig globalConfig = LWUtility.GlobalConfig;
@@ -24,15 +27,21 @@ public class ABAssetManger : IAssetManager,IManager
                 Debug.LogError(error);
                 return;
             }
-            else {
+            else
+            {
                 Debug.Log("Assets初始化成功");
                 GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("MessageBoxView"));
-                MessageBoxViewHelp.Instance.OpenMessageBox("MessageBoxView", go, "是否更新资源?", (flag) => {
-                    if (flag) {
+                MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", go, "是否更新资源?", (flag) => {
+                    if (flag)
+                    {
                         StartUpdate();
                     }
+                    else
+                    {
+                        Quit();
+                    }
                 });
-            }         
+            }
         });
     }
 
@@ -59,7 +68,7 @@ public class ABAssetManger : IAssetManager,IManager
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            MessageBoxViewHelp.Instance.OpenMessageBox( "请检查网络连接状态", retry =>
+            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", "请检查网络连接状态", retry =>
             {
                 if (retry)
                 {
@@ -77,7 +86,7 @@ public class ABAssetManger : IAssetManager,IManager
             {
                 if (!string.IsNullOrEmpty(error))
                 {
-                    MessageBoxViewHelp.Instance.OpenMessageBox(string.Format("获取服务器版本失败：{0}", error), retry =>
+                    MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", string.Format("获取服务器版本失败：{0}", error), retry =>
                     {
                         if (retry)
                         {
@@ -87,7 +96,7 @@ public class ABAssetManger : IAssetManager,IManager
                         {
                             Quit();
                         }
-                    }, "重试", "退出");                   
+                    }, "重试", "退出");
                 }
                 else
                 {
@@ -97,7 +106,7 @@ public class ABAssetManger : IAssetManager,IManager
                     {
                         var totalSize = handler.size;
                         var tips = string.Format("发现内容更新，总计需要下载 {0} 内容", Downloader.GetDisplaySize(totalSize));
-                        MessageBoxViewHelp.Instance.OpenMessageBox(tips, download =>
+                        MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", tips, download =>
                         {
                             if (download)
                             {
@@ -118,7 +127,7 @@ public class ABAssetManger : IAssetManager,IManager
                                 Quit();
                             }
                         }, "重试", "退出");
-                    
+
                     }
                     else
                     {
@@ -142,15 +151,22 @@ public class ABAssetManger : IAssetManager,IManager
     private void OnComplete()
     {
         OnProgress(1);
-        Debug.Log("本地资源版本："+Assets.localVersions.ver);
+        Debug.Log("本地资源版本：" + Assets.localVersions.ver);
         OnMessage("更新完成");
+        OnUpdateCallback?.Invoke(true);
     }
     private void Quit()
     {
+        OnUpdateCallback?.Invoke(false);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+        Application.Quit();
 #endif
+    }
+
+    public void LoadScene(string scenePath)
+    {
+
     }
 }

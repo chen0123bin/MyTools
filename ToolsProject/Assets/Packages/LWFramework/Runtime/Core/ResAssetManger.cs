@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ResAssetManger : IAssetManager,IManager
 {
+    public Action<bool> OnUpdateCallback { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     public void Init()
     {
     }
@@ -26,5 +28,8 @@ public class ResAssetManger : IAssetManager,IManager
         Resources.UnloadAsset(param);
     }
 
-   
+    public void LoadScene(string scenePath)
+    {
+
+    }
 }

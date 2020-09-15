@@ -17,9 +17,8 @@ public class LWGlobalConfig : ScriptableObject
     public bool assetBundleMode;
     //热更模式
     public HotfixCodeRunMode hotfixCodeRunMode;
-    //服务器地址
-    //public string serverURL;
-
+    [OnValueChanged("ChangeAssetMode")]
+    public AssetMode assetMode;
     public bool loggable;
     public int verifyBy = 1 ;
     public string downloadURL;
@@ -28,4 +27,21 @@ public class LWGlobalConfig : ScriptableObject
     public string[] searchPaths;
     public string[] patches4Init;
     public bool updateAll;
+
+    public void ChangeAssetMode() {
+        switch (assetMode)
+        {
+            case AssetMode.Resources:
+                development = false;
+                break;
+            case AssetMode.AssetBundle:
+                development = false;
+                break;
+            case AssetMode.AssetBundleDev:
+                development = true;
+                break;
+            default:
+                break;
+        }
+    }
 }

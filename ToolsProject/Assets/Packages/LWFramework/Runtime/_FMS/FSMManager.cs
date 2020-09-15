@@ -62,7 +62,13 @@ namespace LWFramework.FMS
                 return null;
             }
         }
-
+        /// <summary>
+        /// 获取流程状态机
+        /// </summary>
+        /// <returns></returns>
+        public FSMStateMachine GetFSMProcedure() {
+            return _fsms[FSMName.Procedure];
+        }
         /// <summary>
         /// 是否存在指定的状态机
         /// </summary>

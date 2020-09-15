@@ -125,7 +125,7 @@ namespace LWFramework.Core {
             //创建一个流程管理状态机       
             FSMStateMachine stateMachine = new FSMStateMachine(nameof(FSMName.Procedure), procedureList);
             GetManager<FSMManager>().RegisterFSM(stateMachine);
-            GetManager<FSMManager>().GetFSMByName(nameof(FSMName.Procedure)).StartFirst();
+            GetManager<FSMManager>().GetFSMProcedure().StartFirst();
         }
         /// <summary>
         /// 根据特性去获取对应的所有type
