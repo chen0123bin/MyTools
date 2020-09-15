@@ -12,67 +12,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 3
+  build: 6
   major: 0
   minor: 0
   autoRecord: 0
   autoGroupByDirectories: []
   validateAssetPath: 0
   allAssetsToBuild: 0
-  patchesInBuild: []
+  patchesInBuild:
+  - Startup
   scenesInBuild: []
-  extension: 
+  extension: .bundle
   nameByHash: 0
   options: 256
   assets:
   - name: Assets/@Resources/Prefabs/TestHotfixView.prefab
     group: 
-    bundle: prefabs_testhotfixview
+    bundle: prefabs_testhotfixview.bundle
     id: 0
     groupBy: 2
   - name: Assets/@Resources/Prefabs/CubeRigidbody.prefab
     group: 
-    bundle: prefabs_cuberigidbody
+    bundle: prefabs_cuberigidbody.bundle
     id: 0
     groupBy: 2
   - name: Assets/@Resources/Prefabs/UIRoot3.prefab
     group: 
-    bundle: prefabs_uiroot3
+    bundle: prefabs_uiroot3.bundle
     id: 0
     groupBy: 2
   - name: Assets/@Resources/Prefabs/UIRoot2.prefab
     group: 
-    bundle: prefabs_uiroot2
+    bundle: prefabs_uiroot2.bundle
     id: 0
     groupBy: 2
   - name: Assets/@Resources/Prefabs/UIRoot.prefab
     group: 
-    bundle: prefabs_uiroot
+    bundle: prefabs_uiroot.bundle
     id: 0
     groupBy: 2
   - name: Assets/@Resources/Prefabs/TestChildItem.prefab
     group: 
-    bundle: prefabs_testchilditem
+    bundle: prefabs_testchilditem.bundle
     id: 0
     groupBy: 2
   patches: []
   bundles:
-  - assetBundleName: prefabs_testhotfixview
+  - assetBundleName: prefabs_testhotfixview.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestHotfixView.prefab
-  - assetBundleName: prefabs_cuberigidbody
+  - assetBundleName: prefabs_cuberigidbody.bundle
     assetNames:
     - Assets/@Resources/Prefabs/CubeRigidbody.prefab
-  - assetBundleName: prefabs_uiroot3
+  - assetBundleName: prefabs_uiroot3.bundle
     assetNames:
     - Assets/@Resources/Prefabs/UIRoot3.prefab
-  - assetBundleName: prefabs_uiroot2
+  - assetBundleName: prefabs_uiroot2.bundle
     assetNames:
     - Assets/@Resources/Prefabs/UIRoot2.prefab
-  - assetBundleName: prefabs_uiroot
+  - assetBundleName: prefabs_uiroot.bundle
     assetNames:
     - Assets/@Resources/Prefabs/UIRoot.prefab
-  - assetBundleName: prefabs_testchilditem
+  - assetBundleName: prefabs_testchilditem.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestChildItem.prefab
   currentScene: 

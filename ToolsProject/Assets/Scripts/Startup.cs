@@ -22,17 +22,13 @@ public class Startup : MonoBehaviour
         MainManager.Instance.Init();
         // MainManager.Instance.AddManager(typeof(UpdateManager).ToString(), new UpdateManager());
         //  MainManager.Instance.AddManager(typeof(AssetsManager).ToString(), new AssetsManager());
-        MainManager.Instance.AddManager(typeof(IAssetManager).ToString(), new ABAssetManger());
         MainManager.Instance.AddManager(typeof(UIManager).ToString(), new UIManager());
+        MainManager.Instance.AddManager(typeof(IAssetManager).ToString(), new ABAssetManger());       
         MainManager.Instance.AddManager(typeof(FSMManager).ToString(), new FSMManager());
         MainManager.Instance.AddManager(typeof(HotfixManager).ToString(), new HotfixManager());
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
 
-        GameObject go = Instantiate(Resources.Load<GameObject>("MessageBoxView"));
-        MessageBoxViewHelp.Instance.OpenMessageBox("VV", go, (flag)=> {
-            Debug.Log(flag);
-            
-        }, "哈哈");
+       
 
         //MainManager.Instance.GetManager<UpdateManager>().onCompleted = OnCompleted;
         //MainManager.Instance.GetManager<UpdateManager>().onProgress = OnProgress;

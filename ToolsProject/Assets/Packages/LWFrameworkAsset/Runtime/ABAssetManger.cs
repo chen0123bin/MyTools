@@ -23,6 +23,15 @@ public class ABAssetManger : IAssetManager,IManager
             {
                 Debug.LogError(error);
                 return;
+            }
+            else {
+                Debug.Log("Assets初始化成功");
+                GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("MessageBoxView"));
+                MessageBoxViewHelp.Instance.OpenMessageBox("MessageBoxView", go, "是否更新资源?", (flag) => {
+                    if (flag) {
+                        StartUpdate();
+                    }
+                });
             }         
         });
     }
@@ -46,5 +55,102 @@ public class ABAssetManger : IAssetManager,IManager
         Debug.LogWarning("AB模式下没用Unload函数");
     }
 
-   
+    public void StartUpdate()
+    {
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            MessageBoxViewHelp.Instance.OpenMessageBox( "请检查网络连接状态", retry =>
+            {
+                if (retry)
+                {
+                    StartUpdate();
+                }
+                else
+                {
+                    Quit();
+                }
+            }, "重试", "退出");
+        }
+        else
+        {
+            Assets.DownloadVersions(error =>
+            {
+                if (!string.IsNullOrEmpty(error))
+                {
+                    MessageBoxViewHelp.Instance.OpenMessageBox(string.Format("获取服务器版本失败：{0}", error), retry =>
+                    {
+                        if (retry)
+                        {
+                            StartUpdate();
+                        }
+                        else
+                        {
+                            Quit();
+                        }
+                    }, "重试", "退出");                   
+                }
+                else
+                {
+                    Downloader handler;
+                    // 按分包下载版本更新，返回true的时候表示需要下载，false的时候，表示不需要下载
+                    if (Assets.DownloadAll(Assets.patches4Init, out handler))
+                    {
+                        var totalSize = handler.size;
+                        var tips = string.Format("发现内容更新，总计需要下载 {0} 内容", Downloader.GetDisplaySize(totalSize));
+                        MessageBoxViewHelp.Instance.OpenMessageBox(tips, download =>
+                        {
+                            if (download)
+                            {
+                                handler.onUpdate += delegate (long progress, long size, float speed)
+                                {
+                                    //刷新界面
+                                    OnMessage(string.Format("下载中...{0}/{1}, 速度：{2}",
+                                        Downloader.GetDisplaySize(progress),
+                                        Downloader.GetDisplaySize(size),
+                                        Downloader.GetDisplaySpeed(speed)));
+                                    OnProgress(progress * 1f / size);
+                                };
+                                handler.onFinished += OnComplete;
+                                handler.Start();
+                            }
+                            else
+                            {
+                                Quit();
+                            }
+                        }, "重试", "退出");
+                    
+                    }
+                    else
+                    {
+                        OnComplete();
+                    }
+                }
+            });
+        }
+    }
+
+    private void OnProgress(float progress)
+    {
+        Debug.Log("更新进度：" + progress);
+    }
+
+    private void OnMessage(string msg)
+    {
+        Debug.Log(msg);
+    }
+
+    private void OnComplete()
+    {
+        OnProgress(1);
+        Debug.Log("本地资源版本："+Assets.localVersions.ver);
+        OnMessage("更新完成");
+    }
+    private void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+    }
 }

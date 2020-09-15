@@ -39,7 +39,7 @@ public class MessageBoxView : BaseUIView
     /// </summary>
     public string MsgStr
     {
-        set => _txtConfirm.text = value;
+        set => _txtMsg.text = value;
     }
     /// <summary>
     /// 按钮数量

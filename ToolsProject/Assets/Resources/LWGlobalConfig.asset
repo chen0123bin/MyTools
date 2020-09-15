@@ -17,10 +17,9 @@ MonoBehaviour:
   hotfixCodeRunMode: 2
   loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.200.199:8089/
+  downloadURL: http://192.168.43.253:8089/
   development: 0
   dontDestroyOnLoad: 1
-  launchScene: 
   searchPaths: []
   patches4Init: []
   updateAll: 1
