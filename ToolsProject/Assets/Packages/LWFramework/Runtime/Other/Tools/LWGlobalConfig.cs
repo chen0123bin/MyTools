@@ -12,13 +12,15 @@ public enum AssetMode {
 public class LWGlobalConfig : ScriptableObject
 {
     //是否连接服务器
-    public bool connServer;
+    //public bool connServer;
     //是否开启ab模式
-    public bool assetBundleMode;
-    //热更模式
-    public HotfixCodeRunMode hotfixCodeRunMode;
+    // public bool assetBundleMode;
     [OnValueChanged("ChangeAssetMode")]
+    [LabelText("资源加载方式")]
     public AssetMode assetMode;
+    //热更模式
+    [LabelText("代码执行方式")]
+    public HotfixCodeRunMode hotfixCodeRunMode;
     public bool loggable;
     public int verifyBy = 1 ;
     public string downloadURL;
@@ -33,6 +35,7 @@ public class LWGlobalConfig : ScriptableObject
         {
             case AssetMode.Resources:
                 development = false;
+                hotfixCodeRunMode = HotfixCodeRunMode.ByCode;
                 break;
             case AssetMode.AssetBundle:
                 development = false;

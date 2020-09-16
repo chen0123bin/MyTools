@@ -489,7 +489,7 @@ namespace LWFramework.Asset.Editor
         private static void OnInitialize()
         {
             EditorUtility.ClearProgressBar();
-            if (LWUtility.GlobalConfig.assetBundleMode)
+            if (LWUtility.GlobalConfig.assetMode == AssetMode.Resources)
             {
                
                 LWUtility.dataPath = string.Empty;

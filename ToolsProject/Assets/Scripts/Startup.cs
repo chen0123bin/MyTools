@@ -3,6 +3,7 @@ using LWFramework.FMS;
 using LWFramework.Message;
 using LWFramework.UI;
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Startup : MonoBehaviour
@@ -11,6 +12,10 @@ public class Startup : MonoBehaviour
     public static Action OnUpdate { get; set; }
     void Start()
     {
+        string path = "Assets/@Resources/Scenes/TestScene.unity";
+        string aFirstName = path.Substring(path.LastIndexOf("/") + 1, (path.LastIndexOf(".") - path.LastIndexOf("/") - 1));
+        LWDebug.Log(aFirstName);
+
         DontDestroyOnLoad(gameObject);      
         MainManager.Instance.Init();
         //添加各种管理器
@@ -28,6 +33,7 @@ public class Startup : MonoBehaviour
         {
             MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
         }
+
         MainManager.Instance.GetManager<IAssetsManager>().OnUpdateCallback = OnUpdateCallback;
     }
     /// <summary>

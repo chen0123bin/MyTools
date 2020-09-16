@@ -17,6 +17,8 @@ public class MessageBoxView : BaseUIView
 	public Button _btnConfirm;
 	[UIElement("ImgBox/TxtMsg")]
 	public Text _txtMsg;
+    [UIElement("ImgBox/TxtTitle")]
+    public Text _txtTitle;
     /// <summary>
     /// 按钮点击操作
     /// </summary>
@@ -40,6 +42,13 @@ public class MessageBoxView : BaseUIView
     public string MsgStr
     {
         set => _txtMsg.text = value;
+    }
+    /// <summary>
+    /// 提示标题
+    /// </summary>
+    public string TitleStr
+    {
+        set => _txtTitle.text = value;
     }
     /// <summary>
     /// 按钮数量

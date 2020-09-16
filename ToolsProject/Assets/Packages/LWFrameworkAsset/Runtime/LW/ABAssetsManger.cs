@@ -33,16 +33,26 @@ public class ABAssetsManger : IAssetsManager,IManager
 
     public T LoadAsync<T>(string path, Type type)
     {
-        return (T)(object)Assets.LoadAssetAsync(path, type);
+        AssetRequest assetRequest = Assets.LoadAssetAsync(path, type);
+        object ret = (object)assetRequest;
+        return (T)ret;
     }
 
     public void Unload<T>(T param) where T : UnityEngine.Object
     {
         Debug.LogWarning("AB模式下没用Unload函数");
     }
-    public void LoadScene(string scenePath,bool additive)
+    public void LoadScene(string scenePath,bool additive, Action loadComplete = null)
     {
-        Assets.LoadSceneAsync(scenePath, additive);
-
+        string patchName = scenePath.Substring(scenePath.LastIndexOf("/") + 1, (scenePath.LastIndexOf(".") - scenePath.LastIndexOf("/") - 1));
+        _abInitUpdate.UpdateAsset(new[] { patchName }, "更新提示", () =>
+        {
+            SceneAssetRequest sceneAssetRequest =  Assets.LoadSceneAsync(scenePath, additive);
+            sceneAssetRequest.completed = (asset) =>
+            {
+                loadComplete?.Invoke();
+            };
+        });
     }
+    
 }

@@ -27,7 +27,7 @@ public class TestHotfixView : LWFramework.UI.BaseUIView
     private GameObjectPool<TestChildNode> _pool;
     private List<TestChildNode> _nodes;
 
-    public async override void CreateView(GameObject gameObject)
+    public override void CreateView(GameObject gameObject)
     {
         base.CreateView(gameObject);
         //节点处理

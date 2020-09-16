@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
@@ -34,7 +35,6 @@ namespace LWFramework.Core {
         {
 
         }
-
         /// <summary>
         /// 加载Dll热更脚本
         /// </summary>
@@ -42,6 +42,91 @@ namespace LWFramework.Core {
         /// <param name="mode"></param>
         /// <returns></returns>
         public IEnumerator IE_LoadScript(HotfixCodeRunMode mode)
+        {
+            string dllPath = "";
+            if (Application.isEditor)
+            {
+                //这里情况比较复杂,Mobile上基本认为Persistent才支持File操作,
+                //  dllPath = Application.dataPath + "/@Resources/Hotfix/" + LWUtility.HotfixFileName;
+                dllPath = Application.persistentDataPath + "/Bundles/@Resources/Hotfix/" + LWUtility.HotfixFileName;
+            }
+            else
+            {
+
+                var firstPath = Application.persistentDataPath + "/Bundles/@Resources/Hotfix/" + LWUtility.HotfixFileName; ; //LWUtility.updatePath + "/" + LWUtility.HotfixFileName;
+                var secondPath = Application.streamingAssetsPath + "/Bundles/@Resources/Hotfix/" + LWUtility.HotfixFileName; ;// Application.streamingAssetsPath + "/" + LWUtility.AssetBundles + "/" + LWUtility.GetPlatform() + "/" + LWUtility.HotfixFileName;
+                if (!File.Exists(firstPath))
+                {
+                    var request = UnityWebRequest.Get(secondPath);
+                    LWDebug.Log("firstPath:" + firstPath);
+                    LWDebug.Log("secondPath:" + secondPath);
+                    yield return request.SendWebRequest();
+
+                    if (request.isDone && request.error == null)
+                    {
+                        LWDebug.Log("request.downloadHandler.data:" + request.downloadHandler.data.Length);
+                        LWDebug.Log("拷贝dll成功:" + firstPath);
+                        byte[] results = request.downloadHandler.data;
+                        FileTool.WriteByteToFile(firstPath, results, "");
+                    }
+
+                }
+
+                dllPath = firstPath;
+            }
+
+            LWDebug.Log("Dll路径:" + dllPath);
+            //反射执行
+            if (mode == HotfixCodeRunMode.ByReflection)
+            {
+                var bytes = File.ReadAllBytes(dllPath);
+                var mdb = dllPath + ".mdb";
+                if (File.Exists(mdb))
+                {
+                    var bytes2 = File.ReadAllBytes(mdb);
+                    Assembly = Assembly.Load(bytes, bytes2);
+                }
+                else
+                {
+                    Assembly = Assembly.Load(bytes);
+                }
+
+                //Debug.Log("反射模式,开始执行Start");
+                //var type = Assembly.GetType("StartupBridge_Hotfix");
+                //var method = type.GetMethod("Start", BindingFlags.Public | BindingFlags.Static);
+                //method.Invoke(null, new object[] { false });
+                StartupBridge_Hotfix.StartReflection(Assembly);
+            }
+#if ILRUNTIME
+            //解释执行
+            else if (mode == HotfixCodeRunMode.ByILRuntime)
+            {
+                //解释执行模式
+            //    ILRuntimeHelper.LoadHotfix(dllPath);
+           //     ILRuntimeHelper.AppDomain.Invoke("StartupBridge_Hotfix", "Start", null, new object[] { true });
+            }
+#endif
+            else if (mode == HotfixCodeRunMode.ByCode)
+            {
+                LWDebug.Log("内置code模式!", LogColor.green);
+                StartupBridge_Hotfix.StartCode();
+                //反射调用，防止编译报错
+                //Assembly assembly = Assembly.GetExecutingAssembly();
+                //var type = assembly.GetType("StartupBridge_Hotfix");
+                //var method = type.GetMethod("Start", BindingFlags.Public | BindingFlags.Static);
+                //method.Invoke(null, new object[] { false });
+            }
+        }
+
+
+
+        /// <summary>
+        /// 加载Dll热更脚本
+        /// </summary>
+        /// <param name="root">路径</param>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        public IEnumerator IE_LoadScriptBak(HotfixCodeRunMode mode)
         {
             string dllPath = "";
             if (Application.isEditor)
@@ -118,7 +203,7 @@ namespace LWFramework.Core {
             }
         }
 
-
+       
 
     }
 

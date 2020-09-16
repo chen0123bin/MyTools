@@ -59,7 +59,7 @@ namespace LWFramework.Core
                     }
 #endif
 #if !UNITY_EDITOR
-                    _lwGlobalConfig.assetBundleMode = true;
+                   // _lwGlobalConfig.assetBundleMode = true;
 #endif
                 }
                 return _lwGlobalConfig;

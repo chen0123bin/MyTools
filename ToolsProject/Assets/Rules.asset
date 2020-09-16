@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 6
+  build: 31
   major: 0
   minor: 0
-  autoRecord: 0
-  autoGroupByDirectories: []
+  autoRecord: 1
+  autoGroupByDirectories:
+  - Assets/@Resources/Sprites
   validateAssetPath: 0
   allAssetsToBuild: 0
   patchesInBuild:
   - Startup
-  scenesInBuild: []
+  scenesInBuild:
+  - {fileID: 102900000, guid: 06c043d5347a510499bd8ff7d6544388, type: 3}
   extension: .bundle
   nameByHash: 0
   options: 256
@@ -58,30 +60,55 @@ MonoBehaviour:
     groupBy: 2
   - name: Assets/@Resources/Sprites/log3.png
     group: 
-    bundle: assets_@resources_sprites.bundle
+    bundle: sprites_log3.bundle
     id: 0
-    groupBy: 3
-  - name: Assets/@Resources/Sprites/UnityLogo.png
+    groupBy: 2
+  - name: Assets/@Resources/Scenes/HotfixPatch.unity
     group: 
-    bundle: assets_@resources_sprites.bundle
+    bundle: scenes_hotfixpatch.bundle
     id: 0
-    groupBy: 3
-  - name: Assets/@Resources/Sprites/blackSquare.png
+    groupBy: 2
+  - name: Assets/@Resources/Hotfix/hotfix.dll.byte
     group: 
-    bundle: assets_@resources_sprites.bundle
+    bundle: 
     id: 0
-    groupBy: 3
-  - name: Assets/@Resources/Sprites/common_image_bg.png
+    groupBy: 0
+  - name: Assets/@Resources/Hotfix/hotfix.dll.pdb
     group: 
-    bundle: assets_@resources_sprites.bundle
+    bundle: 
     id: 0
-    groupBy: 3
-  - name: Assets/@Resources/Sprites/log2.png
+    groupBy: 0
+  - name: Assets/@Resources/Scenes/TestScene.unity
     group: 
-    bundle: assets_@resources_sprites.bundle
+    bundle: scenes_testscene.bundle
     id: 0
-    groupBy: 3
-  patches: []
+    groupBy: 2
+  - name: Assets/@Resources/Prefabs/Cube.prefab
+    group: 
+    bundle: prefabs_cube.bundle
+    id: 0
+    groupBy: 2
+  patches:
+  - name: HotfixPatch
+    assets:
+    - Assets/@Resources/Scenes/HotfixPatch.unity
+    - Assets/@Resources/Hotfix/hotfix.dll.byte
+    - Assets/@Resources/Hotfix/hotfix.dll.pdb
+  - name: TestScene
+    assets:
+    - Assets/@Resources/Scenes/TestScene.unity
+    - Assets/@Resources/Sprites/log2.png
+    - Assets/@Resources/Prefabs/TestChildItem.prefab
+    - Assets/@Resources/Sprites/log3.png
+    - Assets/@Resources/Prefabs/UIRoot.prefab
+    - Assets/@Resources/Sprites/blackSquare.png
+    - Assets/@Resources/Prefabs/TestHotfixView.prefab
+    - Assets/@Resources/Sprites/common_image_bg.png
+    - Assets/@Resources/Prefabs/UIRoot3.prefab
+    - Assets/@Resources/Sprites/UnityLogo.png
+    - Assets/@Resources/Prefabs/UIRoot2.prefab
+    - Assets/@Resources/Prefabs/CubeRigidbody.prefab
+    - Assets/@Resources/Prefabs/Cube.prefab
   bundles:
   - assetBundleName: prefabs_testhotfixview.bundle
     assetNames:
@@ -101,11 +128,16 @@ MonoBehaviour:
   - assetBundleName: prefabs_testchilditem.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestChildItem.prefab
-  - assetBundleName: assets_@resources_sprites.bundle
+  - assetBundleName: sprites_log3.bundle
     assetNames:
     - Assets/@Resources/Sprites/log3.png
-    - Assets/@Resources/Sprites/UnityLogo.png
-    - Assets/@Resources/Sprites/blackSquare.png
-    - Assets/@Resources/Sprites/common_image_bg.png
-    - Assets/@Resources/Sprites/log2.png
-  currentScene: 
+  - assetBundleName: scenes_hotfixpatch.bundle
+    assetNames:
+    - Assets/@Resources/Scenes/HotfixPatch.unity
+  - assetBundleName: scenes_testscene.bundle
+    assetNames:
+    - Assets/@Resources/Scenes/TestScene.unity
+  - assetBundleName: prefabs_cube.bundle
+    assetNames:
+    - Assets/@Resources/Prefabs/Cube.prefab
+  currentScene: TestScene

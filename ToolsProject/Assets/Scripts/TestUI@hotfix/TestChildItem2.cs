@@ -1,4 +1,4 @@
-﻿using LWFramework.UI;
+using LWFramework.UI;
 using UnityEngine.UI;
 using UnityEngine;
 

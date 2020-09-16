@@ -1,26 +1,37 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResAssetsManger : IAssetsManager,IManager
 {
-    public Action<bool> OnUpdateCallback {  set => throw new NotImplementedException(); }
+    private Action<bool> _onUpdateCallback;
+    public Action<bool> OnUpdateCallback {  set => _onUpdateCallback= value; }
 
     public void Init()
     {
+        _ = TaskUpdateAsync();
+    }
+   
+    async UniTaskVoid TaskUpdateAsync()
+    {
+        await UniTask.WaitForEndOfFrame();
+        _onUpdateCallback?.Invoke(true);
     }
     public void Update()
     {
     }
     public T Load<T>(string path)
     {      
-        return (T)(object)Resources.Load(path, typeof(T));
+        return (T)(object)Resources.Load(ConverResPath(path), typeof(T));
     }
 
     public T LoadAsync<T>(string path,Type type)
     {
-        return  (T)(object)Resources.LoadAsync(path,type);
+        return  (T)(object)Resources.LoadAsync(ConverResPath(path), type);
     }
     public void Unload<T>(T param) where T: UnityEngine.Object
     {
@@ -28,8 +39,20 @@ public class ResAssetsManger : IAssetsManager,IManager
         Resources.UnloadAsset(param);
     }
 
-    public void LoadScene(string scenePath,bool additive)
+    public void LoadScene(string scenePath,bool additive, Action loadComplete = null)
     {
-
+        string sceneName = scenePath.Substring(scenePath.LastIndexOf("/") + 1, (scenePath.LastIndexOf(".") - scenePath.LastIndexOf("/") - 1));
+        AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneName, additive?LoadSceneMode.Additive: LoadSceneMode.Single);
+        asyncOperation.completed += (a) =>
+        {
+            loadComplete?.Invoke();
+        };
+    }
+    private string ConverResPath(string path) {
+        StringBuilder stringBuilder = new StringBuilder(path);
+        stringBuilder = stringBuilder.Replace("Assets/@Resources/", "");
+        string resPath = stringBuilder.ToString();
+        resPath = resPath.Substring(0, resPath.LastIndexOf(".") );
+        return resPath;
     }
 }

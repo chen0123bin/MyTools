@@ -154,6 +154,7 @@ namespace libx
                     foreach (var bundle in filesInBuild)
                     {
                         var path = string.Format("{0}{1}", updatePath, bundle.name);
+                        LWDebug.Log("filesInBuildPath:" + path);
                         if (File.Exists(path))
                         {
                             File.Delete(path);

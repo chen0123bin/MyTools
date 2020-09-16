@@ -21,7 +21,7 @@ public class BuildDllScript
     /// 使用unity的 AssemblyBuilder编译
     /// </summary>
     public static void AssemblyBuild(string[] filterStrArray) {
-        var cmd = new DllBuild(Application.streamingAssetsPath + "/Hotfix");
+        var cmd = new DllBuild(Application.dataPath + "/@Resources/Hotfix");
         cmd.onFinished = ((DllBuild self, bool isSuccess) =>
         {
             var tip = isSuccess ? "Dll生成成功!" : "Dll生成失败!";

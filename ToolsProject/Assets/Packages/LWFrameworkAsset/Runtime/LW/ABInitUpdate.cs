@@ -34,7 +34,7 @@ public class ABInitUpdate
             else
             {
                 Debug.Log("Assets初始化成功");
-                GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("MessageBoxView"));
+                GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("UI/MessageBoxView"));
                 MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", go, "是否更新资源?", (flag) => {
                     if (flag)
                     {
@@ -63,7 +63,7 @@ public class ABInitUpdate
                 {
                     Quit();
                 }
-            }, "重试", "退出");
+            },"警告提示", "重试", "退出");
         }
         else
         {
@@ -81,48 +81,50 @@ public class ABInitUpdate
                         {
                             Quit();
                         }
-                    }, "重试", "退出");
+                    }, "警告提示", "重试", "退出");
                 }
                 else
                 {
-                    Downloader handler;
-                    // 按分包下载版本更新，返回true的时候表示需要下载，false的时候，表示不需要下载
-                    if (Assets.DownloadAll(Assets.patches4Init, out handler))
-                    {
-                        var totalSize = handler.size;
-                        var tips = string.Format("发现内容更新，总计需要下载 {0} 内容", Downloader.GetDisplaySize(totalSize));
-                        MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", tips, download =>
-                        {
-                            if (download)
-                            {
-                                handler.onUpdate += delegate (long progress, long size, float speed)
-                                {
-                                    //刷新界面
-                                    OnMessage(string.Format("下载中...{0}/{1}, 速度：{2}",
-                                        Downloader.GetDisplaySize(progress),
-                                        Downloader.GetDisplaySize(size),
-                                        Downloader.GetDisplaySpeed(speed)));
-                                    OnProgress(progress * 1f / size);
-                                };
-                                handler.onFinished += OnComplete;
-                                handler.Start();
-                            }
-                            else
-                            {
-                                Quit();
-                            }
-                        }, "重试", "退出");
-
-                    }
-                    else
-                    {
-                        OnComplete();
-                    }
+                    UpdateAsset(Assets.patches4Init, "提示22222", OnComplete);                    
                 }
             });
         }
     }
+    public void UpdateAsset(string []patchNameArray,string title,Action downloadCallback) {
+        Downloader handler;
+        // 按分包下载版本更新，返回true的时候表示需要下载，false的时候，表示不需要下载
+        if (Assets.DownloadAll(patchNameArray, out handler))
+        {
+            var totalSize = handler.size;
+            var tips = string.Format("需要下载 {0} 内容", Downloader.GetDisplaySize(totalSize));
+            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", tips, download =>
+            {
+                if (download)
+                {
+                    handler.onUpdate += delegate (long progress, long size, float speed)
+                    {
+                        //刷新界面
+                        OnMessage(string.Format("下载中...{0}/{1}, 速度：{2}",
+                            Downloader.GetDisplaySize(progress),
+                            Downloader.GetDisplaySize(size),
+                            Downloader.GetDisplaySpeed(speed)));
+                        OnProgress(progress * 1f / size);
+                    };
+                    handler.onFinished += downloadCallback;
+                    handler.Start();
+                }
+                else
+                {
+                    Quit();
+                }
+            }, title, "确认", "退出");
 
+        }
+        else
+        {
+            downloadCallback?.Invoke();
+        }
+    }
     private void OnProgress(float progress)
     {
         Debug.Log("更新进度：" + progress);

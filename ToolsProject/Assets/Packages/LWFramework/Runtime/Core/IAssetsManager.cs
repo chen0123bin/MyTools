@@ -11,7 +11,8 @@ public interface IAssetsManager
     /// </summary>
     /// <param name="scenePath"></param>
     /// <param name="additive">是否为添加</param>
-    void LoadScene(string scenePath,bool additive);
+    /// <param name="loadComplete">加载完成的回调</param>
+    void LoadScene(string scenePath,bool additive,Action loadComplete=null);
     /// <summary>
     /// 加载资源
     /// </summary>

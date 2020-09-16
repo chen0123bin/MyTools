@@ -22,12 +22,12 @@ public class LWEditorWindow : OdinMenuEditorWindow
     {
         var tree = new OdinMenuTree();
         tree.DefaultMenuStyle = OdinMenuStyle.TreeViewStyle;
-        // tree.Add("Menu Style", tree.DefaultMenuStyle);
         tree.Selection.SupportsMultiSelect = false;
 
         tree.Add("AB管理", new ABManager());
         tree.Add("DLL管理", new DLLManager());
-        tree.Add("Manifest", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Manifest.asset"));
+        // tree.Add("Manifest", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Manifest.asset"));
+        tree.Add("打包规则", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Rules.asset"));
         tree.Add("配置", Resources.Load<LWGlobalConfig>("LWGlobalConfig"));
         tree.Add("其他", new OtherToolManger());
         tree.AddAllAssetsAtPath("序列化文件", "Assets/LWFramework/Editor", typeof(ScriptableObject), true, true);
