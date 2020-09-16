@@ -18,9 +18,9 @@ public class TestStartProcedure : BaseFSMState
 
         MainManager.Instance.GetManager<UIManager>().OpenView<TestHotfixView>();
         GameObject.Find("Canvas").AddComponent(typeof(TestHotfixMono));
-        MainManager.Instance.GetManager<AssetsManager>().LoadScene("Assets/Res/Runtime/Scenes/Test.unity", true, true);
-        var asset =  MainManager.Instance.GetManager<AssetsManager>().Load<GameObject>("Assets/Res/Runtime/Prefabs/CubeRigidbody.prefab");
-        GameObject cube =  GameObject.Instantiate(asset.asset, Vector3.zero, Quaternion.identity) as GameObject;
+        MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/Test.unity", true);
+        GameObject go =  MainManager.Instance.GetManager<IAssetsManager>().Load<GameObject>("Assets/@Resources/Prefabs/CubeRigidbody.prefab");
+        GameObject cube =  GameObject.Instantiate(go, Vector3.zero, Quaternion.identity) as GameObject;
         PhysicsEventListener.Get(cube).onTriggerEnter = OnMonoEventAction2;
         MonoEventListener.Get(cube).onMonoEventAction = OnMonoEventAction;       
     }

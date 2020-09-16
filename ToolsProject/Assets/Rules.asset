@@ -56,6 +56,31 @@ MonoBehaviour:
     bundle: prefabs_testchilditem.bundle
     id: 0
     groupBy: 2
+  - name: Assets/@Resources/Sprites/log3.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/UnityLogo.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/blackSquare.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/common_image_bg.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/log2.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
   patches: []
   bundles:
   - assetBundleName: prefabs_testhotfixview.bundle
@@ -76,4 +101,11 @@ MonoBehaviour:
   - assetBundleName: prefabs_testchilditem.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestChildItem.prefab
+  - assetBundleName: assets_@resources_sprites.bundle
+    assetNames:
+    - Assets/@Resources/Sprites/log3.png
+    - Assets/@Resources/Sprites/UnityLogo.png
+    - Assets/@Resources/Sprites/blackSquare.png
+    - Assets/@Resources/Sprites/common_image_bg.png
+    - Assets/@Resources/Sprites/log2.png
   currentScene: 

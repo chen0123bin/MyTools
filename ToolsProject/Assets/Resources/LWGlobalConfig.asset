@@ -18,7 +18,7 @@ MonoBehaviour:
   assetMode: 1
   loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.2.109:8089/
+  downloadURL: http://192.168.200.199:8089/Bundles/
   development: 0
   dontDestroyOnLoad: 1
   searchPaths: []

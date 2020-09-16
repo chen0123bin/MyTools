@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-[UIViewData("",FindType.Name, "LWFramework/Canvas/Top")]
+[UIViewData("",FindType.Tag, "DefaultUI")]
 public class MessageBoxView : BaseUIView 
 {
 

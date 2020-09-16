@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public interface IAssetManager
+public interface IAssetsManager
 {
     /// <summary>
     /// 加载场景
     /// </summary>
     /// <param name="scenePath"></param>
-    void LoadScene(string scenePath);
+    /// <param name="additive">是否为添加</param>
+    void LoadScene(string scenePath,bool additive);
     /// <summary>
     /// 加载资源
     /// </summary>
@@ -35,5 +36,5 @@ public interface IAssetManager
     /// <summary>
     /// 更新回调 Res模式下为空
     /// </summary>
-    Action<bool> OnUpdateCallback { get; set; }
+    Action<bool> OnUpdateCallback {  set; }
 }

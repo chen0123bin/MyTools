@@ -6,7 +6,7 @@ using UnityEngine;
 public class TestChildItem2 : LWFramework.UI.BaseUIView  
 {
 
-	[UIElement("HeadImg", "Assets/Res/Runtime/Sprites/log3.png")]
+	[UIElement("HeadImg", "Assets/@Resources/Sprites/log3.png")]
 	public Image _HeadImg;
 	[UIElement("NameText")]
 	public Text _NameText;

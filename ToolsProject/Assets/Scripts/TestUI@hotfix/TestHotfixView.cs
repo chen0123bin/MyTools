@@ -6,7 +6,7 @@ using LWFramework.Core;
 using LWFramework.Asset;
 using LWFramework;
 
-[UIViewData("Assets/Res/Runtime/Prefabs/TestHotfixView.prefab", FindType.Name, "LWFramework/Canvas/Normal")]
+[UIViewData("Assets/@Resources/Prefabs/TestHotfixView.prefab", FindType.Name, "LWFramework/Canvas/Normal")]
 public class TestHotfixView : LWFramework.UI.BaseUIView 
 {
     [UIElement("Button1")]
@@ -47,10 +47,10 @@ public class TestHotfixView : LWFramework.UI.BaseUIView
 
         //可用于拆分逻辑代码
         TestChildItem2 uIViewBase2 = (TestChildItem2)MainManager.Instance.GetManager<UIManager>().CreateView<TestChildItem2>(parent2);
-        uIViewBase2._HeadImg.sprite = UIUtility.Instance.GetSprite("Assets/Res/Runtime/Sprites/log3.png");
-        var asset2 = await MainManager.Instance.GetManager<AssetsManager>().LoadAsyncTask<Texture2D>("http://192.168.2.109:8089/Windows/%E9%A6%96%E9%A1%B5.png");
-        Texture2D texture = (Texture2D)asset2.asset;
-        button1.GetComponent<Image>().sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+        uIViewBase2._HeadImg.sprite = UIUtility.Instance.GetSprite("Assets/@Resources/Sprites/log3.png");
+       // var asset2 = await MainManager.Instance.GetManager<AssetsManager>().LoadAsyncTask<Texture2D>("http://192.168.2.109:8089/Windows/%E9%A6%96%E9%A1%B5.png");
+       // Texture2D texture = (Texture2D)asset2.asset;
+        //button1.GetComponent<Image>().sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
     }
 
     void CreateNode() {
@@ -58,7 +58,7 @@ public class TestHotfixView : LWFramework.UI.BaseUIView
         {
             TestChildNode testChildNode = _pool.Spawn();
             testChildNode.NameText = "aaaa" + Random.Range(0, 10);
-            testChildNode.HeadImgName = "Assets/Res/Runtime/Sprites/log3.png";
+            testChildNode.HeadImgName = "Assets/@Resources/Sprites/log3.png";
             _nodes.Add(testChildNode);
         }
     }

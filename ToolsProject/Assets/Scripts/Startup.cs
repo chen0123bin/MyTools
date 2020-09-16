@@ -18,17 +18,22 @@ public class Startup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(FSMManager).ToString(), new FSMManager());
         MainManager.Instance.AddManager(typeof(HotfixManager).ToString(), new HotfixManager());
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
-        if (LWUtility.GlobalConfig.assetMode == AssetMode.AssetBundle)
+        if (LWUtility.GlobalConfig.assetMode == AssetMode.AssetBundle || LWUtility.GlobalConfig.assetMode == AssetMode.AssetBundleDev)
         {
-            MainManager.Instance.AddManager(typeof(IAssetManager).ToString(), new ABAssetManger());
+            ABAssetsManger abAssetManger = new ABAssetsManger();
+            abAssetManger.ABInitUpdate = new ABInitUpdate();
+            MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), abAssetManger);
         }
         else if (LWUtility.GlobalConfig.assetMode == AssetMode.Resources)
         {
-            MainManager.Instance.AddManager(typeof(IAssetManager).ToString(), new ResAssetManger());
+            MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
         }
-        MainManager.Instance.GetManager<IAssetManager>().OnUpdateCallback = OnUpdateCallback;
+        MainManager.Instance.GetManager<IAssetsManager>().OnUpdateCallback = OnUpdateCallback;
     }
-
+    /// <summary>
+    /// 默认资源更新完成
+    /// </summary>
+    /// <param name="obj"></param>
     private void OnUpdateCallback(bool obj)
     {
         StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript(LWUtility.GlobalConfig.hotfixCodeRunMode));

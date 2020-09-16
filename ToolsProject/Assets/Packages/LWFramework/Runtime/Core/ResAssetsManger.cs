@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResAssetManger : IAssetManager,IManager
+public class ResAssetsManger : IAssetsManager,IManager
 {
-    public Action<bool> OnUpdateCallback { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public Action<bool> OnUpdateCallback {  set => throw new NotImplementedException(); }
 
     public void Init()
     {
@@ -28,7 +28,7 @@ public class ResAssetManger : IAssetManager,IManager
         Resources.UnloadAsset(param);
     }
 
-    public void LoadScene(string scenePath)
+    public void LoadScene(string scenePath,bool additive)
     {
 
     }

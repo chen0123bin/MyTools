@@ -8,16 +8,14 @@ public class UILoadAB : IUILoad
 {
     public Sprite GetSprite(string path)
     {
-        var asset = MainManager.Instance.GetManager<AssetsManager>().Load<UnityEngine.Sprite>(path);
-        return (Sprite)asset.asset;
+        var asset = MainManager.Instance.GetManager<IAssetsManager>().Load<UnityEngine.Sprite>(path);
+        return (Sprite)asset;
     }
 
     public GameObject LoadUIGameObject(string path)
     {
-        var asset = MainManager.Instance.GetManager<AssetsManager>().Load<UnityEngine.Object>(path);
-        GameObject uiGameObject = (GameObject)GameObject.Instantiate(asset.asset);
-        asset.Require(uiGameObject);
-        asset.Release();
+        GameObject asset = MainManager.Instance.GetManager<IAssetsManager>().Load<GameObject>(path);
+        GameObject uiGameObject = (GameObject)GameObject.Instantiate(asset);
         return uiGameObject;
     }
 
