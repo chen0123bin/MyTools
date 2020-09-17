@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+#if UNITY_2018
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -86,3 +87,4 @@ public class TimeLineManager: MonoBehaviour {
 
     }
 }
+#endif
