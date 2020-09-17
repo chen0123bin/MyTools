@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager>
+  <Models>
+    <Model Name="RigidBodyFPSController" Path="SceneModel/Main Camera">
+      <Position x="0" y="1.071" z="-1.17" />
+      <Rotation x="0" y="180.000015" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="PromptCube" Path="SceneModel/Common/PromptCube">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="PromptSphere" Path="SceneModel/Common/PromptSphere">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="EquipmentParent" Path="SceneModel/Common/EquipmentParent">
+      <Position x="0" y="0" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="Box" Path="SceneModel/Demo/Box" Parent="EquipmentParent">
+      <Position x="9.35" y="0.64" z="-3.97009778" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="5.156651" y="1" z="0.23500891" />
+      <Childs>
+        <Child Name="Door" Path="Door"></Child>
+      </Childs>
+    </Model>
+  </Models>
+  <Chapters>
+    <Chapter Remark="Base章节1">
+      <Step Help="Step1" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="第一步骤">       
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="0" y="0" z="9.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Start>
+              <End Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </End>            
+            </Script>                    
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="Step1" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="第一步骤">
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Start>
+              <End Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </End>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="Base章节2">
+      <Step Help="Step1" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="第一步骤">
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="0" y="0" z="9.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Start>
+              <End Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </End>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="Step1" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="第一步骤">
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Start>
+              <End Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </End>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+  </Chapters>
+</Manager>

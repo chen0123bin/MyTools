@@ -1,0 +1,857 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager> 
+  <资料>
+    <步骤>
+      <!--
+   TriggerScript="Trigger_WaitTime"  TriggerValue="TriggerName=Object;WaitTime=1"   等待时间 
+   -->
+    </步骤>
+    <对象>
+      <!--
+      <Model Name="Object" IsStepControl="true" ControlCount="1">
+      <Active Type="false"/>
+      <Transform Parent="Object"/>  
+      -->     
+    </对象>
+    <组件>
+      <!--
+ StepControl_TweenMove   移动 
+   -->
+    </组件>
+  
+  </资料>
+  <Models>
+   
+    <Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="UIPrompt" Path="Assets/AssetBundles/SceneModel/Common/UIPrompt.prefab" Parent="CanvasTop">
+      <Position x="0" y="-20000" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab">
+      <Position x="0" y="0" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <!--<Model Name="Box" Path="Assets/AssetBundles/SceneModel/Demo/Box.prefab" Parent="EquipmentParent">
+      <Position x="9.35" y="0.64" z="-3.97009778" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="5.156651" y="1" z="0.23500891" />
+      <Childs>
+        <Child Name="Door" Path="Door">
+        </Child>
+      </Childs>
+    </Model>-->
+    
+   
+  
+  </Models>
+  <Chapters>
+    <!--<Chapter Remark="查看帮助">
+
+      <Step Help="鼠标左键点击系统按钮，打开系统页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenSystemViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-538" y="490.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/SystemTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>   
+      </Step>
+
+      <Step Help="鼠标左键点击帮助按钮，打开帮助页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenHelpTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="-538" y="399.4" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/SystemTap/SystemTapView/HelpBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击下一页按钮，查看其他帮助信息。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=NextPageTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="201" y="-235" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/HelpView/NextPage"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击关闭按钮。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseHelpTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="329.5" y="196.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/HelpView/CloseBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击系统按钮，关闭系统页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseSystemViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-538" y="490.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/SystemTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+
+    
+    </Chapter>-->
+    <Chapter Remark="表演前设置">
+      <Step Help="选择动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AnimationChooseTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationChooseView"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="打开场景选择界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenSceneView" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-240" y="490" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/SceneChooseTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="按住鼠标左键，&lt;color=#ff0000ff&gt;拖拽&lt;/color&gt;场景图标到场景中，&lt;color=#ff0000ff&gt;松开&lt;/color&gt;左键，进行场景更换。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SceneChooseTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+             
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/SceneChooseView/Content"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+     
+      <Step Help="打开角色选择界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenRoleView" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-143" y="490" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/RoleTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="按住鼠标左键，&lt;color=#ff0000ff&gt;拖拽&lt;/color&gt;角色图标到场景中，&lt;color=#ff0000ff&gt;松开&lt;/color&gt;左键，进行角色更换。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=RoleChooseTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/RoleChooseView/Content"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      
+      <Step Help="打开动画编辑界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenAnimationView" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="25.5" y="490" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/TopBackground/ToggleGroup/SpeedTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="动画镜头制作" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=0.5" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="拖拽进度条，尝试自己控制动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AniProgressTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-6" y="-319.7" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">              
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/AniProgress/Handle Slide Area/Handle"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="打开速率介绍视频。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenVideo1" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-488" y="-376" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/Button2"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="等待中。。。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=30" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="关闭速率介绍视频。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseVideo1" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="620" y="382" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/VideoView/Video1/Button"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="添加一个速率控制节点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AddSpeedTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-519" y="-384" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+              
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/AddSpeedBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="选中黄线上的速率控制节点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ChooseSpeedTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-241" y="-380" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+       
+      </Step>
+      
+      <Step Help="尝试修改播放速率，并保存修改好播放速率。&lt;color=#ff0000ff&gt;建议数值0.5-2&lt;/color&gt;" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SaveSpeedTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-86.2" y="-234.299988" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/SetSpeedView"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击播放按钮，查看修改完速率的播放效果。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=PlayAniTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540" y="-329" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/PlayBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="等待中。。。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=10" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击停止按钮。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=StopAniTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540" y="-329" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/PlayBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="打开镜头介绍视频。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenVideo2" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-490" y="-432" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/Button3"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="等待中。。。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=40" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="关闭镜头介绍视频。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseVideo2" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="605.1" y="361.7" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/VideoView/Video2/Button"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="添加一个镜头控制节点，会记录当前镜头的位置。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AddCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540.6" y="-434.6" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/AddCameraBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="改变镜头的位置，再添加一个镜头控制节点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AddCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540.6" y="-434.6" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/AddCameraBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="选中青线上的镜头控制节点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ChooseCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-175" y="-431.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="尝试修改镜头移动速度，并保存修改好移动速度。&lt;color=#ff0000ff&gt;建议数值2-8&lt;/color&gt;" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SaveCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-86.2" y="-234.299988" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/SetCameraView"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击播放按钮，查看修改完速率的播放效果。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=PlayAniTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540" y="-329" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" /> </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/PlayBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="等待中。。。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=10" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击停止按钮。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=StopAniTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-540" y="-329" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/PlayBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看优秀作品。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenVideo3" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-489.8" y="-321.8" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BiaoYanView/AnimationToolView/Button1"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="下面开始进行自由操作模式，请多练习。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=StopAniTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-3436" y="-381" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+
+    
+    
+    </Chapter>
+  </Chapters>
+</Manager>

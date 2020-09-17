@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 31
+  build: 43
   major: 0
   minor: 0
   autoRecord: 1
@@ -22,6 +22,8 @@ MonoBehaviour:
   allAssetsToBuild: 0
   patchesInBuild:
   - Startup
+  - HotfixPatch
+  - TestScene
   scenesInBuild:
   - {fileID: 102900000, guid: 06c043d5347a510499bd8ff7d6544388, type: 3}
   extension: .bundle
@@ -88,6 +90,11 @@ MonoBehaviour:
     bundle: prefabs_cube.bundle
     id: 0
     groupBy: 2
+  - name: Assets/@Resources/Hotfix/TestInBuild.txt
+    group: 
+    bundle: 
+    id: 0
+    groupBy: 0
   patches:
   - name: HotfixPatch
     assets:
@@ -109,6 +116,7 @@ MonoBehaviour:
     - Assets/@Resources/Prefabs/UIRoot2.prefab
     - Assets/@Resources/Prefabs/CubeRigidbody.prefab
     - Assets/@Resources/Prefabs/Cube.prefab
+    - Assets/@Resources/Hotfix/TestInBuild.txt
   bundles:
   - assetBundleName: prefabs_testhotfixview.bundle
     assetNames:

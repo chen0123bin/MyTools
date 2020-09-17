@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Menu>
+	<Title>植物石蜡</Title>
+	<Purpose>
+		本实验主要是教同学采用植物制作石蜡标本的方法，其中涉及到多种试剂的使用，及设备的使用。目地是为了让学生学习了解这些步骤和其中的化学原理。
+	</Purpose>
+	<Equipmensts>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/恒温箱.jpg" Remark="恒温箱用" Scale="0.25" Position="-0.02" Rotation="180" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/shenla/P3_YLS_JR.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/真空泵.jpg" Remark="真空泵" Scale="0.7"  Position="-0.02" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/chouqi/YLS_ZKB.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/切片刀.jpg" Remark="切片刀" Scale="1"  Position="0.01" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/qucaishasi/dao.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/石蜡切片机.jpg" Remark="石蜡切片机" Scale="0.3"  Position="-0.01" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/qiepian/P3_YLS_BDQPJ.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/显微镜.jpg" Remark="显微镜" Scale="0.8"  Position="-0.02" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/shoucang/XWJ_ZW.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/烘片机.jpg" Remark="烘片机" Scale="0.5"  Position="-0.01" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/shoucang/P3_YLS_JRB_D.prefab"></Equipmenst>
+		<Equipmenst ImagePath="Assets/AssetBundles/UISprite/中性树胶.jpg" Remark="中性树胶" Scale="1"  Position="0" Rotation="90" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/tuoshuitouming/P3_IT_DKP_4.prefab"></Equipmenst>
+	</Equipmensts>
+</Menu>

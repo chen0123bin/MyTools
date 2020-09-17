@@ -1,0 +1,12 @@
+{
+    "name": "com.cb.highlightplus",
+    "displayName": "HighlightPlus",
+    "version": "1.0.0",
+    "description": "边缘发光插件",
+    "author": "chenbin",
+    "license": "MIT",
+    "unity": "2018.4",
+    "type": "library",
+    "enableLockFile": true,
+    "resolutionStrategy": "highest"
+}

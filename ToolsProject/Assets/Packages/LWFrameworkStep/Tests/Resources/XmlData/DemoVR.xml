@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Manager> 
+  <Models>
+    <Model Name="[VRTK_SDKManager]" Path="Assets/AssetBundles/SceneModel/VR/[VRTK_SDKManager].prefab">
+      <Position x="0" y="0" z="0" />
+      <Rotation x="0" y="180.000015" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab"> 
+      <Position x="-0.412" y="-2.63" z="-0.655"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="0.1" y="0.1" z="0.1"/> 
+    </Model>  
+    <Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab"> 
+      <Position x="-0.412" y="-2.63" z="-0.655"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="0.1" y="0.1" z="0.1"/> 
+    </Model>  
+    <Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab"> 
+      <Position x="0" y="0" z="0"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="1" y="1" z="1"/> 
+    </Model>
+    <Model Name="TrackGrab_Cube" Path="Assets/AssetBundles/SceneModel/VR/Test/TrackGrab_Cube.prefab" Parent="EquipmentParent">
+      <Position x="-0.0127117066" y="0.94" z="-0.240348712" />
+      <Rotation x="3.6829555E-05" y="3.96594548" z="-3.89006746E-05" />
+      <Scale x="0.15" y="0.15" z="0.15" />
+    </Model>
+    <Model Name="Snap" Path="Assets/AssetBundles/SceneModel/VR/Test/Snap.prefab" Parent="EquipmentParent">
+      <Position x="-0.289" y="0.849" z="-0.183" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="ZhuoZi" Path="Assets/AssetBundles/SceneModel/VR/Test/ZhuoZi.prefab" Parent="EquipmentParent">
+      <Position x="0" y="0.265" z="-0.653" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="3.47926784" y="1" z="1.06192279" />
+    </Model>
+  </Models>  
+  <Chapters> 
+    <Chapter Remark="组装">      
+      <Step Help="组装第一步" EventObject="TrackGrab_Cube" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=TrackGrab_Cube" PromptType="HighLight" Remark="点击小刀">      
+        <Model Name="TrackGrab_Cube" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+       
+      </Step>
+      <Step Help="组装第二步" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=TrackGrab_Cube" PromptType="MeshRenderer" Remark="点击小刀">
+        <Model Name="TrackGrab_Cube" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.2">
+                <Position x="0.42" y="0.818" z="-0.22" />
+                <Scale x="0.15" y="0.15" z="0.15" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="0.42" y="0.818" z="-0.22" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.1" y="0.1" z="0.1" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="组装第三步" EventObject="Snap" EventScript="StepEvent_Base" TriggerScript="Trigger_SnapObject" TriggerValue="TriggerName=TrackGrab_Cube" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="TrackGrab_Cube" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>  
+   
+  </Chapters> 
+</Manager>

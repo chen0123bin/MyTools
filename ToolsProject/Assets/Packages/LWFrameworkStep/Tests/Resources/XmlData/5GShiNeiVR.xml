@@ -1,0 +1,3778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Manager> 
+  <Models>
+    <Model Name="[VRTK_SDKManager]" Path="Assets/AssetBundles/SceneModel/VR/[VRTK_SDKManager].prefab">
+      <Childs>
+        <Child Name="Camera (eye)" Path="SDKSetups/SteamVR/[CameraRig]/Camera (head)/Camera (eye)"></Child>
+      </Childs>
+      <Position x="-1.507" y="0" z="-0.39" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab"> 
+      <Position x="-0.412" y="-2.63" z="-0.655"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="0.1" y="0.1" z="0.1"/> 
+    </Model>  
+    <Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab"> 
+      <Position x="-0.412" y="-2.63" z="-0.655"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="0.1" y="0.1" z="0.1"/> 
+    </Model>  
+    <Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab"> 
+      <Position x="0" y="0" z="0"/>  
+      <Rotation x="0" y="0" z="0"/>  
+      <Scale x="1" y="1" z="1"/> 
+    </Model>
+   
+    <Model Name="JiGui" Path="Assets/AssetBundles/SceneModel/VR/ShiNei/JiGui.prefab" Parent="EquipmentParent">
+      <Childs>      
+        <Child Name="zldy_g" Path="zldy1/zldy_g"></Child>
+      </Childs>
+      <Position x="-1.26" y="0.026" z="-1.7" />
+      <Rotation x="0" y="180" z="0" />
+      <Scale x="6.5" y="6.5" z="6.5" />
+    </Model>
+    <Model Name="BanShouZhuan" Path="Assets/AssetBundles/SceneModel/VR/BanShouZhuan.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="BanShouZhuanModel" Path="BanShouZhuanModel"></Child>
+      </Childs>
+      <Position x="-2.36" y="-0.226" z="-0.48" />
+      <Rotation x="0" y="176.980026" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="WaiBuDianYuanXian" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/WaiBuDianYuanXian.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="DiXianHandle" Path="DiXian/DiXianHandle"></Child>
+        <Child Name="DianYuanXianHandle" Path="DianYuanXian/DianYuanXianHandle"></Child>
+        <Child Name="GuangXianXianHandle" Path="GuangXianXian/GuangXianXianHandle"></Child>
+      </Childs>
+      <Position x="-8.27" y="-0.06" z="-1.02" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="DianYuanXian" Path="Assets/AssetBundles/SceneModel/VR/ShiNei/DianYuanXian.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="Handle1_1" Path="Xian1/Handle1_1"></Child>
+        <Child Name="Handle1_2" Path="Xian1/Handle1_2"></Child>
+        <Child Name="Handle2_1" Path="Xian2/Handle2_1"></Child>
+        <Child Name="Handle2_2" Path="Xian2/Handle2_2"></Child>
+        <Child Name="Handle3_1" Path="Xian3/Handle3_1"></Child>
+        <Child Name="Handle3_2" Path="Xian3/Handle3_2"></Child>
+        <Child Name="Handle4_1" Path="Xian4/Handle4_1"></Child>
+        <Child Name="Handle4_2" Path="Xian4/Handle4_2"></Child>
+        <Child Name="Handle5_1" Path="Xian5/Handle5_1"></Child>
+        <Child Name="Handle5_2" Path="Xian5/Handle5_2"></Child>
+        <Child Name="Handle6_1" Path="Xian6/Handle6_1"></Child>
+        <Child Name="Handle6_2" Path="Xian6/Handle6_2"></Child>
+        <Child Name="Handle7_1" Path="Xian7/Handle7_1"></Child>
+        <Child Name="Handle7_2" Path="Xian7/Handle7_2"></Child>
+        <Child Name="Handle8_1" Path="Xian8/Handle8_1"></Child>
+        <Child Name="Handle8_2" Path="Xian8/Handle8_2"></Child>
+        <Child Name="Handle9_1" Path="Xian9/Handle9_1"></Child>
+        <Child Name="Handle9_2" Path="Xian9/Handle9_2"></Child>
+        <Child Name="Handle10_1" Path="Xian10/Handle10_1"></Child>
+        <Child Name="Handle10_2" Path="Xian10/Handle10_2"></Child>
+        <Child Name="Handle11" Path="Xian11/Handle11"></Child>
+
+        <Child Name="Xian1" Path="Xian1"></Child>
+        <Child Name="Xian2" Path="Xian2"></Child>
+        <Child Name="Xian3" Path="Xian3"></Child>
+        <Child Name="Xian4" Path="Xian4"></Child>
+        <Child Name="Xian5" Path="Xian5"></Child>
+        <Child Name="Xian6" Path="Xian6"></Child>
+        <Child Name="Xian7" Path="Xian7"></Child>
+        <Child Name="Xian8" Path="Xian8"></Child>
+        <Child Name="Xian9" Path="Xian9"></Child>
+        <Child Name="Xian10" Path="Xian10"></Child>
+        <Child Name="Xian11" Path="Xian11"></Child>
+      </Childs>
+      <Position x="-1.26" y="0.026" z="0.382" />
+      <Rotation x="0" y="180" z="0" />
+      <Scale x="6.49999952" y="6.49999952" z="6.49999952" />
+    </Model>
+    <Model Name="ToolBoxTracking" Path="Assets/AssetBundles/SceneModel/VR/ToolBoxTracking.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="ToolBox" Path="ToolBox"></Child>
+        <Child Name="TuZhi" Path="ToolBox/TuZhi"></Child>
+        <Child Name="BanShou" Path="ToolBox/BanShou"></Child>
+        <Child Name="chaxiao1" Path="ToolBox/chaxiao1"></Child>
+        <Child Name="chaxiao2" Path="ToolBox/chaxiao2"></Child>
+        <Child Name="GPS" Path="ToolBox/GPS"></Child>
+        <Child Name="lsd3" Path="ToolBox/lsd3">
+          <Childs>
+            <Child Name="lsd3model" Path="lsd3model"></Child>
+          </Childs>
+        </Child>
+      </Childs>
+      <Position x="0" y="-0.452" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="RotatorCanvas" Path="Assets/AssetBundles/SceneModel/VR/RotatorCanvas.prefab" Parent="EquipmentParent">
+      <Position x="-2.1190033" y="-0.177001953" z="-0.04" />
+      <Rotation x="-1.0245285E-05" y="356.98" z="0" />
+      <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+    </Model>
+    <Model Name="Xiang_Cudu1" Path="Assets/AssetBundles/SceneModel/VR/ShiNei/Xiang_Cudu1.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="Cudu1" Path="Cudu1"></Child>
+      </Childs>
+      <Position x="-0.301" y="0.332" z="-0.681" />
+      <Rotation x="0" y="270" z="0" />
+      <Scale x="1.68485308" y="1.72151017" z="1.82389963" />
+    </Model>
+    <Model Name="Xiang_Cudu2" Path="Assets/AssetBundles/SceneModel/VR/ShiNei/Xiang_Cudu2.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="Cudu2" Path="Cudu2"></Child>
+        <Child Name="chaxiao" Path="chaxiao"></Child>
+      </Childs>
+      <Position x="-0.648" y="0.323" z="-0.666" />
+      <Rotation x="0" y="271.2345" z="0" />
+      <Scale x="1.68485308" y="1.72151017" z="1.82389963" />
+    </Model>
+    <Model Name="All_AUU" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/All_AUU.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="AUU" Path="AUU"></Child>
+        <Child Name="lj1_1" Path="lj1_1"></Child>
+        <Child Name="lj1_2" Path="lj1_2"></Child>
+        <Child Name="lj2_1" Path="lj2_1"></Child>
+        <Child Name="lj2_2" Path="lj2_2"></Child>
+        <Child Name="lj22" Path="lj2_2/lj22"></Child>
+        <Child Name="ls1" Path="ls1"></Child>
+        <Child Name="ls2" Path="ls2"></Child>
+        <Child Name="ls3" Path="ls3"></Child>
+        <Child Name="ls4" Path="ls4"></Child>
+        <Child Name="ls5" Path="ls5"></Child>
+        <Child Name="ls6" Path="ls6"></Child>
+        <Child Name="ls7" Path="ls7"></Child>
+        <Child Name="ls8" Path="ls8"></Child>
+        <Child Name="ls9" Path="ls9"></Child>
+        <Child Name="ls10" Path="ls10"></Child>
+        <Child Name="ls11" Path="ls11"></Child>
+        <Child Name="ls12" Path="ls12"></Child>
+        <Child Name="lj1_1_polySurface2" Path="lj1_1/polySurface2"></Child>
+        <Child Name="lj1_2_polySurface2" Path="lj1_2/polySurface2"></Child>
+      </Childs>
+      <Position x="-8.182" y="0.21" z="-2.501" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="AnQuanSheng" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/AnQuanSheng.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="AnQuanShengHandle1" Path="AnQuanShengHandle1"></Child>
+        <Child Name="AnQuanShengHandle2" Path="AnQuanShengHandle2"></Child>
+      </Childs>
+      <Position x="-7.487" y="0.34" z="-1.597" />
+      <Rotation x="0" y="0" z="90" />
+      <Scale x="2.5" y="2.5" z="2.5" />
+    </Model>
+    <Model Name="GuaGouCue1" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/GuaGouCue.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="GuaGouCue1_Cube" Path="Cube"></Child>
+      </Childs>
+      <Position x="-8.391" y="-1.426" z="-1.226" />
+      <Rotation x="0" y="90" z="19.9999962" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="GuaGouCue2" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/GuaGouCue.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="GuaGouCue2_Cube" Path="Cube"></Child>
+      </Childs>
+      <Position x="-8.391" y="-1.426" z="-1.226" />
+      <Rotation x="0" y="90" z="19.9999962" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="diangan" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/diangan.prefab">
+      <Childs>
+        <Child Name="CubeClimbable" Path="CubeClimbable"></Child>
+      </Childs>
+      <Position x="-8.27" y="-0.06" z="-1.02" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="ZhanTai" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/ZhanTai.prefab">
+      <Position x="-8.307" y="11.5949993" z="-0.9810005" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="2" y="0.29496" z="2" />
+    </Model>
+    <Model Name="lianjiejia" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/lianjiejia.prefab" Parent="EquipmentParent">
+      <Childs>
+        <Child Name="GPSHandle" Path="GPSHandle"></Child>
+      </Childs>
+      <Position x="-6.471" y="2.252" z="-0.344" />
+      <Rotation x="-2.66804268E-08" y="338.859" z="359" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="futi" Path="Assets/AssetBundles/SceneModel/VR/ShiWai/futi.prefab" Parent="EquipmentParent">
+      <Position x="-6.451" y="0.0249999985" z="-0.486" />
+      <Rotation x="0" y="340.253021" z="0" />
+      <Scale x="5" y="5" z="5" />
+    </Model>
+  </Models>  
+  <Chapters> 
+    <Chapter Remark="前四根线的安装">
+      <Step Help="按下左手触摸板，从虚拟柜中取出安装图纸" EventObject="TuZhi" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=TuZhi" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="TuZhi" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        
+      </Step>
+      <Step Help="平稳的抬起IEF综合机柜" EventObject="JiGui" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=JiGui" PromptType="HighLight" Remark="2222222">
+        <Model Name="DianYuanXian" >
+          <Active Type="false">
+          </Active>
+        </Model>
+        <Model Name="JiGui" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+          
+        </Model>
+       
+      </Step>
+      <Step Help="根据设计图纸在指定的区域安装好IEF综合机柜" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=JiGui" PromptType="MeshRenderer" Remark="">
+        <Model Name="JiGui" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-1.26" y="0.026" z="0.382" />
+                <Rotation x="0" y="180" z="0" />
+                <Scale x="6.5" y="6.5" z="6.5" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.245" y="0.065" z="0.373" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.51714265" y="0.1" z="0.6896598" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拆下直流电源分配单元面板。" EventObject="zldy_g" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=zldy_g" PromptType="HighLight" Remark="">
+        <Model Name="zldy_g" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="拆下直流电源分配单元面板，并放在桌子上" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=zldy_g;RemoveState=1" PromptType="MeshRenderer" Remark="点击小刀">
+        <Model Name="zldy_g" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0" y="-0.0131" z="0.0135" />
+                <Rotation x="284.5939" y="1.487046E-05" z="-1.92380248E-05" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.62" y="1.567" z="0.2446" />
+            <Rotation x="0" y="270.9581" z="0" />
+            <Scale x="0.164370477" y="0.0398989022" z="0.544340849" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="请回答问题" EventObject="QuestionCanvas" EventScript="StepEvent_Base" TriggerScript="Trigger_BtnOnClick" TriggerValue="TriggerName=QuestionCanvas"  Remark="">
+        <Questions Name="QuestionCanvas">
+          <Question QuestionValue="是否需要佩戴绝缘手套进行线路安装" RightIndex="1">
+            <Choose ChooseValue="需要，这样可以避免触电的危险。"/>
+            <Choose ChooseValue="不需要，不佩戴手套可以更加方便的进行安装。"/>
+          </Question>
+        </Questions>
+        <Model Name="QuestionCanvas" IsStepControl="false">
+          <!--StepControl_Question 不需要IsStepControl    -->
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Question" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      
+      <Step Help="找到第一电源线的接口" EventObject="Handle1_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle1_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <Component>
+            <Script OperateType="Remove" Name="Rigidbody" InitValue="">            
+            </Script>
+            <Script OperateType="Remove" Name="BoxCollider" InitValue="">
+            </Script>
+          </Component>
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="DianYuanXian" >
+          <Active Type="true">           
+          </Active>
+        </Model>
+        <Model Name="Handle1_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>           
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>       
+      </Step>
+      <Step Help="将第一根电源线先插入空气开关" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle1_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle1_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.01804" y="0.26369" z="0.02593" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.3769" y="1.7431" z="0.2132" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="按下左手触摸板，从虚拟柜中取出螺丝刀" EventObject="lsd3" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lsd3" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="lsd3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">               
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.3756" y="1.7299" z="0.1995" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到第一根电源线的另一端接口" EventObject="Handle1_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle1_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle1_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <Step Help="将电源线接入63伏电源" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle1_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle1_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.01633" y="0.28224" z="0.02661" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.1547" y="1.8631" z="0.207" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.1899" y="1.9362" z="0.2106" />
+                <Rotation x="294.209656" y="277.722626" z="85.30825" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.1547" y="1.8631" z="0.207" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.1899" y="1.9362" z="0.2106" />
+            <Rotation x="294.209656" y="277.722626" z="85.30825" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.02130127" y="1.61000061" z="0.1862" />
+            <Rotation x="-1.0245285E-05" y="356.98" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+
+      <Step Help="找到第二电源线的接口" EventObject="Handle2_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle2_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+     
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle2_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将第二根电源线先插入空气开关" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle2_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle2_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.090622" y="0.263307" z="0.025849" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.84799" y="1.7431" z="0.2132" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="按下左手触摸板，从虚拟柜中取出螺丝刀" EventObject="lsd3" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lsd3" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="lsd3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Transform>
+            <Position x="0" y="0" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.84799" y="1.7308" z="0.1973" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到第二根电源线的另一端接口" EventObject="Handle2_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle2_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle2_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将电源线接入63伏电源" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle2_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle2_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.024761" y="0.283032" z="0.02731" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.0993" y="1.86331" z="0.2051" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.139" y="1.9348" z="0.2075" />
+                <Rotation x="299.021667" y="276.40564" z="86.4715958" />
+                <Scale x="1" y="1" z="1" />
+
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.0995" y="1.8631" z="0.207" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.139" y="1.9348" z="0.2075" />
+            <Rotation x="299.021667" y="276.40564" z="86.4715958" />
+            <Scale x="1" y="1" z="1" />
+
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.04399872" y="1.689003" z="0.14" />
+            <Rotation x="-1.0245285E-05" y="356.98" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+     
+
+      <Step Help="找到第三根线的接口" EventObject="Handle3_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle3_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+
+        <Model Name="Handle3_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <VRTransform >
+          <Position x="-1.507" y="0" z="1.15" />
+          <Rotation x="0" y="180" z="0" />
+        </VRTransform>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将第三根电源线先插入接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle3_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle3_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.058" y="0.25282" z="0.01594" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.6363" y="1.672" z="0.2788" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.6412" y="1.7264" z="0.3371" />
+                <Rotation x="315" y="0" z="270" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.6363" y="1.672" z="0.2788" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.6412" y="1.7264" z="0.3371" />
+            <Rotation x="315" y="0" z="270" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.53610229" y="1.678299" z="0.485" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+      <Step Help="找到第三根电源线的另一端接口" EventObject="Handle3_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle3_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle3_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将电源线接入接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle3_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle3_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.02812" y="0.27505" z="-0.00748" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.0775" y="1.81069" z="0.433" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.1308" y="1.7495" z="0.4371" />
+                <Rotation x="49.96942" y="270" z="270" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.0775" y="1.81069" z="0.433" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.1308" y="1.7495" z="0.4371" />
+            <Rotation x="49.96942" y="270" z="270" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.0891037" y="1.59200287" z="0.4436" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+
+    
+
+      <Step Help="找到第四根线的接口" EventObject="Handle4_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle4_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+
+        <Model Name="Handle4_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将第四根电源线先插入接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle4_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle4_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.05807" y="0.259984" z="0.01585" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.6369" y="1.71609" z="0.2808" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.6434" y="1.7415" z="0.3554" />
+                <Rotation x="342.9655" y="358.016052" z="272.8409" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.6369" y="1.71609" z="0.2808" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.6434" y="1.7415" z="0.3554" />
+            <Rotation x="342.9655" y="358.016052" z="272.8409" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.53500366" y="1.65699768" z="0.421" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+      <Step Help="找到第四根电源线的另一端接口" EventObject="Handle4_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle4_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle4_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将电源线接入接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle4_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle4_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.033841" y="0.27504" z="-0.007588" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.041" y="1.811" z="0.4316" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.1078" y="1.7672" z="0.43" />
+                <Rotation x="33.8206139" y="267.209656" z="271.1084" />
+                <Scale x="1" y="1" z="1" />
+
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-1.041" y="1.811" z="0.4316" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.1078" y="1.7672" z="0.43" />
+            <Rotation x="33.8206139" y="267.209656" z="271.1084" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-1.04070282" y="1.66539764" z="0.4772" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+
+    </Chapter>
+    <Chapter Remark="室内布线第五六地线根安装">  
+      <!--555555  00000000000000000000000000
+     00000000000000000000000000000000000
+     00000000000000000000000000
+     000000000000  -->
+      <Step Help="找到黄绿地线的接口" EventObject="Handle5_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle5_1" PromptType="HighLight" Remark="">
+       
+        <Model Name="JiGui">         
+          <Transform>
+            <Position x="-1.26" y="0.026" z="0.382" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="6.5" y="6.5" z="6.5" />
+          </Transform>
+          <Component>
+            <Script OperateType="Remove" Name="BoxCollider" InitValue="">              
+            </Script>
+            <Script OperateType="Remove" Name="Rigidbody" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Handle5_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <Step Help="将地线插入接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle5_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle5_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.01818" y="0.257753" z="0.01716" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.3773" y="1.6973" z="0.2704" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出螺丝刀" EventObject="lsd3" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lsd3" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="lsd3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.3773" y="1.6973" z="0.2704" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到地线的另一端接口" EventObject="Handle5_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle5_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle5_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将地线接入机架边框上的铜条上" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle5_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle5_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.005824" y="0.19158" z="-0.020169" />
+                <Rotation x="57.86412" y="4.40763142E-06" z="7.973863E-06" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.2982" y="1.27" z="0.5117" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      
+      <Step Help="找到走线架铜条地线接入机架侧面铜条" EventObject="Handle6_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle6_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle6_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将地线接入机架边框上的铜条上" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle6_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle6_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.005956" y="0.261005" z="-0.020065" />
+                <Rotation x="43.7838" y="1.92908328E-06" z="4.8007E-06" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.2988" y="1.7202" z="0.5122" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      </Chapter>
+    <Chapter Remark="安装CUDU">
+      <Step Help="拿出纸盒中的第一块板卡" EventObject="Cudu1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Cudu1" PromptType="HighLight" Remark="">
+        <VRTransform >
+          <Position x="-1.5" y="0.1" z="0.005" />
+          <Rotation x="0" y="0" z="0" />
+        </VRTransform>
+        <Model Name="DianYuanXian" >
+          <Active Type="true">
+          </Active>
+        </Model>
+        <Model Name="JiGui">
+          <Transform>
+            <Position x="-1.26" y="0.026" z="0.382" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="6.5" y="6.5" z="6.5" />
+          </Transform>
+          <Component>
+            <Script OperateType="Remove" Name="BoxCollider" InitValue="">
+            </Script>
+            <Script OperateType="Remove" Name="Rigidbody" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Cudu1" IsStepControl="true">
+          <Transform Parent="JiGui"></Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将板卡插入卡槽内。" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Cudu1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Cudu1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.07850272" y="0.21208258" z="0.004606579" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.7651" y="1.4035" z="0.267" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.281352639" y="0.0506014228" z="0.185469687" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿出纸盒中的第二块板卡" EventObject="Cudu2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Cudu2" PromptType="HighLight" Remark="">
+        <Model Name="Cudu2" IsStepControl="true">
+          <Transform Parent="JiGui"></Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将板卡插入卡槽内。" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Cudu2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Cudu2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.07849702" y="0.219517291" z="0.003767951" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.7651" y="1.4529" z="0.267" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.281352639" y="0.03189164" z="0.185469687" /></Transform>
+        </Model>
+      </Step>
+      <Step Help="从第二个纸盒中拿出光模块" EventObject="chaxiao" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=chaxiao" PromptType="HighLight" Remark="">
+        <Model Name="chaxiao" IsStepControl="true">
+          <Transform Parent="JiGui"></Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将光模块插入卡槽内。" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=chaxiao" PromptType="MeshRenderer" Remark="">
+        <Model Name="chaxiao" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0735" y="0.21991" z="0.027" />
+                <Rotation x="90" y="180" z="0" />
+                <Scale x="0.922095358" y="0.9086965" z="0.9999997" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.7369" y="1.4546" z="0.2493" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.0214873664" y="0.01604308" z="0.139235064" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到光纤线接头" EventObject="Handle11" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle11" PromptType="HighLight" Remark="">
+        
+        <Model Name="Handle11" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        
+      </Step>
+      <Step Help="将光纤线插入光模块内" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle11" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle11" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.07348" y="0.22015" z="0.03128" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-1.7389" y="1.4566" z="0.182" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.033679124" y="0.0336791277" z="0.0336791277" />
+          </Transform>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="室内布线第七八九线根安装">
+      <!--77777  00000000000000000000000000
+     00000000000000000000000000000000000
+     00000000000000000000000000
+     000000000000  -->
+      <Step Help="找到蓝色电源线" EventObject="Handle7_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle7_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui">
+          <Transform>
+            <Position x="-1.26" y="0.026" z="0.382" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="6.5" y="6.5" z="6.5" />
+          </Transform>
+          <Component>
+            <Script OperateType="Remove" Name="BoxCollider" InitValue="">
+            </Script>
+            <Script OperateType="Remove" Name="Rigidbody" InitValue="">
+            </Script>
+          </Component>
+          <!--<RenderingMode Mode="Opaque" AlphaValue="0.2" IsAll="true"> </RenderingMode>-->
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle7_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将蓝色电源线插入CUDU负极接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle7_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="JiGui">       
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true"/> 
+         <!-- <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true"/>-->
+        </Model>
+        <Model Name="Handle7_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0933" y="0.21187" z="0.03149" />
+                <Rotation x="273.6424" y="7.383381E-05" z="-7.868349E-05" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.8649" y="1.4019" z="0.1747" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到蓝色电源线另一端" EventObject="Handle7_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle7_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui">
+          <!--   <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true"/>-->
+            <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true"/>
+        </Model>
+        <Model Name="Handle7_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将蓝色电源线插入负63伏接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle7_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="JiGui">
+          <!--  <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true"/>-->
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true"/>
+        </Model>
+        <Model Name="Handle7_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.04317" y="0.25761" z="0.01334" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-0.9819" y="1.7003" z="0.2967" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+
+
+      <Step Help="找到黑色电源线" EventObject="Handle8_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle8_1" PromptType="HighLight" Remark="">
+        <Model Name="JiGui">
+          <!--   <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true"/>-->
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true"/>
+        </Model>
+        <Model Name="Handle8_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将黑色电源线插入CUDU正极接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle8_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle8_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.09595" y="0.21211" z="0.03103" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.8828" y="1.4003" z="0.1722" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到黑色电源线另一端" EventObject="Handle8_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle8_2" PromptType="HighLight" Remark="">
+        <VRTransform >
+          <Position x="-1.507" y="0" z="1.15" />
+          <Rotation x="0" y="180" z="0" />
+        </VRTransform>
+        <Model Name="Handle8_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="false"/>
+        </Model>
+
+      </Step>
+      <Step Help="将黑色电源线插入对应接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle8_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle8_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.05161" y="0.27434" z="-0.007513" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-0.9241" y="1.8121" z="0.4293" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-1.0014" y="1.785" z="0.4324" />
+                <Rotation x="20.8569851" y="270" z="268.4003" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-0.9241" y="1.8121" z="0.4293" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-1.0014" y="1.785" z="0.4324" />
+            <Rotation x="20.8569851" y="270" z="268.4003" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-0.928398132" y="1.70349884" z="0.4261" />
+            <Rotation x="0" y="180" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+
+      <Step Help="找到黄绿地线的接口" EventObject="Handle9_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle9_1" PromptType="HighLight" Remark="">
+        <VRTransform >
+          <Position x="-1.5" y="0.1" z="0.005" />
+          <Rotation x="0" y="0" z="0" />
+        </VRTransform>
+        <Model Name="Handle9_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1"> <Active Type="false"/></Model>
+        <Model Name="Xian2"> <Active Type="false"/> </Model>
+        <Model Name="Xian3"> <Active Type="false"/></Model>
+        <Model Name="Xian4"> <Active Type="false"/></Model>
+        <Model Name="Xian5"> <Active Type="false"/></Model>
+        <Model Name="Xian6"> <Active Type="false"/></Model>
+        <Model Name="Xian7"> <Active Type="false"/></Model>
+        <Model Name="Xian8"> <Active Type="false"/></Model>
+        <Model Name="Xian9"> <Active Type="true"/> </Model>
+        <Model Name="Xian10"> <Active Type="false"/></Model>
+      </Step>
+      <Step Help="将地线插入板卡地线接口内" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle9_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle9_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.089149" y="0.21323" z="0.03289" />
+                <Rotation x="270" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000417028961" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.83977" y="1.41049" z="0.16935" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="按下左手触摸板，从虚拟柜中取出螺丝刀" EventObject="lsd3" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lsd3" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="lsd3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Xian1"> <Active Type="true"/></Model>
+        <Model Name="Xian2"> <Active Type="true"/> </Model>
+        <Model Name="Xian3"> <Active Type="true"/></Model>
+        <Model Name="Xian4"> <Active Type="true"/></Model>
+        <Model Name="Xian5"> <Active Type="true"/></Model>
+        <Model Name="Xian6"> <Active Type="true"/></Model>
+        <Model Name="Xian7"> <Active Type="true"/></Model>
+        <Model Name="Xian8"> <Active Type="true"/></Model>
+        <Model Name="Xian9"> <Active Type="true"/> </Model>
+        <Model Name="Xian10"> <Active Type="true"/></Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.83977" y="1.41049" z="0.16935" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到地线的另一端接口" EventObject="Handle9_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle9_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle9_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1"> <Active Type="false"/></Model>
+        <Model Name="Xian2"> <Active Type="false"/> </Model>
+        <Model Name="Xian3"> <Active Type="false"/></Model>
+        <Model Name="Xian4"> <Active Type="false"/></Model>
+        <Model Name="Xian5"> <Active Type="false"/></Model>
+        <Model Name="Xian6"> <Active Type="false"/></Model>
+        <Model Name="Xian7"> <Active Type="false"/></Model>
+        <Model Name="Xian8"> <Active Type="false"/></Model>
+        <Model Name="Xian9"> <Active Type="true"/> </Model>
+        <Model Name="Xian10"> <Active Type="false"/></Model>
+      </Step>
+      <Step Help="将地线接入机架边框上的铜条上" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle9_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle9_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.1051" y="0.16835" z="0.01987" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.9372" y="1.1215" z="0.2518" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+       <Model Name="Xian1"> <Active Type="true"/></Model>
+        <Model Name="Xian2"> <Active Type="true"/> </Model>
+        <Model Name="Xian3"> <Active Type="true"/></Model>
+        <Model Name="Xian4"> <Active Type="true"/></Model>
+        <Model Name="Xian5"> <Active Type="true"/></Model>
+        <Model Name="Xian6"> <Active Type="true"/></Model>
+        <Model Name="Xian7"> <Active Type="true"/></Model>
+        <Model Name="Xian8"> <Active Type="true"/></Model>
+        <Model Name="Xian9"> <Active Type="true"/> </Model>
+        <Model Name="Xian10"> <Active Type="true"/></Model>
+      </Step>
+
+      <Step Help="找到走线架铜条地线接入机架侧面铜条" EventObject="Handle10_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=Handle10_2" PromptType="HighLight" Remark="">
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Fade" AlphaValue="0.2" IsAll="true">
+          </RenderingMode>
+        </Model>
+        <Model Name="Handle10_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="将地线接入机架边框上的铜条上" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=Handle10_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="Handle10_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.10501" y="0.26859" z="0.01999" />
+                <Rotation x="332.4504" y="342.0953" z="34.93549" />
+                <Scale x="0.0006153846" y="0.000416923082" z="0.0006153846" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-1.9372" y="1.77436" z="0.2518" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+        <Model Name="Xian1">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian2">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian3">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian4">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian5">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian6">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian7">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian8">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian9">
+          <Active Type="true"/>
+        </Model>
+        <Model Name="Xian10">
+          <Active Type="true"/>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="室外AUU固定件按装">
+      <Step Help="轻轻抬起AUU主体，并反转调整位置" EventObject="AUU" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=AUU" PromptType="HighLight" Remark="">     
+        <Model Name="AUU" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <VRTransform >
+          <Position x="-8.182" y="-0.023" z="-2.9" />
+          <Rotation x="0" y="0" z="0" />
+        </VRTransform>
+      </Step>
+      <Step Help="在指定的位置轻轻放下AUU主体" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=AUU" PromptType="MeshRenderer" Remark="">
+        <Model Name="AUU" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.161000252" y="0.0916680545" z="-0.0290000439" />
+                <Rotation x="0" y="180" z="180" />
+                <Scale x="2.5" y="2.49999976" z="2.5" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.361" y="0.255" z="-2.508" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.14495349" y="0.1" z="0.5134489" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿起不能活动的AUU加固件" EventObject="lj2_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lj2_1" PromptType="HighLight" Remark="">
+        <Model Name="lj2_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="注意：将不能活动的加固件安装在AUU上方" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=lj2_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="lj2_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.355847359" y="0.183646783" z="-0.0285711288" />
+                <Rotation x="0" y="180" z="-3.21865082E-05" />
+                <Scale x="2.5" y="2.5" z="2.5" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.5431" y="0.2672" z="-2.5337" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.11105644" y="0.1" z="0.3111645" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿起小螺丝" EventObject="ls1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls1" PromptType="HighLight" Remark="">
+        <Model Name="ls1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls1" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.338299751" y="0.06836261" z="-0.161900043" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.52132" y="0.30239" z="-2.66309" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-8.4564" y="0.3131" z="-2.6103" />
+                <Rotation x="0" y="51.32551" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-8.52132" y="0.30239" z="-2.66309" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-8.4564" y="0.3131" z="-2.6103" />
+            <Rotation x="0" y="51.32551" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-8.665497" y="0.31199646" z="-2.6821" />
+            <Rotation x="90" y="356.97998" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+     
+      <Step Help="依次安装剩余的三颗螺丝" EventObject="lj2_1" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=lj2_1;WaitTime=3" PromptType="HighLight" Remark="">
+        <Model Name="ls2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.372930527" y="0.06836261" z="-0.161775351" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.372930527" y="0.06836261" z="0.1051445" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls4" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.337954521" y="0.06836261" z="0.1051445" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="拿起可以活动的AUU加固件" EventObject="lj2_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lj2_2" PromptType="HighLight" Remark="">
+        <Model Name="lj2_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="注意：将可以活动的加固件安装在AUU下方" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=lj2_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="lj2_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0355682373" y="0.1856666" z="-0.0284433365" />
+                <Rotation x="0" y="180" z="0" />
+                <Scale x="2.5" y="2.5" z="2.5" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.1481" y="0.2672" z="-2.5337" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.11105644" y="0.1" z="0.3111645" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿起小螺丝" EventObject="ls5" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls5" PromptType="HighLight" Remark="">
+        <Model Name="ls1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls5" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls5" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.05394554" y="0.06836261" z="-0.162158966" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.12805" y="0.30509" z="-2.66309" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <!--0000000000000000000000000000000000000000000000000000000000  扳手操作扳手操作扳手操作-->
+      <Step Help="按下左手触摸板，从虚拟柜中取出扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="JiGui" >
+          <RenderingMode Mode="Opaque" AlphaValue="1" IsAll="true">
+          </RenderingMode>
+        </Model>
+      </Step>
+      <Step Help="使用扳手找到需要拧紧的螺丝" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=BanShou;RemoveState=-1" PromptType="MeshRenderer" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <!--  修改固定位置-->
+                <Position x="-8.0649" y="0.3131" z="-2.6103" />
+                <Rotation x="0" y="51.32551" z="0" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <!--  修改提示固定位置-->
+            <Position x="-8.12805" y="0.30509" z="-2.66309" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="转动扳手拧紧螺丝" EventObject="BanShouZhuanModel" EventScript="StepEvent_Base" TriggerScript="Trigger_HandRotator" TriggerValue="TriggerName=BanShouZhuanModel;RotatorValue=200;RotatorDirection=1" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改固定位置-->
+            <Position x="-8.0649" y="0.3131" z="-2.6103" />
+            <Rotation x="0" y="51.32551" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="true"/>
+          <Transform>
+            <!--  修改提示界面位置-->
+            <Position x="-8.268997" y="0.31199646" z="-2.6821" />
+            <Rotation x="90" y="356.97998" z="0" />
+            <Scale x="0.0009999999" y="0.0009999999" z="0.0009999999" />
+          </Transform>
+        </Model>
+        <Model Name="BanShouZhuanModel" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="取下扳手" EventObject="BanShou" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=BanShou" PromptType="HighLight" Remark="">
+        <Model Name="BanShou" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""> </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.04267002" y="0.01084571" z="0.1861434" />
+            </Script>
+          </Component>
+          <Active Type="true"/>
+        </Model>
+        <Model Name="BanShouZhuan" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="RotatorCanvas" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++ 扳手操作扳手操作扳手操作-->
+
+      <Step Help="依次安装剩余的三颗螺丝" EventObject="lj2_1" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=lj2_1;WaitTime=3" PromptType="HighLight" Remark="">
+        <Model Name="ls6" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0175685883" y="0.06836261" z="-0.162158966" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls7" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0175685883" y="0.06836261" z="0.105080605" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls8" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0534067154" y="0.06836261" z="0.105080605" />
+                <Rotation x="0" y="0" z="90" />
+                <Scale x="1.87276149" y="1.87276125" z="1.8727597" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="拿起一个紧固件" EventObject="lj1_1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lj1_1" PromptType="HighLight" Remark="">
+        <Model Name="lj1_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将紧固件与加固件连接" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=lj1_1" PromptType="MeshRenderer" Remark="">
+        <Model Name="lj1_1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.359499931" y="0.505000055" z="-0.0299999714" />
+                <Rotation x="0" y="1.00179132E-05" z="90" />
+                <Scale x="2.50027347" y="2.500002" z="2.500231" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.539" y="0.4959" z="-2.5337" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.11105644" y="0.0223947167" z="0.3111645" />
+          </Transform>
+        </Model>
+      </Step>
+
+      <Step Help="拿起长螺丝" EventObject="ls9" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls9" PromptType="HighLight" Remark="">
+        <Model Name="ls9" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls9" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls9" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.356499672" y="0.369800031" z="-0.116500139" />
+                <Rotation x="0" y="1.00179132E-05" z="90" />
+                <Scale x="2.90000248" y="2.500002" z="2.50023222" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.53951" y="0.6468" z="-2.61995" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿起长螺丝" EventObject="ls10" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls10" PromptType="HighLight" Remark="">
+        <Model Name="ls10" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls10" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls10" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-0.356499672" y="0.369800031" z="0.0531156063" />
+                <Rotation x="0" y="1.00179132E-05" z="90" />
+                <Scale x="2.90000248" y="2.500002" z="2.50023222" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.53951" y="0.6468" z="-2.44954" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+
+      <Step Help="拿起另一个紧固件" EventObject="lj1_2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lj1_2" PromptType="HighLight" Remark="">
+        <Model Name="lj1_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+          <Transform Parent="lj22">
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="将紧固件与加固件连接" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=lj1_2" PromptType="MeshRenderer" Remark="">
+        <Model Name="lj1_2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0778" y="0.1268" z="-0.0008" />
+                <Rotation x="0" y="179.999985" z="137.999985" />
+                <Scale x="1.000104" y="1" z="1.00008845" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.047" y="0.4389" z="-2.5337" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.11105644" y="0.0223947167" z="0.3111645" />
+          </Transform>
+        </Model>
+      </Step>
+
+      <Step Help="拿起长螺丝" EventObject="ls11" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls11" PromptType="HighLight" Remark="">
+        <Model Name="ls11" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+          <Transform Parent="lj22">
+          </Transform>
+        </Model>
+        
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls11" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls11" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0463" y="0.0994" z="0.0338" />
+                <Rotation x="0" y="179.999969" z="137.999985" />
+                <Scale x="1.16000521" y="1" z="1.00009334" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.0508" y="0.6105" z="-2.6208" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="拿起长螺丝" EventObject="ls12" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=ls12" PromptType="HighLight" Remark="">
+        <Model Name="ls12" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+          <Transform Parent="lj22">
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="将螺丝安装在指定的位置" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=ls12" PromptType="MeshRenderer" Remark="">
+        <Model Name="ls12" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0445" y="0.0994" z="-0.0346" />
+                <Rotation x="-8.14222E-13" y="179.999969" z="138.000031" />
+                <Scale x="1.16000521" y="1" z="1.00009334" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.048" y="0.61688" z="-2.441" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>      
+                           
+    </Chapter>
+    <Chapter Remark="爬上信号塔">
+      <Step Help="拿起安全绳" EventObject="AnQuanSheng" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=AnQuanSheng" PromptType="HighLight" Remark="">
+        <Model Name="AnQuanSheng" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <VRTransform >
+          <Position x="-8.182" y="-0.023" z="-1.587" />
+          <Rotation x="0" y="0" z="0" />
+        </VRTransform>
+      </Step>
+      <Step Help="将安全绳穿戴好" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=AnQuanSheng" PromptType="MeshRenderer" Remark="">
+        <Model Name="AnQuanSheng" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">         
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform Parent="Camera (eye)">
+            <Position x="0" y="-0.5" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.5" y="0.6" z="0.5" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="" EventObject="AnQuanSheng" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=AnQuanSheng;WaitTime=0.2" PromptType="HighLight" Remark="">
+        <Model Name="AnQuanSheng" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+            <Script OperateType="Add" Name="VRBodyFollow" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+        <Step Help="拿起安全绳卡扣" EventObject="AnQuanShengHandle1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=AnQuanShengHandle1" PromptType="HighLight" Remark="">
+          <Model Name="AnQuanShengHandle1" IsStepControl="true">
+            <Component>
+              <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+              </Script>
+            </Component>
+          </Model>
+        </Step>
+        <Step Help="固定安全绳卡扣" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=AnQuanShengHandle1" PromptType="MeshRenderer" Remark="">
+          <Model Name="AnQuanShengHandle1" IsStepControl="true">
+            <Component>
+              <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+              </Script>
+            </Component>
+          </Model>
+          <Model Name="PromptCube">
+            <Transform Parent="EquipmentParent">
+              <Position x="-7.928" y="1.382" z="-1.282" />
+              <Rotation x="0" y="0" z="0" />
+              <Scale x="0.03" y="0.5" z="0.03" />
+            </Transform>
+          </Model>
+        </Step>
+        <Step Help="" EventObject="AnQuanShengHandle1" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=AnQuanShengHandle1;WaitTime=0.2" PromptType="HighLight" Remark="">
+          <Model Name="AnQuanShengHandle1" IsStepControl="true">
+            <Component>
+              <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+              </Script>
+              <Script OperateType="Add" Name="KaKouFollow" InitValue="">
+              </Script>
+            </Component>
+          </Model>
+      </Step>
+      <Step Help="拿起安全绳挂扣" EventObject="AnQuanShengHandle2" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=AnQuanShengHandle2" PromptType="HighLight" Remark="">
+        <Model Name="AnQuanShengHandle2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="固定安全绳挂扣" EventObject="GuaGouCue1" EventScript="StepEvent_Base" TriggerScript="Trigger_SnapObject" TriggerValue="TriggerName=AnQuanShengHandle2" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="AnQuanShengHandle2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="GuaGouCue1">
+          <Transform >
+            <Position x="-8.391" y="1.43" z="-1.226" />
+            <Rotation x="0" y="90" z="19.9999962" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="固定安全绳挂扣" EventObject="GuaGouCue2" EventScript="StepEvent_Base" TriggerScript="Trigger_SnapObject" TriggerValue="TriggerName=AnQuanShengHandle2" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="AnQuanShengHandle2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="GuaGouCue2">
+          <Transform >
+            <Position x="-8.391" y="2.184" z="-1.226" />
+            <Rotation x="0" y="90" z="19.9999962" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        
+      </Step>
+      <Step Help="固定安全绳挂扣" EventObject="GuaGouCue1" EventScript="StepEvent_Base" TriggerScript="Trigger_SnapObject" TriggerValue="TriggerName=AnQuanShengHandle2" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="AnQuanShengHandle2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="GuaGouCue1">
+          <Transform >
+            <Position x="-8.391" y="2.86" z="-1.226" />
+            <Rotation x="0" y="90" z="19.9999962" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ZhanTai">
+          <Transform >
+            <Position x="-8.307" y="0.75" z="-0.9810005" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="2" y="0.29496" z="2" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="固定安全绳挂扣" EventObject="GuaGouCue2" EventScript="StepEvent_Base" TriggerScript="Trigger_SnapObject" TriggerValue="TriggerName=AnQuanShengHandle2" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="AnQuanShengHandle2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="GuaGouCue2">
+          <Transform >
+            <Position x="-8.391" y="3.501" z="-1.226" />
+            <Rotation x="0" y="90" z="19.9999962" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ZhanTai">
+          <Transform >
+            <Position x="-8.307" y="1.65" z="-0.9810005" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="2" y="0.29496" z="2" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="依次使用挂扣爬上塔顶" EventObject="AnQuanShengHandle1" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=AnQuanShengHandle1;WaitTime=2" PromptType="HighLight" Remark="">
+        <Model Name="AnQuanShengHandle1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>           
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="吊装AUU">
+      <Step Help="使用吊机将AUU吊至塔顶" EventObject="All_AUU" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=All_AUU;WaitTime=1" PromptType="HighLight" Remark="">
+        <Model Name="All_AUU" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="3">
+                <Position x="-8.327" y="13.085" z="-2.403" />
+                <Rotation x="0" y="270" z="274" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="CubeClimbable" >
+          <Active Type="false"></Active>
+        </Model>
+        <Model Name="AnQuanSheng" >
+          <Active Type="false"></Active >
+        </Model>
+        <VRTransform >
+          <Position x="-8.286" y="11.711" z="-1.587" />
+          <Rotation x="0" y="180" z="0" />
+        </VRTransform>
+      </Step>
+      <Step Help="按下左手触摸板，从虚拟柜中取出螺丝刀" EventObject="lsd3" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=lsd3" PromptType="HighLight" Remark="点击小刀">
+        <Model Name="lsd3" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls9" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.3584" y="0.3204" z="-0.116500139" />
+                <Rotation x="0" y="1.00179132E-05" z="90" />
+                <Scale x="2.90000248" y="2.500002" z="2.50023222" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="lj1_1_polySurface2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.0315" y="-0.0003" z="-0.0016" />
+                <Rotation x="0.34339416" y="4.916856" z="0.0147567792" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.2111" y="13.4717" z="-1.9944" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.04" y="0.04" z="0.1" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls10" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.3559" y="0.3172" z="0.0531156063" />
+                <Rotation x="0" y="1.00179132E-05" z="90" />
+                <Scale x="2.90000248" y="2.500002" z="2.50023222" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="lj1_1_polySurface2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.0354" y="0" z="-0.0016" />
+                <Rotation x="0.3430009" y="0" z="0.0149989119" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.3795" y="13.4717" z="-1.9944" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.04" y="0.04" z="0.1" />
+          </Transform>
+        </Model>
+      </Step>
+
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls11" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="0.0214" y="0.0769" z="0.0338" />
+                <Rotation x="-8.14222E-13" y="179.999969" z="138.000031" />
+                <Scale x="1.16000521" y="1" z="1.00009334" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="lj1_2_polySurface2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.0333" y="-0.001" z="-0.0016" />
+                <Rotation x="0.308762968" y="3.26820278" z="0.0088358" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.2142" y="12.9815" z="-1.9917" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.04" y="0.04" z="0.15" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="使用螺丝刀将螺丝拧紧" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=lsd3;TriggerTime=0.5" PromptType="MeshRenderer" Remark="">
+        <Model Name="lsd3model" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Rotate" InitValue="">
+              <Rotate Time="2" Speed="200">
+                <Rotation x="0" y="-1" z="0" />
+              </Rotate>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ls12" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="0.0208" y="0.0781" z="-0.0346" />
+                <Rotation x="-8.14222E-13" y="179.999969" z="138.000031" />
+                <Scale x="1.16000521" y="1" z="1.00009334" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="lj1_2_polySurface2" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="2">
+                <Position x="-0.0359" y="-0.001" z="-0.0016" />
+                <Rotation x="0.309001237" y="-1.62846754E-12" z="0.00900149252" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.3845" y="12.9815" z="-1.9917" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.04" y="0.04" z="0.15" />
+          </Transform>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="连接AUU线路">
+      <Step Help="找到电源线的接口" EventObject="DianYuanXianHandle" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=DianYuanXianHandle" PromptType="HighLight" Remark="">     
+        <Model Name="DianYuanXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>            
+      </Step>
+      <Step Help="将电源线先插入AUU电源接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=DianYuanXianHandle" PromptType="MeshRenderer" Remark="">
+        <Model Name="DianYuanXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.1568" y="12.7323" z="-1.2954" />
+                <Rotation x="0" y="180" z="0" />
+                <Scale x="0.02" y="0.007" z="0.02" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.114" y="12.7011" z="-2.3106" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.03" y="0.03" z="0.03" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="按下左手触摸板，从虚拟柜中取出光模块" EventObject="chaxiao1" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=chaxiao1" PromptType="HighLight" Remark="">
+        <Model Name="chaxiao1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>        
+      </Step>
+      <Step Help="将光模块插入AUU接口" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=chaxiao1" PromptType="MeshRenderer" Remark="">
+        <Model Name="chaxiao1" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-8.2184" y="12.6869" z="-2.36" />
+                <Rotation x="0" y="270" z="270" />
+                <Scale x="2.5" y="2.49999976" z="2.5" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptCube">
+          <Transform>
+            <Position x="-8.2188" y="12.6946" z="-2.3616" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.033679124" y="0.0336791277" z="0.0336791277" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到光纤线的接口" EventObject="GuangXianXianHandle" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=GuangXianXianHandle" PromptType="HighLight" Remark="">
+        <Model Name="GuangXianXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将光纤线接入光模块" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=GuangXianXianHandle" PromptType="MeshRenderer" Remark="">
+        <Model Name="GuangXianXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0505" y="12.7411" z="-1.3404" />
+                <Rotation x="0" y="180" z="0" />
+                <Scale x="0.005" y="0.003" z="0.005" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.21764" y="12.6883" z="-2.3576" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到地线的接口" EventObject="DiXianHandle" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=DiXianHandle" PromptType="HighLight" Remark="">
+        <Model Name="DiXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将地线接入AUU地线接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=DiXianHandle" PromptType="MeshRenderer" Remark="">
+        <Model Name="DiXianHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.1908" y="12.8094" z="-1.2904" />
+                <Rotation x="0" y="180" z="0" />
+                <Scale x="0.005" y="0.003" z="0.005" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-8.07764" y="12.74853" z="-2.3116" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.02" y="0.02" z="0.02" />
+          </Transform>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="安装GPS">
+      <Step Help="按下左手触摸板，从虚拟柜中取出GPS" EventObject="GPS" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=GPS" PromptType="HighLight" Remark="">
+        <VRTransform >
+          <Position x="-6.375" y="1.528" z="-0.613" />
+          <Rotation x="0" y="0" z="0" />
+        </VRTransform>
+        <Model Name="GPS" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        
+      </Step>
+      <Step Help="安装GPS" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=GPS" PromptType="MeshRenderer" Remark="">
+       
+        <Model Name="GPS" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="-6.39958954" y="2.67969775" z="-0.316386282" />
+                <Rotation x="-1.33402134E-08" y="338.859" z="359" />
+                <Scale x="1" y="1" z="1" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-6.3981" y="2.685" z="-0.3168" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.108725764" y="0.108725831" z="0.108725831" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="找到GPS线的接口" EventObject="GPSHandle" EventScript="StepEvent_Base" TriggerScript="Trigger_HandGrab" TriggerValue="TriggerName=GPSHandle" PromptType="HighLight" Remark="">
+        <Model Name="GPSHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将GPS线先插入GPS接口" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_PutObject" TriggerValue="TriggerName=GPSHandle" PromptType="MeshRenderer" Remark="">
+        <Model Name="GPSHandle" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.1">
+                <Position x="0.0684" y="0.3229" z="0" />
+                <Rotation x="0.3606455" y="201.138062" z="359.0673" />
+                <Scale x="0.005000012" y="0.00300000119" z="0.005000011" />
+              </Tween>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="-6.39837" y="2.6406" z="-0.3168" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="0.0378947072" y="0.0378947333" z="0.0378947333" />
+          </Transform>
+        </Model>
+      </Step>
+    </Chapter>       
+  </Chapters> 
+</Manager>

@@ -4,5 +4,5 @@ Asset资源管理修改于XAsset5.0.
 Patches4Init 默认需要更新的分包 玩家可以在配置选项中设置
 
 
-PatchesInBuild 打包时将分包复制到StreamingAssetPath路径中，目前测试在编辑器下StreamingAssetPath中的文件不会进行更新，注意使用。
+PatchesInBuild 打包时将分包复制到StreamingAssetPath路径中，后面服务端有新的版本会自动更新新版本到下载目录。
 当PatchesInBuild.Count=0时相当于是将所有资源复制到StreamingAssetPath中

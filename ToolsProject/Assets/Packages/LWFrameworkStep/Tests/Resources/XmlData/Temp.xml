@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Temp>
+
+  <Triggers>
+    <Trigger TriggerScript="Trigger_BtnOnClick"  TriggerValue="TriggerName=QuestionCanvas"/>
+    <Trigger TriggerScript="Trigger_ContentMessage"  TriggerValue="TriggerName=Object;MessageType=MainView_LastBtnClick"/>
+    <Trigger TriggerScript="Trigger_MouseDownMultObject"  TriggerValue="TriggerName=Object1|Object2|Object3"/>
+    <Trigger TriggerScript="Trigger_MouseDownObject"  TriggerValue="TriggerName=Object"/>
+    <Trigger TriggerScript="Trigger_PhysicsTrigger"  TriggerValue="TriggerName=Object;TriggerTime=0.1"/>
+    <Trigger TriggerScript="Trigger_WaitTime"  TriggerValue="TriggerName=Object;WaitTime=1"/>
+  </Triggers>
+  <Component>
+    <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+      <Tween Time="0.5">
+        <Position x="0" y="0" z="0" />
+        <Rotation x="0" y="0" z="0" />
+        <Scale x="1" y="1" z="1" />
+      </Tween>
+    </Script>
+    <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+      <Size x="1" y="1" z="1" />
+    </Script>
+    <Script OperateType="Remove" Name="BoxCollider" InitValue="" IsTrigger="true"></Script>
+  </Component>
+</Temp>

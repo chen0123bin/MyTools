@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e209c419f86144a837313c279bbc5a, type: 3}
   m_Name: LWGlobalConfig
   m_EditorClassIdentifier: 
-  assetMode: 1
+  assetMode: 0
   hotfixCodeRunMode: 2
   loggable: 0
   verifyBy: 1
@@ -20,6 +20,5 @@ MonoBehaviour:
   development: 0
   dontDestroyOnLoad: 1
   searchPaths: []
-  patches4Init:
-  - HotfixPatch
-  updateAll: 0
+  patches4Init: []
+  updateAll: 1

@@ -12,9 +12,6 @@ public class Startup : MonoBehaviour
     public static Action OnUpdate { get; set; }
     void Start()
     {
-        string path = "Assets/@Resources/Scenes/TestScene.unity";
-        string aFirstName = path.Substring(path.LastIndexOf("/") + 1, (path.LastIndexOf(".") - path.LastIndexOf("/") - 1));
-        LWDebug.Log(aFirstName);
 
         DontDestroyOnLoad(gameObject);      
         MainManager.Instance.Init();

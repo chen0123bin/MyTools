@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager>
+	<Models>
+		<Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab">
+			<Position x="-0.412" y="-2.63" z="-0.655" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="0.1" y="0.1" z="0.1" />
+		</Model>
+		<Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab">
+			<Position x="-0.412" y="-2.63" z="-0.655" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="0.1" y="0.1" z="0.1" />
+		</Model>
+
+		<Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab">
+			<Position x="0" y="0" z="0" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="1" y="1" z="1" />
+		</Model>
+		<Model Name="liucheng" Path="Assets/AssetBundles/SceneModel/ShiLaModel/shoucang/liucheng.prefab" Parent="EquipmentParent">
+			<Position x="-0.213960171" y="0.6709361" z="-6.17915058" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="0.5" y="0.5" z="0.5" />
+			<Childs>
+				<Child Name="P3_YLS_JR_door"></Child>
+			</Childs>
+		</Model>		
+	</Models>
+	<Chapters>
+		<Chapter Remark="第一章节：取材">
+			<Step Help="拾取托盘中的小刀" EventObject="dao"  EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=dao;TriggerTime=0.1" PromptType="HighLight/MeshRenderer" Remark="点击小刀">
+				<Model Name="dao" IsStepControl="true" ControlCount="1">
+					<Component>
+						<Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+							<Tween Time="0.5">
+								<Position x="-0.536" y="-0.151" z="0.016" />
+								<Rotation x="0.826980233" y="90" z="270" />
+								<Scale x="1.06" y="1.06" z="1.06" />
+							</Tween>
+						</Script>
+
+						<Script OperateType="Add" Name="StepControl_ChildTweenMove" InitValue="childName=P3_YLS_RJP_gai">
+							<Tween Time="0.5">
+								<Position x="-0.0209" y="0.0084" z="-0.0199" />
+								<Rotation x="0" y="0" z="178.336823" />
+								<Scale x="1" y="1" z="1" />
+							</Tween>
+						</Script>
+						<Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger ="true">
+							<Size x="0.0149821825" y="0.15341562" z="0.002" />
+						</Script>
+						<Script OperateType="Add" Name="Rigidbody" InitValue="" IsKinematic ="true"/>
+						<Component>
+							<Script OperateType="Add" Name="StepControl_Jing" InitValue="childName=jing_F">
+							</Script>
+						</Component>
+					</Component>
+				</Model>
+				<Model Name="PromptCube">
+					<Transform Parent="P3_YLS_RJP">
+						<Position x="3.29484963" y="0.684605837" z="-5.935976" />
+						<Rotation x="0" y="0" z="12.5163774" />
+						<Scale x="0.004" y="0.005" z="0.005" />
+					</Transform>
+				</Model>
+			</Step>
+		
+			<Step Help="" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_PhysicsTrigger" TriggerValue="TriggerName=dao;TriggerTime=0.1" Remark="提示方块与小刀碰撞，生成第一段根茎">
+		
+				<Model Name="jing" IsStepControl="true">
+					<Component>
+						<Script OperateType="Add" Name="StepControl_Jing" InitValue="childName=jing_F">
+						</Script>
+						<Script OperateType="Add" Name="Other_TweenPath" InitValue="">
+							<TweenPath Time="1.5">
+								<Position x="-0.00163" y="0.04199" z="-0.00184" />
+								<Position x="0.00299" y="0.01773" z="0.00075" />
+							</TweenPath>
+						</Script>
+					</Component>
+					
+				</Model>
+				<Model Name="P3_YLS_CQP" >
+					<Component>
+						<Script OperateType="Add" Name="RunTimeAddObject" ChildName="P3_YLS_CQP_gai"/>
+						<Script OperateType="Add" Name="StepControl_Liquid" InitValue="endValue=0.6;endTime=5;waitTime=0.5;type=level">
+						</Script>
+            <Script OperateType="Add" Name="StepControl_MatColor" InitValue="r=0.6;g=0.6;b=0.6;a=0.3;waitTime=0;endTime=1.5">
+            </Script>
+
+            
+          </Component>
+					
+				</Model>
+				<Model Name="polySurface17" >
+					<Active Type="false" />
+				</Model>
+			</Step>
+      <Step Help="" EventObject="PromptCube" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=PromptCube;WaitTime=0.5" PromptType="MeshRenderer" Remark="让小刀点击第二段提示线">
+        <Model Name="dao" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+
+		</Chapter>
+	</Chapters>
+
+
+</Manager>
+

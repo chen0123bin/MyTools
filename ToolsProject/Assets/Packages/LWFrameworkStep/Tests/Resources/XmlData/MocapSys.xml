@@ -1,0 +1,2908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager> 
+  <资料>
+    <步骤>
+      <!--
+   TriggerScript="Trigger_WaitTime"  TriggerValue="TriggerName=Object;WaitTime=1"   等待时间 
+   -->
+    </步骤>
+    <对象>
+      <!--
+      <Model Name="Object" IsStepControl="true" ControlCount="1">
+      <Active Type="false"/>
+      <Transform Parent="Object"/>  
+      -->     
+    </对象>
+    <组件>
+      <!--
+ StepControl_TweenMove   移动 
+   -->
+    </组件>
+  
+  </资料>
+  <Models>
+    <Model Name="RigidBodyFPSController" Path="Assets/AssetBundles/SceneModel/RigidBodyFPSController2.prefab">
+      <Position x="4.99" y="0.9527471" z="-5.22" />
+      <Rotation x="0" y="291.4338" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="UIPrompt" Path="Assets/AssetBundles/SceneModel/Common/UIPrompt.prefab" Parent="CanvasTop">
+      <Position x="0" y="-20000" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    
+    <Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab">
+      <Position x="0" y="0" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <!--<Model Name="Box" Path="Assets/AssetBundles/SceneModel/Demo/Box.prefab" Parent="EquipmentParent">
+      <Position x="9.35" y="0.64" z="-3.97009778" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="5.156651" y="1" z="0.23500891" />
+      <Childs>
+        <Child Name="Door" Path="Door">
+        </Child>
+      </Childs>
+    </Model>-->
+    <Model Name="yifu" Path="Assets/AssetBundles/SceneModel/MocapSys/yifu.prefab" Parent="EquipmentParent">
+      <Position x="2.134" y="0.152746975" z="-2.085" />
+      <Rotation x="0" y="248.511322" z="0" />
+      <Scale x="32.18988" y="2.61915946" z="32.18988" />
+    </Model>
+    <Model Name="AnimationRole" Path="Assets/AssetBundles/SceneModel/MocapSys/AnimationRole.prefab" Parent="EquipmentParent">
+      <Position x="1.847" y="0.17" z="-1.159" />
+      <Rotation x="0" y="241.150757" z="0" />
+      <Scale x="1" y="1" z="1" />
+      <Childs>
+        <Child Name="ren" Path="ren"> </Child>
+        <Child Name="Unity_Body_Mesh" Path="ren/pSphere1"> </Child>
+      </Childs>    
+    </Model>
+    <Model Name="BuZhuoDian" Path="Assets/AssetBundles/SceneModel/MocapSys/BuZhuoDian.prefab" Parent="EquipmentParent">
+      <Position x="1.984" y="0.204" z="-1.788" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="3" y="3" z="3" />
+    </Model>
+    <Model Name="diannao" Path="Assets/AssetBundles/SceneModel/MocapSys/diannao.prefab" Parent="EquipmentParent">
+
+      <Position x="-4.186368" y="0.9084066" z="-5.46746063" />
+      <Rotation x="0" y="220.965836" z="0" />
+      <Scale x="1.30835664" y="1.00056982" z="1.00056982" />
+
+    </Model>
+    <Model Name="JT6" Path="Assets/AssetBundles/SceneModel/MocapSys/JT6.prefab" Parent="EquipmentParent">
+      <Position x="-0.632359" y="0.153513268" z="-6.8811183" />
+      <Rotation x="1.40226118E-14" y="273.180481" z="3.89297E-16" />
+      <Scale x="0.833051741" y="0.83305186" z="0.833051741" />
+
+      <Childs>
+        <Child Name="jingtou 4" Path="jingtou 4"> </Child>
+      </Childs>
+    </Model>
+    <Model Name="SoftRobot" Path="Assets/AssetBundles/SceneModel/MocapSys/SoftRobot.prefab" Parent="EquipmentParent">
+      <Position x="-0.67" y="0.14" z="-1" />
+      <Rotation x="0" y="180" z="0" />
+      <Scale x="1" y="1" z="1" />
+      <Childs>
+        <Child Name="NeuronRobot_SingleMesh" Path="NeuronRobot_SingleMesh"> </Child>
+      </Childs>
+    </Model>
+    <Model Name="BodyUI" Path="Assets/AssetBundles/SceneModel/Common/BodyUI.prefab" Parent="CanvasTop">
+      <Position x="-752" y="223" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+      <Childs>
+        <Child Name="B1" Path="B1"> </Child>
+        <Child Name="B2" Path="B2"> </Child>
+        <Child Name="PointUI" Path="PointUI"> </Child>
+      </Childs>
+    </Model>
+  </Models>
+  <Chapters>
+    <Chapter Remark="查看介绍帮助">
+      <Step Help="鼠标左键点击系统按钮，打开系统页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenSystemViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-538" y="490.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/SystemTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+       
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+
+      <Step Help="鼠标左键点击帮助按钮，打开帮助页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenHelpTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="-538" y="399.4" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>        
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/SystemTap/SystemTapView/HelpBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击下一页按钮，查看其他帮助信息。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=NextPageTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>            
+            <Position x="201" y="-235" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/HelpView/NextPage"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击关闭按钮。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseHelpTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="329.5" y="196.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/HelpView/CloseBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+
+
+      <!--<Step Help="鼠标左键点击模式介绍按钮，打开模式介绍页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenModeViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-401.1" y="491.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/ModeTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>     
+      </Step>
+      <Step Help="鼠标左键点击模式介绍按钮，关闭模式介绍页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseModeViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-401.1" y="491.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/ModeTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+
+
+      <!--<Step Help="鼠标左键点击提示按钮，尝试关闭提示信息页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseRemarkViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="5.8" y="491.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/RemarkTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击提示按钮，重新打开提示信息页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenRemarkViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="5.8" y="491.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/RemarkTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+      
+    
+    </Chapter>
+    <Chapter Remark="查看动补设备">    
+      
+     
+      <Step Help="打开设备列表栏。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquipView" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-240" y="490" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">             
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/EquipTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="查看电脑。按住鼠标左键可以旋转物体。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquip1" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="764.9" y="117.4" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/EquiTapView/EquipBtn1"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看摄像机。按住鼠标左键可以旋转物体。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquip2" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="764.9" y="69.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/EquiTapView/EquipBtn2"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看校准套件。按住鼠标左键可以旋转物体。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquip3" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="764.9" y="14.7" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/EquiTapView/EquipBtn3"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看安装附件。按住鼠标左键可以旋转物体。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquip4" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="764.9" y="-37.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/EquiTapView/EquipBtn4"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看标准套件。按住鼠标左键可以旋转物体。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenEquip5" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="764.9" y="-88.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/EquiTapView/EquipBtn5"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+      <Step Help="查看完毕，可以关闭设备列表栏。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseEquipView" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-240" y="490" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/EquipTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      
+    
+    </Chapter>
+    <Chapter Remark="选择动画">
+      <Step Help="点击对应的按钮，选择学习的动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AnimationChooseTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/AnimationChooseView/Item/Button1"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+
+      
+     
+    </Chapter>
+    <Chapter Remark="演员设备穿戴">
+      <Step Help="点击标准套件按钮，打开标准套件界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenToolPackgeTrigger" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="-0.89" y="0.95" z="-2.39" />
+          <Rotation x="0" y="68.67994" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-93.6" y="490.7" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/ToolPackgeTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="按住鼠标左键，&lt;color=#ff0000ff&gt;拖拽&lt;/color&gt;衣服图标，将动补图标拖拽到演员身上&lt;color=#ff0000ff&gt;松开&lt;/color&gt;左键，进行衣服穿戴。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearClothes" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="706.8" y="68.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <!--<Start>
+                <TextureResPath Path="0=Texture/Role2/Albedo_0;1=Texture/Role2/Albedo_1;2=Texture/Role2/Albedo_2"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="0=Texture/Role1/Albedo_0;1=Texture/Role1/Albedo_1;2=Texture/Role1/Albedo_2"></TextureResPath>
+              </End>-->
+              <Start>
+                <TextureResPath Path="0=Texture/Role2/kucha"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="0=Texture/Role1/quanshen"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/ToolPackgeView/ListItem/Item/Image"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="佩戴身体反光点">
+      <Step Help="佩戴胸中心反光点，该节点主要是控制角色上半身的动画数据。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.3848949" y="0.952747047" z="-1.9235462" />
+          <Rotation x="0" y="65.9939041" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint1" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/ToolPackgeView/ListItem/Item (1)/Image"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="0" y="98" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴锁骨反光点，该节点主要是控制角色上半身的动画数据。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint2" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="0" y="142.6" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左肩前部反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint3" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="38.6" y="143" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右肩前部反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint4" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="-38.6" y="143" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+     
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="佩戴身体反光点">
+      <Step Help="佩戴腰前左翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="1.44059491" y="0.952747166" z="-2.84515619" />
+          <Rotation x="0" y="19.96656" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint5" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="24" y="23.8" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴腰前右翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.5763849" y="0.952747" z="-0.435328841" />
+          <Rotation x="0" y="120.36657" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint6" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="-24" y="23.8" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左髋关节反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="1.44059491" y="0.952747166" z="-2.84515619" />
+          <Rotation x="0" y="19.96656" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint7" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="44.3" y="12.6" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+      </Step>
+      <Step Help="佩戴右髋关节反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.5763849" y="0.952747" z="-0.435328841" />
+          <Rotation x="0" y="120.36657" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint8" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="-44.3" y="12.6" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴第十根胸椎骨反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+
+          <Position x="3.00718164" y="0.952747" z="-0.5639271" />
+          <Rotation x="0" y="246.1395" z="0" />
+          <Scale x="1" y="1" z="1" />
+
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint9" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="0" y="79" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴第七颈椎骨反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint10" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="0" y="146" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左肩后反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint11" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="-38.5" y="142.3" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右肩后反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint12" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="38.5" y="142.3" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴腰后左翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint13" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="-25.7" y="29.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴腰后右翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint14" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI" >
+          <Transform>
+            <Position x="25.7" y="29.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="佩戴头部反光点">
+      <Step Help="佩戴头顶反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.3848949" y="0.952747047" z="-1.9235462" />
+          <Rotation x="0" y="65.9939041" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint15" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/ToolPackgeView/ListItem/Item (1)/Image"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="0" y="232" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴头部左前翼反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint16" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="22" y="219" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴头部右前翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint17" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-22" y="219" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴头部左后翼反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="3.00718164" y="0.952747" z="-0.5639271" />
+          <Rotation x="0" y="246.1395" z="0" />
+          <Scale x="1" y="1" z="1" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint18" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-17" y="196" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴头部右后翼反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint19" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="17" y="196" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="佩戴左手臂反光点">
+      <Step Help="佩戴左上臂反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.809" y="0.952747047" z="-2.207" />
+          <Rotation x="0" y="65.9939041" z="0" />
+          <Scale x="1" y="1" z="1" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint20" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="77" y="153" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左肘内关节反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint21" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="102" y="145.999969" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左肘外关节反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="2.840684" y="0.952747047" z="-1.23457229" />
+          <Rotation x="0" y="250.535065" z="0" />
+          <Scale x="1" y="1" z="1" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint22" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="101" y="146.000046" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左前臂反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="1.26503706" y="0.952747047" z="-1.94379234" />
+          <Rotation x="0" y="72.98501" z="0" />
+          <Scale x="1" y="1" z="1" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint23" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="136" y="145.999969" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左腕内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint24" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="163" y="141" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+        <Step Help="佩戴左腕外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+          <CameraTransform >
+            <Position x="2.277867" y="0.952747" z="-2.5936327" />
+            <Rotation x="0" y="346.735016" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </CameraTransform>
+          <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+            <Transform>
+              <Position x="682.4" y="-200" z="0" />
+              <Rotation x="0" y="0" z="0" />
+              <Scale x="1" y="1" z="1" />
+            </Transform>
+            <Component>
+              <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+              </Script>
+            </Component>
+          </Model>
+          <Model Name="BuZhuoDianPoint25" IsStepControl="true" ControlCount="1">
+            <Active Type="true"/>
+            <Component>
+              <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+              </Script>
+            </Component>
+          </Model>
+          <Model Name="B1" >
+            <Active Type="false"/>
+          </Model>
+          <Model Name="B2" >
+            <Active Type="true"/>
+          </Model>
+          <Model Name="PointUI">
+            <Transform>
+              <Position x="167" y="140.000031" z="0" />
+              <Rotation x="0" y="0" z="0" />
+              <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+            </Transform>
+          </Model>
+        </Step>
+      <Step Help="佩戴左手背内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint26" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="189" y="134.000015" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左手背外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint27" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="191" y="137.999985" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="佩戴右手臂反光点">
+      <Step Help="佩戴右上臂反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.8997191" y="0.952747047" z="-1.26461983" />
+          <Rotation x="0" y="58.7322769" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint28" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-77" y="153" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右肘内关节反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint29" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-102" y="145.999969" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右肘外关节反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="2.36741114" y="0.952747047" z="-0.3465581" />
+          <Rotation x="0" y="241.082336" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint30" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-101" y="146.000046" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右前臂反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.8997191" y="0.952747047" z="-1.26461983" />
+          <Rotation x="0" y="58.7322769" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint31" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-136" y="145.999969" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右腕内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint32" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-163" y="141" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右腕外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="0.9704071" y="0.952747166" z="0.1064271" />
+          <Rotation x="0" y="148.482346" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint33" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-167" y="140.000031" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右手背内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint34" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-189" y="134.000015" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右手背外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint35" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-191" y="137.999985" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="佩戴左腿反光点">
+     
+      <Step Help="佩戴左大腿反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="-0.5804595" y="0.9527469" z="-1.95372009" />
+          <Rotation x="0" y="76.9539642" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint36" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="30.00006" y="-48.00001" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左膝盖外反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint37" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="43.9" y="-99.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左膝盖内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint38" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="10.29996" y="-115.999947" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左胫小腿反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint39" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="49" y="-155" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左脚趾前反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint40" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="33.70008" y="-224.90004" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左脚趾内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint41" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="10.99997" y="-221.899933" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左脚趾外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint42" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="54.9" y="-221.899933" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左脚踝反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint43" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="48.99999" y="-200.700043" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴左脚后跟反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint44" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-31" y="-224" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="是否跳过后续贴点步骤。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=JumpStepTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="JumpStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="佩戴右腿反光点">
+      <Step Help="佩戴右大腿反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint45" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-30.00006" y="-48.00001" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+
+      </Step>
+      <Step Help="佩戴右膝盖外反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint46" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-43.9" y="-99.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右膝盖内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint47" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-10.29996" y="-115.999947" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右胫小腿反光点。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint48" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-49" y="-155" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右脚趾前反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint49" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-33.70008" y="-224.90004" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右脚趾内反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint50" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-10.99997" y="-221.899933" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右脚趾外反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint51" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-54.9" y="-221.899933" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右脚踝反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint52" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+
+
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="-48.99999" y="-200.700043" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00008" y="1.00008" z="1.00008" />
+          </Transform>
+        </Model>
+      </Step>
+      <Step Help="佩戴右脚后跟反光点" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="682.4" y="-200" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint53" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="B1" >
+          <Active Type="false"/>
+        </Model>
+        <Model Name="B2" >
+          <Active Type="true"/>
+        </Model>
+        <Model Name="PointUI">
+          <Transform>
+            <Position x="31" y="-224" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1.00000012" y="1.00000012" z="1.00000012" />
+          </Transform>
+        </Model>
+      </Step>
+    </Chapter>
+
+    <Chapter Remark="校准摄像头">
+      <Step Help="点击标准套件按钮，关闭标准套件界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=CloseToolPackgeTrigger" PromptType="UIPrompt" Remark="1">
+        <CameraTransform >
+          <Position x="-0.89" y="0.95" z="-2.39" />
+          <Rotation x="0" y="68.67994" z="0" />
+        </CameraTransform>
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-93.6" y="490.7" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/ToolPackgeTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BodyUI" >
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <Step Help="是否立即进入控制室。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=BackRoomTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="BackRoomStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="进入操作室，操作电脑，打开动补软件。" EventObject="diannao" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=diannao" PromptType="HighLight" Remark="1">
+        <Model Name="diannao" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=false"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=true"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+
+      </Step>
+      <Step Help="点击start按钮，自动设置摄像头。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SetCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="655.9" y="106.2" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetCameraStep1" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="SetCameraStep2" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/SetCameraView/StartButton"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="软件设备测试及录制">
+     
+      <!--<Step Help="点击最小化按钮，缩小软件界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SetSoftViewSizeTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="715.9" y="393.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/CloseBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="是否返回控制室。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=BackRoomTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-2292" y="-135" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="BackRoomStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="None" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="进入操作室，操作电脑，打开动补软件。" EventObject="diannao" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=diannao" PromptType="HighLight" Remark="1">       
+        <Model Name="BuZhuoDian">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="diannao" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=false"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=true"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+      <Step Help="点击连接按钮，连接软件与动补设备。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ConnectionMocap" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">          
+          <Transform>
+            <Position x="-579.1" y="256.5" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/ConnBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击Tpose按钮，让演员摆好TPose进行校准。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=TposeBtnTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-374.1" y="331.4" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/TposeBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击录制按钮，开始录制动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=RecodeMocap" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-6" y="-437" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_AnimatorDynamic" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Dynamic" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_AnimatorDynamic" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Dynamic" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/RecodeBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="录制动画中。" EventObject="ren" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitAnimator" TriggerValue="TriggerName=ren;AnimaProgress=1" PromptType="ren" Remark="1">
+       
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="RecodeViewCtrl" InitValue="IsShow=true"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="RecodeViewCtrl" InitValue="IsShow=false"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击保存按钮，保存录制好的动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=diannao;MessageType=PlayMocap" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-755" y="332" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/PlayBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击最小化按钮，缩小软件界面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SetSoftViewSizeTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="715.9" y="393.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/SoftView/CloseBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击系统按钮，打开系统页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenSystemViewTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-538" y="490.9" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/SystemTap"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="鼠标左键点击退出按钮，返回菜单页面。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenHelpTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" >
+          <Transform>
+            <Position x="-540.4" y="349.1" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="Mask" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetMask" InitValue="TargetPath=Canvas/Normal/BuZhuoView/TopBackground/ToggleGroup/SystemTap/SystemTapView/ExitBtn"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="Null" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="Step2" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=Door;MessageType=Common_NextBtn" PromptType="HighLight" Remark="第二步骤">
+        <CameraTransform>
+          <Position x="-1.301" y="1.14" z="-2.799" />
+          <Rotation x="0" y="0" z="0" />
+        </CameraTransform>
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="2.113" y="0.298" z="-2.041" />
+                <Rotation x="0" y="338.304047" z="0" />
+                <Scale x="0.250705659" y="0.2507056" z="0.2507056" />
+              </Start>
+              <Tween Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Tween>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+    </Chapter>
+  </Chapters>
+</Manager>

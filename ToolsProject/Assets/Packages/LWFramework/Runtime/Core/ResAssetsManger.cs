@@ -49,10 +49,9 @@ public class ResAssetsManger : IAssetsManager,IManager
         };
     }
     private string ConverResPath(string path) {
-        StringBuilder stringBuilder = new StringBuilder(path);
-        stringBuilder = stringBuilder.Replace("Assets/@Resources/", "");
-        string resPath = stringBuilder.ToString();
-        resPath = resPath.Substring(0, resPath.LastIndexOf(".") );
+        int startIndex = path.IndexOf("Resources") + "Resources".Length + 1;
+        int length = path.LastIndexOf(".") - startIndex;
+        string resPath = path.Substring(startIndex, length);
         return resPath;
     }
 }

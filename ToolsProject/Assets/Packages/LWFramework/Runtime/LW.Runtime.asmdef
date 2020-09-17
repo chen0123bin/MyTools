@@ -1,7 +1,8 @@
 {
     "name": "LW.Runtime",
     "references": [
-        "UniTask"
+        "UniTask",
+        "HighlightRuntime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

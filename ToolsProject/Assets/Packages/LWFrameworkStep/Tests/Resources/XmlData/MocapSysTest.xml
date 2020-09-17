@@ -1,0 +1,48 @@
+<Manager>
+  <Chapters>
+    <Chapter Remark="取材">
+      <Step Help="打开培养箱" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="点击小刀3">
+        <CameraTransform>
+          <Position x="6.17209768" y="0.537250161" z="-3.575595" />
+          <Rotation x="0" y="89.09997" z="0" />
+          <Scale x="0.241715968" y="0.241715968" z="0.241715968" />
+        </CameraTransform>
+        <Model Name="Door" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.5">
+                <Position x="0" y="0" z="9.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Tween>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="打开培养箱" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseDownObject" TriggerValue="TriggerName=Door" PromptType="HighLight" Remark="点击门">
+        <CameraTransform>
+          <Position x="6.17209768" y="0.537250161" z="-3.575595" />
+          <Rotation x="0" y="89.09997" z="0" />
+          <Scale x="0.241715968" y="0.241715968" z="0.241715968" />
+        </CameraTransform>
+        <Model Name="Door" IsStepControl="true">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Tween Time="0.5">
+                <Position x="0" y="0" z="9.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Tween>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+  </Chapters>
+</Manager>

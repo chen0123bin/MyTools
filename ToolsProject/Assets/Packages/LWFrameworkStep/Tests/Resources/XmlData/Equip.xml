@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Menu>
+	<Title>动作捕捉</Title>
+	<Purpose>
+		22222
+	</Purpose>
+  <Equipments>
+		<!--<Equipment ImagePath="Assets/AssetBundles/UISprite/恒温箱.jpg" Remark="恒温箱用" Scale="0.25" Position="-0.02" Rotation="180" ObjectPath="Assets/AssetBundles/SceneModel/ShiLaModel/shenla/P3_YLS_JR.prefab"></Equipment>-->
+    <Equipment Remark="恒温箱用" Scale="0.25" Position="-0.02" Rotation="180" ObjectPath="Assets/AssetBundles/SceneModel/MocapSys/diannao.prefab"></Equipment>
+	</Equipments>
+</Menu>

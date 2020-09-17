@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager> 
+  <资料>
+    <步骤>
+      <!--
+   TriggerScript="Trigger_WaitTime"  TriggerValue="TriggerName=Object;WaitTime=1"   等待时间 
+   -->
+    </步骤>
+    <对象>
+      <!--
+      <Model Name="Object" IsStepControl="true" ControlCount="1">
+      <Active Type="false"/>
+      <Transform Parent="Object"/>  
+      -->     
+    </对象>
+    <组件>
+      <!--
+ StepControl_TweenMove   移动 
+   -->
+    </组件>
+  
+  </资料>
+  <Models>
+    <Model Name="RigidBodyFPSController" Path="Assets/AssetBundles/SceneModel/RigidBodyFPSController2.prefab">
+      <Position x="-7.30808926" y="0.9527471" z="-4.094113" />
+      <Rotation x="0" y="78.77916" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab">
+      <Position x="-0.412" y="-2.63" z="-0.655" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="0.1" y="0.1" z="0.1" />
+    </Model>
+    <Model Name="UIPrompt" Path="Assets/AssetBundles/SceneModel/Common/UIPrompt.prefab" Parent="CanvasTop">
+      <Position x="0" y="-20000" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab">
+      <Position x="0" y="0" z="0" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="1" y="1" z="1" />
+    </Model>
+    <!--<Model Name="Box" Path="Assets/AssetBundles/SceneModel/Demo/Box.prefab" Parent="EquipmentParent">
+      <Position x="9.35" y="0.64" z="-3.97009778" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="5.156651" y="1" z="0.23500891" />
+      <Childs>
+        <Child Name="Door" Path="Door">
+        </Child>
+      </Childs>
+    </Model>-->
+    <Model Name="yifu" Path="Assets/AssetBundles/SceneModel/MocapSys/yifu.prefab" Parent="EquipmentParent">
+      <Position x="2.134" y="0.152746975" z="-2.085" />
+      <Rotation x="0" y="248.511322" z="0" />
+      <Scale x="32.18988" y="2.61915946" z="32.18988" />
+    </Model>
+    <Model Name="ren" Path="Assets/AssetBundles/SceneModel/MocapSys/ren.prefab" Parent="EquipmentParent">
+      <Position x="1.847" y="0.17" z="-1.159" />
+      <Rotation x="0" y="241.150757" z="0" />
+      <Scale x="1" y="1" z="1" />
+      <Childs>
+        <Child Name="Unity_Body_Mesh" Path="Geo_grp/Unity_Body_Mesh"> </Child>
+      </Childs>
+      <Childs>
+        <Child Name="BuZhuoDianPoint" Path="Reference/Hips/Spine/Chest/BuZhuoDianPoint"> </Child>
+      </Childs>
+    </Model>
+    <Model Name="BuZhuoDian" Path="Assets/AssetBundles/SceneModel/MocapSys/BuZhuoDian.prefab" Parent="EquipmentParent">
+      <Position x="1.984" y="0.204" z="-1.788" />
+      <Rotation x="0" y="0" z="0" />
+      <Scale x="3" y="3" z="3" />
+    </Model>
+    <Model Name="diannao" Path="Assets/AssetBundles/SceneModel/MocapSys/diannao.prefab" Parent="EquipmentParent">
+
+      <Position x="-4.186368" y="0.9084066" z="-5.46746063" />
+      <Rotation x="0" y="220.965836" z="0" />
+      <Scale x="1.30835664" y="1.00056982" z="1.00056982" />
+
+    </Model>
+    <Model Name="JT6" Path="Assets/AssetBundles/SceneModel/MocapSys/JT6.prefab" Parent="EquipmentParent">
+      <Position x="-0.632359" y="0.153513268" z="-6.8811183" />
+      <Rotation x="1.40226118E-14" y="273.180481" z="3.89297E-16" />
+      <Scale x="0.833051741" y="0.83305186" z="0.833051741" />
+
+      <Childs>
+        <Child Name="jingtou 4" Path="jingtou 4"> </Child>
+      </Childs>
+    </Model>
+    <Model Name="SoftRobot" Path="Assets/AssetBundles/SceneModel/MocapSys/SoftRobot.prefab" Parent="EquipmentParent">
+      <Position x="-0.67" y="0.14" z="-1" />
+      <Rotation x="0" y="180" z="0" />
+      <Scale x="1" y="1" z="1" />
+      <Childs>
+        <Child Name="NeuronRobot_SingleMesh" Path="NeuronRobot_SingleMesh"> </Child>
+      </Childs>
+    </Model>
+  </Models>
+  <Chapters>
+    <Chapter Remark="查看帮助">
+      <Step Help="点击上一页、下一页查看新手帮助。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=HelpBtnTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>       
+        </Model>
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="HelpBtnStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="HelpBtnStep" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>           
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+    </Chapter>
+    <Chapter Remark="查看设备">
+      <Step Help="选择动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=AnimationChooseTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ShowAnimationChooseStep" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="查看电脑设备。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=4" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-3335" y="190" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowEquipStep" InitValue="EquipIndex=0"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ShowEquipStep" InitValue="EquipIndex=0"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看校准工具。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=4" PromptType="UIPrompt" Remark="1">
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowEquipStep" InitValue="EquipIndex=1"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ShowEquipStep" InitValue="EquipIndex=1"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="查看动补镜头。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=UIPrompt;WaitTime=4" PromptType="UIPrompt" Remark="1">
+        <Model Name="Canvas" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ShowEquipStep" InitValue="EquipIndex=2"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="HideEquipStep" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+    
+    </Chapter>
+    <Chapter Remark="校准摄像头">
+      
+      <Step Help="进入操作室，操作电脑，打开动补软件。" EventObject="diannao" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=diannao" PromptType="HighLight" Remark="1">
+        <Model Name="diannao" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=false"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=true"></ContentMessage>
+              </End>
+            </Script>            
+          </Component>
+        </Model>      
+      </Step>
+      <Step Help="点击start按钮，自动设置摄像头" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SetCameraTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="650" y="56" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="SetCameraStep1" InitValue=""></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="SetCameraStep2" InitValue=""></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击最小化按钮，缩小软件界面" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=SetSoftViewSizeTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="711" y="342" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+             
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+     
+    </Chapter>
+    <Chapter Remark="演员设备穿戴">
+      <Step Help="点击工具包按钮，打开工具包界面" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=OpenToolPackgeTrigger" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-120" y="452" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将动补衣服拖拽到演员身上穿戴。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearClothes" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-120" y="452" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture1"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="将反光点拖拽到演员身上穿戴。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ToWearPoint" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt" IsStepControl="true" ControlCount="1">
+          <Transform>
+            <Position x="-120" y="452" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDianPoint1" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_LightPoint" InitValue="">
+             
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="帮演员穿戴好动补服装。" EventObject="yifu" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=yifu" PromptType="HighLight" Remark="3">
+        <Model Name="yifu" IsStepControl="true" ControlCount="1">
+          <Active Type="true"/>
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="2.134" y="0.152746975" z="-2.085" />
+                <Rotation x="0" y="248.511322" z="0" />
+                <Scale x="32.18988" y="2.61915946" z="32.18988" />
+              </Start>
+              <End Time="0.5">
+                <Position x="1.842" y="1.38" z="-1.172" />
+                <Rotation x="0" y="248.511322" z="0" />
+                <Scale x="32.18988" y="2.61915946" z="32.18988" />
+              </End>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture1"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture1"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="yifu">
+          <Active Type="true"/>
+        </Model>
+      </Step>-->
+      <!--<Step Help="" EventObject="Unity_Body_Mesh" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitTime" TriggerValue="TriggerName=Unity_Body_Mesh;WaitTime=0.2" PromptType="HighLight" Remark="3">
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture1"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="yifu">
+          <Active Type="false"/>
+        </Model>
+      </Step>-->
+      <!--<Step Help="找到地上的反光点。" EventObject="BuZhuoDian" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=BuZhuoDian" PromptType="HighLight" Remark="3">
+        <Model Name="BuZhuoDian" IsStepControl="true" ControlCount="1">   
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue=""></Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="0.03" y="0.03" z="0.03" />
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="yifu">
+          <Active Type="false"/>
+        </Model>
+      </Step>
+      <Step Help="给演员佩戴反光点" EventObject="PromptSphere" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=PromptSphere" PromptType="MeshRenderer" Remark="32">
+        <Model Name="PromptSphere">
+          <Transform>
+            <Position x="1.712" y="1.4713" z="-1.242" />
+            <Rotation x="0" y="327.9149" z="0" />
+            <Scale x="0.1" y="0.1" z="0.1" />
+          </Transform>
+        </Model>
+        <Model Name="BuZhuoDian" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="1.984" y="0.204" z="-1.788" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="3" y="3" z="3" />
+              </Start>
+              <End Time="0.5">
+                <Position x="1.74678457" y="1.46569741" z="-1.21420622" />
+                <Rotation x="84.46424" y="61.1508064" z="180.000046" />
+                <Scale x="3" y="3" z="3" />
+              </End>
+            </Script>
+            <Script OperateType="Remove" Name="BoxCollider" InitValue="" IsTrigger="true"></Script>
+          </Component>
+        </Model>
+        <Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture2"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="BuZhuoDian">
+          <Active Type="true"/>
+        </Model>
+      </Step>-->
+    </Chapter>
+    <Chapter Remark="软件设备测试">
+      <Step Help="进入操作室，操作电脑，打开动补软件。" EventObject="diannao" EventScript="StepEvent_Base" TriggerScript="Trigger_MouseMoveDownObject" TriggerValue="TriggerName=diannao" PromptType="HighLight" Remark="1">
+        <!--<Model Name="Unity_Body_Mesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ChangeTexture" InitValue="">
+              <Start>
+                <TextureResPath Path="Texture/BodyTexture3"></TextureResPath>
+              </Start>
+              <End>
+                <TextureResPath Path="Texture/BodyTexture3"></TextureResPath>
+              </End>
+            </Script>
+          </Component>
+        </Model>-->
+        <Model Name="BuZhuoDian">
+          <Active Type="false"/>
+        </Model>
+        <Model Name="diannao" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_ContentMessage" InitValue="">
+              <Start>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=false"></ContentMessage>
+              </Start>
+              <End>
+                <ContentMessage MessageType="ComputerClick" InitValue="IsShow=true"></ContentMessage>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击连接按钮，连接软件与动补设备。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=ConnectionMocap" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">          
+          <Transform>
+            <Position x="-760" y="-530" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Tpose2" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击录制按钮，开始录制动画。" EventObject="UIPrompt" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=UIPrompt;MessageType=RecodeMocap" PromptType="UIPrompt" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-650" y="-530" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="bpslq" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="bpslq" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="录制动画中。" EventObject="ren" EventScript="StepEvent_Base" TriggerScript="Trigger_WaitAnimator" TriggerValue="TriggerName=ren;AnimaProgress=0.05" PromptType="ren" Remark="1">
+       
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Base" InitValue="">
+             
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <Step Help="点击播放按钮，播放录制完的动画。" EventObject="diannao" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=diannao;MessageType=PlayMocap" PromptType="HighLight" Remark="1">
+        <Model Name="UIPrompt">
+          <Transform>
+            <Position x="-550" y="-530" z="0" />
+            <Rotation x="0" y="0" z="0" />
+            <Scale x="1" y="1" z="1" />
+          </Transform>
+        </Model>
+        <Model Name="ren" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+        <Model Name="NeuronRobot_SingleMesh" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_Animator" InitValue="">
+              <Start>
+                <AnimtorControl AnimationName="Idle" InitValue="0"></AnimtorControl>
+              </Start>
+              <End>
+                <AnimtorControl AnimationName="pzyss" InitValue="0"></AnimtorControl>
+              </End>
+            </Script>
+          </Component>
+        </Model>
+      </Step>
+      <!--<Step Help="Step2" EventObject="Door" EventScript="StepEvent_Base" TriggerScript="Trigger_ContentMessage" TriggerValue="TriggerName=Door;MessageType=Common_NextBtn" PromptType="HighLight" Remark="第二步骤">
+        <CameraTransform>
+          <Position x="-1.301" y="1.14" z="-2.799" />
+          <Rotation x="0" y="0" z="0" />
+        </CameraTransform>
+        <Model Name="Door" IsStepControl="true" ControlCount="1">
+          <Component>
+            <Script OperateType="Add" Name="StepControl_TweenMove" InitValue="">
+              <Start>
+                <Position x="2.113" y="0.298" z="-2.041" />
+                <Rotation x="0" y="338.304047" z="0" />
+                <Scale x="0.250705659" y="0.2507056" z="0.2507056" />
+              </Start>
+              <Tween Time="0.5">
+                <Position x="0" y="0" z="2.58" />
+                <Rotation x="0" y="0" z="0" />
+                <Scale x="0.228360042" y="1" z="1" />
+              </Tween>
+            </Script>
+            <Script OperateType="Add" Name="BoxCollider" InitValue="" IsTrigger="true">
+              <Size x="1" y="1" z="1" />
+            </Script>
+          </Component>
+        </Model>
+      </Step>-->
+    </Chapter>
+  </Chapters>
+</Manager>
