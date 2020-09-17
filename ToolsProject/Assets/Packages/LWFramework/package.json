@@ -1,14 +1,15 @@
 {
     "name": "com.cb.lwframework",
     "displayName": "LWFramework",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "自用工具",
     "author": "chenbin",
     "license": "MIT",
     "unity": "2018.4",
     "type": "library",
     "dependencies": {
-        "com.cysharp.unitask": "2.0.31"
+        "com.cysharp.unitask": "2.0.31",
+        "com.cb.highlightplus": "1.0.0"
     },
     "enableLockFile": true,
     "resolutionStrategy": "highest"
