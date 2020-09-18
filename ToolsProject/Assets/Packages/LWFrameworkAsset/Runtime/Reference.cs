@@ -73,7 +73,7 @@ namespace libx
             if (refCount < 0)
             {
                 Debug.LogErrorFormat("Release: {0} refCount < 0", name);
-            }
+            } 
         }
 
         public void Require(Object obj)

@@ -94,7 +94,7 @@ namespace libx
             developVersions.dirs = searchPaths.ToArray();
             developVersions.assets = assets;
             developVersions.patches = patches;
-            
+            Assets.platform = BuildScript.GetPlatformName();
             Assets.basePath = Environment.CurrentDirectory.Replace("\\", "/") + "/" + BuildScript.outputPath + "/";
             Assets.assetLoader = AssetDatabase.LoadAssetAtPath; 
             Assets.versionsLoader += () => developVersions;

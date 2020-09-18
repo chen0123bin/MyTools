@@ -106,9 +106,9 @@ namespace libx
         [Tooltip("打包AB的选项")] public BuildAssetBundleOptions options = BuildAssetBundleOptions.ChunkBasedCompression;
 
         [Header("缓存数据")]
-        [Tooltip("所有要打包的资源")] public List<AssetBuild> assets = new List<AssetBuild>();
-        [Tooltip("所有分包")] public List<PatchBuild> patches = new List<PatchBuild>();
-        [Tooltip("所有打包的资源")] public List<BundleBuild> bundles = new List<BundleBuild>();
+        [Tooltip("所有要打包的资源"), Sirenix.OdinInspector.TableList()] public List<AssetBuild> assets = new List<AssetBuild>();
+        [Tooltip("所有分包"), Sirenix.OdinInspector.TableList()] public List<PatchBuild> patches = new List<PatchBuild>();
+        [Tooltip("所有打包的资源"), Sirenix.OdinInspector.TableList()] public List<BundleBuild> bundles = new List<BundleBuild>();
 
         public string currentScene;
 
@@ -153,7 +153,7 @@ namespace libx
         private GroupBy GetGroup(string assetPath)
         {
             var groupBy = GroupBy.Filename;
-            var dir = Path.GetDirectoryName(assetPath);
+            var dir = Path.GetDirectoryName(assetPath).Replace("\\", "/");
             if (autoGroupByDirectories.Length > 0)
             {
                 foreach (var groupWithDir in autoGroupByDirectories)
@@ -322,6 +322,10 @@ namespace libx
 
                             sb.Insert(0, dir.Name + "_");
                             dir = dir.Parent;
+                            if (dir.FullName == System.Environment.CurrentDirectory)
+                            {
+                                break;
+                            }
                             ++i;
                         }
 

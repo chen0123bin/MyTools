@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-
+[NodeWidth(260)]
 public class BaseStepNode : Node, IStepNode
 {
 

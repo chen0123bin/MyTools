@@ -39,8 +39,7 @@ namespace libx
     public enum LoadState
     {
         Init,
-        LoadAssetBundle,
-        LoadAsset,
+        Loading,
         Loaded,
         Unload,
     }
@@ -50,7 +49,25 @@ namespace libx
         public Type assetType;
         public string url;
 
-        public LoadState loadState { get; protected set; }
+        private LoadState _loadState = LoadState.Init;
+        public LoadState loadState
+        {
+            get
+            {
+                return _loadState;
+            }
+            protected set
+            {
+                if (_loadState != value)
+                {
+                    if (value == LoadState.Loaded)
+                    {
+                        Complete();
+                    }
+                    _loadState = value;
+                }
+            }
+        }
 
         public AssetRequest()
         {
@@ -60,7 +77,10 @@ namespace libx
 
         public virtual bool isDone
         {
-            get { return true; }
+            get
+            {
+                return loadState == LoadState.Unload || loadState == LoadState.Loaded;
+            }
         }
 
         public virtual float progress
@@ -80,6 +100,8 @@ namespace libx
         {
             if (!File.Exists(url))
             {
+                error = "error! file not exist:" + url;
+                loadState = LoadState.Loaded;
                 return;
             }
 
@@ -89,6 +111,7 @@ namespace libx
             {
                 error = "error! file not exist:" + url;
             }
+            loadState = LoadState.Loaded;
         }
 
         internal virtual void Unload()
@@ -103,25 +126,32 @@ namespace libx
             }
 
             asset = null;
+            loadState = LoadState.Unload;
         }
 
-        internal bool Update()
+        internal virtual bool Update()
         {
             if (!isDone)
                 return true;
-            if (completed == null)
-                return false;
-            try
-            {
-                completed.Invoke(this);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogException(ex);
-            }
-
-            completed = null;
+            Complete();
             return false;
+        }
+
+        private void Complete()
+        {
+            if (completed != null)
+            {
+                try
+                {
+                    completed.Invoke(this);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogException(ex);
+                }
+
+                completed = null;
+            }
         }
 
         public Action<AssetRequest> completed;
@@ -146,7 +176,7 @@ namespace libx
 
         public virtual void LoadImmediate()
         {
-            
+
         }
     }
 
@@ -154,6 +184,8 @@ namespace libx
     {
         protected readonly string assetBundleName;
         protected BundleRequest bundle;
+        protected List<BundleRequest> children = new List<BundleRequest>();
+
 
         public BundleAssetRequest(string bundle)
         {
@@ -163,8 +195,14 @@ namespace libx
         internal override void Load()
         {
             bundle = Assets.LoadBundle(assetBundleName);
+            var bundles = Assets.GetChildren(assetBundleName);
+            foreach (var item in bundles)
+            {
+                children.Add(Assets.LoadBundle(item));
+            }
             var assetName = Path.GetFileName(url);
             asset = bundle.assetBundle.LoadAsset(assetName, assetType);
+            loadState = LoadState.Loaded;
         }
 
         internal override void Unload()
@@ -175,8 +213,15 @@ namespace libx
                 bundle = null;
             }
 
+            foreach (var item in children)
+            {
+                item.Release();
+            }
+
+            children.Clear();
             asset = null;
-        } 
+            loadState = LoadState.Unload;
+        }
     }
 
     public class BundleAssetAsyncRequest : BundleAssetRequest
@@ -188,94 +233,128 @@ namespace libx
         {
         }
 
-        public override bool isDone
-        {
-            get
-            {
-                if (loadState == LoadState.Unload || loadState == LoadState.Loaded)
-                {
-                    return true;
-                }
-
-                if (error != null || bundle.error != null)
-                    return true;
-
-                for (int i = 0, max = bundle.children.Count; i < max; i++)
-                {
-                    var item = bundle.children[i];
-                    if (item.error != null)
-                        return true;
-                }
-
-                switch (loadState)
-                {
-                    case LoadState.Init:
-                        return false;
-                    case LoadState.Loaded:
-                        return true;
-                    case LoadState.LoadAssetBundle:
-                    {
-                        if (!bundle.isDone)
-                            return false;
-
-                        for (int i = 0, max = bundle.children.Count; i < max; i++)
-                        {
-                            var item = bundle.children[i];
-                            if (!item.isDone)
-                                return false;
-                        }
-
-                        if (bundle.assetBundle == null)
-                        {
-                            error = "assetBundle == null";
-                            return true;
-                        }
-
-                        var assetName = Path.GetFileName(url);
-                        _request = bundle.assetBundle.LoadAssetAsync(assetName, assetType);
-                        loadState = LoadState.LoadAsset;
-                        break;
-                    }
-                    case LoadState.Unload:
-                        break;
-                    case LoadState.LoadAsset:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-
-                if (loadState != LoadState.LoadAsset)
-                    return false;
-                if (!_request.isDone)
-                    return false;
-                asset = _request.asset;
-                loadState = LoadState.Loaded;
-                return true;
-            }
-        }
-
         public override float progress
         {
             get
             {
-                var bundleProgress = bundle.progress;
-                if (bundle.children.Count <= 0)
-                    return bundleProgress * 0.3f + (_request != null ? _request.progress * 0.7f : 0);
-                for (int i = 0, max = bundle.children.Count; i < max; i++)
+                if (isDone)
                 {
-                    var item = bundle.children[i];
-                    bundleProgress += item.progress;
+                    return 1;
                 }
 
-                return bundleProgress / (bundle.children.Count + 1) * 0.3f +
-                       (_request != null ? _request.progress * 0.7f : 0);
+                if (loadState == LoadState.Init)
+                {
+                    return 0;
+                }
+
+                if (_request != null)
+                {
+                    return _request.progress * 0.7f + 0.3f;
+                }
+
+                if (bundle == null)
+                {
+                    return 1;
+                }
+
+                var value = bundle.progress;
+                var max = children.Count;
+                if (max <= 0)
+                    return value * 0.3f;
+
+                for (int i = 0; i < max; i++)
+                {
+                    var item = children[i];
+                    value += item.progress;
+                }
+
+                return (value / (max + 1)) * 0.3f;
+            }
+        }
+
+        bool OnError(BundleRequest bundle)
+        {
+            error = bundle.error;
+            if (!string.IsNullOrEmpty(error))
+            {
+                loadState = LoadState.Loaded;
+                return true;
+            }
+            return false;
+        }
+
+        internal override bool Update()
+        {
+            if (!base.Update())
+            {
+                return false;
+            }
+
+            if (loadState == LoadState.Init)
+            {
+                return true;
+            }
+
+            if (_request == null)
+            {
+                if (!bundle.isDone)
+                {
+                    return true;
+                }
+                if (OnError(bundle))
+                {
+                    return false;
+                }
+
+                for (int i = 0; i < children.Count; i++)
+                {
+                    var item = children[i];
+                    if (!item.isDone)
+                    {
+                        return true;
+                    }
+                    if (OnError(item))
+                    {
+                        return false;
+                    }
+                }
+
+                var assetName = Path.GetFileName(url);
+                _request = bundle.assetBundle.LoadAssetAsync(assetName, assetType);
+                if (_request == null)
+                {
+                    error = "request == null";
+                    loadState = LoadState.Loaded;
+                    return false;
+                }
+
+                return true;
+            }
+            else
+            {
+                if (_request.isDone)
+                {
+                    asset = _request.asset;
+                    loadState = LoadState.Loaded;
+                    if (asset == null)
+                    {
+                        error = "asset == null";
+                    }
+                    return false;
+                }
+                return true;
             }
         }
 
         internal override void Load()
         {
             bundle = Assets.LoadBundleAsync(assetBundleName);
-            loadState = LoadState.LoadAssetBundle;
+            var bundles = Assets.GetChildren(assetBundleName);
+            foreach (var item in bundles)
+            {
+                children.Add(Assets.LoadBundleAsync(item));
+            }
+            loadState = LoadState.Loading;
         }
 
         internal override void Unload()
@@ -287,12 +366,17 @@ namespace libx
 
         public override void LoadImmediate()
         {
-            bundle.LoadImmediate(); 
+            bundle.LoadImmediate();
+            foreach (var item in children)
+            {
+                item.LoadImmediate();
+            }
             if (bundle.assetBundle != null)
             {
                 var assetName = Path.GetFileName(url);
-                asset = bundle.assetBundle.LoadAsset(assetName, assetType); 
+                asset = bundle.assetBundle.LoadAsset(assetName, assetType);
             }
+            loadState = LoadState.Loaded;
         }
     }
 
@@ -300,15 +384,18 @@ namespace libx
     {
         public readonly LoadSceneMode loadSceneMode;
         protected readonly string sceneName;
+
         public string assetBundleName { get; set; }
-        protected BundleRequest bundle;
+
         public List<SceneAssetRequest> additives { get; set; }
-        
+
+        protected BundleRequest bundle;
+        protected List<BundleRequest> children = new List<BundleRequest>();
+
         public SceneAssetRequest(string path, bool addictive)
         {
             url = path;
-            additives = new List<SceneAssetRequest>(); 
-            
+            additives = new List<SceneAssetRequest>();
             sceneName = Path.GetFileNameWithoutExtension(url);
             loadSceneMode = addictive ? LoadSceneMode.Additive : LoadSceneMode.Single;
         }
@@ -324,28 +411,45 @@ namespace libx
             {
                 bundle = Assets.LoadBundle(assetBundleName);
                 if (bundle != null)
+                {
+                    var bundles = Assets.GetChildren(assetBundleName);
+                    foreach (var item in bundles)
+                    {
+                        children.Add(Assets.LoadBundle(item));
+                    }
                     SceneManager.LoadScene(sceneName, loadSceneMode);
+                }
             }
             else
             {
                 try
                 {
                     SceneManager.LoadScene(sceneName, loadSceneMode);
-                    loadState = LoadState.LoadAsset;
+                    loadState = LoadState.Loading;
                 }
                 catch (Exception e)
                 {
                     Debug.LogException(e);
                     error = e.ToString();
-                    loadState = LoadState.Loaded;
+
                 }
             }
+            loadState = LoadState.Loaded;
         }
 
         internal override void Unload()
         {
             if (bundle != null)
                 bundle.Release();
+
+            if (children.Count > 0)
+            {
+                foreach (var item in children)
+                {
+                    item.Release();
+                }
+                children.Clear();
+            }
 
             if (additives.Count > 0)
             {
@@ -356,9 +460,9 @@ namespace libx
                     {
                         additive.Release();
                     }
-                } 
+                }
                 additives.Clear();
-            } 
+            }
 
             if (loadSceneMode == LoadSceneMode.Additive)
             {
@@ -367,6 +471,7 @@ namespace libx
             }
 
             bundle = null;
+            loadState = LoadState.Unload;
         }
     }
 
@@ -383,70 +488,107 @@ namespace libx
         {
             get
             {
-                if (bundle == null)
-                    return _request == null ? 0 : _request.progress;
-
-                var bundleProgress = bundle.progress;
-                if (bundle.children.Count <= 0)
-                    return bundleProgress * 0.3f + (_request != null ? _request.progress * 0.7f : 0);
-                for (int i = 0, max = bundle.children.Count; i < max; i++)
+                if (isDone)
                 {
-                    var item = bundle.children[i];
-                    bundleProgress += item.progress;
+                    return 1;
                 }
 
-                return bundleProgress / (bundle.children.Count + 1) * 0.3f +
-                       (_request != null ? _request.progress * 0.7f : 0);
+                if (loadState == LoadState.Init)
+                {
+                    return 0;
+                }
+
+                if (_request != null)
+                {
+                    return _request.progress * 0.7f + 0.3f;
+                }
+
+                if (bundle == null)
+                {
+                    return 1;
+                }
+
+                var value = bundle.progress;
+                var max = children.Count;
+                if (max <= 0)
+                    return value * 0.3f;
+
+                for (int i = 0; i < max; i++)
+                {
+                    var item = children[i];
+                    value += item.progress;
+                }
+
+                return (value / (max + 1)) * 0.3f;
             }
         }
 
-        public override bool isDone
+        bool OnError(BundleRequest bundle)
         {
-            get
+            error = bundle.error;
+            if (!string.IsNullOrEmpty(error))
             {
-                switch (loadState)
+                loadState = LoadState.Loaded;
+                return true;
+            }
+            return false;
+        }
+
+        internal override bool Update()
+        {
+            if (!base.Update())
+            {
+                return false;
+            }
+
+            if (loadState == LoadState.Init)
+            {
+                return true;
+            }
+
+            if (_request == null)
+            {
+                if (bundle == null)
                 {
-                    case LoadState.Loaded:
-                        return true;
-                    case LoadState.LoadAssetBundle:
-                    {
-                        if (bundle == null || bundle.error != null)
-                            return true;
-
-                        for (int i = 0, max = bundle.children.Count; i < max; i++)
-                        {
-                            var item = bundle.children[i];
-                            if (item.error != null)
-                                return true;
-                        }
-
-                        if (!bundle.isDone)
-                            return false;
-
-                        for (int i = 0, max = bundle.children.Count; i < max; i++)
-                        {
-                            var item = bundle.children[i];
-                            if (!item.isDone)
-                                return false;
-                        }
-
-                        LoadSceneAsync();
-
-                        break;
-                    }
-                    case LoadState.Unload:
-                        break;
-                    case LoadState.LoadAsset:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+                    error = "bundle == null";
+                    loadState = LoadState.Loaded;
+                    return false;
                 }
 
-                if (loadState != LoadState.LoadAsset)
+                if (!bundle.isDone)
+                {
+                    return true;
+                }
+
+                if (OnError(bundle))
+                {
                     return false;
-                if (_request != null && !_request.isDone)
+                }
+
+                for (int i = 0; i < children.Count; i++)
+                {
+                    var item = children[i];
+                    if (!item.isDone)
+                    {
+                        return true;
+                    }
+                    if (OnError(item))
+                    {
+                        return false;
+                    }
+                }
+
+                LoadSceneAsync();
+
+                return true;
+            }
+            else
+            {
+                if (_request.isDone)
+                {
+                    loadState = LoadState.Loaded;
                     return false;
-                loadState = LoadState.Loaded;
+                }
                 return true;
             }
         }
@@ -456,7 +598,7 @@ namespace libx
             try
             {
                 _request = SceneManager.LoadSceneAsync(sceneName, loadSceneMode);
-                loadState = LoadState.LoadAsset;
+                loadState = LoadState.Loading;
             }
             catch (Exception e)
             {
@@ -471,7 +613,12 @@ namespace libx
             if (!string.IsNullOrEmpty(assetBundleName))
             {
                 bundle = Assets.LoadBundleAsync(assetBundleName);
-                loadState = LoadState.LoadAssetBundle;
+                var bundles = Assets.GetChildren(assetBundleName);
+                foreach (var item in bundles)
+                {
+                    children.Add(Assets.LoadBundleAsync(item));
+                }
+                loadState = LoadState.Loading;
             }
             else
             {
@@ -490,31 +637,62 @@ namespace libx
     {
         private UnityWebRequest _www;
 
-        public override bool isDone
+        public override float progress
         {
             get
             {
-                if (loadState == LoadState.Init)
-                    return false;
-                if (loadState == LoadState.Loaded)
-                    return true;
-                if (loadState == LoadState.LoadAsset)
+                if (isDone)
                 {
-                    if (_www == null || !string.IsNullOrEmpty(_www.error))
-                        return true;
+                    return 1;
+                }
+                if (loadState == LoadState.Init)
+                {
+                    return 0;
+                }
 
-                    if (_www.isDone)
-                    {
-                        GetAsset();
-                        loadState = LoadState.Loaded;
-                        return true;
-                    }
+                if (_www == null)
+                {
+                    return 1;
+                }
 
+                return _www.downloadProgress;
+            }
+        }
+
+
+        internal override bool Update()
+        {
+            if (!base.Update())
+            {
+                return false;
+            }
+
+            if (loadState == LoadState.Loading)
+            {
+                if (_www == null)
+                {
+                    error = "www == null";
+                    return false;
+                }
+
+                if (!string.IsNullOrEmpty(_www.error))
+                {
+                    error = _www.error;
+                    loadState = LoadState.Loaded;
+                    return false;
+                }
+
+                if (_www.isDone)
+                {
+                    GetAsset();
+                    loadState = LoadState.Loaded;
                     return false;
                 }
 
                 return true;
             }
+
+            return true;
         }
 
         private void GetAsset()
@@ -537,16 +715,6 @@ namespace libx
             }
         }
 
-        public override string error
-        {
-            get { return _www.error; }
-        }
-
-        public override float progress
-        {
-            get { return _www.downloadProgress; }
-        }
-
         internal override void Load()
         {
             if (assetType == typeof(AudioClip))
@@ -562,9 +730,8 @@ namespace libx
                 _www = UnityWebRequest.Get(url);
                 _www.downloadHandler = new DownloadHandlerBuffer();
             }
-
             _www.SendWebRequest();
-            loadState = LoadState.LoadAsset;
+            loadState = LoadState.Loading;
         }
 
         internal override void Unload()
@@ -580,14 +747,13 @@ namespace libx
 
             bytes = null;
             text = null;
+            loadState = LoadState.Unload;
         }
     }
 
     public class BundleRequest : AssetRequest
     {
-        public readonly List<BundleRequest> children = new List<BundleRequest>();
-
-        public virtual AssetBundle assetBundle
+        public AssetBundle assetBundle
         {
             get { return asset as AssetBundle; }
             internal set { asset = value; }
@@ -598,98 +764,65 @@ namespace libx
             asset = AssetBundle.LoadFromFile(url);
             if (assetBundle == null)
                 error = url + " LoadFromFile failed.";
+            loadState = LoadState.Loaded;
         }
 
         internal override void Unload()
         {
-            children.Clear();
             if (assetBundle == null)
                 return;
             assetBundle.Unload(true);
             assetBundle = null;
+            loadState = LoadState.Unload;
         }
-
-        void ReleaseByBundle(BundleRequest bundle)
-        {
-            if (bundle.name.Equals(name))
-            {
-                base.Release();
-                return;
-            } 
-            if (_parents.Contains(bundle))
-            {
-                return;
-            }
-            _parents.Add(bundle); 
-            foreach (var child in bundle.children)
-            {
-                ReleaseByBundle(child);
-            }
-        }
-
-        private readonly List<BundleRequest> _parents = new List<BundleRequest>();
-
-        public override void Release()
-        {
-            base.Release();
-            foreach (var child in children)
-            {
-                ReleaseByBundle(child);
-            }
-            _parents.Clear();
-        } 
     }
 
     public class BundleAsyncRequest : BundleRequest
     {
         private AssetBundleCreateRequest _request;
 
-        public override AssetBundle assetBundle
-        {
-            get
-            {
-                if (_request != null && !_request.isDone)
-                {
-                    asset = _request.assetBundle;
-                    if (_request.assetBundle == null)
-                    {
-                        error = string.Format("unable to load assetBundle:{0}", url);
-                    }
-                    loadState = LoadState.Loaded;
-                }
-                return base.assetBundle;
-            }
-            internal set { base.assetBundle = value; }
-        }
-
-        public override bool isDone
-        {
-            get
-            {
-                if (loadState == LoadState.Init)
-                    return false;
-
-                if (loadState == LoadState.Loaded)
-                    return true;
-
-                if (loadState == LoadState.LoadAssetBundle && _request.isDone)
-                {
-                    asset = _request.assetBundle;
-                    if (_request.assetBundle == null)
-                    {
-                        error = string.Format("unable to load assetBundle:{0}", url);
-                    }
-
-                    loadState = LoadState.Loaded;
-                }
-
-                return _request == null || _request.isDone;
-            }
-        }
-
         public override float progress
         {
-            get { return _request != null ? _request.progress : 0f; }
+            get
+            {
+                if (isDone)
+                {
+                    return 1;
+                }
+                if (loadState == LoadState.Init)
+                {
+                    return 0;
+                }
+
+                if (_request == null)
+                {
+                    return 1;
+                }
+                return _request.progress;
+            }
+        }
+
+        internal override bool Update()
+        {
+            if (!base.Update())
+            {
+                return false;
+            }
+
+            if (loadState == LoadState.Loading)
+            {
+                if (_request.isDone)
+                {
+                    assetBundle = _request.assetBundle;
+                    if (assetBundle == null)
+                    {
+                        error = string.Format("unable to load assetBundle:{0}", url);
+                    }
+                    loadState = LoadState.Loaded;
+                    return false;
+                }
+            }
+            return true;
         }
 
         internal override void Load()
@@ -703,8 +836,8 @@ namespace libx
                     return;
                 }
 
-                loadState = LoadState.LoadAssetBundle;    
-            } 
+                loadState = LoadState.Loading;
+            }
         }
 
         internal override void Unload()
@@ -717,11 +850,12 @@ namespace libx
         public override void LoadImmediate()
         {
             Load();
-            var bundle = assetBundle;
-            if (bundle != null)
+            assetBundle = _request.assetBundle;
+            if (assetBundle != null)
             {
-                Debug.LogWarning("LoadImmediate:" + bundle.name);
+                Debug.LogWarning("LoadImmediate:" + assetBundle.name);
             }
+            loadState = LoadState.Loaded;
         }
     }
 
@@ -729,41 +863,62 @@ namespace libx
     {
         private UnityWebRequest _request;
 
-        public override string error
-        {
-            get { return _request != null ? _request.error : null; }
-        }
-
-        public override bool isDone
+        public override float progress
         {
             get
             {
-                if (loadState == LoadState.Init)
-                    return false;
-
-                if (_request == null || loadState == LoadState.Loaded)
-                    return true;
-
-                if (_request.isDone)
+                if (isDone)
                 {
-                    assetBundle = DownloadHandlerAssetBundle.GetContent(_request);
-                    loadState = LoadState.Loaded;
+                    return 1;
+                }
+                if (loadState == LoadState.Init)
+                {
+                    return 0;
                 }
 
-                return _request.isDone;
+                if (_request == null)
+                {
+                    return 1;
+                }
+
+                return _request.downloadProgress;
             }
         }
 
-        public override float progress
+        internal override bool Update()
         {
-            get { return _request != null ? _request.downloadProgress : 0f; }
+            if (!base.Update())
+            {
+                return false;
+            }
+
+            if (loadState == LoadState.Loading)
+            {
+                if (_request == null)
+                {
+                    error = "request = null";
+                    loadState = LoadState.Loaded;
+                    return false;
+                }
+                if (_request.isDone)
+                {
+                    assetBundle = DownloadHandlerAssetBundle.GetContent(_request);
+                    if (assetBundle == null)
+                    {
+                        error = "assetBundle = null";
+                    }
+                    loadState = LoadState.Loaded;
+                    return false;
+                }
+            }
+            return true;
         }
 
         internal override void Load()
         {
             _request = UnityWebRequestAssetBundle.GetAssetBundle(url);
             _request.SendWebRequest();
-            loadState = LoadState.LoadAssetBundle;
+            loadState = LoadState.Loading;
         }
 
         internal override void Unload()
@@ -773,7 +928,6 @@ namespace libx
                 _request.Dispose();
                 _request = null;
             }
-
             loadState = LoadState.Unload;
             base.Unload();
         }

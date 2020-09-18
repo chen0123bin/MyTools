@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using XNode.Examples.StateGraph;
 using XNodeEditor;
 using static XNodeEditor.NodeEditor;
 

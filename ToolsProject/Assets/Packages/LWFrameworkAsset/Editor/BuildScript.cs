@@ -65,7 +65,7 @@ namespace libx
             return GetAsset<BuildRules>("Assets/Rules.asset");
         }
 
-        private static string GetPlatformName()
+        internal static string GetPlatformName()
         {
             return GetPlatformForAssetBundles(EditorUserBuildSettings.activeBuildTarget);
         }

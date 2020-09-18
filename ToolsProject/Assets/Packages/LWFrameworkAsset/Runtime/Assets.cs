@@ -40,13 +40,15 @@ namespace libx
     {
         public const string Bundles = "Bundles";
         public const string Versions = "versions.bundle";
-
+        private const string KVersions = "versions";
         private const string TAG = "[Assets]";
 
         public static Func<string, Type, Object> assetLoader = null;
         public static Action<string> onAssetLoaded = null;
         public static Action<string> onAssetUnloaded = null;
         public static Func<Versions> versionsLoader = null;
+
+        public static Func<string> getPlatormName = null;
 
         private static void Log(string s)
         {
@@ -129,7 +131,11 @@ namespace libx
             if (!Directory.Exists(updatePath))
                 Directory.CreateDirectory(updatePath);
 
-            _platform = GetPlatformForAssetBundles(Application.platform);
+            if (string.IsNullOrEmpty(platform))
+            {
+                platform = GetPlatformForAssetBundles(Application.platform);
+            }
+
 
             if (Application.platform == RuntimePlatform.OSXEditor ||
                 Application.platform == RuntimePlatform.OSXPlayer ||
@@ -154,7 +160,6 @@ namespace libx
                     foreach (var bundle in filesInBuild)
                     {
                         var path = string.Format("{0}{1}", updatePath, bundle.name);
-                        LWDebug.Log("filesInBuildPath:" + path);
                         if (File.Exists(path))
                         {
                             File.Delete(path);
@@ -162,15 +167,21 @@ namespace libx
                     }
 
                     File.WriteAllText(file, localVersions.ver);
+                    PlayerPrefs.SetString(KVersions, localVersions.ver);
                 }
 
                 ReloadVersions(localVersions);
+                
+                localVersions.ver = PlayerPrefs.GetString(KVersions, localVersions.ver);
+                
                 Log("Initialize");
                 LogFormat("Development:{0}", development);
-                LogFormat("Platform:{0}", _platform);
+                LogFormat("Platform:{0}", platform);
                 LogFormat("UpdatePath:{0}", updatePath);
                 LogFormat("DownloadURL:{0}", downloadURL);
                 LogFormat("UpdateUnusedAssetsImmediate:{0}", updateUnusedAssetsImmediate);
+                LogFormat("Version:{0}", localVersions.ver);
+
                 if (completed != null)
                     completed(null);
             });
@@ -219,8 +230,7 @@ namespace libx
                     AssetToBundles[path] = bundles[item.bundle].name;
                 else
                     AssetToBundles[path] = string.Empty;
-            }
-
+            } 
             ActiveVariants.AddRange(activeVariants);
         }
 
@@ -236,6 +246,8 @@ namespace libx
                 {
                     serverVersions = LoadVersions(Application.temporaryCachePath + "/" + Versions);
                     ReloadVersions(serverVersions);
+                    PlayerPrefs.SetString(KVersions, serverVersions.ver); 
+                    localVersions.ver = serverVersions.ver;
                     RemoveUnusedAssets();
                 }
 
@@ -465,7 +477,7 @@ namespace libx
 
         private static string GetDownloadURL(string filename)
         {
-            return string.Format("{0}{1}/{2}", downloadURL, _platform, filename);
+            return string.Format("{0}{1}/{2}", downloadURL, platform, filename);
         }
 
         private static string GetLocalURL(string filename)
@@ -643,6 +655,19 @@ namespace libx
 
         private static bool updateUnusedAssetsNow { get; set; }
 
+        public static string platform
+        {
+            get
+            {
+                return _platform;
+            }
+
+            set
+            {
+                _platform = value;
+            }
+        }
+
         public static string DumpAssets()
         {
             var sb = new StringBuilder();
@@ -819,7 +844,7 @@ namespace libx
 
         private static readonly Dictionary<string, string[]> BundleToChildren = new Dictionary<string, string[]>();
 
-        private static string[] GetChildren(string bundle)
+        internal static string[] GetChildren(string bundle)
         {
             string[] deps;
             if (BundleToChildren.TryGetValue(bundle, out deps))
@@ -841,32 +866,7 @@ namespace libx
         internal static void UnloadBundle(BundleRequest bundle)
         {
             bundle.Release();
-        }
-
-        private static void UnloadChildren(BundleRequest bundle)
-        {
-            for (var i = 0; i < bundle.children.Count; i++)
-            {
-                var item = bundle.children[i];
-                if (item.refCount > 0)
-                {
-                    item.Release(); 
-                }
-            }
-            bundle.children.Clear();
-        }
-
-        private static void LoadChildren(BundleRequest bundle, string assetBundleName, bool asyncRequest)
-        {
-            var dependencies = GetChildren(assetBundleName);
-            if (dependencies.Length <= 0)
-                return;
-            for (var i = 0; i < dependencies.Length; i++)
-            {
-                var item = dependencies[i];
-                bundle.children.Add(LoadBundle(item, asyncRequest));
-            }
-        }
+        } 
 
         internal static BundleRequest LoadBundle(string assetBundleName, bool asyncMode)
         {
@@ -914,9 +914,7 @@ namespace libx
                 bundle.Load();
                 LoadingBundles.Add(bundle);
                 LogFormat("LoadBundle: {0}", url);
-            }
-
-            LoadChildren(bundle, assetBundleName, asyncMode);
+            } 
 
             bundle.Retain();
             return bundle;
@@ -986,7 +984,6 @@ namespace libx
                 for (var i = 0; i < UnusedBundles.Count; ++i)
                 {
                     var item = UnusedBundles[i];
-                    UnloadChildren(item);
                     item.Unload();
                     LogFormat("UnloadBundle:{0}", item.url);
                     BundleRequests.Remove(item.name);

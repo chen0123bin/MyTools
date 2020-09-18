@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7882353, g: 0.93333334, b: 0.8103379, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.85501504, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1208,11 +1208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 891376169241458454}
     m_Modifications:
-    - target: {fileID: 5708868860389682262, guid: b75bbdff7c6df5541b664a8fb2e1fd89,
-        type: 3}
-      propertyPath: m_Name
-      value: TestChildTemplate
-      objectReference: {fileID: 0}
     - target: {fileID: 2794881719660657052, guid: b75bbdff7c6df5541b664a8fb2e1fd89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1317,6 +1312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5708868860389682262, guid: b75bbdff7c6df5541b664a8fb2e1fd89,
+        type: 3}
+      propertyPath: m_Name
+      value: TestChildTemplate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75bbdff7c6df5541b664a8fb2e1fd89, type: 3}

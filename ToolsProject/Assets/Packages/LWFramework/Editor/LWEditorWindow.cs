@@ -23,10 +23,10 @@ public class LWEditorWindow : OdinMenuEditorWindow
         var tree = new OdinMenuTree();
         tree.DefaultMenuStyle = OdinMenuStyle.TreeViewStyle;
         tree.Selection.SupportsMultiSelect = false;
-
-        tree.Add("AB管理", new ABManager());
         tree.Add("DLL管理", new DLLManager());
-        // tree.Add("Manifest", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Manifest.asset"));
+#if XASSET
+        tree.Add("AB管理", Resources.Load("AssetBuildTool"));
+#endif
         tree.Add("打包规则", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Rules.asset"));
         tree.Add("配置", Resources.Load<LWGlobalConfig>("LWGlobalConfig"));
         tree.Add("其他", new OtherToolManger());
@@ -43,7 +43,7 @@ public class LWEditorWindow : OdinMenuEditorWindow
         tree.EnumerateTree().AddThumbnailIcons();
         return tree;
     }
-    [MenuItem("LWFramework/打开工具")]
+    [MenuItem("LWFramework/打开工具",priority =1)]
     private static void OpenWindow()
     {
         LWEditor = GetWindow<LWEditorWindow>();

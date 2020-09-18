@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: Base Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 120, y: 200}
+  position: {x: -232, y: 40}
   ports:
     keys:
     - enter
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: Move Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: 184}
+  position: {x: -584, y: 24}
   ports:
     keys:
     - enter
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: Base Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -488, y: 184}
+  position: {x: -904, y: 8}
   ports:
     keys:
     - enter

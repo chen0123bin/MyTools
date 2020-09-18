@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assetMode: 1
   hotfixCodeRunMode: 2
-  loggable: 0
+  loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.200.199:8089/Bundles/
+  downloadURL: http://192.168.2.109:8089/
   development: 0
   dontDestroyOnLoad: 1
   searchPaths: []

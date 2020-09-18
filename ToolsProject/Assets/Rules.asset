@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 43
+  build: 60
   major: 0
   minor: 0
   autoRecord: 1
@@ -62,9 +62,9 @@ MonoBehaviour:
     groupBy: 2
   - name: Assets/@Resources/Sprites/log3.png
     group: 
-    bundle: sprites_log3.bundle
+    bundle: assets_@resources_sprites.bundle
     id: 0
-    groupBy: 2
+    groupBy: 3
   - name: Assets/@Resources/Scenes/HotfixPatch.unity
     group: 
     bundle: scenes_hotfixpatch.bundle
@@ -90,11 +90,26 @@ MonoBehaviour:
     bundle: prefabs_cube.bundle
     id: 0
     groupBy: 2
-  - name: Assets/@Resources/Hotfix/TestInBuild.txt
+  - name: Assets/@Resources/Sprites/common_image_bg.png
     group: 
-    bundle: 
+    bundle: assets_@resources_sprites.bundle
     id: 0
-    groupBy: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/UnityLogo.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/log2.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
+  - name: Assets/@Resources/Sprites/blackSquare.png
+    group: 
+    bundle: assets_@resources_sprites.bundle
+    id: 0
+    groupBy: 3
   patches:
   - name: HotfixPatch
     assets:
@@ -116,7 +131,6 @@ MonoBehaviour:
     - Assets/@Resources/Prefabs/UIRoot2.prefab
     - Assets/@Resources/Prefabs/CubeRigidbody.prefab
     - Assets/@Resources/Prefabs/Cube.prefab
-    - Assets/@Resources/Hotfix/TestInBuild.txt
   bundles:
   - assetBundleName: prefabs_testhotfixview.bundle
     assetNames:
@@ -136,9 +150,13 @@ MonoBehaviour:
   - assetBundleName: prefabs_testchilditem.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestChildItem.prefab
-  - assetBundleName: sprites_log3.bundle
+  - assetBundleName: assets_@resources_sprites.bundle
     assetNames:
     - Assets/@Resources/Sprites/log3.png
+    - Assets/@Resources/Sprites/common_image_bg.png
+    - Assets/@Resources/Sprites/UnityLogo.png
+    - Assets/@Resources/Sprites/log2.png
+    - Assets/@Resources/Sprites/blackSquare.png
   - assetBundleName: scenes_hotfixpatch.bundle
     assetNames:
     - Assets/@Resources/Scenes/HotfixPatch.unity
