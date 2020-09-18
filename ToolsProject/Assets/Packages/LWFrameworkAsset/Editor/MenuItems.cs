@@ -36,113 +36,113 @@ namespace libx
 {
     public static class MenuItems
     {
-        /**
-                [MenuItem("XASSET/Copy Bundles")]
-                private static void CopyBundles()
-                {
-                    BuildScript.CopyAssets();
-                }
+        /**     
+                     [MenuItem("XASSET/Copy Bundles")]
+                     private static void CopyBundles()
+                     {
+                         BuildScript.CopyAssets();
+                     }
 
-                [MenuItem("XASSET/Build/Bundles")]
-                private static void BuildBundles()
-                {
-                    var watch = new Stopwatch();
-                    watch.Start();
-                    BuildScript.BuildRules();
-                    BuildScript.BuildAssetBundles();
-                    watch.Stop();
-                    Debug.Log("BuildBundles " + watch.ElapsedMilliseconds + " ms.");
-                }
-
-                [MenuItem("XASSET/Build/Player")]
-                private static void BuildPlayer()
-                {
-                    var watch = new Stopwatch();
-                    watch.Start();
-                    BuildScript.BuildPlayer();
-                    watch.Stop();
-                    Debug.Log("BuildPlayer " + watch.ElapsedMilliseconds + " ms.");
-                }
-
-                [MenuItem("XASSET/Build/Rules")]
-                private static void BuildRules()
-                {
-                    var watch = new Stopwatch();
-                    watch.Start();
-                    BuildScript.BuildRules();
-                    watch.Stop();
-                    Debug.Log("BuildRules " + watch.ElapsedMilliseconds + " ms.");
-                }
-
-                [MenuItem("XASSET/View/Versions")]
-                private static void ViewVersions()
-                {
-                    BuildScript.ViewVersions();
-                }
-
-                [MenuItem("XASSET/View/Bundles")]
-                private static void ViewBundles()
-                {
-                    EditorUtility.OpenWithDefaultApp(Assets.Bundles);
-                }
-
-                [MenuItem("XASSET/View/Download")]
-                private static void ViewDownload()
-                {
-                    EditorUtility.OpenWithDefaultApp(Application.persistentDataPath);
-                }
-
-                [MenuItem("XASSET/View/Temp")]
-                private static void ViewTemp()
-                {
-                    EditorUtility.OpenWithDefaultApp(Application.temporaryCachePath);
-                }
-
-                [MenuItem("XASSET/View/CRC")]
-                private static void GetCRC()
-                {
-                    var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
-                    if (string.IsNullOrEmpty(path)) return;
-
-                    using (var fs = File.OpenRead(path))
+                     [MenuItem("XASSET/Build/Bundles")]
+                     private static void BuildBundles()
+                     {
+                         var watch = new Stopwatch();
+                         watch.Start();
+                         BuildScript.BuildRules();
+                         BuildScript.BuildAssetBundles();
+                         watch.Stop();
+                         Debug.Log("BuildBundles " + watch.ElapsedMilliseconds + " ms.");
+                     }
+            
+                    [MenuItem("XASSET/Build/Player")]
+                    private static void BuildPlayer()
                     {
-                        var crc = Utility.GetCRC32Hash(fs);
-                        Debug.Log(crc);
+                        var watch = new Stopwatch();
+                        watch.Start();
+                        BuildScript.BuildPlayer();
+                        watch.Stop();
+                        Debug.Log("BuildPlayer " + watch.ElapsedMilliseconds + " ms.");
                     }
-                }
 
-                [MenuItem("XASSET/View/MD5")]
-                private static void GetMD5()
-                {
-                    var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
-                    if (string.IsNullOrEmpty(path)) return;
-
-                    using (var fs = File.OpenRead(path))
+                    [MenuItem("XASSET/Build/Rules")]
+                    private static void BuildRules()
                     {
-                        var crc = Utility.GetMD5Hash(fs);
-                        Debug.Log(crc);
+                        var watch = new Stopwatch();
+                        watch.Start();
+                        BuildScript.BuildRules();
+                        watch.Stop();
+                        Debug.Log("BuildRules " + watch.ElapsedMilliseconds + " ms.");
                     }
-                }
 
-                [MenuItem("XASSET/Dump Assets")]
-                private static void DumpAssets()
-                {
-                    var path = EditorUtility.SaveFilePanel("DumpAssets", null, "dump", "txt");
-                    if (string.IsNullOrEmpty(path)) return;
-                    var s = Assets.DumpAssets();
-                    File.WriteAllText(path, s);
-                    EditorUtility.OpenWithDefaultApp(path);
-                }
+                    [MenuItem("XASSET/View/Versions")]
+                    private static void ViewVersions()
+                    {
+                        BuildScript.ViewVersions();
+                    }
 
-                [MenuItem("XASSET/Take Screenshot")]
-                private static void Screenshot()
-                {
-                    var path = EditorUtility.SaveFilePanel("截屏", null, "screenshot_", "png");
-                    if (string.IsNullOrEmpty(path)) return;
+                    [MenuItem("XASSET/View/Bundles")]
+                    private static void ViewBundles()
+                    {
+                        EditorUtility.OpenWithDefaultApp(Assets.Bundles);
+                    }
 
-                    ScreenCapture.CaptureScreenshot(path);
-                }
-            */
+                    [MenuItem("XASSET/View/Download")]
+                    private static void ViewDownload()
+                    {
+                        EditorUtility.OpenWithDefaultApp(Application.persistentDataPath);
+                    }
+
+                    [MenuItem("XASSET/View/Temp")]
+                    private static void ViewTemp()
+                    {
+                        EditorUtility.OpenWithDefaultApp(Application.temporaryCachePath);
+                    }
+
+                    [MenuItem("XASSET/View/CRC")]
+                    private static void GetCRC()
+                    {
+                        var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
+                        if (string.IsNullOrEmpty(path)) return;
+
+                        using (var fs = File.OpenRead(path))
+                        {
+                            var crc = Utility.GetCRC32Hash(fs);
+                            Debug.Log(crc);
+                        }
+                    }
+
+                    [MenuItem("XASSET/View/MD5")]
+                    private static void GetMD5()
+                    {
+                        var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
+                        if (string.IsNullOrEmpty(path)) return;
+
+                        using (var fs = File.OpenRead(path))
+                        {
+                            var crc = Utility.GetMD5Hash(fs);
+                            Debug.Log(crc);
+                        }
+                    }
+
+                    [MenuItem("XASSET/Dump Assets")]
+                    private static void DumpAssets()
+                    {
+                        var path = EditorUtility.SaveFilePanel("DumpAssets", null, "dump", "txt");
+                        if (string.IsNullOrEmpty(path)) return;
+                        var s = Assets.DumpAssets();
+                        File.WriteAllText(path, s);
+                        EditorUtility.OpenWithDefaultApp(path);
+                    }
+
+                    [MenuItem("XASSET/Take Screenshot")]
+                    private static void Screenshot()
+                    {
+                        var path = EditorUtility.SaveFilePanel("截屏", null, "screenshot_", "png");
+                        if (string.IsNullOrEmpty(path)) return;
+
+                        ScreenCapture.CaptureScreenshot(path);
+                    }
+                */
         [MenuItem("Assets/ToJson")]
         private static void ToJson()
         {

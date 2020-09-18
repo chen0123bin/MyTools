@@ -101,7 +101,7 @@ namespace libx
             Assets.onAssetLoaded += rules.OnLoadAsset;
             Assets.onAssetUnloaded += rules.OnUnloadAsset;   
             rules.BeginSample();
-            //EditorBuildSettings.scenes = scenes; 
+            EditorBuildSettings.scenes = scenes; 
             EditorApplication.playModeStateChanged += EditorApplicationOnplayModeStateChanged; 
         }
 

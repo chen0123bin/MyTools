@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 60
+  build: 75
   major: 0
   minor: 0
   autoRecord: 1
@@ -116,6 +116,7 @@ MonoBehaviour:
     - Assets/@Resources/Scenes/HotfixPatch.unity
     - Assets/@Resources/Hotfix/hotfix.dll.byte
     - Assets/@Resources/Hotfix/hotfix.dll.pdb
+    - Assets/@Resources/Prefabs/Cube.prefab
   - name: TestScene
     assets:
     - Assets/@Resources/Scenes/TestScene.unity

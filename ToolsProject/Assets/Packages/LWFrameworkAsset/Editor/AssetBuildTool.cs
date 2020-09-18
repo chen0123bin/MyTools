@@ -11,28 +11,31 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AssetBuildTool", menuName = "LWFramework/AssetBuildTool", order = 0)]
 public class AssetBuildTool : ScriptableObject
 {
-    [FoldoutGroup("打包"),Button("打包AB",ButtonSizes.Medium)]
+    [FoldoutGroup("打包"), Button("打包AB", ButtonSizes.Medium)]
     private static void BuildBundles()
     {
-        var watch = new Stopwatch();
-        watch.Start();
-        BuildScript.BuildRules();
-        //避免报错
-        EditorApplication.delayCall += () => { BuildScript.BuildAssetBundles(); };
-       
-        watch.Stop();
-        LWDebug.Log("BuildBundles " + watch.ElapsedMilliseconds + " ms.");
+        EditorApplication.delayCall += () =>
+        {
+            var watch = new Stopwatch();
+            watch.Start();
+            BuildScript.BuildRules();
+            BuildScript.BuildAssetBundles();
+            watch.Stop();
+            LWDebug.Log("Bundles " + watch.ElapsedMilliseconds + " ms.");
+        };
     }
-
     [FoldoutGroup("打包"), Button("打包程序", ButtonSizes.Medium)]
     private static void BuildPlayer()
-    {
-        var watch = new Stopwatch();
-        watch.Start();
+    {     
         //避免报错
-        EditorApplication.delayCall += () => { BuildScript.BuildPlayer(); };       
-        watch.Stop();
-        LWDebug.Log("BuildPlayer " + watch.ElapsedMilliseconds + " ms.");
+        EditorApplication.delayCall += () => {
+            var watch = new Stopwatch();
+            watch.Start();
+            BuildScript.BuildPlayer();
+            watch.Stop();
+            LWDebug.Log("Player " + watch.ElapsedMilliseconds + " ms.");
+        };       
+       
     }
 
     [FoldoutGroup("打包"), Button("打包Rules")]
