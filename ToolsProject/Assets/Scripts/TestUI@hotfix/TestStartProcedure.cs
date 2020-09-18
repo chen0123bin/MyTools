@@ -31,7 +31,7 @@ public class TestStartProcedure : BaseFSMState
     }
 
     void LoadSceneComplete() {
-        MainManager.Instance.GetManager<UIManager>().OpenView<TestHotfixView>();
+        MainManager.Instance.GetManager<IUIManager>().OpenView<TestHotfixView>();
         GameObject.Find("Canvas").AddComponent(typeof(TestHotfixMono));
         MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/HotfixPatch.unity", true);
         GameObject go = MainManager.Instance.GetManager<IAssetsManager>().Load<GameObject>("Assets/@Resources/Prefabs/CubeRigidbody.prefab");

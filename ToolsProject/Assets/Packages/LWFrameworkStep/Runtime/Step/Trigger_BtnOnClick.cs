@@ -22,7 +22,7 @@ public class Trigger_BtnOnClick : Trigger_Base
         Debug.Log("关闭");
         OnNextEvent(this.gameObject);
     }
-    public void OnDestroy()
+    protected override void OnDestroy()
     {
        // _questionUI.Clear();
     }

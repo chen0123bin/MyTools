@@ -119,13 +119,13 @@ namespace LWFramework.Core {
         /// </summary>
         public void StartProcedure()
         {
-            GetManager<FSMManager>().InitFSMManager();
+            GetManager<IFSMManager>().InitFSMManager();
             //找到所有的流程管理类
-            List<AttributeTypeData> procedureList = GetManager<FSMManager>().GetFsmClassDataByName(nameof(FSMName.Procedure));
+            List<AttributeTypeData> procedureList = GetManager< IFSMManager>().GetFsmClassDataByName(nameof(FSMName.Procedure));
             //创建一个流程管理状态机       
             FSMStateMachine stateMachine = new FSMStateMachine(nameof(FSMName.Procedure), procedureList);
-            GetManager<FSMManager>().RegisterFSM(stateMachine);
-            GetManager<FSMManager>().GetFSMProcedure().StartFirst();
+            GetManager<IFSMManager>().RegisterFSM(stateMachine);
+            GetManager<IFSMManager>().GetFSMProcedure().StartFirst();
         }
         /// <summary>
         /// 根据特性去获取对应的所有type

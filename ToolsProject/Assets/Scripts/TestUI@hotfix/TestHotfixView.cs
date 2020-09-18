@@ -46,10 +46,10 @@ public class TestHotfixView : LWFramework.UI.BaseUIView
 
 
         //可用于拆分逻辑代码
-        TestChildItem2 uIViewBase2 = (TestChildItem2)MainManager.Instance.GetManager<UIManager>().CreateView<TestChildItem2>(parent2);
-        uIViewBase2._HeadImg.sprite = UIUtility.Instance.GetSprite("Assets/@Resources/Sprites/log3.png");
-       // var asset2 = await MainManager.Instance.GetManager<AssetsManager>().LoadAsyncTask<Texture2D>("http://192.168.2.109:8089/Windows/%E9%A6%96%E9%A1%B5.png");
-       // Texture2D texture = (Texture2D)asset2.asset;
+        //TestChildItem2 uIViewBase2 = (TestChildItem2)MainManager.Instance.GetManager<IUIManager>().CreateView<TestChildItem2>(parent2);
+        // uIViewBase2._HeadImg.sprite = UIUtility.Instance.GetSprite("Assets/@Resources/Sprites/log3.png");
+        // var asset2 = await MainManager.Instance.GetManager<AssetsManager>().LoadAsyncTask<Texture2D>("http://192.168.2.109:8089/Windows/%E9%A6%96%E9%A1%B5.png");
+        // Texture2D texture = (Texture2D)asset2.asset;
         //button1.GetComponent<Image>().sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
     }
 

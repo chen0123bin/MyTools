@@ -8,11 +8,11 @@ namespace LWFramework.FMS
     /// 有限状态机管理者
     /// </summary>
     //[ManagerClass(ManagerType.Normal)]
-    public sealed class FSMManager : IManager
+    public sealed class FSMManager : IManager, IFSMManager
     {
         private Dictionary<string, FSMStateMachine> _fsms = new Dictionary<string, FSMStateMachine>();
         private Dictionary<string, List<AttributeTypeData>> _fsmStateList = new Dictionary<string, List<AttributeTypeData>>();
-      
+
         /// <summary>
         /// 注册状态机
         /// </summary>
@@ -66,8 +66,9 @@ namespace LWFramework.FMS
         /// 获取流程状态机
         /// </summary>
         /// <returns></returns>
-        public FSMStateMachine GetFSMProcedure() {
-            return _fsms[nameof( FSMName.Procedure)];
+        public FSMStateMachine GetFSMProcedure()
+        {
+            return _fsms[nameof(FSMName.Procedure)];
         }
         /// <summary>
         /// 是否存在指定的状态机
@@ -83,9 +84,13 @@ namespace LWFramework.FMS
         /// </summary>
         /// <param name="fsmName"></param>
         /// <returns></returns>
-        public List<AttributeTypeData> GetFsmClassDataByName(string fsmName) {
+        public List<AttributeTypeData> GetFsmClassDataByName(string fsmName)
+        {
             return _fsmStateList[fsmName];
         }
+        /// <summary>
+        /// 初始化状态机
+        /// </summary>
         public void InitFSMManager()
         {
             //找到所有的流程管理类
@@ -108,7 +113,7 @@ namespace LWFramework.FMS
                 item.Value.Update();
             }
         }
-       
+
         public void Init()
         {
         }

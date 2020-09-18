@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 124888215472812516}
   - component: {fileID: 81941887500253044}
   - component: {fileID: 114705405726279238}
-  - component: {fileID: 114383140313272538}
   - component: {fileID: 114044568842243200}
   m_Layer: 0
   m_Name: Main Camera
@@ -107,24 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de366effab192d545b35969a6f22c90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114383140313272538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560280569391464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c11fc24807cfa642acf94cc7d4d4a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stencilZBufferDepth: 0
-  _downsampleFactor: 4
-  iterations: 1
-  blurMinSpread: 0.75
-  blurSpread: 0
-  _blurIntensity: 0.35
 --- !u!114 &114044568842243200
 MonoBehaviour:
   m_ObjectHideFlags: 0

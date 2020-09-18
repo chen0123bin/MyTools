@@ -18,20 +18,20 @@ public class MessageBoxViewHelp:Singleton<MessageBoxViewHelp>
     /// <param name="confirmStr"></param>
     /// <param name="cancelStr"></param>
     public void OpenMessageBox(string viewName,GameObject uiGameObject, string msgContent, Action<bool> OnBtnClick, string titleStr = "提示", string confirmStr = "确定",string cancelStr = "取消") {
-        MainManager.Instance.GetManager<UIManager>().OpenView<MessageBoxView>(viewName, uiGameObject);
-        MessageBoxView messageBoxView = MainManager.Instance.GetManager<UIManager>().GetView<MessageBoxView>(viewName);
+        MainManager.Instance.GetManager<IUIManager>().OpenView<MessageBoxView>(viewName, uiGameObject);
+        MessageBoxView messageBoxView = MainManager.Instance.GetManager<IUIManager>().GetView<MessageBoxView>(viewName);
         SetMessageBoxView(messageBoxView, OnBtnClick, msgContent, titleStr,confirmStr, cancelStr);
     }
     public void OpenMessageBox(string viewName, string msgContent, Action<bool> OnBtnClick, string titleStr = "提示", string confirmStr = "确定", string cancelStr = "取消")
     {
-        MainManager.Instance.GetManager<UIManager>().OpenView<MessageBoxView>(viewName);
-        MessageBoxView messageBoxView = MainManager.Instance.GetManager<UIManager>().GetView<MessageBoxView>(viewName);
+        MainManager.Instance.GetManager<IUIManager>().OpenView<MessageBoxView>(viewName);
+        MessageBoxView messageBoxView = MainManager.Instance.GetManager<IUIManager>().GetView<MessageBoxView>(viewName);
         SetMessageBoxView(messageBoxView, OnBtnClick, msgContent, titleStr, confirmStr, cancelStr);
     }
     public void OpenMessageBox(string msgContent, Action<bool> OnBtnClick, string titleStr = "提示", string confirmStr = "确定", string cancelStr = "取消")
     {
-        MainManager.Instance.GetManager<UIManager>().OpenView<MessageBoxView>();
-        MessageBoxView messageBoxView = MainManager.Instance.GetManager<UIManager>().GetView<MessageBoxView>();
+        MainManager.Instance.GetManager<IUIManager>().OpenView<MessageBoxView>();
+        MessageBoxView messageBoxView = MainManager.Instance.GetManager<IUIManager>().GetView<MessageBoxView>();
         SetMessageBoxView(messageBoxView, OnBtnClick, msgContent, titleStr, confirmStr, cancelStr);
     }
     void SetMessageBoxView(MessageBoxView messageBoxView, Action<bool> OnBtnClick, string msgContent, string titleStr = "提示", string confirmStr = "确定", string cancelStr = "取消") {

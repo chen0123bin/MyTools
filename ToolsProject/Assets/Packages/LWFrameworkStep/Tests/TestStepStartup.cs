@@ -18,8 +18,8 @@ public class TestStepStartup : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         MainManager.Instance.Init();
         //添加各种管理器
-        MainManager.Instance.AddManager(typeof(UIManager).ToString(), new UIManager());
-        MainManager.Instance.AddManager(typeof(FSMManager).ToString(), new FSMManager());
+        MainManager.Instance.AddManager(typeof(IUIManager).ToString(), new UIManager());
+        MainManager.Instance.AddManager(typeof(IFSMManager).ToString(), new FSMManager());
         MainManager.Instance.AddManager(typeof(HotfixManager).ToString(), new HotfixManager());
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
         MainManager.Instance.AddManager(typeof(IHighlightingManager).ToString(), new HighlightingPlusManager());
