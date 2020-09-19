@@ -286,7 +286,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", childName);
+                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");

@@ -33,6 +33,7 @@ public class Startup : MonoBehaviour
 
         MainManager.Instance.GetManager<IAssetsManager>().OnUpdateCallback = OnUpdateCallback;
     }
+   
     /// <summary>
     /// 默认资源更新完成
     /// </summary>

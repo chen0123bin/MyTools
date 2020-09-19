@@ -29,7 +29,7 @@ public class ChapterManager : MonoBehaviour {
         _stepManager = gameObject.AddComponent<StepManager>();      
         foreach (var item in _chapterData.GetXElementData())
         {
-           // Debug.Log(item.Attribute("Remark").Value);
+            Debug.Log(item.Attribute("Remark").Value);
           //  LogicUIManager.GetInstance().AddChapterRemark(item.Attribute("Remark").Value, chapterMax+1);
             chapterMax++;
         }
@@ -68,7 +68,7 @@ public class ChapterManager : MonoBehaviour {
         NextChapter();
     }
     //切换至下一章节
-    public void NextChapter() {
+    void NextChapter() {
         //关闭鼠标操作模式
         Debug.Log("开始一个章节");
         _currentChapterIndex++;
@@ -84,7 +84,7 @@ public class ChapterManager : MonoBehaviour {
         _stepManager.SetStepsXml(chapterXElement);
     }
     //切换至上一章节
-    public void LastChapter()
+    void LastChapter()
     {       
         _currentChapterIndex--;
         if (_currentChapterIndex == -1)
@@ -112,8 +112,8 @@ public class ChapterManager : MonoBehaviour {
     /// </summary>
     void DispatcherHelp() {
         string remark = _chapterData.GetXElementData()[_currentChapterIndex].Attribute("Remark").Value;
-        Message message = MessagePool.GetMessage(CommonMessageType.GL_SetTitileText);
-        message["TitleText"] = remark;
+        Message message = MessagePool.GetMessage(CommonMessageType.GL_SetRemarkText);
+        message["RemarkText"] = remark;
         MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(message);
     }
 }

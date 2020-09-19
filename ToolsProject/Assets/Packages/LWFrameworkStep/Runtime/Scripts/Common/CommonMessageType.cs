@@ -26,9 +26,9 @@ public class CommonMessageType {
     /// <summary>
     /// 设置帮助前提信息
     /// </summary>
-    public static string GL_SetTitileText { get; } = "MainView_GL_SetTitileText";
+    public static string GL_SetRemarkText { get; } = "MainView_GL_SetTitileText";
     /// <summary>
-    /// 设置帮助前提信息
+    /// 所有结束
     /// </summary>
     public static string GL_SetAllFinish { get; } = "AllFinish";
 }

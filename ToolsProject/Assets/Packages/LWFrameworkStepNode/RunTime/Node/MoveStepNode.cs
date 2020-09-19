@@ -7,6 +7,10 @@ using System;
 
 public class MoveStepNode : BaseStepNode
 {
+    [Sirenix.OdinInspector.ShowInInspector]
+    public BaseC c1;
+    [Sirenix.OdinInspector.ShowInInspector]
+    public Action<int> m_action;
     public List<MoveStepData> _dataList;
     // Use this for initialization
     protected override void Init() {
@@ -42,4 +46,23 @@ public class MoveStepData {
     public float moveExitTime;
     public Vector3 enterPosi;
     public Vector3 exitPosi;
+}
+[Serializable]
+public class MyTestClass<T> {
+    public T Some;
+}
+
+public class BaseC {
+    public int id;
+}
+public class C1 : BaseC
+{
+    public string abc;
+    public string aa;
+}
+public class C2: BaseC
+{
+    public Transform target;
+    public Vector3 v3;
+
 }
