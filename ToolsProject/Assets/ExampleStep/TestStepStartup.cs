@@ -25,7 +25,7 @@ public class TestStepStartup : MonoBehaviour
 
         MainManager.Instance.GetManager<IUIManager>().OpenView<TestView>();
        
-    }
+    } 
     // Update is called once per frame
     void Update()
     {

@@ -78,7 +78,7 @@ public class LWEditorWindow : OdinMenuEditorWindow
         {
             return;
         }
-        string path = GetParentPath(Selection.activeObject as GameObject, "");
+        string path = (Selection.activeObject as GameObject).GetHierarchyPath();//GetParentPath(Selection.activeObject as GameObject, "");
         GUIUtility.systemCopyBuffer = path;
         Debug.Log(string.Format("systemCopyBuffer: {0}", path));
     }
@@ -89,20 +89,7 @@ public class LWEditorWindow : OdinMenuEditorWindow
         CanvasGroup canvasGroup = view.GetComponent<CanvasGroup>();
         canvasGroup.SetActive(canvasGroup.alpha == 0);
     }
-    static string GetParentPath(GameObject child, string str)
-    {
-        if (child.transform.parent == null)
-        {
-            str = child.name + str;
-            return str;
-        }
-        else
-        {
-            str = "/" + child.name + str;
-            return GetParentPath( child.transform.parent.gameObject, str);
-        }
-
-    }
+  
 }
 
 
