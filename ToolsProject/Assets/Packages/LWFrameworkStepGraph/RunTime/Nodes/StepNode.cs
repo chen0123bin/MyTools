@@ -32,7 +32,7 @@ public class StepNode : BaseStepNode
         m_CompletedCount = 0;
         for (int i = 0; m_StepTriggerList!=null&&i < m_StepTriggerList.Count; i++)
         {
-            m_StepTriggerList[i].TiggerAction = OnTiggerAction;
+            m_StepTriggerList[i].TiggerCompleted = OnTiggerAction;
             m_StepTriggerList[i].TriggerBegin();
         }
         for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
@@ -52,7 +52,7 @@ public class StepNode : BaseStepNode
         base.OnExit();
         for (int i = 0; m_StepTriggerList != null&& i < m_StepTriggerList.Count; i++)
         {
-            m_StepTriggerList[i].TiggerAction = null;
+            m_StepTriggerList[i].TiggerCompleted = null;
             m_StepTriggerList[i].TriggerEnd();
         }
         for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)

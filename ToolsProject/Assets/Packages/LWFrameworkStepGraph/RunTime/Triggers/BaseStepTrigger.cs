@@ -15,7 +15,7 @@ public abstract class BaseStepTrigger :IStepTrigger
     [LabelText("触发结果"),LabelWidth(70)]
     public int m_TriggerResultIndex;
     protected Action<int> m_TiggerAction;
-    public Action<int> TiggerAction { get => m_TiggerAction; set => m_TiggerAction = value; }
+    public Action<int> TiggerCompleted { get => m_TiggerAction; set => m_TiggerAction = value; }
 
     public abstract void TriggerBegin() ;
     public abstract void TriggerEnd();

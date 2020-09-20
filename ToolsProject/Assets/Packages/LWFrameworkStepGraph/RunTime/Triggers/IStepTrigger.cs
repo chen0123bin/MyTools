@@ -7,7 +7,16 @@ using UnityEngine;
 /// </summary>
 public interface IStepTrigger 
 {
-    Action<int> TiggerAction { get; set; }
+    /// <summary>
+    ///  控制器执行完成
+    /// </summary>
+    Action<int> TiggerCompleted { get; set; }
+    /// <summary>
+    /// 开始触发器
+    /// </summary>
     void TriggerBegin();
+    /// <summary>
+    /// 结束触发器
+    /// </summary>
     void TriggerEnd();
 }
