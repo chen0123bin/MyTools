@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -971.43146, y: -757.1697}
+  position: {x: -1006.43146, y: -752.1697}
   ports:
     keys:
     - enter
@@ -58,8 +58,7 @@ MonoBehaviour:
       _dynamic: 0
   enter: 0
   exit: 0
-  m_NextIndex: 0
-  _remark: 
+  m_Remark: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -248,8 +247,7 @@ MonoBehaviour:
       _dynamic: 0
   enter: 0
   exit: 0
-  m_NextIndex: 0
-  _remark: 
+  m_Remark: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -441,8 +439,7 @@ MonoBehaviour:
       _dynamic: 0
   enter: 0
   exit: 0
-  m_NextIndex: 0
-  _remark: 
+  m_Remark: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
