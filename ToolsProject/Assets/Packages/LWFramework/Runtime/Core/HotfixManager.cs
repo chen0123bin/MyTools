@@ -48,7 +48,7 @@ namespace LWFramework.Core {
             {
                 //这里情况比较复杂,Mobile上基本认为Persistent才支持File操作,
                 //  dllPath = Application.dataPath + "/@Resources/Hotfix/" + LWUtility.HotfixFileName;
-                dllPath = Application.persistentDataPath + "/Bundles/@Resources/Hotfix/" + LWUtility.HotfixFileName;
+                dllPath = Application.dataPath + "/@Resources/Hotfix/" + LWUtility.HotfixFileName;
             }
             else
             {

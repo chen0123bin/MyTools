@@ -6,7 +6,7 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public class Startup : MonoBehaviour
+public class StartupAB : MonoBehaviour
 {
     public static Action OnStart { get; set; }
     public static Action OnUpdate { get; set; }
@@ -20,16 +20,9 @@ public class Startup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(IFSMManager).ToString(), new FSMManager());
         MainManager.Instance.AddManager(typeof(HotfixManager).ToString(), new HotfixManager());
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
-        if (LWUtility.GlobalConfig.assetMode == AssetMode.AssetBundle || LWUtility.GlobalConfig.assetMode == AssetMode.AssetBundleDev)
-        {
-            ABAssetsManger abAssetManger = new ABAssetsManger();
-            abAssetManger.ABInitUpdate = new ABInitUpdate();
-            MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), abAssetManger);
-        }
-        else if (LWUtility.GlobalConfig.assetMode == AssetMode.Resources)
-        {
-            MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
-        }
+        ABAssetsManger abAssetManger = new ABAssetsManger();
+        abAssetManger.ABInitUpdate = new ABInitUpdate();
+        MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), abAssetManger);
 
         MainManager.Instance.GetManager<IAssetsManager>().OnUpdateCallback = OnUpdateCallback;
     }

@@ -15,18 +15,18 @@ public class TestStartProcedure : BaseFSMState
     public override void OnEnter(BaseFSMState lastState)
     {
         LWDebug.Log("进入流程 状态机OnEnterOnEnterOnEnterOnEnterOnEnter222222222222222");
-        //MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/TestScene.unity", true, LoadSceneComplete);
-        //AssetRequest asset = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<AssetRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
-        //asset.completed += (a) =>
-        //{
-        //    GameObject cube2 = GameObject.Instantiate(a.asset, Vector3.zero, Quaternion.identity) as GameObject;
-        //};
-
-        ResourceRequest resourceRequest = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<ResourceRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
-        resourceRequest.completed += (o) =>
+        MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/TestScene.unity", true, LoadSceneComplete);
+        AssetRequest asset = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<AssetRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
+        asset.completed += (a) =>
         {
-            GameObject cube = GameObject.Instantiate(resourceRequest.asset, Vector3.zero, Quaternion.identity) as GameObject;
+            GameObject cube2 = GameObject.Instantiate(a.asset, Vector3.zero, Quaternion.identity) as GameObject;
         };
+
+        //ResourceRequest resourceRequest = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<ResourceRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
+        //resourceRequest.completed += (o) =>
+        //{
+        //    GameObject cube = GameObject.Instantiate(resourceRequest.asset, Vector3.zero, Quaternion.identity) as GameObject;
+        //};
 
     }
 

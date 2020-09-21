@@ -28,7 +28,7 @@ MonoBehaviour:
   m_Name: Trigger Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1913.6097, y: -582.99243}
+  position: {x: -1736, y: -760}
   ports:
     keys:
     - enter
@@ -117,7 +117,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 4
       Data: 0
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: Trigger Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1488.6465, y: -575.8457}
+  position: {x: -1272, y: -776}
   ports:
     keys:
     - enter
@@ -277,19 +277,19 @@ MonoBehaviour:
       Data: Main Camera
     - Name: m_EndMoveTime
       Entry: 4
-      Data: 5
+      Data: 2
     - Name: m_BeginPosi
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
+      Data: 11
+    - Name: 
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: -10
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -298,13 +298,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
+      Data: 22
+    - Name: 
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 4
-      Data: -5
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
