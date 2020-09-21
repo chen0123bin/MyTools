@@ -12,7 +12,23 @@ public class BaseStepNodeEditor : NodeEditor {
 		GUI.color = Color.white;
         BaseStepNode node = target as BaseStepNode;
         StepGraph graph = node.graph as StepGraph;
-		if (graph.CurrStep != null && graph.CurrStep.Equals(node) ) GUI.color = Color.blue;
+		if (graph.CurrStep != null && graph.CurrStep.Equals(node)) {
+			
+			switch (graph.CurrStep.CurrState)
+			{
+				case StepNodeState.Wait:
+					GUI.color = Color.red;
+					break;
+				case StepNodeState.Execute:
+					GUI.color = Color.blue;
+					break;
+				case StepNodeState.Complete:
+					GUI.color = Color.green;
+					break;
+				default:
+					break;
+			}
+		} 
 		string title = target.name;
 		GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
 		GUI.color = Color.white;

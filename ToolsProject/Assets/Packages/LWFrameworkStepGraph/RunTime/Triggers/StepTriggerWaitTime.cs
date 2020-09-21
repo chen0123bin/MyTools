@@ -13,6 +13,7 @@ public class StepTriggerWaitTime : BaseStepTrigger
     
     public override void TriggerBegin()
     {
+        base.TriggerBegin();
        _= WaitTimeAsync();
     }
     /// <summary>
@@ -20,10 +21,10 @@ public class StepTriggerWaitTime : BaseStepTrigger
     /// </summary>
     async UniTaskVoid WaitTimeAsync() {
         await UniTask.Delay(TimeSpan.FromSeconds(m_WaitTime), ignoreTimeScale: false);
-        LWDebug.Log("等待时间到");
         m_TiggerAction?.Invoke(m_TriggerResultIndex);
     }
     public override void TriggerEnd()
     {
+        base.TriggerEnd();
     }
 }

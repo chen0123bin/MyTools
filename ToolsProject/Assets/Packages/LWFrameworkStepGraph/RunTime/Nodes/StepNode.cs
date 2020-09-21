@@ -68,6 +68,12 @@ public class StepNode : BaseStepNode
         {
             m_StepControllerList[i].ControllerExecute();
         }
+        //如果没有控制器直接进入下一步
+        if (m_StepControllerList == null || m_StepControllerList.Count == 0)
+        {
+            MoveNext();
+        }
+        m_CurrState = StepNodeState.Execute;
     }
 
     private void OnControllerCompleted()

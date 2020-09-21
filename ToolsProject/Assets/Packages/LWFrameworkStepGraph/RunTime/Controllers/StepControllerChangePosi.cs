@@ -6,34 +6,35 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 
 /// <summary>
-/// 步骤控制器，主要用于处理各种步骤中的变化效果
+/// 步骤控制器，处理位移
 /// </summary>
 public class StepControllerChangePosi:BaseStepController
 {
     [LabelText("移动时间"), LabelWidth(70)]
-    public float m_EndMoveTime;
-    [LabelText("初始位置"), LabelWidth(70)]
-    public Vector3 m_BeginPosi;
+    public float m_MoveTime;
     [LabelText("移动位置"), LabelWidth(70)]
-    public Vector3 m_EndPosi;
+    public Vector3[] m_PosiArray;
     private Transform m_Target;
     public override void ControllerBegin()
     {
         m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
-        m_Target.position = m_BeginPosi;
+        if (m_PosiArray.Length < 2) {
+            LWDebug.LogError("当前节点的Controller的移动参数少于2个");
+        }
+        m_Target.position = m_PosiArray[0];
     }
 
     public override void ControllerEnd()
     {
-        m_Target.position = m_EndPosi;
+        m_Target.position = m_PosiArray[m_PosiArray.Length-1];
     }
 
     public override void ControllerExecute()
     {
-        m_Target.DOMove(m_EndPosi, m_EndMoveTime).OnComplete(() =>
+        m_Target.DOPath(m_PosiArray, m_MoveTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();
-        });
+        });     
     }
 
    

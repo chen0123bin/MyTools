@@ -3,11 +3,16 @@
 /// </summary>
 public interface IStepNode
 {
+    StepNodeState CurrState { get; set; }
    // string Remark { get; set; }
    /// <summary>
    /// 下一步
    /// </summary>
     void MoveNext();
+    /// <summary>
+    /// 上一步
+    /// </summary>
+    void MovePrev();
     /// <summary>
     /// 进入节点
     /// </summary>
