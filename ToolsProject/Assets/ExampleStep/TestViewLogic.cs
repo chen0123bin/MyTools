@@ -10,11 +10,11 @@ public class TestViewLogic : BaseUILogic<TestView>
 	}
 	public void CreateNode() {
 		string[] values = new string[] { "aaaa", "bbbbb", "ccccc", "ddddd" };
-		_view.Datas = values;
+		m_View.Datas = values;
 	}
 	public void CreateNode2()
 	{
 		string[] values = new string[] { "11111", "bbb222bb", "ccc3333cc", "dddd4444d" };
-		_view.Datas = values;
+		m_View.Datas = values;
 	}
 }

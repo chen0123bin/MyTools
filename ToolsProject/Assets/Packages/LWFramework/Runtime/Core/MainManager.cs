@@ -12,15 +12,15 @@ namespace LWFramework.Core {
     public class MainManager : Singleton<MainManager>, IManager
     {  
         //热更DLL中所有的type
-        private List<Type> typeHotfixArray;
+        private List<Type> m_TypeHotfixArray;
         //管理热更中的所有的Type
-        private Dictionary<string, List<AttributeTypeData>> attrTypeHotfixDic;
-        private Dictionary<string, IManager> _managerDic;
-        private List<IManager> _managerList;
+        private Dictionary<string, List<AttributeTypeData>> m_AttrTypeHotfixDic;
+        private Dictionary<string, IManager> m_ManagerDic;
+        private List<IManager> m_ManagerList;
         public MainManager()
         {
-            _managerDic = new Dictionary<string, IManager>();
-            _managerList = new List<IManager>();
+            m_ManagerDic = new Dictionary<string, IManager>();
+            m_ManagerList = new List<IManager>();
             Type[] typeArray = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var t in typeArray)
             {
@@ -38,25 +38,25 @@ namespace LWFramework.Core {
             }
         }
     
-        public void InitHotfixManager(List<Type> typeArray)
+        public void InitHotfixManager(List<Type> p_TypeArray)
         {
-            attrTypeHotfixDic = new Dictionary<string, List<AttributeTypeData>>();
-            this.typeHotfixArray = typeArray;
+            m_AttrTypeHotfixDic = new Dictionary<string, List<AttributeTypeData>>();
+            this.m_TypeHotfixArray = p_TypeArray;
 
             //将所有带有特性的类进行字典管理
-            foreach (var item in typeArray)
+            foreach (var item in p_TypeArray)
             {
                 if (item.IsClass)
                 {
                     var attrs = item.GetCustomAttributes(false);
                     foreach (var attr in attrs)
                     {
-                        if (!attrTypeHotfixDic.ContainsKey(attr.ToString()))
+                        if (!m_AttrTypeHotfixDic.ContainsKey(attr.ToString()))
                         {
-                            attrTypeHotfixDic[attr.ToString()] = new List<AttributeTypeData>();
+                            m_AttrTypeHotfixDic[attr.ToString()] = new List<AttributeTypeData>();
                         }
                         AttributeTypeData classData = new AttributeTypeData { attribute = (Attribute)attr, type = item };
-                        attrTypeHotfixDic[attr.ToString()].Add(classData);
+                        m_AttrTypeHotfixDic[attr.ToString()].Add(classData);
                     }
 
                 }
@@ -78,21 +78,21 @@ namespace LWFramework.Core {
        
         public void AddManager(string name, IManager t) {
             t.Init();
-            _managerDic.Add(name, t);
-            _managerList.Add(t);
+            m_ManagerDic.Add(name, t);
+            m_ManagerList.Add(t);
         }
         public void AddManager(IManager t)
         {
             t.Init();
-            _managerDic.Add(t.GetType().ToString(), t);
-            _managerList.Add(t);
+            m_ManagerDic.Add(t.GetType().ToString(), t);
+            m_ManagerList.Add(t);
         }
         public T GetManager<T>()
         {
             IManager manager;
-            if (_managerDic.TryGetValue(typeof(T).ToString(), out manager))
+            if (m_ManagerDic.TryGetValue(typeof(T).ToString(), out manager))
             {
-                return (T)_managerDic[typeof(T).ToString()];
+                return (T)m_ManagerDic[typeof(T).ToString()];
             }
             else
             {
@@ -107,9 +107,9 @@ namespace LWFramework.Core {
 
         public void Update()
         {
-            for (int i = 0; i < _managerList.Count; i++)
+            for (int i = 0; i < m_ManagerList.Count; i++)
             {
-                _managerList[i].Update();
+                m_ManagerList[i].Update();
             }  
         }
 
@@ -134,14 +134,14 @@ namespace LWFramework.Core {
         /// <returns></returns>
         public List<AttributeTypeData> GetTypeListByAttr<T>()
         {
-            if (!attrTypeHotfixDic.ContainsKey(typeof(T).FullName))
+            if (!m_AttrTypeHotfixDic.ContainsKey(typeof(T).FullName))
             {
                 LWDebug.LogWarning("当前域下找不到这个包含这个特性的类" + typeof(T).FullName);
                 return null;
             }
             else
             {
-                return attrTypeHotfixDic[typeof(T).FullName];
+                return m_AttrTypeHotfixDic[typeof(T).FullName];
             }
 
         }

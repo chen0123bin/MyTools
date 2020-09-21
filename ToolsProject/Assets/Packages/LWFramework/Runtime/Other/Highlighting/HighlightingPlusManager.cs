@@ -4,30 +4,30 @@ using UnityEngine;
 using HighlightPlus;
 public class HighlightingPlusManager : IHighlightingManager,IManager
 {
-    HighlightProfile _highlightProfile;
+    HighlightProfile m_HighlightProfile;
     public void Init()
     {
-        _highlightProfile = Resources.Load<HighlightProfile>("HighlightPlusFastProfile");
+        m_HighlightProfile = Resources.Load<HighlightProfile>("HighlightPlusFastProfile");
     }
     public void Update()
     {
     }
-    public void AddFlashingHighlighting(GameObject go, Color[] colorArray)
+    public void AddFlashingHighlighting(GameObject p_Go, Color[] p_ColorArray)
     {
        
     }
 
-    public void AddHighlighting(GameObject go, Color color)
+    public void AddHighlighting(GameObject p_GO, Color p_Color)
     {
-        HighlightEffect highlightEffect = go.AddComponent<HighlightEffect>();
-        highlightEffect.ProfileLoad(_highlightProfile);
-        highlightEffect.outlineColor = color;
+        HighlightEffect highlightEffect = p_GO.AddComponent<HighlightEffect>();
+        highlightEffect.ProfileLoad(m_HighlightProfile);
+        highlightEffect.outlineColor = p_Color;
         highlightEffect.highlighted = true;
        
     } 
-    public void RemoveHighlighting(GameObject go)
+    public void RemoveHighlighting(GameObject p_GO)
     {
-        GameObject.Destroy(go.GetComponent<HighlightEffect>());
+        GameObject.Destroy(p_GO.GetComponent<HighlightEffect>());
     }
 
    

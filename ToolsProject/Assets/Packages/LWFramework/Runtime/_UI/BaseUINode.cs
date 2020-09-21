@@ -6,7 +6,7 @@ namespace LWFramework.UI
 {
     public abstract class BaseUINode: IPoolGameObject
     {
-        private GameObject _entity;
+        private GameObject m_Entity;
         
         
         /// <summary>
@@ -15,13 +15,13 @@ namespace LWFramework.UI
         /// <param name="gameObject"></param>
         public virtual void Create(GameObject gameObject)
         {
-            _entity = gameObject;
+            m_Entity = gameObject;
             //view上的组件
             UIUtility.Instance.SetViewElement(this, gameObject);
         }
         public virtual void Unspawn() {
             SetActive(false);
-            _entity.transform.SetAsLastSibling();
+            m_Entity.transform.SetAsLastSibling();
             OnUnSpawn();
         }
         public abstract void OnUnSpawn();
@@ -30,17 +30,17 @@ namespace LWFramework.UI
         /// </summary>
         public virtual void Release()
         {
-            GameObject.Destroy(_entity);
+            GameObject.Destroy(m_Entity);
         }
 
         public bool GetActive()
         {
-            return _entity.activeInHierarchy;
+            return m_Entity.activeInHierarchy;
         }
 
         public void SetActive(bool active)
         {
-            _entity.SetActive(active);
+            m_Entity.SetActive(active);
         }
     }
 }

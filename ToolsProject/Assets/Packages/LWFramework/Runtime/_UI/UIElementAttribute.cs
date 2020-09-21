@@ -6,17 +6,17 @@ namespace LWFramework.UI
 {
     public class UIElementAttribute : Attribute
     {
-        public readonly string rootPath;
-        public readonly string resPath;
+        public readonly string m_RootPath;
+        public readonly string m_ResPath;
         /// <summary>
         /// 界面对象
         /// </summary>
-        /// <param name="rootPath">查找的路径</param>
-        /// <param name="resPath">默认的资源主要是图片</param>
-        public UIElementAttribute(string rootPath, string resPath = "")
+        /// <param name="p_RootPath">查找的路径</param>
+        /// <param name="p_ResPath">默认的资源主要是图片</param>
+        public UIElementAttribute(string p_RootPath, string p_ResPath = "")
         {
-            this.rootPath = rootPath;
-            this.resPath = resPath;
+            this.m_RootPath = p_RootPath;
+            this.m_ResPath = p_ResPath;
         }
     }
 

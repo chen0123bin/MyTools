@@ -4,20 +4,20 @@ namespace LWFramework
 {
     public abstract class BaseObjectPool<T>
     {
-        public int poolMaxSize { get; protected set; }
+        public int PoolMaxSize { get; protected set; }
 
-        public string name;
+        public string m_Name;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="poolMaxSize">线程池的大小，回收时如果池子大小已满，则多余的对象会被遗弃</param>
-        public BaseObjectPool(int poolMaxSize)
+        /// <param name="p_PoolMaxSize">线程池的大小，回收时如果池子大小已满，则多余的对象会被遗弃</param>
+        public BaseObjectPool(int p_PoolMaxSize)
         {
-            this.poolMaxSize = poolMaxSize;
+            this.PoolMaxSize = p_PoolMaxSize;
         }
         public abstract T Spawn();
-        public abstract void Unspawn (T obj);
+        public abstract void Unspawn (T p_Obj);
         public abstract void UnspawnAll();
         public abstract void Clear();
     };
@@ -27,33 +27,33 @@ namespace LWFramework
     /// <typeparam name="T"></typeparam>
     public class ObjectPool<T> : BaseObjectPool<T> where T : class, IPoolGameObject
     {
-        protected List<T> _poolList = new List<T>();
+        protected List<T> m_PoolList = new List<T>();
 
         public int CurrentSize
         {
             get
             {
-                return _poolList.Count;
+                return m_PoolList.Count;
             }
         }
 
-        public ObjectPool(int poolMaxSize) : base(poolMaxSize)
+        public ObjectPool(int p_PoolMaxSize) : base(p_PoolMaxSize)
         {
         }
 
         /// <summary>
         /// 改变对象池大小
         /// </summary>
-        /// <param name="poolMaxSize"></param>
-        public void ChangeSize(int poolMaxSize)
+        /// <param name="p_PoolMaxSize"></param>
+        public void ChangeSize(int p_PoolMaxSize)
         {
-            this.poolMaxSize = poolMaxSize;
-            if(_poolList.Count > poolMaxSize)
+            this.PoolMaxSize = p_PoolMaxSize;
+            if(m_PoolList.Count > p_PoolMaxSize)
             {
-                for(int i = _poolList.Count - 1; i >= poolMaxSize; i--)
+                for(int i = m_PoolList.Count - 1; i >= p_PoolMaxSize; i--)
                 {
-                    _poolList[i].Release();
-                    _poolList.RemoveAt(i);
+                    m_PoolList[i].Release();
+                    m_PoolList.RemoveAt(i);
                 }
             }
         }
@@ -64,10 +64,10 @@ namespace LWFramework
         /// <returns></returns>
         public override T Spawn()
         {
-            while (_poolList.Count > 0)
+            while (m_PoolList.Count > 0)
             {
-                var ins = _poolList[0];
-                _poolList.RemoveAt(0);
+                var ins = m_PoolList[0];
+                m_PoolList.RemoveAt(0);
                 return ins;
             }
             return default;
@@ -76,36 +76,36 @@ namespace LWFramework
         /// <summary>
         /// 回收对象
         /// </summary>
-        /// <param name="obj"></param>
-        public override void Unspawn(T obj)
+        /// <param name="p_Obj"></param>
+        public override void Unspawn(T p_Obj)
         {
-            if (_poolList.Count < poolMaxSize)
+            if (m_PoolList.Count < PoolMaxSize)
             {
-                obj.Unspawn();
-                _poolList.Add(obj);
+                p_Obj.Unspawn();
+                m_PoolList.Add(p_Obj);
             }
             else
             {
-                obj.Release();
-                _poolList.Remove(obj);
+                p_Obj.Release();
+                m_PoolList.Remove(p_Obj);
             }
         }
 
         /// <summary>
         /// 是否在对象池中
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="p_Obj"></param>
         /// <returns></returns>
-        public bool IsInPool(T obj)
+        public bool IsInPool(T p_Obj)
         {
-            return _poolList.IndexOf(obj) > -1 ? true : false;
+            return m_PoolList.IndexOf(p_Obj) > -1 ? true : false;
         }
         /// <summary>
         /// 回收所有的对象
         /// </summary>
         public override void UnspawnAll()
         {
-            foreach (var obj in _poolList)
+            foreach (var obj in m_PoolList)
             {
                 Unspawn(obj);
             }
@@ -115,11 +115,11 @@ namespace LWFramework
         /// </summary>
         public override void Clear()
         {
-            foreach (var obj in _poolList)
+            foreach (var obj in m_PoolList)
             {
                 obj.Release();
             }
-            _poolList.Clear();
+            m_PoolList.Clear();
         }
     }
 }

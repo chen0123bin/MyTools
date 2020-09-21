@@ -9,22 +9,22 @@ using System.Linq;
 namespace LWFramework.UI {
     public class UIUtility :Singleton<UIUtility>
     {
-        private IUILoad _uiLoad;
+        private IUILoad m_UILoad;
         /// <summary>
         /// 设置自定义的UI加载类
         /// </summary>
         public IUILoad CustomUILoad {
             set {
-                _uiLoad = value;
+                m_UILoad = value;
             }
         }
         public UIUtility() {
-            _uiLoad = new UILoadAB();
+            m_UILoad = new UILoadAB();
         }
       
-        private  int _viewId;
+        private  int m_ViewId;
         public int ViewId {
-            get => _viewId++;
+            get => m_ViewId++;
         }      
         /// <summary>
         /// 根据ab路径创建一个view 实体
@@ -33,7 +33,7 @@ namespace LWFramework.UI {
         /// <returns></returns>
         public GameObject CreateViewEntity(string abPath) {
             
-            GameObject uiGameObject = _uiLoad.LoadUIGameObject(abPath);        
+            GameObject uiGameObject = m_UILoad.LoadUIGameObject(abPath);        
             return uiGameObject;
         }       
         /// <summary>
@@ -43,7 +43,7 @@ namespace LWFramework.UI {
         /// <returns></returns>
         public Sprite GetSprite(string abPath)
         {        
-            return _uiLoad.GetSprite(abPath);
+            return m_UILoad.GetSprite(abPath);
         }
         /// <summary>
         /// 根据特性获取UI对象
@@ -66,25 +66,25 @@ namespace LWFramework.UI {
                         UIElementAttribute uiElement = attribute as UIElementAttribute;
                         try
                         {
-                            UnityEngine.Object obj = uiGameObject.transform.Find(uiElement.rootPath).GetComponent(objectFields[i].FieldType);
+                            UnityEngine.Object obj = uiGameObject.transform.Find(uiElement.m_RootPath).GetComponent(objectFields[i].FieldType);
                             //给当前的字段赋值
                             objectFields[i].SetValue(entity, obj);
                             //处理初始化动态图片
-                            if (uiElement.resPath != "")
+                            if (uiElement.m_ResPath != "")
                             {
                                 if (objectFields[i].FieldType == typeof(UnityEngine.UI.Image))
                                 {
-                                    ((UnityEngine.UI.Image)obj).sprite = GetSprite( uiElement.resPath);
+                                    ((UnityEngine.UI.Image)obj).sprite = GetSprite( uiElement.m_ResPath);
                                 }
                                 else if (objectFields[i].FieldType == typeof(UnityEngine.UI.Button))
                                 {
-                                    ((UnityEngine.UI.Button)obj).GetComponent<UnityEngine.UI.Image>().sprite = GetSprite( uiElement.resPath);
+                                    ((UnityEngine.UI.Button)obj).GetComponent<UnityEngine.UI.Image>().sprite = GetSprite( uiElement.m_ResPath);
                                 }
                             }
                         }
                         catch (Exception e)
                         {
-                            Debug.LogError(string.Format("当前: {0} 路径上没有找到对应的物体   {1}", uiElement.rootPath, e.StackTrace));
+                            Debug.LogError(string.Format("当前: {0} 路径上没有找到对应的物体   {1}", uiElement.m_RootPath, e.StackTrace));
                         }
 
 

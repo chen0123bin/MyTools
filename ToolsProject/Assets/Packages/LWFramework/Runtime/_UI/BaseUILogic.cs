@@ -9,9 +9,9 @@ namespace LWFramework.UI {
     /// <typeparam name="TUIView"></typeparam>
     public  class BaseUILogic <TUIView>: IUILogic where TUIView : class, IUIView
     {
-        protected TUIView _view;
-        public BaseUILogic(TUIView view) {
-            _view = view;
+        protected TUIView m_View;
+        public BaseUILogic(TUIView p_View) {
+            m_View = p_View;
         }
         public virtual void OnCreateView() { }
         public virtual void OnOpenView() { }

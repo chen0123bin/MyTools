@@ -33,10 +33,10 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 	public override  void OnCreateView()
 	{
 		_btn1.onClick.AddListener(() => 		{
-			_logic.CreateNode();
+			m_Logic.CreateNode();
 		});
 		_btn2.onClick.AddListener(() => {
-			_logic.CreateNode2();
+			m_Logic.CreateNode2();
 		});
 		_pool = new GameObjectPool<TestNodeTemp>(5, _testNodeTemp.gameObject);
 		_list = new List<TestNodeTemp>();

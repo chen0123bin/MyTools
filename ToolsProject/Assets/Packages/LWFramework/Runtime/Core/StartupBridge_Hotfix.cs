@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class StartupBridge_Hotfix
 {
-    private static List<Type> _typeList = new List<Type>();
+    private static List<Type> m_TypeList = new List<Type>();
     public static void StartCode() {
         //获取DLL ALLtype
         var assembly = Assembly.Load("Assembly-CSharp");
@@ -23,8 +23,8 @@ public class StartupBridge_Hotfix
         {
             Debug.Log("当前dll is null");
         }
-        _typeList = assembly.GetTypes().ToList();
-        MainManager.Instance.InitHotfixManager(_typeList);
+        m_TypeList = assembly.GetTypes().ToList();
+        MainManager.Instance.InitHotfixManager(m_TypeList);
         MainManager.Instance.StartProcedure();
     }
    

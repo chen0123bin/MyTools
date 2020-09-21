@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class ResAssetsManger : IAssetsManager,IManager
 {
-    private Action<bool> _onUpdateCallback;
-    public Action<bool> OnUpdateCallback {  set => _onUpdateCallback= value; }
+    private Action<bool> m_OnUpdateCallback;
+    public Action<bool> OnUpdateCallback {  set => m_OnUpdateCallback= value; }
 
     public void Init()
     {
@@ -19,7 +19,7 @@ public class ResAssetsManger : IAssetsManager,IManager
     async UniTaskVoid TaskUpdateAsync()
     {
         await UniTask.WaitForEndOfFrame();
-        _onUpdateCallback?.Invoke(true);
+        m_OnUpdateCallback?.Invoke(true);
     }
     public void Update()
     {

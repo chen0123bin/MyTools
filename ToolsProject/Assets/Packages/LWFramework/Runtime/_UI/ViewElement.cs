@@ -338,9 +338,10 @@ public class ViewElement : MonoBehaviour
     }
     string ConvertName(string name)
     {
-        string s1 = name.Substring(0, 1);//截取str的一个子字符串，从0开始，到1截止
-        string s2 = s1.ToLower();
-        string s3 = name.Substring(1);//截取str的一个子字符串，从1开始至str字符串结束
-        return s2 + s3;
+        //string s1 = name.Substring(0, 1);//截取str的一个子字符串，从0开始，到1截止
+        //string s2 = s1.ToLower();
+        //string s3 = name.Substring(1);//截取str的一个子字符串，从1开始至str字符串结束
+        //return s2 + s3;
+        return "m_" + name;
     }
 }

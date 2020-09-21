@@ -15,11 +15,11 @@ namespace LWFramework.UI {
         /// <summary>
         /// 所有的view字典
         /// </summary>
-        private Dictionary<string, IUIView> _uiViewDic;
+        private Dictionary<string, IUIView> m_UIViewDic;
         /// <summary>
         /// 所有UI的父节点
         /// </summary>
-        private Dictionary<string, Transform> _uiParentDic;
+        private Dictionary<string, Transform> m_UIParentDic;
 
         #region 获取Canvas编辑节点
 
@@ -39,8 +39,8 @@ namespace LWFramework.UI {
         #endregion
         public void Init()
         {
-            _uiViewDic = new Dictionary<string, IUIView>();
-            _uiParentDic = new Dictionary<string, Transform>();
+            m_UIViewDic = new Dictionary<string, IUIView>();
+            m_UIParentDic = new Dictionary<string, Transform>();
             //启动之后隐藏编辑层
             EditTransform.gameObject.SetActive(false);
         }
@@ -49,7 +49,7 @@ namespace LWFramework.UI {
         /// </summary>
         public void Update()
         {
-            foreach (var item in _uiViewDic.Values)
+            foreach (var item in m_UIViewDic.Values)
             {
                 if (item.IsOpen)
                 {
@@ -97,10 +97,10 @@ namespace LWFramework.UI {
         public void OpenView<T>()
         {
             IUIView uiViewBase;
-            if (!_uiViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
+            if (!m_UIViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
             {
                 uiViewBase = CreateView<T>();
-                _uiViewDic.Add(typeof(T).ToString(), uiViewBase);
+                m_UIViewDic.Add(typeof(T).ToString(), uiViewBase);
             }
             if (!uiViewBase.IsOpen)
                 uiViewBase.OpenView();
@@ -108,10 +108,10 @@ namespace LWFramework.UI {
         public void OpenView<T>(string viewName, GameObject uiGameObject = null)
         {
             IUIView uiViewBase;
-            if (!_uiViewDic.TryGetValue(viewName, out uiViewBase))
+            if (!m_UIViewDic.TryGetValue(viewName, out uiViewBase))
             {
                 uiViewBase = CreateView<T>(uiGameObject);
-                _uiViewDic.Add(viewName, uiViewBase);
+                m_UIViewDic.Add(viewName, uiViewBase);
             }
             if (!uiViewBase.IsOpen)
                 uiViewBase.OpenView();
@@ -131,7 +131,7 @@ namespace LWFramework.UI {
         public void CloseView(string viewName)
         {
             IUIView uiViewBase;
-            if (_uiViewDic.TryGetValue(viewName, out uiViewBase))
+            if (m_UIViewDic.TryGetValue(viewName, out uiViewBase))
             {
                 uiViewBase.CloseView();
             }
@@ -144,9 +144,9 @@ namespace LWFramework.UI {
         public T GetView<T>(string viewName = null)
         {
             if (viewName == null)
-                return (T)_uiViewDic[typeof(T).ToString()];
+                return (T)m_UIViewDic[typeof(T).ToString()];
             else
-                return (T)_uiViewDic[viewName];
+                return (T)m_UIViewDic[viewName];
         }
 
         /// <summary>
@@ -158,11 +158,11 @@ namespace LWFramework.UI {
             CloseOtherView(typeof(T).ToString());
         }
         public void CloseOtherView(string viewName) {
-            foreach (var item in _uiViewDic.Keys)
+            foreach (var item in m_UIViewDic.Keys)
             {
                 if (item != viewName)
                 {
-                    _uiViewDic[item].CloseView();
+                    m_UIViewDic[item].CloseView();
                 }
             }
         }
@@ -171,7 +171,7 @@ namespace LWFramework.UI {
         /// </summary>
         public void CloseAllView()
         {
-            foreach (var item in _uiViewDic.Values)
+            foreach (var item in m_UIViewDic.Values)
             {
                 item.CloseView();
             }
@@ -181,11 +181,11 @@ namespace LWFramework.UI {
         /// </summary>
         public void ClearAllView()
         {
-            foreach (var item in _uiViewDic.Values)
+            foreach (var item in m_UIViewDic.Values)
             {
                 item.ClearView();
             }
-            _uiViewDic.Clear();
+            m_UIViewDic.Clear();
         }
 
         /// <summary>
@@ -204,16 +204,16 @@ namespace LWFramework.UI {
                 //创建UI对象
                 if (uiGameObject == null)
                 {
-                    uiGameObject = UIUtility.Instance.CreateViewEntity(attr.loadPath);
+                    uiGameObject = UIUtility.Instance.CreateViewEntity(attr.m_LoadPath);
                 }
-                Transform parent = GetParent(attr.findType, attr.param);
+                Transform parent = GetParent(attr.m_FindType, attr.m_Param);
                 if (uiGameObject == null)
                 {
-                    LWDebug.LogError("没有找到这个UI对象" + attr.loadPath);
+                    LWDebug.LogError("没有找到这个UI对象" + attr.m_LoadPath);
                 }
                 if (parent == null)
                 {
-                    LWDebug.LogError("没有找到这个UI父节点" + attr.param);
+                    LWDebug.LogError("没有找到这个UI父节点" + attr.m_Param);
                 }
                 if (parent != null)
                 {
@@ -238,9 +238,9 @@ namespace LWFramework.UI {
         private Transform GetParent(FindType findType, string param)
         {
             Transform ret = null;
-            if (_uiParentDic.ContainsKey(param))
+            if (m_UIParentDic.ContainsKey(param))
             {
-                ret = _uiParentDic[param];
+                ret = m_UIParentDic[param];
             }
             else if (findType == FindType.Name)
             {
@@ -250,7 +250,7 @@ namespace LWFramework.UI {
                     LWDebug.LogError(string.Format("当前没有找到{0}这个GameObject对象", param));
                 }
                 ret = gameObject.transform;
-                _uiParentDic.Add(param, ret);
+                m_UIParentDic.Add(param, ret);
             }
             else if (findType == FindType.Tag)
             {
@@ -260,7 +260,7 @@ namespace LWFramework.UI {
                     LWDebug.LogError(string.Format("当前没有找到{0}这个Tag GameObject对象", param));
                 }
                 ret = gameObject.transform;
-                _uiParentDic.Add(param, ret);
+                m_UIParentDic.Add(param, ret);
             }
             return ret;
         }

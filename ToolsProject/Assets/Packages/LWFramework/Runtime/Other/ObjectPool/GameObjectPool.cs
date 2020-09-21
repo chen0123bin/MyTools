@@ -6,15 +6,15 @@ using UnityEngine;
 namespace LWFramework {
     public class GameObjectPool<T> : ObjectPool<T> where T : class, IPoolGameObject
     {
-        private GameObject _template;
+        private GameObject m_Template;
         public GameObjectPool(int poolMaxSize) : base(poolMaxSize)
         {
 
         }
-        public GameObjectPool(int pooMaxSize, GameObject template) : base(pooMaxSize)
+        public GameObjectPool(int p_PooMaxSize, GameObject p_Template) : base(p_PooMaxSize)
         {
-            _template = template;
-            _template.SetActive(false);
+            m_Template = p_Template;
+            m_Template.SetActive(false);
         }
 
         /// <summary>
@@ -24,15 +24,15 @@ namespace LWFramework {
         public override T Spawn()
         {
             T ret;
-            if (_poolList.Count > 0)
+            if (m_PoolList.Count > 0)
             {
-                ret = _poolList[0];
-                _poolList.RemoveAt(0);
+                ret = m_PoolList[0];
+                m_PoolList.RemoveAt(0);
                
             }
             else {
                 ret = (T)Activator.CreateInstance(typeof(T));
-                GameObject go = GameObject.Instantiate(_template, _template.transform.parent, false);
+                GameObject go = GameObject.Instantiate(m_Template, m_Template.transform.parent, false);
                 ret.Create(go);               
                 
             }

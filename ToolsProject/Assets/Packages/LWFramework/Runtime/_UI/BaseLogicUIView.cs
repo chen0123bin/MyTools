@@ -9,27 +9,27 @@ namespace LWFramework.UI {
     /// <typeparam name="TUILogic"></typeparam>
     public class BaseLogicUIView <TUILogic>: BaseUIView where TUILogic : class,IUILogic
     {
-        protected TUILogic _logic;
+        protected TUILogic m_Logic;
         public override void CreateView(GameObject gameObject)
         {
-            _logic = Activator.CreateInstance(typeof(TUILogic),this) as TUILogic;
+            m_Logic = Activator.CreateInstance(typeof(TUILogic),this) as TUILogic;
             base.CreateView(gameObject);
-            _logic.OnCreateView();
+            m_Logic.OnCreateView();
         }
         public override void OpenView()
         {
             base.OpenView();
-            _logic.OnOpenView();
+            m_Logic.OnOpenView();
         }
         public override void CloseView()
         {
             base.CloseView();
-            _logic.OnCloseView();
+            m_Logic.OnCloseView();
         }
         public override void ClearView()
         {
             base.ClearView();
-            _logic.OnClearView();
+            m_Logic.OnClearView();
         }
     }
 

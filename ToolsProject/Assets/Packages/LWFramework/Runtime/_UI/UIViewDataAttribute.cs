@@ -19,21 +19,21 @@ namespace LWFramework.UI {
 
     public class UIViewDataAttribute : Attribute
     {
-        public string loadPath;
-        public UILayer layer;
-        public FindType findType;
-        public string param;
-        [Obsolete("使用新的特性，废弃掉之前的Layer")]
-        public UIViewDataAttribute(string loadPath,UILayer uILayer)
+        public string m_LoadPath;
+        public UILayer m_Layer;
+        public FindType m_FindType;
+        public string m_Param;
+        [Obsolete("use FindType")]
+        public UIViewDataAttribute(string p_LoadPath,UILayer p_UILayer)
         {
-            this.loadPath = loadPath;
-            this.layer = uILayer;
+            this.m_LoadPath = p_LoadPath;
+            this.m_Layer = p_UILayer;
         }
-        public UIViewDataAttribute(string loadPath, FindType findType,string param)
+        public UIViewDataAttribute(string p_LoadPath, FindType p_FindType,string p_Param)
         {
-            this.loadPath = loadPath;
-            this.findType = findType;
-            this.param = param;
+            this.m_LoadPath = p_LoadPath;
+            this.m_FindType = p_FindType;
+            this.m_Param = p_Param;
         }
     }
 }
