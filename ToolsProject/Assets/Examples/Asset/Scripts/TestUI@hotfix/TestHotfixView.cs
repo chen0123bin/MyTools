@@ -10,20 +10,20 @@ using LWFramework;
 public class TestHotfixView : LWFramework.UI.BaseUIView 
 {
     [UIElement("Button1")]
-    public Button button1;
+    private Button button1;
     [UIElement("Button2", "Assets/@Resources/Sprites/log2.png")]
-    public Button button2;
+    private Button button2;
     [UIElement("Text1")]
-    public Text text1;
+    private Text text1;
     [UIElement("Parent")]
-    public Transform parent;
+    private Transform parent;
     [UIElement("Parent2")]
-    public Transform parent2;
+    private Transform parent2;
     /// <summary>
     /// 节点处理  
     /// </summary>
     [UIElement("Parent/TestChildTemplate")]
-    public Transform testChildTemplate;
+    private Transform testChildTemplate;
     private GameObjectPool<TestChildNode> _pool;
     private List<TestChildNode> _nodes;
 

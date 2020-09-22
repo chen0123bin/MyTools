@@ -35,6 +35,12 @@ public interface IAssetsManager
     /// <param name="param"></param>
     void Unload<T>(T param) where T : Object;
     /// <summary>
+    /// 更新资源
+    /// </summary>
+    /// <param name="patchName"></param>
+    void UpdatePatchAsset(string patchName);
+
+    /// <summary>
     /// 更新回调 Res模式下为空
     /// </summary>
     Action<bool> OnUpdateCallback {  set; }

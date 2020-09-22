@@ -54,4 +54,9 @@ public class ResAssetsManger : IAssetsManager,IManager
         string resPath = path.Substring(startIndex, length);
         return resPath;
     }
+
+    public void UpdatePatchAsset(string patchName)
+    {
+        LWDebug.LogWarning("Res模式下没用UpdatePatchAsset");
+    }
 }

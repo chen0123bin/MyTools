@@ -40,7 +40,8 @@ public class ABAssetsManger : IAssetsManager,IManager
 
     public void Unload<T>(T param) where T : UnityEngine.Object
     {
-        Debug.LogWarning("AB模式下没用Unload函数");
+        LWDebug.LogWarning("AB模式下没用Unload函数");
+        
     }
     public void LoadScene(string scenePath,bool additive, Action loadComplete = null)
     {
@@ -54,5 +55,11 @@ public class ABAssetsManger : IAssetsManager,IManager
             };
         });
     }
-    
+    public void UpdatePatchAsset(string patchName)
+    {
+        _abInitUpdate.UpdateAsset(new[] { patchName }, "更新提示", () =>
+        {
+            LWDebug.Log("更新完成");
+        });
+    }
 }

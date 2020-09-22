@@ -79,7 +79,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName));
+                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -97,7 +97,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
+                    strBuilder.AppendFormat("\t\t{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");
@@ -154,7 +154,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName));
+                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -173,7 +173,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
+                    strBuilder.AppendFormat("\t\t{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");
@@ -268,7 +268,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tpublic {0} _{1};", componentName, ConvertName(childName) );
+                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName) );
                 strBuilder.AppendLine();
             }
         }
@@ -286,7 +286,7 @@ public class ViewElement : MonoBehaviour
                 //添加按钮点击事件监听
                 if (componentName == "Button")
                 {
-                    strBuilder.AppendFormat("\t\t_{0}.onClick.AddListener(() => ", ConvertName(childName));
+                    strBuilder.AppendFormat("\t\t{0}.onClick.AddListener(() => ", ConvertName(childName));
                     strBuilder.AppendLine("\t\t{");
                     strBuilder.AppendLine();
                     strBuilder.AppendLine("\t\t});");

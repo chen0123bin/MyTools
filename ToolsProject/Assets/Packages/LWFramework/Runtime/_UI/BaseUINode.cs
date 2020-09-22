@@ -6,9 +6,7 @@ namespace LWFramework.UI
 {
     public abstract class BaseUINode: IPoolGameObject
     {
-        private GameObject m_Entity;
-        
-        
+        private GameObject m_Entity;              
         /// <summary>
         /// 创建GameObject实体
         /// </summary>
@@ -41,6 +39,9 @@ namespace LWFramework.UI
         public void SetActive(bool active)
         {
             m_Entity.SetActive(active);
+        }
+        public virtual void ResetNode() { 
+        
         }
     }
 }

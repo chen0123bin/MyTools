@@ -53,7 +53,7 @@ namespace LWFramework.UI {
         {
             Type type = entity.GetType();
             //获取字段属性
-            FieldInfo[] objectFields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
+            FieldInfo[] objectFields = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
             //遍历字段属性
             for (int i = 0; i < objectFields.Length; i++)
             {

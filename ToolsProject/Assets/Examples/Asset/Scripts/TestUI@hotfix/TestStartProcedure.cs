@@ -27,7 +27,6 @@ public class TestStartProcedure : BaseFSMState
         //{
         //    GameObject cube = GameObject.Instantiate(resourceRequest.asset, Vector3.zero, Quaternion.identity) as GameObject;
         //};
-
     }
 
     void LoadSceneComplete() {

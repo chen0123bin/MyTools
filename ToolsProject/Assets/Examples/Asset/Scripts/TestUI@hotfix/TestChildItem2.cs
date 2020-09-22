@@ -7,9 +7,9 @@ public class TestChildItem2 : LWFramework.UI.BaseUIView
 {
 
 	[UIElement("HeadImg", "Assets/@Resources/Sprites/log3.png")]
-	public Image _HeadImg;
+    private Image _HeadImg;
 	[UIElement("NameText")]
-	public Text _NameText;
+    private Text _NameText;
 	public override  void CreateView(GameObject gameObject)
 	{
 		base.CreateView(gameObject);
