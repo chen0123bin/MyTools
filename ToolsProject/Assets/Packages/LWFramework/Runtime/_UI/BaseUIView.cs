@@ -73,6 +73,8 @@ namespace LWFramework.UI
             m_ViewData.Clear();
             GameObject.Destroy(m_Entity);
         }
+        public virtual void ResetView() { 
+        }
     }    
 }
 

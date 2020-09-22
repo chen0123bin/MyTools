@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e209c419f86144a837313c279bbc5a, type: 3}
   m_Name: LWGlobalConfig
   m_EditorClassIdentifier: 
-  assetMode: 1
-  hotfixCodeRunMode: 2
+  assetMode: 2
+  hotfixCodeRunMode: 1
   loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.200.199:8089/Bundles/
-  development: 0
+  downloadURL: http://192.168.200.199:8089/ToolsProject/Bundles/
+  development: 1
   dontDestroyOnLoad: 1
   searchPaths: []
   patches4Init: []

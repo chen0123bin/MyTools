@@ -41,6 +41,11 @@ namespace LWFramework.UI
         /// <returns></returns>
         T GetView<T>(string viewName = null);
         /// <summary>
+        /// 获取所有的View
+        /// </summary>
+        /// <returns></returns>
+        IUIView[] GetAllView();
+        /// <summary>
         /// 打开View
         /// </summary>
         /// <typeparam name="T">View的类型（转换成使用typeOf转换）</typeparam>

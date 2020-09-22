@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestStepStartup : MonoBehaviour
+public class TestUIStartup : MonoBehaviour
 {
     public static Action OnStart { get; set; }
     public static Action OnUpdate { get; set; }

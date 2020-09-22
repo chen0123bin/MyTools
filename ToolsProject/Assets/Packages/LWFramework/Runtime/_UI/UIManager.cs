@@ -148,7 +148,13 @@ namespace LWFramework.UI {
             else
                 return (T)m_UIViewDic[viewName];
         }
-
+        /// <summary>
+        /// 获取所有的VIEW
+        /// </summary>
+        /// <returns></returns>
+        public IUIView[] GetAllView() {
+            return m_UIViewDic.Values.ToArray<IUIView>();
+        }
         /// <summary>
         /// 关闭其他所有的View
         /// </summary>

@@ -37,5 +37,9 @@ namespace LWFramework.UI
        /// 清空View
        /// </summary>
         void ClearView();
+        /// <summary>
+        /// 重置View
+        /// </summary>
+        void ResetView();
     }
 }

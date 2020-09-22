@@ -373,9 +373,9 @@ namespace LWFramework.Asset.Editor
             var asset = AssetDatabase.LoadAssetAtPath<T>(path);
             if (asset == null)
             {
-                asset = ScriptableObject.CreateInstance<T>();
-                AssetDatabase.CreateAsset(asset, path);
-                AssetDatabase.SaveAssets();
+                //asset = ScriptableObject.CreateInstance<T>();
+                //AssetDatabase.CreateAsset(asset, path);
+                //AssetDatabase.SaveAssets();
             }
 
             return asset;
@@ -498,7 +498,7 @@ namespace LWFramework.Asset.Editor
             {
                 LWUtility.dataPath = LWUtility.ProjectRoot;//System.Environment.CurrentDirectory;
             }
-            LWUtility.downloadURL = GetManifest().downloadURL;
+            //LWUtility.downloadURL = GetManifest().downloadURL;
            // LWUtility.assetBundleMode = settings.runtimeMode;
             LWUtility.getPlatformDelegate = GetPlatformName;
             LWUtility.loadDelegate = AssetDatabase.LoadAssetAtPath;
