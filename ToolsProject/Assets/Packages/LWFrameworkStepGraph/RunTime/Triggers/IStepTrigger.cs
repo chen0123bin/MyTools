@@ -19,4 +19,8 @@ public interface IStepTrigger
     /// 结束触发器
     /// </summary>
     void TriggerEnd();
+    /// <summary>
+    /// 调用触发器
+    /// </summary>
+    void CallTiggerAction();
 }

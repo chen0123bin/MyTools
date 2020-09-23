@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac4dfbaea91e81546ae17cc3e159c170, type: 3}
-  m_Name: New Step Graph
+  m_Script: {fileID: 11500000, guid: 6e8c5eb90654c0d4e910377c17cce778, type: 3}
+  m_Name: Manifest
   m_EditorClassIdentifier: 
-  nodes: []
+  downloadURL: 
+  activeVariants: []
+  bundles: []
+  dirs: []
+  assets: []

@@ -14,13 +14,21 @@ public interface IStepNode
     /// </summary>
     void MovePrev();
     /// <summary>
-    /// 进入节点
+    /// 进入节点,启动控制器
     /// </summary>
-    void OnEnter();
+    void StartController();
     /// <summary>
-    /// 退出节点
+    /// 退出节点，停止控制器
     /// </summary>
-    void OnExit();
+    void StopController();
+    /// <summary>
+    /// 进入节点，启动触发器
+    /// </summary>
+    void StartTrigger();
+    /// <summary>
+    /// 退出节点，停止触发器
+    /// </summary>
+    void StopTrigger();
     /// <summary>
     /// 设置自身未当前运行的节点
     /// </summary>

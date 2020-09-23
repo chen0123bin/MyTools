@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using LWFramework.Core;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -8,10 +9,13 @@ using UnityEngine;
 
 public class StepTriggerMouseDown : BaseStepTrigger
 {
+    [LabelText("触发对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     CancellationTokenSource cts;
     public override void TriggerBegin()
     {
         base.TriggerBegin();
+        MainManager.Instance.GetManager<IHighlightingManager>().AddHighlighting(StepRuntimeData.Instance.FindGameObject(m_ObjName), Color.red);
         cts = new CancellationTokenSource();
         _ = WaitUpdate();
     }
@@ -31,8 +35,7 @@ public class StepTriggerMouseDown : BaseStepTrigger
                 for (int i = 0; i < hits.Length; i++)
                 {
                     if (hits[i].collider.gameObject == StepRuntimeData.Instance.FindGameObject(m_ObjName)) {
-                        m_TiggerAction?.Invoke(m_TriggerResultIndex);
-                        m_IsTrigger = true;
+                        CallTiggerAction();
                         break;
                     }
                 }
@@ -44,7 +47,12 @@ public class StepTriggerMouseDown : BaseStepTrigger
     public override void TriggerEnd()
     {
         base.TriggerEnd();
-        cts.Cancel();
-        cts.Dispose();
+        if (cts != null) {
+            cts.Cancel();
+            cts.Dispose();
+            MainManager.Instance.GetManager<IHighlightingManager>().RemoveHighlighting(StepRuntimeData.Instance.FindGameObject(m_ObjName));
+            cts = null;
+        }
+       
     }
 }

@@ -96,7 +96,7 @@ namespace LWFramework.Core {
             }
             else
             {
-                LWDebug.LogError(typeof(T).ToString() + " 这个Manager 不存在，请先检查是否加入了ManagerClass特性");
+                LWDebug.LogError(typeof(T).ToString() + " 这个Manager 不存在，请先检查是否加入了ManagerClass特性或是否主动添加过Manager");
                 return (T)manager;
             }
         }

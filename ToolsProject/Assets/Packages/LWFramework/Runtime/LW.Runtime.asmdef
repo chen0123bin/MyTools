@@ -2,7 +2,7 @@
     "name": "LW.Runtime",
     "references": [
         "UniTask",
-        "HighlightRuntime"
+        "HighlightPlusRuntime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 [NodeWidth(300), ShowOdinSerializedPropertiesInInspector]
-public class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
+public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
 {  
     [Input, LabelText("进入")] 
     public int enter;
@@ -36,7 +36,8 @@ public class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
         }       
         if (m_StepGraph.CurrStep != null)
         {
-            m_StepGraph.CurrStep.OnExit();
+            m_StepGraph.CurrStep.StopTrigger();
+            m_StepGraph.CurrStep.StopController();         
         }
         NodePort exitPort = GetOutputPort("exit");
         if (!exitPort.IsConnected)
@@ -46,7 +47,8 @@ public class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
         }
         IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
         m_StepGraph.CurrStep = node;
-        m_StepGraph.CurrStep.OnEnter();
+        m_StepGraph.CurrStep.StartController();
+        m_StepGraph.CurrStep.StartTrigger();
     }
     [Button("上一步")]
     public void MovePrev()
@@ -58,30 +60,33 @@ public class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
         }
         if (m_StepGraph.CurrStep != null)
         {
-            m_StepGraph.CurrStep.OnEnter();
+            m_StepGraph.CurrStep.StartController();
+            m_StepGraph.CurrStep.StopTrigger();
         }
         NodePort enterPort = GetInputPort("enter");
         if (!enterPort.IsConnected)
         {
             Debug.LogWarning("enter端口未连接");
             return;
-        }
-        
+        }        
         IStepNode node = enterPort.GetConnection(0).node as IStepNode;
         m_StepGraph.CurrStep = node;
-        m_StepGraph.CurrStep.OnEnter();
+        m_StepGraph.CurrStep.StopController();
+        m_StepGraph.CurrStep.StartController();
+        m_StepGraph.CurrStep.StartTrigger();
     }
     [Button("设置当前")]
     public void SetCurrent()
     {
         m_StepGraph.CurrStep = this;
-        m_StepGraph.CurrStep.OnEnter();
+        m_StepGraph.CurrStep.StartController();
+        m_StepGraph.CurrStep.StartTrigger();
     }
-    public virtual void OnEnter()
+    public virtual void StartController()
     {
         m_CurrState = StepNodeState.Wait;
     }
-    public virtual void OnExit()
+    public virtual void StopController()
     {
         m_CurrState = StepNodeState.Complete;
     }
@@ -94,11 +99,10 @@ public class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
     {
         return m_NextIndex;
     }
-
+    public abstract void StartTrigger();
+    public abstract void StopTrigger();
     [SerializeField, HideInInspector]
     private SerializationData serializationData;
-
-   
 
     void ISerializationCallbackReceiver.OnAfterDeserialize()
     {

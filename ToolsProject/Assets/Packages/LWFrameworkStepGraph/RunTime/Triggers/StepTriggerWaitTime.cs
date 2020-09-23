@@ -21,7 +21,7 @@ public class StepTriggerWaitTime : BaseStepTrigger
     /// </summary>
     async UniTaskVoid WaitTimeAsync() {
         await UniTask.Delay(TimeSpan.FromSeconds(m_WaitTime), ignoreTimeScale: false);
-        m_TiggerAction?.Invoke(m_TriggerResultIndex);
+        CallTiggerAction();
     }
     public override void TriggerEnd()
     {

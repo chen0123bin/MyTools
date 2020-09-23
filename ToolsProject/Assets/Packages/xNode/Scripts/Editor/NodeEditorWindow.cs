@@ -198,11 +198,10 @@ namespace XNodeEditor {
         /// <summary>Open the provided graph in the NodeEditor</summary>
         public static NodeEditorWindow Open(XNode.NodeGraph graph) {
             if (!graph) return null;
-
-            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "xNode", true) as NodeEditorWindow;
+            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "½Úµã±à¼­Æ÷", true) as NodeEditorWindow;
             w.wantsMouseMove = true;
             w.graph = graph;
-            return w;
+            return null;
         }
 
         /// <summary> Repaint all open NodeEditorWindows. </summary>

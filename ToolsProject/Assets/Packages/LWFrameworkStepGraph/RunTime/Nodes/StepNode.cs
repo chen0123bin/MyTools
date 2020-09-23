@@ -26,15 +26,10 @@ public class StepNode : BaseStepNode
 		return null; // Replace this
 	}
 
-    public override void OnEnter()
+    public override void StartController()
     {
-        base.OnEnter();
+        base.StartController();
         m_CompletedCount = 0;
-        for (int i = 0; m_StepTriggerList!=null&&i < m_StepTriggerList.Count; i++)
-        {
-            m_StepTriggerList[i].TiggerCompleted = OnTiggerAction;
-            m_StepTriggerList[i].TriggerBegin();
-        }
         for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
         {
             m_StepControllerList[i].ControllerCompleted = OnControllerCompleted;
@@ -45,16 +40,10 @@ public class StepNode : BaseStepNode
             OnTiggerAction(0);
         }
     }
-
   
-    public override void OnExit()
+    public override void StopController()
     {
-        base.OnExit();
-        for (int i = 0; m_StepTriggerList != null&& i < m_StepTriggerList.Count; i++)
-        {
-            m_StepTriggerList[i].TiggerCompleted = null;
-            m_StepTriggerList[i].TriggerEnd();
-        }
+        base.StopController();
         for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
         {
             m_StepControllerList[i].ControllerCompleted = null;
@@ -84,4 +73,23 @@ public class StepNode : BaseStepNode
         }        
     }
 
+    public override void StartTrigger()
+    {
+        for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
+        {
+            m_StepTriggerList[i].TiggerCompleted = OnTiggerAction;
+            m_StepTriggerList[i].TriggerBegin();
+        }
+    }
+
+    public override void StopTrigger()
+    {
+        for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
+        {
+            m_StepTriggerList[i].TiggerCompleted = null;
+            m_StepTriggerList[i].TriggerEnd();
+        }
+    }
+
+   
 }
