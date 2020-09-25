@@ -1,4 +1,6 @@
-﻿using Sirenix.OdinInspector;
+﻿using LWFramework.Core;
+using LWFramework.Message;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
@@ -81,6 +83,9 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
         m_StepGraph.CurrStep = this;
         m_StepGraph.CurrStep.StartController();
         m_StepGraph.CurrStep.StartTrigger();
+        Message msg = MessagePool.GetMessage(nameof(StepCommonMessage.StepHelpMessage));
+        msg["HelpText"] = m_Remark;
+        MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
     }
     public virtual void StartController()
     {

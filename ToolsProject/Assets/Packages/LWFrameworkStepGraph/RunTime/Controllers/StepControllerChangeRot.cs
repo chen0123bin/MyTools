@@ -32,7 +32,7 @@ public class StepControllerChangeRot : BaseStepController
     public override void ControllerExecute()
     {
         
-        m_Target.DORotate(m_EndEuler, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
+        m_Target.DOLocalRotate(m_EndEuler, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();
         });     
