@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using LWFramework.Message;
 using LWFramework.Core;
 
-public class ChapterManager : MonoBehaviour {
+public class ChapterManager : MonoSingleton<ChapterManager> {
     public string dataName;
     //当前章节的脚标数据
     public int _currentChapterIndex = -1;

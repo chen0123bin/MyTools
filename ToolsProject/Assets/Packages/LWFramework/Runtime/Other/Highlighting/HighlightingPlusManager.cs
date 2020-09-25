@@ -14,20 +14,27 @@ public class HighlightingPlusManager : IHighlightingManager,IManager
     }
     public void AddFlashingHighlighting(GameObject p_Go, Color[] p_ColorArray)
     {
-       
+        HighlightEffect highlightEffect = p_Go.AddComponent<HighlightEffect>();
+        highlightEffect.ProfileLoad(m_HighlightProfile);
+        highlightEffect.highlighted = true;
+        HighlightFlashing highlightFlashing = p_Go.AddComponent<HighlightFlashing>();
+        highlightFlashing.ColorArray = p_ColorArray;
     }
 
-    public void AddHighlighting(GameObject p_GO, Color p_Color)
+    public void AddHighlighting(GameObject p_Go, Color p_Color)
     {
-        HighlightEffect highlightEffect = p_GO.AddComponent<HighlightEffect>();
+        HighlightEffect highlightEffect = p_Go.AddComponent<HighlightEffect>();
         highlightEffect.ProfileLoad(m_HighlightProfile);
         highlightEffect.outlineColor = p_Color;
         highlightEffect.highlighted = true;
        
     } 
-    public void RemoveHighlighting(GameObject p_GO)
+    public void RemoveHighlighting(GameObject p_Go)
     {
-        GameObject.Destroy(p_GO.GetComponent<HighlightEffect>());
+        GameObject.Destroy(p_Go.GetComponent<HighlightEffect>());
+        if (p_Go.GetComponent<HighlightFlashing>()) {
+            GameObject.Destroy(p_Go.GetComponent<HighlightFlashing>());
+        }
     }
 
    

@@ -15,7 +15,7 @@ public class StepTriggerMouseDown : BaseStepTrigger
     public override void TriggerBegin()
     {
         base.TriggerBegin();
-        MainManager.Instance.GetManager<IHighlightingManager>().AddHighlighting(StepRuntimeData.Instance.FindGameObject(m_ObjName), Color.red);
+        MainManager.Instance.GetManager<IHighlightingManager>().AddFlashingHighlighting(StepRuntimeData.Instance.FindGameObject(m_ObjName),new Color[] { new Color(0 , 0.17f , 1,1), new Color(0, 0.96f,  0.99f, 1) });
         cts = new CancellationTokenSource();
         _ = WaitUpdate();
     }

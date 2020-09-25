@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0852a6a29731caf4897e93d5a58cd7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StepGraph: {fileID: 0}
+  m_StepGraph: {fileID: 11400000, guid: ce110ccd5f23bf24a8e06c5ffb86afba, type: 2}
 --- !u!4 &1676853144
 Transform:
   m_ObjectHideFlags: 0
@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 2028626407}
   - component: {fileID: 2028626406}
   - component: {fileID: 2028626405}
+  - component: {fileID: 2028626404}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -866,6 +867,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &2028626404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028626403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2028626405
 MeshRenderer:
   m_ObjectHideFlags: 0
