@@ -1,9 +1,7 @@
 {
     "name": "LWStepGraphEditor",
     "references": [
-        "LWStepGraphRuntime",
-        "XNodeEditor",
-        "XNode"
+        "LWStepGraphRuntime"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

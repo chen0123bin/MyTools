@@ -2,7 +2,6 @@
     "name": "LWStepGraphRuntime",
     "references": [
         "LW.Runtime",
-        "XNode",
         "UniTask"
     ],
     "optionalUnityReferences": [],

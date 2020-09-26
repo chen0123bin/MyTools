@@ -5,9 +5,9 @@ using Sirenix.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
+using LWNode;
 [NodeWidth(300), ShowOdinSerializedPropertiesInInspector]
-public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver
+public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {  
     [Input, LabelText("进入")] 
     public int enter;
@@ -48,9 +48,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
             return;
         }
         IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
-        m_StepGraph.CurrStep = node;
-        m_StepGraph.CurrStep.StartController();
-        m_StepGraph.CurrStep.StartTrigger();
+        node.SetCurrent();
     }
     [Button("上一步")]
     public void MovePrev()
@@ -72,10 +70,9 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
             return;
         }        
         IStepNode node = enterPort.GetConnection(0).node as IStepNode;
-        m_StepGraph.CurrStep = node;
-        m_StepGraph.CurrStep.StopController();
-        m_StepGraph.CurrStep.StartController();
-        m_StepGraph.CurrStep.StartTrigger();
+        node.StopController();
+        node.SetCurrent();
+
     }
     [Button("设置当前")]
     public void SetCurrent()
@@ -106,9 +103,11 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     }
     public abstract void StartTrigger();
     public abstract void StopTrigger();
+
+    #region 序列号标准代码
     [SerializeField, HideInInspector]
     private SerializationData serializationData;
-
+    SerializationData ISupportsPrefabSerialization.SerializationData { get { return this.serializationData; } set { this.serializationData = value; } }
     void ISerializationCallbackReceiver.OnAfterDeserialize()
     {
         UnitySerializationUtility.DeserializeUnityObject(this, ref this.serializationData);
@@ -118,5 +117,6 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     {
         UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
     }
+    #endregion
 
 }

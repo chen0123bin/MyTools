@@ -27,7 +27,7 @@ MonoBehaviour:
   overlayBlending: 0
   outline: 1
   outlineColor: {r: 0, g: 0.072753906, b: 1, a: 1}
-  outlineWidth: 0.8
+  outlineWidth: 0.4
   outlineQuality: 0
   outlineVisibility: 0
   glow: 0

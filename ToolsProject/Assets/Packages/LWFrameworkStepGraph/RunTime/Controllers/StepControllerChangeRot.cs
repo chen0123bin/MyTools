@@ -19,8 +19,7 @@ public class StepControllerChangeRot : BaseStepController
     private Transform m_Target;
     public override void ControllerBegin()
     {
-        m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
-       
+        m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;       
         m_Target.localEulerAngles = m_BeginEuler;
     }
 
@@ -31,7 +30,6 @@ public class StepControllerChangeRot : BaseStepController
 
     public override void ControllerExecute()
     {
-        
         m_Target.DOLocalRotate(m_EndEuler, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();

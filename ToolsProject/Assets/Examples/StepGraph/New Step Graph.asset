@@ -15,6 +15,7 @@ MonoBehaviour:
   nodes:
   - {fileID: 114106174599859078}
   - {fileID: 114878126656007224}
+  - {fileID: 114805662615991500}
 --- !u!114 &114106174599859078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +39,10 @@ MonoBehaviour:
       _node: {fileID: 114106174599859078}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: exit
+        node: {fileID: 114805662615991500}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -69,14 +73,14 @@ MonoBehaviour:
     SerializationNodes:
     - Name: m_StepTriggerList
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, Assembly-CSharp]],
+      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|StepTriggerMouseDown, Assembly-CSharp
+      Data: 1|StepTriggerMouseDown, LWStepGraphRuntime
     - Name: m_ResultIndex
       Entry: 3
       Data: 0
@@ -94,14 +98,14 @@ MonoBehaviour:
       Data: 
     - Name: m_StepControllerList
       Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[IStepController, Assembly-CSharp]],
+      Data: 2|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|StepControllerChangePosi, Assembly-CSharp
+      Data: 3|StepControllerChangePosi, LWStepGraphRuntime
     - Name: m_ObjName
       Entry: 1
       Data: Cube
@@ -174,6 +178,37 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+--- !u!114 &114805662615991500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb0ef54e6c8c9048a6e60b57b6c9722, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -648.5796, y: -316.0108}
+  ports:
+    keys:
+    - exit
+    values:
+    - _fieldName: exit
+      _node: {fileID: 114805662615991500}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: enter
+        node: {fileID: 114106174599859078}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  exit: 0
 --- !u!114 &114878126656007224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,8 +262,94 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: m_StepTriggerList
-      Entry: 6
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StepTriggerMouseDown, LWStepGraphRuntime
+    - Name: m_ResultIndex
+      Entry: 3
+      Data: 0
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cube
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: m_StepControllerList
-      Entry: 6
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|StepControllerChangePosi, LWStepGraphRuntime
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cylinder
+    - Name: m_MoveTime
+      Entry: 4
+      Data: 3
+    - Name: m_PosiArray
+      Entry: 7
+      Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: -5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 

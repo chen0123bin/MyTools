@@ -7,6 +7,7 @@ using UnityEngine;
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
+[Serializable]
 public abstract class BaseStepController:IStepController
 {
     [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]

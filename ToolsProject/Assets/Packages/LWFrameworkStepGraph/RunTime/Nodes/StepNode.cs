@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
+using LWNode;
 using DG.Tweening;
 using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 public class StepNode : BaseStepNode
-{   
-    [LabelText("触发器集合"),NonSerialized, OdinSerialize]
+{
+
+    [LabelText("触发器集合")]
     public List<IStepTrigger> m_StepTriggerList;
-    [LabelText("控制器集合"), NonSerialized, OdinSerialize]
-    public List<IStepController> m_StepControllerList;
+    [LabelText("控制器集合")]
+    public List<IStepController> m_StepControllerList; 
     /// <summary>
     /// 执行完成的数量
     /// </summary>
     private int m_CompletedCount;
     // Use this for initialization
     protected override void Init() {
-		base.Init();		
-	}
+		base.Init();
+        NodePort exitPort = GetOutputPort("exit");
+       
+    }
    
     // Return the correct value of an output port when requested
     public override object GetValue(NodePort port) {
@@ -91,5 +94,5 @@ public class StepNode : BaseStepNode
         }
     }
 
-   
+  
 }

@@ -3,16 +3,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
+using LWNode;
 
 [CreateAssetMenu]
-public class StepGraph : NodeGraph {
+public class StepGraph : LWNodeGraph {
     private IStepNode m_CurrStep;
     /// <summary>
     /// 当前进行中的步骤
     /// </summary>
     public IStepNode CurrStep {
         get => m_CurrStep;set => m_CurrStep = value;
+    }
+    public void StartNode() {
+        LWDebug.Log("nodes::" + nodes.Count);
+        foreach (var item in nodes)
+        {
+            if (item.GetType() == typeof(StartNode)) {
+                (item as StartNode).Start();
+                break;
+            }
+        }
     }
     /// <summary>
     /// 继续下一步

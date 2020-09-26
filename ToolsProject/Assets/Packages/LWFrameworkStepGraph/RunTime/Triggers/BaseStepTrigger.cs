@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[Serializable]
 public abstract class BaseStepTrigger :IStepTrigger
 {
     
@@ -30,5 +30,6 @@ public abstract class BaseStepTrigger :IStepTrigger
     {
         m_IsTrigger = true;
         m_TiggerCompleted?.Invoke(m_ResultIndex);
+        
     }
 }

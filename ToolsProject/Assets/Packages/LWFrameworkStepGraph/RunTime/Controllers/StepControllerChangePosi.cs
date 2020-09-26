@@ -21,17 +21,17 @@ public class StepControllerChangePosi:BaseStepController
         if (m_PosiArray.Length < 2) {
             LWDebug.LogError("当前节点的Controller的移动参数少于2个");
         }
-        m_Target.position = m_PosiArray[0];
+        m_Target.localPosition = m_PosiArray[0];
     }
 
     public override void ControllerEnd()
     {
-        m_Target.position = m_PosiArray[m_PosiArray.Length-1];
+        m_Target.localPosition = m_PosiArray[m_PosiArray.Length-1];
     }
 
     public override void ControllerExecute()
     {
-        m_Target.DOPath(m_PosiArray, m_MoveTime).SetEase(Ease.Linear).OnComplete(() =>
+        m_Target.DOLocalPath(m_PosiArray, m_MoveTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();
         });     
