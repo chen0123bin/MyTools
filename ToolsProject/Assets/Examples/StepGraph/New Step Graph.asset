@@ -16,6 +16,9 @@ MonoBehaviour:
   - {fileID: 114106174599859078}
   - {fileID: 114878126656007224}
   - {fileID: 114805662615991500}
+  - {fileID: 114148161262474370}
+  - {fileID: 114845769566421160}
+  - {fileID: 114684968801944674}
 --- !u!114 &114106174599859078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +32,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -496, y: -345}
+  position: {x: -296, y: -648}
   ports:
     keys:
     - enter
@@ -41,7 +44,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: exit
-        node: {fileID: 114805662615991500}
+        node: {fileID: 114148161262474370}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -178,6 +181,152 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+--- !u!114 &114148161262474370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ea53e16c02d7d4c926dd206fceb14a, type: 3}
+  m_Name: Loop
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -568, y: -200}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114148161262474370}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 114684968801944674}
+        reroutePoints: []
+      - fieldName: exit
+        node: {fileID: 114878126656007224}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114148161262474370}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: enter
+        node: {fileID: 114106174599859078}
+        reroutePoints: []
+      - fieldName: enter
+        node: {fileID: 114845769566421160}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enter: 0
+  exit: 0
+  m_Remark: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  m_StartValue: 0
+  m_AddValue: 0
+--- !u!114 &114684968801944674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1a3f7928583a24db2db1ad5b6fbb3f, type: 3}
+  m_Name: Step
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1112, y: -296}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114684968801944674}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 114805662615991500}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114684968801944674}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: enter
+        node: {fileID: 114148161262474370}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enter: 0
+  exit: 0
+  m_Remark: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_StepTriggerList
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StepTriggerWaitTime, LWStepGraphRuntime
+    - Name: m_ResultIndex
+      Entry: 3
+      Data: 0
+    - Name: m_WaitTime
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_StepControllerList
+      Entry: 6
+      Data: 
 --- !u!114 &114805662615991500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +340,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -648.5796, y: -316.0108}
+  position: {x: -1240, y: -472}
   ports:
     keys:
     - exit
@@ -202,13 +351,93 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: enter
-        node: {fileID: 114106174599859078}
+        node: {fileID: 114684968801944674}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   exit: 0
+--- !u!114 &114845769566421160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1a3f7928583a24db2db1ad5b6fbb3f, type: 3}
+  m_Name: Step
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -120, y: 72}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114845769566421160}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 114148161262474370}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114845769566421160}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enter: 0
+  exit: 0
+  m_Remark: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_StepTriggerList
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|StepTriggerMouseDown, LWStepGraphRuntime
+    - Name: m_ResultIndex
+      Entry: 3
+      Data: 0
+    - Name: m_ObjName
+      Entry: 1
+      Data: Sphere
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_StepControllerList
+      Entry: 6
+      Data: 
 --- !u!114 &114878126656007224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +451,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3, y: -276}
+  position: {x: 136, y: -648}
   ports:
     keys:
     - enter
@@ -244,7 +473,10 @@ MonoBehaviour:
       _node: {fileID: 114878126656007224}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114148161262474370}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

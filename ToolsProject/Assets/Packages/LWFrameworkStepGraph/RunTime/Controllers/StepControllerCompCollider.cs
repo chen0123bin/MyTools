@@ -9,7 +9,9 @@ using Sirenix.OdinInspector;
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
 public class StepControllerCompCollider : BaseStepController
-{    
+{
+    [LabelText("中心位置"), LabelWidth(70)]
+    public Vector3 m_ColliderCenter;
     [LabelText("碰撞大小"), LabelWidth(70)]
     public Vector3 m_ColliderSize;
     [LabelText("开始类型"), LabelWidth(70)]
@@ -39,6 +41,7 @@ public class StepControllerCompCollider : BaseStepController
                     box1 = m_Target.gameObject.AddComponent<BoxCollider>();
                 }             
                 box1.size = m_ColliderSize;
+                box1.center = m_ColliderCenter;
                 break;
             case ControllerCompType.Remove:
                 BoxCollider box2 = m_Target.gameObject.GetComponent<BoxCollider>();

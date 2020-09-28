@@ -8,6 +8,10 @@ using LWNode;
 [CreateAssetMenu]
 public class StepGraph : LWNodeGraph {
     private IStepNode m_CurrStep;
+    private Action m_StepGraphCompleted;
+    public Action StepGraphCompleted {
+        get => m_StepGraphCompleted;set => m_StepGraphCompleted = value;
+    }
     /// <summary>
     /// 当前进行中的步骤
     /// </summary>

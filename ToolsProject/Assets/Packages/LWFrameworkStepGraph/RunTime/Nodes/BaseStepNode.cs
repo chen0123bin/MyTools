@@ -67,6 +67,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
         if (!enterPort.IsConnected)
         {
             Debug.LogWarning("enter端口未连接");
+            m_StepGraph.StepGraphCompleted?.Invoke();
             return;
         }        
         IStepNode node = enterPort.GetConnection(0).node as IStepNode;

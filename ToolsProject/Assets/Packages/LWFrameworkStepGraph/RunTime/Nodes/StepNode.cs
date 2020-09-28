@@ -20,7 +20,6 @@ public class StepNode : BaseStepNode
     // Use this for initialization
     protected override void Init() {
 		base.Init();
-        NodePort exitPort = GetOutputPort("exit");
        
     }
    
