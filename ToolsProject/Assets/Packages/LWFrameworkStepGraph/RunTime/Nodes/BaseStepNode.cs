@@ -8,7 +8,10 @@ using UnityEngine;
 using LWNode;
 [NodeWidth(300), ShowOdinSerializedPropertiesInInspector]
 public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver, ISupportsPrefabSerialization
-{  
+{
+    [HideInInspector]
+    public bool m_IsShowData;
+
     [Input, LabelText("进入")] 
     public int enter;
     [Output, LabelText("退出")] 
@@ -28,7 +31,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     /// </summary>
     protected StepNodeState m_CurrState;
     public StepNodeState CurrState { get => m_CurrState; set => m_CurrState = value; }
-    [Button("下一步")]
+   // [Button("下一步")]
     public void MoveNext()
     {
         if (m_StepGraph.CurrStep!=null&&!m_StepGraph.CurrStep.Equals(this))
@@ -45,12 +48,13 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
         if (!exitPort.IsConnected)
         {
             Debug.LogWarning("exit端口未连接");
+            m_StepGraph.StepGraphCompleted?.Invoke();
             return;
         }
         IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
         node.SetCurrent();
     }
-    [Button("上一步")]
+   // [Button("上一步")]
     public void MovePrev()
     {
         if (m_StepGraph.CurrStep != null && !m_StepGraph.CurrStep.Equals(this))
@@ -67,7 +71,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
         if (!enterPort.IsConnected)
         {
             Debug.LogWarning("enter端口未连接");
-            m_StepGraph.StepGraphCompleted?.Invoke();
+            
             return;
         }        
         IStepNode node = enterPort.GetConnection(0).node as IStepNode;
@@ -75,7 +79,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
         node.SetCurrent();
 
     }
-    [Button("设置当前")]
+    //[Button("设置当前")]
     public void SetCurrent()
     {
         m_StepGraph.CurrStep = this;

@@ -13,7 +13,7 @@ public class LoopNode : BaseStepNode
     protected override void Init()
     {
         base.Init();
-        m_NextIndex = m_StartValue;
+        m_NextIndex = m_StartValue-1;
     }
 
     // Return the correct value of an output port when requested

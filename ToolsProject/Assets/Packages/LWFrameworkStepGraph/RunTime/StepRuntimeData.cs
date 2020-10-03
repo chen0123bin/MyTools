@@ -70,7 +70,41 @@ public class StepRuntimeData : MonoSingleton<StepRuntimeData>
             }
         }
     }
+    [Button("添加帮助脚本")]
+    void AddHelp() {
+        for (int i = 0; i < m_SceneObjectList.Count; i++)
+        {
+            //查找当前路径是否有对象
+            GameObject findGo = GameObject.Find(m_SceneObjectList[i].m_ObjPath);
+            if (findGo != null)
+            {
+                var help = findGo.GetComponent<StepEditorHelp>();
+                if (help == null)
+                {
+                    findGo.AddComponent<StepEditorHelp>();
+                }
+                
+            }
+        }
+    }
+    [Button("移除帮助脚本")]
+    void RemoveHelp() {
+        for (int i = 0; i < m_SceneObjectList.Count; i++)
+        {
+            //查找当前路径是否有对象
+            GameObject findGo = GameObject.Find(m_SceneObjectList[i].m_ObjPath);
+            if (findGo != null)
+            {
+               var help =  findGo.GetComponent<StepEditorHelp>();
+                if (help != null) {
+                    GameObject.DestroyImmediate(help);
+                }
+            }
+           
+        }
+    }
     
+
 }
 [Serializable]
 public class SceneObject

@@ -6,7 +6,7 @@ using DG.Tweening;
 using System;
 using Sirenix.OdinInspector;
 
-[NodeWidth(100)]
+[NodeWidth(150)]
 public class StartNode : Node
 {
     [Output, LabelText("开始")]

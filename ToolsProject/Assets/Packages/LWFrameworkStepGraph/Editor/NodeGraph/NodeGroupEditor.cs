@@ -17,8 +17,12 @@ namespace XNodeEditor.NodeGroups {
 		private Vector2 size;
 
 		public override void OnBodyGUI() {
+			NodeGroup nodeGroup = target as NodeGroup;
+			nodeGroup.m_Color = EditorGUILayout.ColorField("背景颜色 ", nodeGroup.m_Color);
+			nodeGroup.m_Remark = EditorGUILayout.TextField("说明 ", nodeGroup.m_Remark);
+			nodeGroup.ShowAllStepData = EditorGUILayout.Toggle("显示组数据 ", nodeGroup.ShowAllStepData);
 			Event e = Event.current;
-			switch (e.type) {
+			switch (e.type) {				
 				case EventType.MouseDrag:
 					if (isDragging) {
 						group.width = Mathf.Max(200, (int) e.mousePosition.x + 16);
@@ -94,11 +98,13 @@ namespace XNodeEditor.NodeGroups {
 		}
 
 		public override Color GetTint() {
-			return group.color;
+			return group.m_Color;
 		}
 
 		public static void AddMouseRect(Rect rect) {
 			EditorGUIUtility.AddCursorRect(rect, MouseCursor.ResizeUpLeft);
 		}
+
+		
 	}
 }

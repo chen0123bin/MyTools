@@ -7,7 +7,6 @@ using static XNodeEditor.NodeEditor;
 
 [CustomNodeEditor(typeof(BaseStepNode))]
 public class BaseStepNodeEditor : NodeEditor {
-
 	public override void OnHeaderGUI() {
 		GUI.color = Color.white;
         BaseStepNode node = target as BaseStepNode;
@@ -34,5 +33,14 @@ public class BaseStepNodeEditor : NodeEditor {
 		GUI.color = Color.white;
 	}
 
-		
+	public override void OnBodyGUI()
+	{
+		BaseStepNode node = target as BaseStepNode;
+		node.m_IsShowData = EditorGUILayout.Toggle("显示数据 ", node.m_IsShowData);
+		if (!node.m_IsShowData)
+		{
+			return;
+		}
+		base.OnBodyGUI();
+	}
 }

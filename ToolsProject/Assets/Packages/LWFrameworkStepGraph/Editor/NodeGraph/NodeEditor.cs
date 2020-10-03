@@ -15,7 +15,7 @@ namespace XNodeEditor {
     public class NodeEditor : XNodeEditor.Internal.NodeEditorBase<NodeEditor, NodeEditor.CustomNodeEditorAttribute, LWNode.Node> {
 
         private readonly Color DEFAULTCOLOR = new Color32(90, 97, 105, 255);
-
+        
         /// <summary> Fires every whenever a node was modified through the editor </summary>
         public static Action<LWNode.Node> onUpdateNode;
         public readonly static Dictionary<LWNode.NodePort, Vector2> portPositions = new Dictionary<LWNode.NodePort, Vector2>();
@@ -30,6 +30,7 @@ namespace XNodeEditor {
 
         /// <summary> Draws standard field editors for all public fields </summary>
         public virtual void OnBodyGUI() {
+           
 #if ODIN_INSPECTOR
             inNodeEditor = true;
 #endif
@@ -39,13 +40,14 @@ namespace XNodeEditor {
             // serializedObject.ApplyModifiedProperties(); goes at the end.
             serializedObject.Update();
             string[] excludes = { "m_Script", "graph", "position", "ports" };
-
+           
 #if ODIN_INSPECTOR
             InspectorUtilities.BeginDrawPropertyTree(objectTree, true);
             GUIHelper.PushLabelWidth(84);
             objectTree.Draw(true);
             InspectorUtilities.EndDrawPropertyTree(objectTree);
             GUIHelper.PopLabelWidth();
+
 #else
 
             // Iterate through serialized properties and draw them like the Inspector (But with ports)
@@ -63,9 +65,10 @@ namespace XNodeEditor {
                 if (NodeEditorGUILayout.IsDynamicPortListPort(dynamicPort)) continue;
                 NodeEditorGUILayout.PortField(dynamicPort);
             }
-
+           
+            
             serializedObject.ApplyModifiedProperties();
-
+            
 #if ODIN_INSPECTOR
             // Call repaint so that the graph window elements respond properly to layout changes coming from Odin
             if (GUIHelper.RepaintRequested) {
