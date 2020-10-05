@@ -30,10 +30,23 @@ public class StepControllerChangeRot : BaseStepController
 
     public override void ControllerExecute()
     {
-        m_Target.DOLocalRotate(m_EndEuler, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
+        //m_Target.DOLocalRotate(m_EndEuler, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
+        //{
+        //    m_ControllerCompleted?.Invoke();
+        //});
+
+
+
+        Quaternion oldQ;
+        Vector3 oldE;
+        oldE = m_Target.localEulerAngles;
+        m_Target.localEulerAngles = m_EndEuler;
+        oldQ = m_Target.rotation;
+        m_Target.localEulerAngles = oldE;
+        m_Target.DORotateQuaternion(oldQ, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();
-        });     
+        });
     }
 
    

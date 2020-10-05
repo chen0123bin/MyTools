@@ -25,9 +25,13 @@ public abstract class BaseStepController:IStepController
     public abstract void ControllerExecute();
 
 #if UNITY_EDITOR
+ 
     [Button("选择物体"),LabelWidth(70)]
     public void ChooseObj() { 
         UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+       
     }
+    
+    
 #endif
 }

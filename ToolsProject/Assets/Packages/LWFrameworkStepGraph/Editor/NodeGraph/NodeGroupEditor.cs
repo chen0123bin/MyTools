@@ -17,16 +17,16 @@ namespace XNodeEditor.NodeGroups {
 		private Vector2 size;
 
 		public override void OnBodyGUI() {
-			NodeGroup nodeGroup = target as NodeGroup;
-			nodeGroup.m_Color = EditorGUILayout.ColorField("背景颜色 ", nodeGroup.m_Color);
-			nodeGroup.m_Remark = EditorGUILayout.TextField("说明 ", nodeGroup.m_Remark);
-			nodeGroup.ShowAllStepData = EditorGUILayout.Toggle("显示组数据 ", nodeGroup.ShowAllStepData);
+			base.OnBodyGUI();
+			//group.m_Color = EditorGUILayout.ColorField("背景颜色 ", group.m_Color);
+			//group.m_Remark = EditorGUILayout.TextField("说明 ", group.m_Remark);
+			//group.m_ShowAllStepData = EditorGUILayout.Toggle("显示组数据 ", group.m_ShowAllStepData);
 			Event e = Event.current;
 			switch (e.type) {				
 				case EventType.MouseDrag:
 					if (isDragging) {
 						group.width = Mathf.Max(200, (int) e.mousePosition.x + 16);
-						group.height = Mathf.Max(100, (int) e.mousePosition.y - 34);
+						group.height = Mathf.Max(100, (int) e.mousePosition.y - 80);
 						NodeEditorWindow.current.Repaint();
 					}
 					break;
@@ -90,7 +90,7 @@ namespace XNodeEditor.NodeGroups {
 			// Control height of node
 			GUILayout.Space(group.height);
 
-			GUI.DrawTexture(new Rect(group.width - 34, group.height + 16, 24, 24), corner);
+			GUI.DrawTexture(new Rect(group.width - 34, group.height + 70, 24, 24), corner);
 		}
 
 		public override int GetWidth() {

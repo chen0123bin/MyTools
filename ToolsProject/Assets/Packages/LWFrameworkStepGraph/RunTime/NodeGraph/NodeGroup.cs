@@ -19,25 +19,10 @@ namespace XNode.NodeGroups
 		/// 备注
 		/// </summary>
 		public string m_Remark;
-		private bool m_ShowAllStepData;
-		public bool ShowAllStepData {
-			get {
-				return m_ShowAllStepData;
-			}
-			set {
-				if (m_ShowAllStepData != value) {
-					m_ShowAllStepData = value;
-					List<Node> nodes = GetNodes();
-					for (int i = 0; i < nodes.Count; i++)
-					{
-						if (nodes[i] is BaseStepNode) {
-							(nodes[i] as BaseStepNode).m_IsShowData = value;
-						}
-					}
+		[OnValueChanged("OnShowAllStepDataChange")]
+		public bool m_ShowAllStepData;
+		
 
-				}
-			}
-		}
 		public override object GetValue(NodePort port) {
 			return null;
 		}
@@ -54,6 +39,16 @@ namespace XNode.NodeGroups
 				result.Add(node);
 			}
 			return result;
+		}
+		public void OnShowAllStepDataChange() {
+			List<Node> nodes = GetNodes();
+			for (int i = 0; i < nodes.Count; i++)
+			{
+				if (nodes[i] is BaseStepNode)
+				{
+					(nodes[i] as BaseStepNode).m_IsShowData = m_ShowAllStepData;
+				}
+			}
 		}
 	}
 }

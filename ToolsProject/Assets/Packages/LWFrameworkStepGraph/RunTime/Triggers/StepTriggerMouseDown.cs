@@ -23,7 +23,7 @@ public class StepTriggerMouseDown : BaseStepTrigger
     //使用Task处理射线点击
     /// </summary>
     async UniTaskVoid WaitUpdate() {
-        while (true && !m_IsTrigger)
+        while (true && !m_IsTrigger && cts!=null)
         {
             await UniTask.Yield(PlayerLoopTiming.Update,cancellationToken: cts.Token);
             if (Input.GetMouseButtonDown(0) )

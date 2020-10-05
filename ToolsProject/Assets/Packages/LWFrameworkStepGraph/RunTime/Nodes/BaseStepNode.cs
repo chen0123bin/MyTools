@@ -10,7 +10,7 @@ using LWNode;
 public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {
     [HideInInspector]
-    public bool m_IsShowData;
+    public bool m_IsShowData = true;
 
     [Input, LabelText("进入")] 
     public int enter;
