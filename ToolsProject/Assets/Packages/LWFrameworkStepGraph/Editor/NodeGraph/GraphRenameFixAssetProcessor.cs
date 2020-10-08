@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using LWNode;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary>
     /// This asset processor resolves an issue with the new v2 AssetDatabase system present on 2019.3 and later. When
     /// renaming a <see cref="LWNode.LWNodeGraph"/> asset, it appears that sometimes the v2 AssetDatabase will swap which asset

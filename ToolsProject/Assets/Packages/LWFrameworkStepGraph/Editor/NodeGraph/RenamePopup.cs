@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary> Utility for renaming assets </summary>
     public class RenamePopup : EditorWindow {
         private const string inputControlName = "nameInput";

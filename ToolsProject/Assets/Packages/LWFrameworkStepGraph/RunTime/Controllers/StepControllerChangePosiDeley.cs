@@ -35,27 +35,20 @@ public class StepControllerChangePosiDeley:BaseStepController
 
     public override void ControllerExecute()
     {
-        if (m_TimeDeley == 0)
-        {
-            DoPath();
-        }
-        else {
-            _ = WaitTimeAsync();
-        }
-        
-          
-    }
-    //使用Task处理等待时间
-    /// </summary>
-    async UniTaskVoid WaitTimeAsync()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(m_TimeDeley), ignoreTimeScale: false);
         DoPath();
+
     }
     void DoPath() {
-        m_Target.DOLocalPath(m_PosiArray, m_MoveTime).SetEase(Ease.Linear).OnComplete(() =>
+        m_Target.DOLocalPath(m_PosiArray, m_MoveTime).SetDelay(m_TimeDeley).SetEase(Ease.Linear).OnComplete(() =>
         {
             m_ControllerCompleted?.Invoke();
         });
     }
+    [Button("设置数据"), LabelWidth(70)]
+    public void SetValue()
+    {
+        m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
+        m_PosiArray[m_PosiArray.Length - 1] = m_Target.localPosition;
+    }
+
 }

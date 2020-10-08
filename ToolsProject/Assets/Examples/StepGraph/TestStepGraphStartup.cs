@@ -17,7 +17,7 @@ public class TestStepGraphStartup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
         MainManager.Instance.AddManager(typeof(IHighlightingManager).ToString(), new HighlightingPlusManager());
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
-        m_StepGraph.JumpNode(0);
+        m_StepGraph.StartNode();
     }
 
     // Update is called once per frame

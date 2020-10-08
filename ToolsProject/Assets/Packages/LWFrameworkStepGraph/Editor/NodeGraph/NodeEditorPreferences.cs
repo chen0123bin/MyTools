@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     public enum NoodlePath { Curvy, Straight, Angled, ShaderLab }
     public enum NoodleStroke { Full, Dashed }
 
     public static class NodeEditorPreferences {
 
         /// <summary> The last editor we checked. This should be the one we modify </summary>
-        private static XNodeEditor.NodeGraphEditor lastEditor;
+        private static LWNodeEditor.NodeGraphEditor lastEditor;
         /// <summary> The last key we checked. This should be the one we modify </summary>
         private static string lastKey = "xNode.Settings";
 
@@ -82,13 +82,13 @@ namespace XNodeEditor {
 
         /// <summary> Get settings of current active editor </summary>
         public static Settings GetSettings() {
-            if (XNodeEditor.NodeEditorWindow.current == null) return new Settings();
+            if (LWNodeEditor.NodeEditorWindow.current == null) return new Settings();
 
-            if (lastEditor != XNodeEditor.NodeEditorWindow.current.graphEditor) {
-                object[] attribs = XNodeEditor.NodeEditorWindow.current.graphEditor.GetType().GetCustomAttributes(typeof(XNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute), true);
+            if (lastEditor != LWNodeEditor.NodeEditorWindow.current.graphEditor) {
+                object[] attribs = LWNodeEditor.NodeEditorWindow.current.graphEditor.GetType().GetCustomAttributes(typeof(LWNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute), true);
                 if (attribs.Length == 1) {
-                    XNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute attrib = attribs[0] as XNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute;
-                    lastEditor = XNodeEditor.NodeEditorWindow.current.graphEditor;
+                    LWNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute attrib = attribs[0] as LWNodeEditor.NodeGraphEditor.CustomNodeGraphEditorAttribute;
+                    lastEditor = LWNodeEditor.NodeEditorWindow.current.graphEditor;
                     lastKey = attrib.editorPrefsKey;
                 } else return null;
             }

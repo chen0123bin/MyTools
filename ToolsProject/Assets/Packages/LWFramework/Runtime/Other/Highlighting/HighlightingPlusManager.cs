@@ -37,9 +37,9 @@ public class HighlightingPlusManager : IHighlightingManager,IManager
     } 
     public void RemoveHighlighting(GameObject p_Go)
     {
-        GameObject.Destroy(p_Go.GetComponent<HighlightEffect>());
+        GameObject.DestroyImmediate(p_Go.GetComponent<HighlightEffect>());
         if (p_Go.GetComponent<HighlightFlashing>()) {
-            GameObject.Destroy(p_Go.GetComponent<HighlightFlashing>());
+            GameObject.DestroyImmediate(p_Go.GetComponent<HighlightFlashing>());
         }
     }
 

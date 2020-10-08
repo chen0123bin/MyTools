@@ -14,13 +14,14 @@ namespace XNode.NodeGroups
 		/// <summary>
 		/// 组背景颜色
 		/// </summary>
+		[LabelText("背景颜色")]
 		public Color m_Color = new Color(1f, 1f, 1f, 0.4f);
 		/// <summary>
 		/// 备注
 		/// </summary>
+		[LabelText("备注")]
 		public string m_Remark;
-		[OnValueChanged("OnShowAllStepDataChange")]
-		public bool m_ShowAllStepData;
+		private bool m_ShowAllStepData;
 		
 
 		public override object GetValue(NodePort port) {
@@ -40,7 +41,10 @@ namespace XNode.NodeGroups
 			}
 			return result;
 		}
-		public void OnShowAllStepDataChange() {
+		[ContextMenu("切换节点状态")]
+		public void ShowAllStepDataChange()
+		{
+			m_ShowAllStepData = !m_ShowAllStepData;
 			List<Node> nodes = GetNodes();
 			for (int i = 0; i < nodes.Count; i++)
 			{
@@ -50,5 +54,6 @@ namespace XNode.NodeGroups
 				}
 			}
 		}
+		
 	}
 }

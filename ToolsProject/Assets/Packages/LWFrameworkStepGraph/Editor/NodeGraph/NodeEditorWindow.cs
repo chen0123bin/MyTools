@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using Object = UnityEngine.Object;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     [InitializeOnLoad]
     public partial class NodeEditorWindow : EditorWindow {
         public static NodeEditorWindow current;
@@ -198,6 +198,10 @@ namespace XNodeEditor {
         /// <summary>Open the provided graph in the NodeEditor</summary>
         public static NodeEditorWindow Open(LWNode.LWNodeGraph graph) {
             if (!graph) return null;
+            //if (!Application.dataPath.Contains("CaiLiaoLabProject"))
+            //{
+            //    return null;
+            //}
             NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "½Úµã±à¼­Æ÷", true) as NodeEditorWindow;
             w.wantsMouseMove = true;
             w.graph = graph;

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using LWNode;
-using XNodeEditor;
+using LWNodeEditor;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
 	[CustomPropertyDrawer(typeof(NodeEnumAttribute))]
 	public class NodeEnumDrawer : PropertyDrawer {
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {

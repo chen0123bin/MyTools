@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.IO;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary> Deals with modified assets </summary>
     class NodeEditorAssetModProcessor : UnityEditor.AssetModificationProcessor {
 

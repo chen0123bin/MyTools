@@ -6,7 +6,7 @@ using Sirenix.OdinInspector.Editor;
 using UnityEngine;
 using LWNode;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
 	internal class OdinNodeInGraphAttributeProcessor<T> : OdinAttributeProcessor<T> where T : Node {
 		public override bool CanProcessSelfAttributes(InspectorProperty property) {
 			return false;

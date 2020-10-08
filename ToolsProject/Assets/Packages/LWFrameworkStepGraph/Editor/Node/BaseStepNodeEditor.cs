@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using XNodeEditor;
-using static XNodeEditor.NodeEditor;
+using LWNodeEditor;
+using static LWNodeEditor.NodeEditor;
 
 [CustomNodeEditor(typeof(BaseStepNode))]
 public class BaseStepNodeEditor : NodeEditor {

@@ -109,7 +109,7 @@ namespace LWNode {
         /// <summary> Iterate over all dynamic inputs on this node. </summary>
         public IEnumerable<NodePort> DynamicInputs { get { foreach (NodePort port in Ports) { if (port.IsDynamic && port.IsInput) yield return port; } } }
         /// <summary> Parent <see cref="LWNodeGraph"/> </summary>
-        [SerializeField] public LWNodeGraph graph;
+        [SerializeField]  public LWNodeGraph graph;
         /// <summary> Position on the <see cref="LWNodeGraph"/> </summary>
         [SerializeField] public Vector2 position;
         /// <summary> It is recommended not to modify these at hand. Instead, see <see cref="InputAttribute"/> and <see cref="OutputAttribute"/> </summary>

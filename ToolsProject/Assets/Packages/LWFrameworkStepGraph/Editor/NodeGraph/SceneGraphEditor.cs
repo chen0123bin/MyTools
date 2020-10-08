@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using LWNode;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     [CustomEditor(typeof(SceneGraph), true)]
     public class SceneGraphEditor : Editor {
         private SceneGraph sceneGraph;

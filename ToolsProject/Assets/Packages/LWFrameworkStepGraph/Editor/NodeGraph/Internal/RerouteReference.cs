@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace XNodeEditor.Internal {
+namespace LWNodeEditor.Internal {
 	public struct RerouteReference {
 		public LWNode.NodePort port;
 		public int connectionIndex;

@@ -6,7 +6,7 @@ using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
 #endif
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary> Override graph inspector to show an 'Open Graph' button at the top </summary>
     [CustomEditor(typeof(LWNode.LWNodeGraph), true)]
 #if ODIN_INSPECTOR

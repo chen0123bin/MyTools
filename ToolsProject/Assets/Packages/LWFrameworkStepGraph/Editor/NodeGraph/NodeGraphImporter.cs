@@ -6,7 +6,7 @@ using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 using LWNode;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary> Deals with modified assets </summary>
     class NodeGraphImporter : AssetPostprocessor {
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths) {

@@ -5,7 +5,7 @@ using Sirenix.Utilities.Editor;
 using UnityEngine;
 using LWNode;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
 	public class OutputAttributeDrawer : OdinAttributeDrawer<LWNode.Node.OutputAttribute> {
 		protected override bool CanDrawAttributeProperty(InspectorProperty property) {
 			Node node = property.Tree.WeakTargets[0] as Node;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using XNodeEditor.Internal;
+using LWNodeEditor.Internal;
 
-namespace XNodeEditor {
+namespace LWNodeEditor {
     /// <summary> Contains GUI methods </summary>
     public partial class NodeEditorWindow {
         public NodeGraphEditor graphEditor;

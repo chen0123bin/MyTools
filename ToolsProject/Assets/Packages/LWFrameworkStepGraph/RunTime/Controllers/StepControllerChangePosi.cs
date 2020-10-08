@@ -11,7 +11,7 @@ using Sirenix.OdinInspector;
 public class StepControllerChangePosi:BaseStepController
 {
     [LabelText("移动时间"), LabelWidth(70)]
-    public float m_MoveTime;
+    public float m_MoveTime = 1;
     [LabelText("移动位置"), LabelWidth(70)]
     public Vector3[] m_PosiArray;
     private Transform m_Target;
