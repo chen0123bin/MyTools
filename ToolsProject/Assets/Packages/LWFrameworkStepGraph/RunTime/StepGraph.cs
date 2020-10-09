@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LWNode;
+using LWNode.LWStepGraph;
 
 [CreateAssetMenu]
 public class StepGraph : LWNodeGraph {
@@ -43,4 +44,5 @@ public class StepGraph : LWNodeGraph {
         IStepNode stepNode  = nodes[index] as IStepNode;
         stepNode.SetCurrent();
     }
+ 
 }

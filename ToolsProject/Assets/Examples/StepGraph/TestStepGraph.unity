@@ -827,8 +827,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AddObj: {fileID: 0}
-  m_SceneObjectList: []
-  m_SceneObjectNameList: []
+  m_SceneObjectList:
+  - m_ObjName: Cube
+    m_ObjPath: Cube
+  - m_ObjName: Cylinder
+    m_ObjPath: Cylinder
+  - m_ObjName: Sphere
+    m_ObjPath: Sphere
+  m_SceneObjectNameList:
+  - Cube
+  - Cylinder
+  - Sphere
 --- !u!1 &1898850027
 GameObject:
   m_ObjectHideFlags: 0

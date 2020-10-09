@@ -18,6 +18,7 @@ namespace LWNodeEditor {
         private static readonly Vector3[] polyLineTempArray = new Vector3[2];
 
         protected virtual void OnGUI() {
+            GUI.Label(new Rect(100, 100, 100, 100), "abc");
             Event e = Event.current;
             Matrix4x4 m = GUI.matrix;
             if (graph == null) return;

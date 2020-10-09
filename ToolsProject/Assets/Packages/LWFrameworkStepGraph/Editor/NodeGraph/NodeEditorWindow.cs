@@ -215,5 +215,6 @@ namespace LWNodeEditor {
                 windows[i].Repaint();
             }
         }
+       
     }
 }
