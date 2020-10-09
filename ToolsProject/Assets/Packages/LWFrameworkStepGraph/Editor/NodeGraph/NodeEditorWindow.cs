@@ -196,7 +196,7 @@ namespace LWNodeEditor {
         }
 
         /// <summary>Open the provided graph in the NodeEditor</summary>
-        public static NodeEditorWindow Open(LWNode.LWNodeGraph graph) {
+        public static  NodeEditorWindow Open(LWNode.LWNodeGraph graph) {
             if (!graph) return null;
             //if (!Application.dataPath.Contains("CaiLiaoLabProject"))
             //{

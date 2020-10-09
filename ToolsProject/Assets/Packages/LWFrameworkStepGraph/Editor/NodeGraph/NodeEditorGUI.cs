@@ -18,7 +18,6 @@ namespace LWNodeEditor {
         private static readonly Vector3[] polyLineTempArray = new Vector3[2];
 
         protected virtual void OnGUI() {
-            GUI.Label(new Rect(100, 100, 100, 100), "abc");
             Event e = Event.current;
             Matrix4x4 m = GUI.matrix;
             if (graph == null) return;
@@ -95,6 +94,8 @@ namespace LWNodeEditor {
                 r.position = GridToWindowPosition(r.position);
                 r.size /= zoom;
                 Handles.DrawSolidRectangleWithOutline(r, new Color(0, 0, 0, 0.1f), new Color(1, 1, 1, 0.6f));
+
+              
             }
         }
 
@@ -557,6 +558,7 @@ namespace LWNodeEditor {
         }
 
         private void DrawTooltip() {
+            
             if (!NodeEditorPreferences.GetSettings().portTooltips || graphEditor is null)
                 return;
             string tooltip = null;
@@ -572,7 +574,7 @@ namespace LWNodeEditor {
             size.x += 8;
             Rect rect = new Rect(Event.current.mousePosition - (size), size);
             EditorGUI.LabelField(rect, content, NodeEditorResources.styles.tooltip);
-            Repaint();
+            Repaint();          
         }
     }
 }

@@ -10,6 +10,8 @@ using LWNode.LWStepGraph;
 public class StepGraph : LWNodeGraph {
     private IStepNode m_CurrStep;
     private Action m_StepGraphCompleted;
+    [HideInInspector, SerializeField]
+    public List<string> m_ObjectArray;
     public Action StepGraphCompleted {
         get => m_StepGraphCompleted;set => m_StepGraphCompleted = value;
     }

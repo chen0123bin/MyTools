@@ -20,6 +20,8 @@ MonoBehaviour:
   - {fileID: 114845769566421160}
   - {fileID: 114684968801944674}
   - {fileID: 114805662615991500}
+  - {fileID: 114712141618891136}
+  m_ObjectArray: []
 --- !u!114 &114106174599859078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,7 +35,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -343.65323, y: -703.98114}
+  position: {x: -328, y: -776}
   ports:
     keys:
     - enter
@@ -199,7 +201,7 @@ MonoBehaviour:
   m_Name: Loop
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -927.4999, y: -531.4806}
+  position: {x: -1016, y: -584}
   ports:
     keys:
     - enter
@@ -263,13 +265,13 @@ MonoBehaviour:
   m_Name: "\u7B2C\u4E00\u6B65"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1801.9966, y: -860.72046}
+  position: {x: -1800, y: -872}
   ports:
     keys: []
     values: []
   width: 2403
   height: 845
-  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
+  m_Color: {r: 0.7667106, g: 1, b: 0.740566, a: 0.30980393}
   m_Remark: 
 --- !u!114 &114684968801944674
 MonoBehaviour:
@@ -284,7 +286,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1469.0166, y: -585.13947}
+  position: {x: -1448, y: -664}
   ports:
     keys:
     - enter
@@ -353,8 +355,92 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: m_StepControllerList
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|StepControllerChangePosi, LWStepGraphRuntime
+    - Name: m_Remark
       Entry: 6
       Data: 
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cube
+    - Name: m_MoveTime
+      Entry: 4
+      Data: 1
+    - Name: m_PosiArray
+      Entry: 7
+      Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+--- !u!114 &114712141618891136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa846ddd70fa0324baba74cb21a77050, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2584, y: -1048}
+  ports:
+    keys: []
+    values: []
 --- !u!114 &114805662615991500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +454,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1712.3442, y: -554.57526}
+  position: {x: -1704, y: -552}
   ports:
     keys:
     - exit
@@ -399,7 +485,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -263.5917, y: -349.5735}
+  position: {x: -312, y: -328}
   ports:
     keys:
     - enter
@@ -465,7 +551,59 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: m_StepControllerList
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|StepControllerChangePosi, LWStepGraphRuntime
+    - Name: m_Remark
       Entry: 6
+      Data: 
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cylinder
+    - Name: m_MoveTime
+      Entry: 4
+      Data: 1
+    - Name: m_PosiArray
+      Entry: 7
+      Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2.21
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
 --- !u!114 &114878126656007224
 MonoBehaviour:

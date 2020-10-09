@@ -4,6 +4,8 @@ using UnityEditor;
 using UnityEngine;
 using LWNodeEditor;
 using static LWNodeEditor.NodeEditor;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
 
 [CustomNodeEditor(typeof(BaseStepNode))]
 public class BaseStepNodeEditor : NodeEditor {
@@ -41,6 +43,8 @@ public class BaseStepNodeEditor : NodeEditor {
 		{
 			return;
 		}
-		base.OnBodyGUI();
-	}
+
+
+        base.OnBodyGUI();
+    }
 }
