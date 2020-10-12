@@ -9,7 +9,7 @@ using Cysharp.Threading.Tasks;
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
-public class StepControllerWaitTime : BaseStepController
+public class SC_WaitTime : BaseStepController
 {    
 
     [LabelText("结束等待时间"), LabelWidth(90)]

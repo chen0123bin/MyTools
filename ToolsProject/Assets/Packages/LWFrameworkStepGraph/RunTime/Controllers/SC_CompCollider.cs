@@ -10,6 +10,8 @@ using Sirenix.OdinInspector;
 /// </summary>
 public class SC_CompCollider : BaseStepController
 {
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     [LabelText("中心位置"), LabelWidth(70)]
     public Vector3 m_ColliderCenter;
     [LabelText("碰撞大小"), LabelWidth(70)]
@@ -55,5 +57,11 @@ public class SC_CompCollider : BaseStepController
                 break;
         }
     }
-   
+#if UNITY_EDITOR
+    [Button("选择物体"), LabelWidth(70)]
+    public void ChooseObj()
+    {
+        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+    }
+#endif
 }

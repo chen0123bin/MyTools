@@ -12,8 +12,7 @@ public abstract class BaseStepController:IStepController
 {
     [LabelText("备注"),GUIColor(0,1,0)]
     public string m_Remark;
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
-    public string m_ObjName;
+   
     public List<string> GetSceneObjectList()
     {
         return StepRuntimeData.Instance.SceneObjectNameList;
@@ -24,14 +23,5 @@ public abstract class BaseStepController:IStepController
     public abstract void ControllerEnd();
     public abstract void ControllerExecute();
 
-#if UNITY_EDITOR
- 
-    [Button("选择物体"),LabelWidth(70)]
-    public void ChooseObj() { 
-        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
-       
-    }
-    
-    
-#endif
+
 }

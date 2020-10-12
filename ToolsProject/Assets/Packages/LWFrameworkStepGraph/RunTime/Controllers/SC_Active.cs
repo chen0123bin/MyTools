@@ -9,7 +9,9 @@ using Sirenix.OdinInspector;
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
 public class SC_Active : BaseStepController
-{    
+{
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     [LabelText("开始Active"), LabelWidth(90)]
     public bool m_BeginActive;
     [LabelText("结束Active"), LabelWidth(90)]
@@ -28,6 +30,12 @@ public class SC_Active : BaseStepController
     {
         m_ControllerCompleted?.Invoke();
     }
-    
-   
+
+#if UNITY_EDITOR
+    [Button("选择物体"), LabelWidth(70)]
+    public void ChooseObj()
+    {
+        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+    }
+#endif
 }

@@ -11,6 +11,8 @@ using Cysharp.Threading.Tasks;
 /// </summary>
 public class StepControllerChangePosiDeley:BaseStepController
 {
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     [LabelText("延迟时间"), LabelWidth(90)]
     public float m_TimeDeley = 0;
     [LabelText("移动时间"), LabelWidth(70)]
@@ -44,6 +46,13 @@ public class StepControllerChangePosiDeley:BaseStepController
             m_ControllerCompleted?.Invoke();
         });
     }
+#if UNITY_EDITOR
+    [Button("选择物体"), LabelWidth(70)]
+    public void ChooseObj()
+    {
+        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+    }
+#endif
     [Button("设置数据"), LabelWidth(70)]
     public void SetValue()
     {

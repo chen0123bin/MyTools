@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1448, y: -664}
+  position: {x: -1427.0782, y: -633.7796}
   ports:
     keys:
     - enter
@@ -352,10 +352,52 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2022.4343, y: -557.774}
+  position: {x: -2312.4343, y: -841.774}
   ports:
-    keys: []
-    values: []
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114712141618891136}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114712141618891136}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  m_IsShowData: 0
+  enter: 0
+  exit: 0
+  m_Remark: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  m_AddObj: {fileID: 0}
+  m_SceneObjectList:
+  - m_ObjName: Sphere
+    m_ObjPath: Sphere
+  - m_ObjName: Cube
+    m_ObjPath: Cube
+  m_SceneObjectNameList:
+  - Sphere
+  - Cube
 --- !u!114 &114805662615991500
 MonoBehaviour:
   m_ObjectHideFlags: 0

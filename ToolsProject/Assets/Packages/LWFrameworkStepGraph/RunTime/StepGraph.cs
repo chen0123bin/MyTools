@@ -10,6 +10,7 @@ using LWNode.LWStepGraph;
 public class StepGraph : LWNodeGraph {
     private IStepNode m_CurrStep;
     private Action m_StepGraphCompleted;
+    private DataNode m_DataNode;
     [HideInInspector, SerializeField]
     public List<string> m_ObjectArray;
     /// <summary>
@@ -25,6 +26,12 @@ public class StepGraph : LWNodeGraph {
         get => m_CurrStep;set => m_CurrStep = value;
     }
     /// <summary>
+    /// 对象数据节点
+    /// </summary>
+    public DataNode DataNode {
+        get => m_DataNode; set => m_DataNode = value;
+    }
+    /// <summary>
     /// 开始节点
     /// </summary>
     public void StartNode() {
@@ -32,7 +39,12 @@ public class StepGraph : LWNodeGraph {
         {
             if (item.GetType() == typeof(StartNode)) {
                 (item as StartNode).Start();
-                break;
+                continue;
+            }
+            if (item.GetType() == typeof(DataNode))
+            {
+                m_DataNode = item as DataNode;
+                continue;
             }
         }
     }

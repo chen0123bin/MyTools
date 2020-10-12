@@ -10,6 +10,8 @@ using Sirenix.OdinInspector;
 /// </summary>
 public class SC_ChangeRot : BaseStepController
 {
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     [LabelText("旋转时间"), LabelWidth(70)]
     public float m_RotTime = 1 ;
     [LabelText("变化角度"), LabelWidth(70)]
@@ -43,7 +45,13 @@ public class SC_ChangeRot : BaseStepController
             m_ControllerCompleted?.Invoke();
         });
     }
-
+#if UNITY_EDITOR
+    [Button("选择物体"), LabelWidth(70)]
+    public void ChooseObj()
+    {
+        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+    }
+#endif
     [Button("设置数据"), LabelWidth(70)]
     public void SetValue()
     {

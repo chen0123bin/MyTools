@@ -10,6 +10,8 @@ using Sirenix.OdinInspector;
 /// </summary>
 public class SC_ChangeScale:BaseStepController
 {
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    public string m_ObjName;
     [LabelText("变化时间"), LabelWidth(70)]
     public float m_ChangeTime;
     [LabelText("变化大小"), LabelWidth(70)]
@@ -36,6 +38,13 @@ public class SC_ChangeScale:BaseStepController
             m_ControllerCompleted?.Invoke();
         });     
     }
+#if UNITY_EDITOR
+    [Button("选择物体"), LabelWidth(70)]
+    public void ChooseObj()
+    {
+        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+    }
+#endif
     [Button("设置数据"), LabelWidth(70)]
     public void SetValue()
     {
