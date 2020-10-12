@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepTriggerWaitTime : BaseStepTrigger
+public class ST_WaitTime : BaseStepTrigger
 {
    
     [LabelText("等待时间"),LabelWidth(70)]
@@ -21,7 +21,7 @@ public class StepTriggerWaitTime : BaseStepTrigger
     /// </summary>
     async UniTaskVoid WaitTimeAsync() {
         await UniTask.Delay(TimeSpan.FromSeconds(m_WaitTime), ignoreTimeScale: false);
-        CallTiggerAction();
+        TiggerAction();
     }
     public override void TriggerEnd()
     {

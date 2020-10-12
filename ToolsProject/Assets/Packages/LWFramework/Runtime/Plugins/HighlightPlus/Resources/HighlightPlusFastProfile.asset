@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1781078058, guid: fa25eee0e2182674da6a126f2c7c41d9, type: 3}
   m_Name: HighlightPlusFastProfile
   m_EditorClassIdentifier: 
-  effectGroup: 3
+  effectGroup: 4
   effectGroupLayer:
     serializedVersion: 2
     m_Bits: 4294967295

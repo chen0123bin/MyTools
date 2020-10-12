@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 /// <summary>
 /// 步骤控制器，处理旋转
 /// </summary>
-public class StepControllerChangeRot2 : BaseStepController
+public class SC_ChangeRot : BaseStepController
 {
     [LabelText("旋转时间"), LabelWidth(70)]
     public float m_RotTime = 1 ;

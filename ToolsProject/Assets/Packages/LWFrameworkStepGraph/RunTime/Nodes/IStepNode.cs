@@ -4,31 +4,44 @@
 public interface IStepNode
 {
     StepNodeState CurrState { get; set; }
-   // string Remark { get; set; }
-   /// <summary>
-   /// 下一步
-   /// </summary>
-    void MoveNext();
+    IStepNode PrevNode { get; set; }
+
+    // string Remark { get; set; }
+    /// <summary>
+    /// 下一步
+    /// </summary>
+    //  void MoveNext();
     /// <summary>
     /// 上一步
     /// </summary>
-    void MovePrev();
+    //  void MovePrev();
+
     /// <summary>
-    /// 进入节点,启动控制器
+    /// 获取下一节点
     /// </summary>
-    void StartController();
+    /// <returns>StepNode</returns>
+    IStepNode GetNextNode();
     /// <summary>
-    /// 退出节点，停止控制器
+    /// 获取上一节点
     /// </summary>
-    void StopController();
+    /// <returns>StepNode</returns>
+    IStepNode GetPrevNode();
     /// <summary>
-    /// 进入节点，启动触发器
+    /// 进入节点,启动所有控制器
     /// </summary>
-    void StartTrigger();
+    void StartControllerList();
+    /// <summary>
+    /// 退出节点，停止所有控制器
+    /// </summary>
+    void StopControllerList();
+    /// <summary>
+    /// 进入节点，启动所有触发器
+    /// </summary>
+    void StartTriggerList();
     /// <summary>
     /// 退出节点，停止触发器
     /// </summary>
-    void StopTrigger();
+    void StopTriggerList();
     /// <summary>
     /// 设置自身未当前运行的节点
     /// </summary>

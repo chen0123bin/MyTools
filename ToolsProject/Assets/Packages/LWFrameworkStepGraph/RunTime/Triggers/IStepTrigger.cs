@@ -22,5 +22,5 @@ public interface IStepTrigger
     /// <summary>
     /// 调用触发器
     /// </summary>
-    void CallTiggerAction();
+    void TiggerAction();
 }

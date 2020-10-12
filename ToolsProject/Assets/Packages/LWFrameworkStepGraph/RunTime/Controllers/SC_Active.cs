@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
-public class StepControllerActive : BaseStepController
+public class SC_Active : BaseStepController
 {    
     [LabelText("开始Active"), LabelWidth(90)]
     public bool m_BeginActive;

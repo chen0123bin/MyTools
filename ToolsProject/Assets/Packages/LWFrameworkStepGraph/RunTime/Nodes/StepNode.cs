@@ -10,7 +10,6 @@ namespace LWNode.LWStepGraph
 {
     public class StepNode : BaseStepNode
     {
-
         [LabelText("触发器集合")]
         public List<IStepTrigger> m_StepTriggerList;
         [LabelText("控制器集合")]
@@ -31,10 +30,27 @@ namespace LWNode.LWStepGraph
         {
             return null; // Replace this
         }
-
-        public override void StartController()
+        public override void StartTriggerList()
         {
-            base.StartController();
+            for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
+            {
+                m_StepTriggerList[i].TiggerCompleted = OnTiggerCompleted;
+                m_StepTriggerList[i].TriggerBegin();
+            }
+        }
+
+        public override void StopTriggerList()
+        {
+            for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
+            {
+                m_StepTriggerList[i].TiggerCompleted = null;
+                m_StepTriggerList[i].TriggerEnd();
+            }
+        }
+
+        public override void StartControllerList()
+        {
+            base.StartControllerList();
             m_CompletedCount = 0;
             for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
             {
@@ -44,23 +60,23 @@ namespace LWNode.LWStepGraph
             //如果没有触发器直接开始执行控制器
             if (m_StepTriggerList == null || m_StepTriggerList.Count == 0)
             {
-                OnTiggerAction(0);
+                OnTiggerCompleted(0);
             }
         }
 
-        public override void StopController()
+        public override void StopControllerList()
         {
-            base.StopController();
+            base.StopControllerList();
             for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
             {
                 m_StepControllerList[i].ControllerCompleted = null;
                 m_StepControllerList[i].ControllerEnd();
             }
         }
-        void OnTiggerAction(int index)
+        void OnTiggerCompleted(int index)
         {
             m_NextIndex = index;
-            //MoveNext();
+            m_CurrState = StepNodeState.Execute;
             for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
             {
                 m_StepControllerList[i].ControllerExecute();
@@ -68,9 +84,9 @@ namespace LWNode.LWStepGraph
             //如果没有控制器直接进入下一步
             if (m_StepControllerList == null || m_StepControllerList.Count == 0)
             {
-                MoveNext();
+                m_StepGraph.MoveNext();
             }
-            m_CurrState = StepNodeState.Execute;
+        
         }
 
         private void OnControllerCompleted()
@@ -78,28 +94,11 @@ namespace LWNode.LWStepGraph
             m_CompletedCount++;
             if (m_CompletedCount == m_StepControllerList.Count)
             {
-                MoveNext();
+                m_StepGraph.MoveNext();
             }
         }
 
-        public override void StartTrigger()
-        {
-            for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
-            {
-                m_StepTriggerList[i].TiggerCompleted = OnTiggerAction;
-                m_StepTriggerList[i].TriggerBegin();
-            }
-        }
-
-        public override void StopTrigger()
-        {
-            for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
-            {
-                m_StepTriggerList[i].TiggerCompleted = null;
-                m_StepTriggerList[i].TriggerEnd();
-            }
-        }
-
+       
 
     }
 }

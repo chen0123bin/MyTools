@@ -21,13 +21,13 @@ namespace LWNode.LWStepGraph {
         {
             return null; // Replace this
         }
-        public override void StartTrigger()
+        public override void StartTriggerList()
         {
             m_NextIndex += m_AddValue;
-            MoveNext();
+            m_StepGraph.MoveNext();
         }
 
-        public override void StopTrigger()
+        public override void StopTriggerList()
         {
         }
     }

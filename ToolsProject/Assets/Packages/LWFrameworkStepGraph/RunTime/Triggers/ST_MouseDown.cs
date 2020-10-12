@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class StepTriggerMouseDown : BaseStepTrigger
+public class ST_MouseDown : BaseStepTrigger
 {
     [LabelText("触发对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
     public string m_ObjName;
@@ -35,7 +35,7 @@ public class StepTriggerMouseDown : BaseStepTrigger
                 for (int i = 0; i < hits.Length; i++)
                 {
                     if (hits[i].collider.gameObject == StepRuntimeData.Instance.FindGameObject(m_ObjName)) {
-                        CallTiggerAction();
+                        TiggerAction();
                         break;
                     }
                 }

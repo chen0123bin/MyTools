@@ -12,6 +12,9 @@ public class StepGraph : LWNodeGraph {
     private Action m_StepGraphCompleted;
     [HideInInspector, SerializeField]
     public List<string> m_ObjectArray;
+    /// <summary>
+    /// 当前Graph全部执行完成
+    /// </summary>
     public Action StepGraphCompleted {
         get => m_StepGraphCompleted;set => m_StepGraphCompleted = value;
     }
@@ -21,8 +24,10 @@ public class StepGraph : LWNodeGraph {
     public IStepNode CurrStep {
         get => m_CurrStep;set => m_CurrStep = value;
     }
+    /// <summary>
+    /// 开始节点
+    /// </summary>
     public void StartNode() {
-        LWDebug.Log("nodes::" + nodes.Count);
         foreach (var item in nodes)
         {
             if (item.GetType() == typeof(StartNode)) {
@@ -32,19 +37,35 @@ public class StepGraph : LWNodeGraph {
         }
     }
     /// <summary>
-    /// 继续下一步
+    ///  下一节点
     /// </summary>
-    public void Continue()
-    {
-        m_CurrStep.MoveNext();
+    public void MoveNext() {
+        m_CurrStep.StopTriggerList();
+        m_CurrStep.StopControllerList();
+        IStepNode stepNode = m_CurrStep.GetNextNode();
+        if (stepNode != null)
+        {
+            stepNode.PrevNode = m_CurrStep;
+            m_CurrStep = stepNode;
+            stepNode.SetCurrent();
+        }
+        else {
+            StepGraphCompleted?.Invoke();
+        }
     }
     /// <summary>
-    /// 跳转节点
+    ///  上一节点
     /// </summary>
-    /// <param name="index"></param>
-    public void JumpNode(int index) {
-        IStepNode stepNode  = nodes[index] as IStepNode;
-        stepNode.SetCurrent();
+    public void MovePrev() {
+        m_CurrStep.StartControllerList();
+        m_CurrStep.StopTriggerList();
+        IStepNode stepNode = m_CurrStep.GetPrevNode();
+        if (stepNode != null)
+        {
+            m_CurrStep = stepNode;
+            stepNode.StopControllerList();
+            stepNode.SetCurrent();
+        }
+       
     }
- 
 }

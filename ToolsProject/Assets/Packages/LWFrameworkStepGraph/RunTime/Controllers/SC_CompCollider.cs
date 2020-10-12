@@ -8,7 +8,7 @@ using Sirenix.OdinInspector;
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
-public class StepControllerCompCollider : BaseStepController
+public class SC_CompCollider : BaseStepController
 {
     [LabelText("中心位置"), LabelWidth(70)]
     public Vector3 m_ColliderCenter;

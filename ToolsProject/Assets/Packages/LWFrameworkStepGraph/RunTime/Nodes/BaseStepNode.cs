@@ -11,7 +11,6 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
 {
     [HideInInspector]
     public bool m_IsShowData = true;
-
     [Input, LabelText("进入")] 
     public int enter;
     [Output, LabelText("退出")] 
@@ -21,82 +20,23 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     /// <summary>
     /// 步骤Graph
     /// </summary>
-    private StepGraph m_StepGraph;
+    protected StepGraph m_StepGraph;
     /// <summary>
     /// 下一步骤的脚标
     /// </summary>
     protected int m_NextIndex;
+   
+    protected StepNodeState m_CurrState;
     /// <summary>
     /// 当前的状态
     /// </summary>
-    protected StepNodeState m_CurrState;
     public StepNodeState CurrState { get => m_CurrState; set => m_CurrState = value; }
-   // [Button("下一步")]
-    public void MoveNext()
-    {
-        if (m_StepGraph.CurrStep!=null&&!m_StepGraph.CurrStep.Equals(this))
-        {
-            Debug.LogWarning("当前节点不是选中状态");
-            return;
-        }       
-        if (m_StepGraph.CurrStep != null)
-        {
-            m_StepGraph.CurrStep.StopTrigger();
-            m_StepGraph.CurrStep.StopController();         
-        }
-        NodePort exitPort = GetOutputPort("exit");
-        if (!exitPort.IsConnected)
-        {
-            Debug.LogWarning("exit端口未连接");
-            m_StepGraph.StepGraphCompleted?.Invoke();
-            return;
-        }
-        IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
-        node.SetCurrent();
-    }
-   // [Button("上一步")]
-    public void MovePrev()
-    {
-        if (m_StepGraph.CurrStep != null && !m_StepGraph.CurrStep.Equals(this))
-        {
-            Debug.LogWarning("当前节点不是选中状态");
-            return;
-        }
-        if (m_StepGraph.CurrStep != null)
-        {
-            m_StepGraph.CurrStep.StartController();
-            m_StepGraph.CurrStep.StopTrigger();
-        }
-        NodePort enterPort = GetInputPort("enter");
-        if (!enterPort.IsConnected)
-        {
-            Debug.LogWarning("enter端口未连接");
-            
-            return;
-        }        
-        IStepNode node = enterPort.GetConnection(0).node as IStepNode;
-        node.StopController();
-        node.SetCurrent();
-
-    }
-    //[Button("设置当前")]
-    public void SetCurrent()
-    {
-        m_StepGraph.CurrStep = this;
-        m_StepGraph.CurrStep.StartController();
-        m_StepGraph.CurrStep.StartTrigger();
-        Message msg = MessagePool.GetMessage(nameof(StepCommonMessage.StepHelpMessage));
-        msg["HelpText"] = m_Remark;
-        MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
-    }
-    public virtual void StartController()
-    {
-        m_CurrState = StepNodeState.Wait;
-    }
-    public virtual void StopController()
-    {
-        m_CurrState = StepNodeState.Complete;
-    }
+  
+    protected IStepNode m_PrevNode;
+    /// <summary>
+    /// 上一节点
+    /// </summary>
+    public IStepNode PrevNode { get => m_PrevNode; set => m_PrevNode = value; }
     protected override void Init()
     {
         base.Init();
@@ -106,8 +46,94 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     {
         return m_NextIndex;
     }
-    public abstract void StartTrigger();
-    public abstract void StopTrigger();
+    // 移除下一步的函数，放置到Graph中  [Button("下一步")]
+   // public void MoveNext()
+   // {
+   //     if (m_StepGraph.CurrStep!=null&&!m_StepGraph.CurrStep.Equals(this))
+   //     {
+   //         Debug.LogWarning("当前节点不是选中状态");
+   //         return;
+   //     }       
+   //     if (m_StepGraph.CurrStep != null)
+   //     {
+   //         m_StepGraph.CurrStep.StopTriggerList();
+   //         m_StepGraph.CurrStep.StopControllerList();         
+   //     }
+   //     NodePort exitPort = GetOutputPort("exit");
+   //     if (!exitPort.IsConnected)
+   //     {
+   //         Debug.LogWarning("exit端口未连接");
+   //         m_StepGraph.StepGraphCompleted?.Invoke();
+   //         return;
+   //     }
+   //     IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
+   //     node.SetCurrent();
+   // }
+   //// [Button("上一步")]
+   // public void MovePrev()
+   // {
+   //     if (m_StepGraph.CurrStep != null && !m_StepGraph.CurrStep.Equals(this))
+   //     {
+   //         Debug.LogWarning("当前节点不是选中状态");
+   //         return;
+   //     }
+   //     if (m_StepGraph.CurrStep != null)
+   //     {
+   //         m_StepGraph.CurrStep.StartControllerList();
+   //         m_StepGraph.CurrStep.StopTriggerList();
+   //     }
+   //     NodePort enterPort = GetInputPort("enter");
+   //     if (!enterPort.IsConnected)
+   //     {
+   //         Debug.LogWarning("enter端口未连接");
+            
+   //         return;
+   //     }        
+   //     IStepNode node = enterPort.GetConnection(0).node as IStepNode;
+   //     node.StopControllerList();
+   //     node.SetCurrent();
+
+   // }
+    //[Button("设置当前")]
+    public void SetCurrent()
+    {
+       // m_StepGraph.CurrStep = this;
+        StartControllerList();
+        StartTriggerList();
+        Message msg = MessagePool.GetMessage(nameof(StepCommonMessage.StepHelpMessage));
+        msg["HelpText"] = m_Remark;
+        MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
+    }
+    public abstract void StartTriggerList();
+    public abstract void StopTriggerList();
+    public virtual void StartControllerList()
+    {
+        m_CurrState = StepNodeState.Wait;
+    }
+    public virtual void StopControllerList()
+    {
+        m_CurrState = StepNodeState.Complete;
+    }
+   
+   
+
+    public IStepNode GetNextNode()
+    {
+        NodePort exitPort = GetOutputPort("exit");
+        if (!exitPort.IsConnected)
+        {
+            Debug.LogWarning("exit端口未连接");
+            m_StepGraph.StepGraphCompleted?.Invoke();
+            return null;
+        }
+        IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
+        return node;
+    }
+
+    public IStepNode GetPrevNode()
+    {
+        return m_PrevNode;       
+    }
 
     #region 序列号标准代码
     [SerializeField, HideInInspector]
@@ -122,6 +148,8 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     {
         UnitySerializationUtility.SerializeUnityObject(this, ref this.serializationData);
     }
+
+  
     #endregion
 
 }

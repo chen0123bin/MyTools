@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepTriggerMessage : BaseStepTrigger
+public class ST_Message : BaseStepTrigger
 {
    
     [LabelText("消息名称"),LabelWidth(70)]
@@ -21,7 +21,7 @@ public class StepTriggerMessage : BaseStepTrigger
 
     private void OnMessage(Message msg)
     {
-        CallTiggerAction();
+        TiggerAction();
     }
 
     public override void TriggerEnd()

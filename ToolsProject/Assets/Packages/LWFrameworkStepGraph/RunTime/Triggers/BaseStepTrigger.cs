@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
-public abstract class BaseStepTrigger :IStepTrigger
+public class BaseStepTrigger :IStepTrigger
 {
     
     [LabelText("触发结果"),LabelWidth(70)]
@@ -26,7 +26,7 @@ public abstract class BaseStepTrigger :IStepTrigger
     public virtual void TriggerEnd() { 
     
     }
-    public virtual void CallTiggerAction()
+    public virtual void TiggerAction()
     {
         m_IsTrigger = true;
         m_TiggerCompleted?.Invoke(m_ResultIndex);
