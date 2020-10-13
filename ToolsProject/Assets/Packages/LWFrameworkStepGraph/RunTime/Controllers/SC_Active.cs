@@ -10,7 +10,7 @@ using Sirenix.OdinInspector;
 /// </summary>
 public class SC_Active : BaseStepController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList"), HorizontalGroup]
     public string m_ObjName;
     [LabelText("开始Active"), LabelWidth(90)]
     public bool m_BeginActive;
@@ -32,7 +32,7 @@ public class SC_Active : BaseStepController
     }
 
 #if UNITY_EDITOR
-    [Button("选择物体"), LabelWidth(70)]
+    [Button("选中"), HorizontalGroup(30)]
     public void ChooseObj()
     {
         UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);

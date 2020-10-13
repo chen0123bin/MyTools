@@ -4,18 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities.Editor;
 
 /// <summary>
 /// 步骤控制器，处理位移
 /// </summary>
 public class SC_ChangePosi:BaseStepController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
+    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList"), HorizontalGroup]
     public string m_ObjName;
     [LabelText("移动时间"), LabelWidth(70)]
     public float m_MoveTime = 1;
-    [LabelText("移动位置"), LabelWidth(70)]
+    [LabelText("移动位置"), LabelWidth(70),ListDrawerSettings(CustomAddFunction = "AddPosiValue",OnTitleBarGUI =("SetValue"))]
     public Vector3[] m_PosiArray;
+
     private Transform m_Target;
     public override void ControllerBegin()
     {
@@ -39,17 +41,24 @@ public class SC_ChangePosi:BaseStepController
         });     
     }
 #if UNITY_EDITOR
-    [Button("选择物体"), LabelWidth(70)]
+    [Button("选中"), HorizontalGroup(30)]
     public void ChooseObj()
     {
         UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
     }
-#endif
-    [Button("设置数据"), LabelWidth(70)]
     public void SetValue()
     {
+        if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))
+        {
+            m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
+            m_PosiArray[m_PosiArray.Length - 1] = m_Target.localPosition;
+        }
+       
+    }
+    public void AddPosiValue() {
         m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
+        Array.Resize<Vector3>(ref m_PosiArray, m_PosiArray.Length + 1);
         m_PosiArray[m_PosiArray.Length - 1] = m_Target.localPosition;
     }
-    
+#endif
 }

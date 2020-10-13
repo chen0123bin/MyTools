@@ -16,8 +16,8 @@ MonoBehaviour:
   - {fileID: 114443277364202370}
   - {fileID: 114684968801944674}
   - {fileID: 114805662615991500}
-  - {fileID: 114712141618891136}
   - {fileID: 114686189317841722}
+  - {fileID: 114449158586754266}
   m_ObjectArray: []
 --- !u!114 &114443277364202370
 MonoBehaviour:
@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Name: "\u7B2C\u4E00\u6B65"
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1800, y: -872}
+  position: {x: -1878, y: -710}
   ports:
     keys: []
     values: []
@@ -40,6 +40,199 @@ MonoBehaviour:
   height: 845
   m_Color: {r: 0.7667106, g: 1, b: 0.740566, a: 0.30980393}
   m_Remark: 
+--- !u!114 &114449158586754266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1a3f7928583a24db2db1ad5b6fbb3f, type: 3}
+  m_Name: Step
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -747.0113, y: -488.03717}
+  ports:
+    keys:
+    - enter
+    - exit
+    values:
+    - _fieldName: enter
+      _node: {fileID: 114449158586754266}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: exit
+        node: {fileID: 114686189317841722}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exit
+      _node: {fileID: 114449158586754266}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  m_IsShowData: 1
+  enter: 0
+  exit: 0
+  m_Remark: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_StepTriggerList
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|ST_MouseDown, LWStepGraphRuntime
+    - Name: m_ResultIndex
+      Entry: 3
+      Data: 0
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cube
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_StepControllerList
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|SC_ChangeRot, LWStepGraphRuntime
+    - Name: m_Remark
+      Entry: 6
+      Data: 
+    - Name: m_ObjName
+      Entry: 1
+      Data: Cube
+    - Name: m_RotTime
+      Entry: 4
+      Data: 4
+    - Name: m_EulerArray
+      Entry: 7
+      Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 280
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 360
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 540
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 716.8
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!114 &114684968801944674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +246,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1427.0782, y: -633.7796}
+  position: {x: -1505.0782, y: -471.7796}
   ports:
     keys:
     - enter
@@ -157,7 +350,7 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.81
     - Name: 
       Entry: 8
       Data: 
@@ -169,10 +362,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.81
     - Name: 
       Entry: 8
       Data: 
@@ -204,7 +397,7 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1064.511, y: -640.1355}
+  position: {x: -1142.511, y: -478.1355}
   ports:
     keys:
     - enter
@@ -226,7 +419,10 @@ MonoBehaviour:
       _node: {fileID: 114686189317841722}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: enter
+        node: {fileID: 114449158586754266}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -278,34 +474,49 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SC_ChangePosi, LWStepGraphRuntime
+      Data: 3|SC_ChangeScale, LWStepGraphRuntime
     - Name: m_Remark
       Entry: 6
       Data: 
     - Name: m_ObjName
       Entry: 1
-      Data: Sphere
-    - Name: m_MoveTime
+      Data: Cube
+    - Name: m_ChangeTime
       Entry: 4
-      Data: 1
-    - Name: m_PosiArray
+      Data: 4
+    - Name: m_ScaleArray
       Entry: 7
       Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
     - Name: 
       Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
       Data: 2
     - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
       Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -314,13 +525,28 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
-      Data: -5
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 2
+    - Name: 
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -339,65 +565,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!114 &114712141618891136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa846ddd70fa0324baba74cb21a77050, type: 3}
-  m_Name: Data
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -2312.4343, y: -841.774}
-  ports:
-    keys:
-    - enter
-    - exit
-    values:
-    - _fieldName: enter
-      _node: {fileID: 114712141618891136}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: exit
-      _node: {fileID: 114712141618891136}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  m_IsShowData: 0
-  enter: 0
-  exit: 0
-  m_Remark: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  m_AddObj: {fileID: 0}
-  m_SceneObjectList:
-  - m_ObjName: Sphere
-    m_ObjPath: Sphere
-  - m_ObjName: Cube
-    m_ObjPath: Cube
-  m_SceneObjectNameList:
-  - Sphere
-  - Cube
 --- !u!114 &114805662615991500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,7 +578,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1704, y: -552}
+  position: {x: -1782, y: -390}
   ports:
     keys:
     - exit
