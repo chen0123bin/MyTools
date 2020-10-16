@@ -6,20 +6,23 @@ using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
 public class BaseStepTrigger :IStepTrigger
-{
-    
+{ 
+    // 是否触发，避免多次触发效果
+    protected bool m_IsTrigger;
+    protected Action<int> m_TiggerActionCompleted;
+    protected StepGraph m_CurrStepGraph;
     [LabelText("触发结果"),LabelWidth(70)]
     public int m_ResultIndex;
     /// <summary>
-    /// 是否触发，避免多次触发效果
+    /// TiggerCompleted触发完成
     /// </summary>
-    protected bool m_IsTrigger;
-    protected Action<int> m_TiggerCompleted;
-    public Action<int> TiggerCompleted { get => m_TiggerCompleted; set => m_TiggerCompleted = value; }
-    public List<string> GetSceneObjectList()
-    {
-        return StepRuntimeData.Instance.SceneObjectNameList;
-    }
+    public Action<int> TiggerActionCompleted { get => m_TiggerActionCompleted; set => m_TiggerActionCompleted = value; }
+    /// <summary>
+    /// 当前的Graph
+    /// </summary>
+    public StepGraph CurrStepGraph { get => m_CurrStepGraph; set => m_CurrStepGraph = value; }
+
+ 
     public virtual void TriggerBegin() {
         m_IsTrigger = false;
     }
@@ -29,7 +32,7 @@ public class BaseStepTrigger :IStepTrigger
     public virtual void TiggerAction()
     {
         m_IsTrigger = true;
-        m_TiggerCompleted?.Invoke(m_ResultIndex);
+        m_TiggerActionCompleted?.Invoke(m_ResultIndex);
         
     }
 }

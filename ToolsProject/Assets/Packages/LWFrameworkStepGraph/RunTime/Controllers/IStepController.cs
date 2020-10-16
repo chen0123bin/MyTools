@@ -11,7 +11,11 @@ public interface IStepController
     /// <summary>
     /// 当前控制器执行完成的回调
     /// </summary>
-    Action ControllerCompleted { get; set; }
+    Action ControllerExecuteCompleted { get; set; }
+    /// <summary>
+    /// 当前的Graph
+    /// </summary>
+    StepGraph CurrStepGraph { get; set; }
     /// <summary>
     ///开始控制器
     /// </summary>

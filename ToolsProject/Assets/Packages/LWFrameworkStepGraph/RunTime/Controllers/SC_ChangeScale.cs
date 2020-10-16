@@ -9,10 +9,9 @@ using Sirenix.Utilities.Editor;
 /// <summary>
 /// 步骤控制器，处理位移
 /// </summary>
-public class SC_ChangeScale:BaseStepController
+public class SC_ChangeScale: BaseStepObjectController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList"), HorizontalGroup]
-    public string m_ObjName;
+   
     [LabelText("变化时间"), LabelWidth(70)]
     public float m_ChangeTime;
     [LabelText("变化大小"), LabelWidth(70), ListDrawerSettings(CustomAddFunction = "AddScaleValue", OnTitleBarGUI = ("SetValue"))]
@@ -43,17 +42,13 @@ public class SC_ChangeScale:BaseStepController
         }
         sequence.OnComplete(() =>
         {
-            m_ControllerCompleted?.Invoke();
+            m_ControllerExecuteCompleted?.Invoke();
         });
 
       
     }
 #if UNITY_EDITOR
-    [Button("选中"), HorizontalGroup(30)]
-    public void ChooseObj()
-    {
-        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
-    }
+    
     public void SetValue()
     {
         if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))

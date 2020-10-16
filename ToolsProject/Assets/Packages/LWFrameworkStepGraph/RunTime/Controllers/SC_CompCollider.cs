@@ -8,10 +8,8 @@ using Sirenix.OdinInspector;
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
-public class SC_CompCollider : BaseStepController
+public class SC_CompCollider : BaseStepObjectController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
-    public string m_ObjName;
     [LabelText("中心位置"), LabelWidth(70)]
     public Vector3 m_ColliderCenter;
     [LabelText("碰撞大小"), LabelWidth(70)]
@@ -32,7 +30,7 @@ public class SC_CompCollider : BaseStepController
     }
     public override void ControllerExecute()
     {
-        m_ControllerCompleted?.Invoke();
+        m_ControllerExecuteCompleted?.Invoke();
     }
     void CtrlComp(ControllerCompType type) {
         switch (type)
@@ -57,11 +55,5 @@ public class SC_CompCollider : BaseStepController
                 break;
         }
     }
-#if UNITY_EDITOR
-    [Button("选择物体"), LabelWidth(70)]
-    public void ChooseObj()
-    {
-        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
-    }
-#endif
+
 }

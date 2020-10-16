@@ -7,10 +7,9 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class ST_MouseDown : BaseStepTrigger
+public class ST_MouseDown : BaseStepObjectTrigger
 {
-    [LabelText("触发对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList")]
-    public string m_ObjName;
+   
     CancellationTokenSource cts;
     public override void TriggerBegin()
     {
@@ -55,4 +54,6 @@ public class ST_MouseDown : BaseStepTrigger
         }
        
     }
+
+   
 }

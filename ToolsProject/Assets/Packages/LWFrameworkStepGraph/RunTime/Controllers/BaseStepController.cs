@@ -12,13 +12,18 @@ public abstract class BaseStepController:IStepController
 {
     [LabelText("备注"),GUIColor(0,1,0)]
     public string m_Remark;
-   
-    public List<string> GetSceneObjectList()
-    {
-        return StepRuntimeData.Instance.SceneObjectNameList;
-    }
-    protected Action m_ControllerCompleted;
-    public Action ControllerCompleted { get => m_ControllerCompleted; set => m_ControllerCompleted = value; }
+
+    protected Action m_ControllerExecuteCompleted;
+
+    protected StepGraph m_CurrStepGraph;
+    /// <summary>
+    /// 当前控制器执行完成的回调
+    /// </summary>
+    public Action ControllerExecuteCompleted { get => m_ControllerExecuteCompleted; set => m_ControllerExecuteCompleted = value; }
+    /// <summary>
+    /// 当前的Graph
+    /// </summary>
+    public StepGraph CurrStepGraph { get => m_CurrStepGraph; set => m_CurrStepGraph = value; }
     public abstract void ControllerBegin();
     public abstract void ControllerEnd();
     public abstract void ControllerExecute();

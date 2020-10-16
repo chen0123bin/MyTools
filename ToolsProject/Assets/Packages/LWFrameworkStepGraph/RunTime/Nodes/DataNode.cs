@@ -1,6 +1,8 @@
 ﻿using LWNode;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using Sirenix.Utilities.Editor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +19,9 @@ public class DataNode : BaseStepNode
 	public override object GetValue(NodePort port) {
 		return null; // Replace this
 	}
-    [OnValueChanged("AddSceneObject")]
-    public GameObject m_AddObj;
-    [TableList]
+   // [OnValueChanged("AddSceneObject")]
+    private GameObject m_AddObj;
+    [ListDrawerSettings(CustomAddFunction = "AddSceneObject", OnTitleBarGUI = ("RefreshSceneObject"))]
     public List<SceneObject> m_SceneObjectList;
     public List<string> m_SceneObjectNameList;
     public List<string> SceneObjectNameList
@@ -47,8 +49,9 @@ public class DataNode : BaseStepNode
             return sceneObject.Obj;
         }
     }
-    void AddSceneObject()
+    public void AddSceneObject()
     {
+        m_AddObj = UnityEditor.Selection.activeGameObject;
         if (m_AddObj != null)
         {
             string objName = m_AddObj.name;
@@ -67,24 +70,27 @@ public class DataNode : BaseStepNode
         }
         m_AddObj = null;
     }
-    [Button("刷新数据")]
     void RefreshSceneObject()
     {
-        m_SceneObjectNameList.Clear();
-        for (int i = 0; i < m_SceneObjectList.Count; i++)
+        if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))
         {
-            //查找当前路径是否有对象
-            GameObject findGo = GameObject.Find(m_SceneObjectList[i].m_ObjPath);
-            if (findGo == null)
+            m_SceneObjectNameList.Clear();
+            for (int i = 0; i < m_SceneObjectList.Count; i++)
             {
-                m_SceneObjectList.RemoveAt(i);
-                i--;
-            }
-            else
-            {
-                m_SceneObjectNameList.Add(m_SceneObjectList[i].m_ObjName);
+                //查找当前路径是否有对象
+                GameObject findGo = GameObject.Find(m_SceneObjectList[i].m_ObjPath);
+                if (findGo == null)
+                {
+                    m_SceneObjectList.RemoveAt(i);
+                    i--;
+                }
+                else
+                {
+                    m_SceneObjectNameList.Add(m_SceneObjectList[i].m_ObjName);
+                }
             }
         }
+       
     }
 
     public override void StartTriggerList()
@@ -94,5 +100,23 @@ public class DataNode : BaseStepNode
 
     public override void StopTriggerList()
     {
+    }
+}
+[Serializable]
+public class SceneObject
+{
+    public string m_ObjName;
+    public string m_ObjPath;
+    private GameObject m_Obj;
+    public GameObject Obj
+    {
+        get
+        {
+            if (m_Obj == null)
+            {
+                m_Obj = GameObject.Find(m_ObjPath);
+            }
+            return m_Obj;
+        }
     }
 }

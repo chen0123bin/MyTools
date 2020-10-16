@@ -2,7 +2,8 @@ using LWFramework.UI;
 using UnityEngine.UI;
 using UnityEngine;
 
-[UIViewData("TestChildItem2", LWFramework.UI.UILayer.local)]
+//[UIViewData("TestChildItem2", LWFramework.UI.UILayer.local)]
+[UIViewData("",FindType.Name,"")]
 public class TestChildItem2 : LWFramework.UI.BaseUIView  
 {
 

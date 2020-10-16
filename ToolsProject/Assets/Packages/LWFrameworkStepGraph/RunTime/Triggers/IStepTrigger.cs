@@ -10,7 +10,11 @@ public interface IStepTrigger
     /// <summary>
     ///  控制器执行完成
     /// </summary>
-    Action<int> TiggerCompleted { get; set; }
+    Action<int> TiggerActionCompleted { get; set; }
+    /// <summary>
+    /// 当前的Graph
+    /// </summary>
+    StepGraph CurrStepGraph { get; set; }
     /// <summary>
     /// 开始触发器
     /// </summary>

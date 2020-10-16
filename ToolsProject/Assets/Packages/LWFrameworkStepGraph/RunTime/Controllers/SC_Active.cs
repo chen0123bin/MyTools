@@ -28,7 +28,7 @@ public class SC_Active : BaseStepController
     }
     public override void ControllerExecute()
     {
-        m_ControllerCompleted?.Invoke();
+        m_ControllerExecuteCompleted?.Invoke();
     }
 
 #if UNITY_EDITOR

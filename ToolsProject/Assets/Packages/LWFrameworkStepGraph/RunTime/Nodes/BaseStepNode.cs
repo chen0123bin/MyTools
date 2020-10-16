@@ -15,7 +15,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     public int enter;
     [Output, LabelText("退出")] 
     public int exit;    
-    [TextArea,LabelText("描述")]
+    [LabelText("描述")]
     public string m_Remark;
     /// <summary>
     /// 步骤Graph

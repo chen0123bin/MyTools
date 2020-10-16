@@ -47,7 +47,7 @@ public class StepControllerChangeRot : BaseStepController
         m_Target.localEulerAngles = oldE;
         m_Target.DORotateQuaternion(oldQ, m_RotTime).SetEase(Ease.Linear).OnComplete(() =>
         {
-            m_ControllerCompleted?.Invoke();
+            m_ControllerExecuteCompleted?.Invoke();
         });
     }
 

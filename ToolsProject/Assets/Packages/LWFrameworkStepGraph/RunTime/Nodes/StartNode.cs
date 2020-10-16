@@ -31,7 +31,7 @@ namespace LWNode.LWStepGraph
                 return;
             }      
             IStepNode node = exitPort.GetConnection(0).node as IStepNode;
-            m_StepGraph.CurrStep = node;
+            m_StepGraph.CurrStepNode = node;
             node.SetCurrent();
         }
         // Return the correct value of an output port when requested

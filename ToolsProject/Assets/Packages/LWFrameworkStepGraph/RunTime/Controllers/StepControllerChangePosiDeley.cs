@@ -43,7 +43,7 @@ public class StepControllerChangePosiDeley:BaseStepController
     void DoPath() {
         m_Target.DOLocalPath(m_PosiArray, m_MoveTime).SetDelay(m_TimeDeley).SetEase(Ease.Linear).OnComplete(() =>
         {
-            m_ControllerCompleted?.Invoke();
+            m_ControllerExecuteCompleted?.Invoke();
         });
     }
 #if UNITY_EDITOR

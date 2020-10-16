@@ -34,8 +34,10 @@ namespace LWNode.LWStepGraph
         {
             for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
             {
-                m_StepTriggerList[i].TiggerCompleted = OnTiggerCompleted;
                 m_StepTriggerList[i].TriggerBegin();
+                m_StepTriggerList[i].TiggerActionCompleted = OnTiggerActionCompleted;
+                m_StepTriggerList[i].CurrStepGraph = m_StepGraph;
+               
             }
         }
 
@@ -43,7 +45,8 @@ namespace LWNode.LWStepGraph
         {
             for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
             {
-                m_StepTriggerList[i].TiggerCompleted = null;
+                m_StepTriggerList[i].TiggerActionCompleted = null;
+                m_StepTriggerList[i].CurrStepGraph = null;
                 m_StepTriggerList[i].TriggerEnd();
             }
         }
@@ -54,13 +57,14 @@ namespace LWNode.LWStepGraph
             m_CompletedCount = 0;
             for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
             {
-                m_StepControllerList[i].ControllerCompleted = OnControllerCompleted;
                 m_StepControllerList[i].ControllerBegin();
+                m_StepControllerList[i].ControllerExecuteCompleted = OnControllerExecuteCompleted;
+                m_StepControllerList[i].CurrStepGraph = m_StepGraph;
             }
             //如果没有触发器直接开始执行控制器
             if (m_StepTriggerList == null || m_StepTriggerList.Count == 0)
             {
-                OnTiggerCompleted(0);
+                OnTiggerActionCompleted(0);
             }
         }
 
@@ -69,11 +73,11 @@ namespace LWNode.LWStepGraph
             base.StopControllerList();
             for (int i = 0; m_StepControllerList != null && i < m_StepControllerList.Count; i++)
             {
-                m_StepControllerList[i].ControllerCompleted = null;
+                m_StepControllerList[i].ControllerExecuteCompleted = null;
                 m_StepControllerList[i].ControllerEnd();
             }
         }
-        void OnTiggerCompleted(int index)
+        void OnTiggerActionCompleted(int index)
         {
             m_NextIndex = index;
             m_CurrState = StepNodeState.Execute;
@@ -89,7 +93,7 @@ namespace LWNode.LWStepGraph
         
         }
 
-        private void OnControllerCompleted()
+        private void OnControllerExecuteCompleted()
         {
             m_CompletedCount++;
             if (m_CompletedCount == m_StepControllerList.Count)

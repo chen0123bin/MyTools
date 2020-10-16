@@ -11,6 +11,13 @@ public class StepRuntimeData : MonoSingleton<StepRuntimeData>
     [TableList]
     public List<SceneObject> m_SceneObjectList;
     public List<string> m_SceneObjectNameList ;
+
+
+    private Vector3[] m_GizmosVector3Array;
+
+    public Vector3[] GizmosVector3Array {
+        set => m_GizmosVector3Array = value;
+    }
     public List<string> SceneObjectNameList {
         get => m_SceneObjectNameList;
     }
@@ -103,25 +110,28 @@ public class StepRuntimeData : MonoSingleton<StepRuntimeData>
            
         }
     }
+
     
 
-}
-[Serializable]
-public class SceneObject
-{
-    public string m_ObjName;
-    public string m_ObjPath;
-    private GameObject m_Obj;
-    public GameObject Obj
+    private void OnDrawGizmos()
     {
-        get
+
+        if (m_GizmosVector3Array == null || m_GizmosVector3Array.Length == 0)
         {
-            if (m_Obj == null)
-            {
-                m_Obj = GameObject.Find(m_ObjPath);
-            }
-            return m_Obj;
+
+            return;
         }
+        for (int i = 0; i < m_GizmosVector3Array.Length; i++)
+        {
+            Gizmos.color = Color.gray;
+            Gizmos.DrawSphere(m_GizmosVector3Array[i], 0.1f);
+            if (i + 1 < m_GizmosVector3Array.Length)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(m_GizmosVector3Array[i], m_GizmosVector3Array[i + 1]);
+            }
+        }
+
     }
 }
 

@@ -32,6 +32,6 @@ public class SC_WaitTime : BaseStepController
     async UniTaskVoid WaitTimeAsync()
     {
         await UniTask.Delay(TimeSpan.FromSeconds(m_EndWaitTime), ignoreTimeScale: false);
-        m_ControllerCompleted?.Invoke();
+        m_ControllerExecuteCompleted?.Invoke();
     }
 }

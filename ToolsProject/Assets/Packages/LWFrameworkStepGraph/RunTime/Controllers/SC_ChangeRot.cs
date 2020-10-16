@@ -9,10 +9,8 @@ using Sirenix.Utilities.Editor;
 /// <summary>
 /// 步骤控制器，处理旋转
 /// </summary>
-public class SC_ChangeRot : BaseStepController
+public class SC_ChangeRot : BaseStepObjectController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList"),HorizontalGroup]
-    public string m_ObjName;
     [LabelText("旋转时间"), LabelWidth(70)]
     public float m_RotTime = 1 ;
     [LabelText("变化角度"), LabelWidth(70), ListDrawerSettings(CustomAddFunction = "AddEulerValue", OnTitleBarGUI = ("SetValue"))]
@@ -62,18 +60,13 @@ public class SC_ChangeRot : BaseStepController
         }
         sequence.OnComplete(() =>
         {
-            m_ControllerCompleted?.Invoke();
+            m_ControllerExecuteCompleted?.Invoke();
         });
 
 
     }
 #if UNITY_EDITOR
-    [Button("选中"), HorizontalGroup(30)]
-    public void ChooseObj()
-    {
-        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
-    }
-
+   
     public void SetValue()
     {
         if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))

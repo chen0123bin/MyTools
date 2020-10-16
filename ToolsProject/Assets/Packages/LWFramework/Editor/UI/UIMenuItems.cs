@@ -19,7 +19,7 @@ public class UIMenuItems
     }
 
     //重写Create->UI->Text事件  
-    [MenuItem("GameObject/UI/Text")]
+    [MenuItem("GameObject/UI/Text2")]
     static void CreatText()
     {
         if (Selection.activeTransform)
@@ -39,7 +39,7 @@ public class UIMenuItems
     }
 
     //重写Create->UI->Text事件  
-    [MenuItem("GameObject/UI/Raw Image")]
+    [MenuItem("GameObject/UI/Raw Image2")]
     static void CreatRawImage()
     {
         if (Selection.activeTransform)
