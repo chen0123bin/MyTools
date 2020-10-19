@@ -24,6 +24,8 @@ public abstract class BaseStepController:IStepController
     /// 当前的Graph
     /// </summary>
     public StepGraph CurrStepGraph { get => m_CurrStepGraph; set => m_CurrStepGraph = value; }
+    public string Remark { get => m_Remark; }
+
     public abstract void ControllerBegin();
     public abstract void ControllerEnd();
     public abstract void ControllerExecute();

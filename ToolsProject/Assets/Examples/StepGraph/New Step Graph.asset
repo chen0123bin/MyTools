@@ -22,6 +22,9 @@ MonoBehaviour:
   - {fileID: 114733217907577912}
   - {fileID: 114017979019414904}
   m_ObjectArray: []
+  m_SearchRemark: 2322
+  m_SearchType: 0
+  m_Index: 3
 --- !u!114 &114017979019414904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +151,7 @@ MonoBehaviour:
   m_IsShowData: 0
   enter: 0
   exit: 0
-  m_Remark: 
+  m_Remark: 2322
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -344,7 +347,7 @@ MonoBehaviour:
   m_IsShowData: 0
   enter: 0
   exit: 0
-  m_Remark: 
+  m_Remark: 2322
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -406,7 +409,7 @@ MonoBehaviour:
   m_IsShowData: 1
   enter: 0
   exit: 0
-  m_Remark: "2322\t"
+  m_Remark: 2322
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
@@ -572,7 +575,7 @@ MonoBehaviour:
   m_IsShowData: 1
   enter: 0
   exit: 0
-  m_Remark: 
+  m_Remark: 2322
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
