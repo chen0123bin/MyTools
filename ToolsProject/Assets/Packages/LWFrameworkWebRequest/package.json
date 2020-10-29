@@ -1,0 +1,11 @@
+{
+    "name": "com.cb.lwframeworkwebrequest",
+    "displayName": "LWFrameworkWebRequest",
+    "version": "1.0.0",
+    "description": "网络请求",
+    "author": "chenbin",
+    "license": "MIT",
+    "unity": "2018.4",
+    "enableLockFile": true,
+    "resolutionStrategy": "highest"
+}

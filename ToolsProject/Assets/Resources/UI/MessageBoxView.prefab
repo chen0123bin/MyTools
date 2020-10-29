@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1560437590665293740}
   - component: {fileID: 1560437590665293739}
-  - component: {fileID: 1560437590665293738}
   m_Layer: 5
   m_Name: MessageBoxView
   m_TagString: Untagged
@@ -51,26 +50,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1560437590665293738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560437590665293741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 032ae202c99721e468ce00001912f579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjects:
-  - {fileID: 1560437591193609072}
-  - {fileID: 1560437591624552903}
-  - {fileID: 1560437590995693812}
-  - {fileID: 1560437592177025242}
-  - {fileID: 1560437592308863459}
-  savePath: Assets/Packages/LWFramework/Runtime/_UI/Widget
-  size: 
 --- !u!1 &1560437590816339821
 GameObject:
   m_ObjectHideFlags: 0

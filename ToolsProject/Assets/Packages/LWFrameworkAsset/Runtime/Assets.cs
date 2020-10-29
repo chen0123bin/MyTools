@@ -253,7 +253,7 @@ namespace libx
 
                 if (completed != null)
                     completed(request.error);
-
+                
                 request.Dispose();
             };
         }
@@ -790,7 +790,15 @@ namespace libx
         private static string GetSearchPath(string path, out string assetBundleName)
         {
             if (AssetToBundles.TryGetValue(path, out assetBundleName))
+            {
+                if (development)
+                {
+                    assetBundleName = null;
+                }
                 return path;
+            }
+            //if (AssetToBundles.TryGetValue(path, out assetBundleName))
+            //    return path;
 
             if (searchPaths != null)
             {

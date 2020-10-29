@@ -21,10 +21,8 @@ MonoBehaviour:
   - {fileID: 114458200521236588}
   - {fileID: 114733217907577912}
   - {fileID: 114017979019414904}
+  - {fileID: 114257874548454710}
   m_ObjectArray: []
-  m_SearchRemark: 2322
-  m_SearchType: 0
-  m_Index: 3
 --- !u!114 &114017979019414904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,6 +82,26 @@ MonoBehaviour:
     - Name: m_StepControllerList
       Entry: 6
       Data: 
+--- !u!114 &114257874548454710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c58124fbef72f47a53fb21d7c0db54, type: 3}
+  m_Name: Search
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2660.3594, y: -596.3491}
+  ports:
+    keys: []
+    values: []
+  m_SearchValue: 2322
+  m_SearchType: 1
+  m_SearchIndex: 0
 --- !u!114 &114443277364202370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,8 +473,8 @@ MonoBehaviour:
       Entry: 7
       Data: 3|SC_ChangePosi, LWStepGraphRuntime
     - Name: m_Remark
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: aaa
     - Name: m_ObjName
       Entry: 1
       Data: Cube
@@ -621,8 +639,8 @@ MonoBehaviour:
       Entry: 7
       Data: 3|SC_ChangeScale, LWStepGraphRuntime
     - Name: m_Remark
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: aaa
     - Name: m_ObjName
       Entry: 1
       Data: Cube

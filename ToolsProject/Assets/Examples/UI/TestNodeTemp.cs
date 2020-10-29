@@ -6,7 +6,7 @@ public class TestNodeTemp : BaseUINode
 {
 
 	[UIElement("Text")]
-	public Text _text;
+    private Text _text;
 	public string Text {
 		set => _text.text = value;
 	}

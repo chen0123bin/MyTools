@@ -9,6 +9,7 @@ public class ABInitUpdate
 {
     private Action<bool> _onUpdateCallback;
     public Action<bool> OnUpdateCallback { get => _onUpdateCallback; set => _onUpdateCallback = value; }
+    private GameObject m_MsgGo;
     /// <summary>
     /// 设置参数
     /// </summary>
@@ -34,17 +35,19 @@ public class ABInitUpdate
             else
             {
                 Debug.Log("Assets初始化成功");
-                GameObject go = GameObject.Instantiate(Resources.Load<GameObject>("UI/MessageBoxView"));
-                MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", go, "是否更新资源?", (flag) => {
-                    if (flag)
-                    {
-                        StartUpdate();
-                    }
-                    else
-                    {
-                        Quit();
-                    }
-               });
+                m_MsgGo = GameObject.Instantiate(Resources.Load<GameObject>("UI/MessageBoxView"));
+                 StartUpdate();
+                //MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", go, "是否更新资源?", (flag) =>
+                //{
+                //    if (flag)
+                //    {
+                //        StartUpdate();
+                //    }
+                //    else
+                //    {
+                //        Quit();
+                //    }
+                //});
             }
         });
     }
@@ -53,7 +56,7 @@ public class ABInitUpdate
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", "请检查网络连接状态", retry =>
+            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", m_MsgGo, "请检查网络连接状态", retry =>
             {
                 if (retry)
                 {
@@ -71,7 +74,7 @@ public class ABInitUpdate
             {
                 if (!string.IsNullOrEmpty(error))
                 {
-                    MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", string.Format("获取服务器版本失败：{0}", error), retry =>
+                    MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", m_MsgGo, string.Format("获取服务器版本失败：{0}", error), retry =>
                     {
                         if (retry)
                         {
@@ -97,7 +100,7 @@ public class ABInitUpdate
         {
             var totalSize = handler.size;
             var tips = string.Format("需要下载 {0} 内容", Downloader.GetDisplaySize(totalSize));
-            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", tips, download =>
+            MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", m_MsgGo, tips, download =>
             {
                 if (download)
                 {

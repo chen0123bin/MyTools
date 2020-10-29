@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace LWFramework {
-    public class GameObjectPool<T> : ObjectPool<T> where T : class, IPoolGameObject
+    public class GameObjectPool<T> : ObjectPool<T> where T : class, IPoolGameObject,new()
     {
         private GameObject m_Template;
         public GameObjectPool(int poolMaxSize) : base(poolMaxSize)

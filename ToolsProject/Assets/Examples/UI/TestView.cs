@@ -9,11 +9,11 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 {
 
 	[UIElement("Btn1")]
-	public Button _btn1;
+    private Button _btn1;
 	[UIElement("Btn2")]
-	public Button _btn2;
+    private Button _btn2;
 	[UIElement("Lyt/TestNodeTemp")]
-	public Transform _testNodeTemp;
+    private Transform _testNodeTemp;
 	private GameObjectPool<TestNodeTemp> _pool;
 	private List<TestNodeTemp> _list;
 	private string[] _datas;
@@ -32,6 +32,7 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 	}
 	public override  void OnCreateView()
 	{
+
 		_btn1.onClick.AddListener(() => 		{
 			m_Logic.CreateNode();
 		});
