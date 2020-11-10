@@ -23,21 +23,21 @@ public class TestWebRequestStartup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
         MainManager.Instance.AddManager(typeof(IWebRequestManager).ToString(), new WebRequestManager());
 
-        //MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt",RespABC);
-        //MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
-        //MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC");
-        //MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC2");
-
+        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt",RespABC);
+        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC");
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC2");
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC,"");
         //NetMsg.Instance.Request("","", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", AAC);
 
-        SceneData sceneData = new SceneData() { sceneId = "111111"};
+        //SceneData sceneData = new SceneData() { sceneId = "111111"};
 
-        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("QueryScene", "http://192.168.100.125:8288/psych/app/querySceneById", RespQueryScene);
+        //MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("QueryScene", "http://192.168.100.125:8288/psych/app/querySceneById", RespQueryScene);
 
 
-        WWWForm form = new WWWForm();
-        form.AddField("jsonParam", LitJson.JsonMapper.ToJson(sceneData));
-        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("QueryScene", form);
+        //WWWForm form = new WWWForm();
+        //form.AddField("jsonParam", LitJson.JsonMapper.ToJson(sceneData));
+        //MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("QueryScene", form);
     }
 
     private void RespQueryScene(string obj)
