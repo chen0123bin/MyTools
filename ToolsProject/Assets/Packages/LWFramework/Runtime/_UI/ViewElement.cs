@@ -106,9 +106,9 @@ public class ViewElement : MonoBehaviour
                 }
             }
         }
-
+        strBuilder.AppendLine("\t\tbase.OnCreateView();//放置在最底部");
         strBuilder.AppendLine("\t}");
-
+        
 
         strBuilder.AppendLine("}");
         sw.Write(strBuilder);
@@ -295,9 +295,9 @@ public class ViewElement : MonoBehaviour
                 }
             }
         }
-
+        strBuilder.AppendLine("\t\tbase.OnCreateView();//放置在最底部");
         strBuilder.AppendLine("\t}");
-
+       
 
         strBuilder.AppendLine("}");
         sw.Write(strBuilder);

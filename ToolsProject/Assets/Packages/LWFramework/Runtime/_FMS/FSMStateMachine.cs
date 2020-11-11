@@ -96,9 +96,8 @@ namespace LWFramework.FMS {
             }
             else
             {
-                LWDebug.LogError("");
+                LWDebug.LogError("当前状态不存在：：："+ type.Name);
                 return null;
-               // throw new HTFrameworkException(HTFrameworkModule.FSM, "获取状态失败：有限状态机 " + Name + " 不存在状态 " + type.Name + "！");
             }
         }
         /// <summary>

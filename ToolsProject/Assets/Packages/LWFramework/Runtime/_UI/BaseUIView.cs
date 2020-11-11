@@ -38,13 +38,13 @@ namespace LWFramework.UI
             }
             ViewId = UIUtility.Instance.ViewId;        
             m_ViewData = new ViewData();
-            m_ViewData.OnDataChange = OnDataChange;
+            m_ViewData.OnViewDataChange = OnViewDataChange;
             OnCreateView();
         }
         public virtual void OnCreateView() { 
         
         }
-        public virtual void OnDataChange(string dataName) { }
+        public virtual void OnViewDataChange(string dataName) { }
         /// <summary>
         /// 打开view
         /// </summary>

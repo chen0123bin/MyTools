@@ -7,8 +7,15 @@ public class TestViewLogic : BaseUILogic<TestView>
 
 	public TestViewLogic(TestView view): base(view)
 	{
-	}
-	public void CreateNode() {
+       
+
+    }
+    public override void OnCreateView()
+    {
+        base.OnCreateView();
+        CreateNode();
+    }
+    public void CreateNode() {
 		string[] values = new string[] { "aaaa", "bbbbb", "ccccc", "ddddd" };
 		m_View.Datas = values;
 	}

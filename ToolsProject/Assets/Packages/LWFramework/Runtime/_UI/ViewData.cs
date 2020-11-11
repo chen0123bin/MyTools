@@ -11,7 +11,7 @@ namespace LWFramework.UI {
         /// <summary>
         /// 数据发生变化的处理
         /// </summary>
-        public Action<string> OnDataChange {
+        public Action<string> OnViewDataChange {
             set {
                 _onDataChange = value;
             }

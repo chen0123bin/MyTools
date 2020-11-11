@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace LWFramework.UI {
     public interface IUILogic
-    {
+    { 
+        /// <summary>
+        /// 创建View
+        /// </summary>
+        void OnCreateView();
         /// <summary>
         /// 打开View
         /// </summary>
@@ -16,7 +20,8 @@ namespace LWFramework.UI {
         /// 清空View
         /// </summary>
         void OnClearView();
-        void OnCreateView();
+
+        void OnDataChange(string dataName);
     }
 }
 

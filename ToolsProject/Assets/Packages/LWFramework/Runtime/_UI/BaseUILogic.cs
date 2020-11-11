@@ -14,6 +14,7 @@ namespace LWFramework.UI {
             m_View = p_View;
         }
         public virtual void OnCreateView() { }
+        public virtual void OnDataChange(string dataName) { }
         public virtual void OnOpenView() { }
         public virtual void OnCloseView() { }
         public virtual void OnClearView() { }

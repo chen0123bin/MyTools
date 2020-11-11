@@ -17,6 +17,8 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 	private GameObjectPool<TestNodeTemp> _pool;
 	private List<TestNodeTemp> _list;
 	private string[] _datas;
+
+
 	public string[] Datas {
 		set {
 			_datas = value;
@@ -24,22 +26,31 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 			_list.Clear();
 			for (int i = 0; i < _datas.Length; i++)
 			{
+                int index = i;
 				TestNodeTemp node = _pool.Spawn();
 				node.Text = _datas[i];
+                node.OnClick = () =>
+                {
+                    ChooseIndex(index);
+                };
 				_list.Add(node);
 			}
 		}
 	}
-	public override  void OnCreateView()
-	{
-
-		_btn1.onClick.AddListener(() => 		{
-			m_Logic.CreateNode();
-		});
-		_btn2.onClick.AddListener(() => {
-			m_Logic.CreateNode2();
-		});
-		_pool = new GameObjectPool<TestNodeTemp>(5, _testNodeTemp.gameObject);
-		_list = new List<TestNodeTemp>();
+    public override void OnCreateView()
+    {
+        _btn1.onClick.AddListener(() => {
+            m_Logic.CreateNode();
+        });
+        _btn2.onClick.AddListener(() => {
+            m_Logic.CreateNode2();
+        });
+        _pool = new GameObjectPool<TestNodeTemp>(5, _testNodeTemp.gameObject);
+        _list = new List<TestNodeTemp>();
+        base.OnCreateView();
 	}
+    private void ChooseIndex(int index) {
+        LWDebug.Log(_datas[index]);
+        
+    }
 }
