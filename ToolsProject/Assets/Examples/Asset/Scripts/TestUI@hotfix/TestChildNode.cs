@@ -20,8 +20,9 @@ public class TestChildNode : BaseUINode
     }
   
 
-    public override void OnUnSpawn()
+    public override void UnSpawn()
     {
+        base.UnSpawn();
         LWDebug.Log("回收了！！！！");
     }
     public override void Release()

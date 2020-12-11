@@ -184,8 +184,9 @@ public class ViewElement : MonoBehaviour
         }
 
         strBuilder.AppendLine("\t}");
-        strBuilder.AppendLine("\tpublic override void OnUnSpawn()");
+        strBuilder.AppendLine("\tpublic override void UnSpawn()");
         strBuilder.AppendLine("\t{");
+        strBuilder.AppendLine("\t\tbase.UnSpawn();");
         strBuilder.AppendLine("\t}");
         strBuilder.AppendLine("\tpublic override void Release()");
         strBuilder.AppendLine("\t{");

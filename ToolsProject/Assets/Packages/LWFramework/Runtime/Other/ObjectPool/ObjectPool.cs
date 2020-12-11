@@ -64,7 +64,7 @@ namespace LWFramework
         {
             if (m_PoolList.Count < PoolMaxSize)
             {
-                p_Obj.Unspawn();
+                p_Obj.UnSpawn();
                 m_PoolList.Add(p_Obj);
             }
             else

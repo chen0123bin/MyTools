@@ -17,12 +17,13 @@ namespace LWFramework.UI
             //view上的组件
             UIUtility.Instance.SetViewElement(this, gameObject);
         }
-        public virtual void Unspawn() {
+        public virtual void UnSpawn() {
             SetActive(false);
             m_Entity.transform.SetAsLastSibling();
-            OnUnSpawn();
+            //OnUnSpawn();
         }
-        public abstract void OnUnSpawn();
+        
+        //public abstract void OnUnSpawn();
         /// <summary>
         /// 释放引用，删除gameobject
         /// </summary>

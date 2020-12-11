@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class TestWebRequestStartup : MonoBehaviour
 {
     public RawImage rawImage;
-
+    public RawImage rawImage2;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -24,10 +24,10 @@ public class TestWebRequestStartup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(IWebRequestManager).ToString(), new WebRequestManager());
 
         MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt",RespABC);
-        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
+       // MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
         MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC");
-        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC2");
-        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC,"");
+        //MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC2");
+        //MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC,"");
         //NetMsg.Instance.Request("","", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", AAC);
 
         //SceneData sceneData = new SceneData() { sceneId = "111111"};
@@ -38,6 +38,15 @@ public class TestWebRequestStartup : MonoBehaviour
         //WWWForm form = new WWWForm();
         //form.AddField("jsonParam", LitJson.JsonMapper.ToJson(sceneData));
         //MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("QueryScene", form);
+
+
+        
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.124:8288/psych/scenePicture/picture/1605164119730.png", RespABC2);
+       MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC3);
+        WWWForm form = new WWWForm();
+        CourseData courseData = new CourseData { courseId = "20" };
+        form.AddField("jsonParam", LitJson.JsonMapper.ToJson(courseData));
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.124:8288/psych/app/queryCourseById", RespABC, form);
     }
 
     private void RespQueryScene(string obj)
@@ -60,7 +69,10 @@ public class TestWebRequestStartup : MonoBehaviour
     {
         rawImage.texture = obj;
     }
-
+    private void RespABC3(Texture2D obj)
+    {
+        rawImage2.texture = obj;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -83,5 +95,9 @@ public class TestWebRequestStartup : MonoBehaviour
     }
     public class SceneData {
         public string sceneId;
+    }
+    public class CourseData
+    {
+        public string courseId;
     }
 }

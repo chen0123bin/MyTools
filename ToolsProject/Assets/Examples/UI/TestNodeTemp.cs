@@ -22,8 +22,9 @@ public class TestNodeTemp : BaseUINode
             OnClick?.Invoke();
         };
 	}
-	public override void OnUnSpawn()
+	public override void UnSpawn()
 	{
+        base.UnSpawn();
 	}
 	public override void Release()
 	{

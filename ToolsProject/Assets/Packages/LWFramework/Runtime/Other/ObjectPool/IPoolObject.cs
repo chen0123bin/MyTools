@@ -7,7 +7,7 @@ namespace LWFramework {
         /// <summary>
         /// 回收进入池内
         /// </summary>
-        void Unspawn();
+        void UnSpawn();
         /// <summary>
         /// 释放掉，完全删除
         /// </summary>

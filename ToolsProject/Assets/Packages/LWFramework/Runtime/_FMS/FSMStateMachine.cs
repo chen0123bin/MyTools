@@ -101,6 +101,23 @@ namespace LWFramework.FMS {
             }
         }
         /// <summary>
+        ///  获取状态
+        /// </summary>
+        /// <typeparam name="T">状态类型</typeparam>
+        /// <returns>状态实例</returns>
+        public T GetState<T>() where T : BaseFSMState
+        {
+            if (_stateDic.ContainsKey(typeof(T)))
+            {
+                return _stateDic[typeof(T)] as T;
+            }
+            else
+            {
+                LWDebug.LogError("当前状态不存在：：：" + typeof(T).Name);
+                return default(T);
+            }
+        }
+        /// <summary>
         /// 是否存在状态
         /// </summary>
         /// <param name="type">状态类型</param>

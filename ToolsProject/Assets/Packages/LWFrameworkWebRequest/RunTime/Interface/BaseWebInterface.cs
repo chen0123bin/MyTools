@@ -46,7 +46,7 @@ namespace LWFramework.WebRequest {
         /// </summary>
         public abstract void Reset();
 
-        public void Unspawn()
+        public void UnSpawn()
         {
             
         }

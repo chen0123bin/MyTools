@@ -17,6 +17,7 @@ namespace LWFramework.WebRequest {
         void SendRequest(string interfaceName, params string[] parameter);
         void SendRequest(string interfaceName, WWWForm form);
         void SendRequest(string interfaceName, string parameter);
+        void SendRequestUrl(string interfaceUrl, Action<string> handler, WWWForm form);
         void SendRequestUrl(string interfaceUrl, Action<string> handler, string parameter);
         void SendRequestUrl(string interfaceUrl, Action<Texture2D> handler);
         void SendRequestUrl(string interfaceUrl, Action<AudioClip> handler);
