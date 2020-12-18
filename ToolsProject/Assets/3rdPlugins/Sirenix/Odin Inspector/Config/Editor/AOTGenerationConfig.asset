@@ -16,37 +16,5 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 637367452555741440
-  supportSerializedTypes:
-  - TypeName: System.Single, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Int32, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IStepController, LWStepGraphRuntime
-    IsCustom: 0
-    Emit: 1
-  - TypeName: IStepTrigger, LWStepGraphRuntime
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
-      mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[IStepTrigger, LWStepGraphRuntime]],
-      mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: StepControllerChangeRot, LWStepGraphRuntime
-    IsCustom: 0
-    Emit: 1
-  - TypeName: StepTriggerMouseDown, LWStepGraphRuntime
-    IsCustom: 0
-    Emit: 1
-  - TypeName: System.String, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: UnityEngine.Vector3, UnityEngine.CoreModule
-    IsCustom: 0
-    Emit: 1
+  lastScan: 637438813775319704
+  supportSerializedTypes: []

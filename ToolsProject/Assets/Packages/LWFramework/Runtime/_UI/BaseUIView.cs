@@ -39,11 +39,11 @@ namespace LWFramework.UI
             ViewId = UIUtility.Instance.ViewId;        
             m_ViewData = new ViewData();
             m_ViewData.OnViewDataChange = OnViewDataChange;
-            OnCreateView();
+            //OnCreateView();
         }
-        public virtual void OnCreateView() { 
+        //public virtual void OnCreateView() { 
         
-        }
+        //}
         public virtual void OnViewDataChange(string dataName) { }
         /// <summary>
         /// 打开view

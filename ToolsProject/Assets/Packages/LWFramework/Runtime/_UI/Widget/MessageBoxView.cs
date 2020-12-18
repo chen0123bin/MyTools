@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using System;
 
-[UIViewData("",FindType.Tag, "DefaultUI")]
+[UIViewData("",FindType.Name, "LWFramework/Canvas/Top")]
 public class MessageBoxView : BaseUIView 
 {
 
@@ -54,8 +54,9 @@ public class MessageBoxView : BaseUIView
     /// 按钮数量
     /// </summary>
     public int BtnCount { get; set; } = 2;
-    public override  void OnCreateView()
+    public override  void CreateView(GameObject go)
 	{
+        base.CreateView(go);
         _btnConfirm.onClick.AddListener(() => 		{
             HandleEvent(true);
         });

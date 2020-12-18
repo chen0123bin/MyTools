@@ -8,11 +8,11 @@ using LWFramework.Core;
 public class ABAssetsManger : IAssetsManager,IManager
 {
     private ABInitUpdate _abInitUpdate;
-    public Action<bool> OnUpdateCallback { set => _abInitUpdate.OnUpdateCallback = value; }
+    public Action<bool> OnInitUpdateComplete { set => _abInitUpdate.OnInitUpdateComplete = value; }
     /// <summary>
     /// 自定义初始化更新器
     /// </summary>
-    public ABInitUpdate ABInitUpdate { set => _abInitUpdate = value; }
+    public ABInitUpdate ABInitUpdate { set => _abInitUpdate = value; get => _abInitUpdate; }
     public void Init()
     {
         if (_abInitUpdate == null) {

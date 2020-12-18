@@ -24,7 +24,7 @@ public class StartupAB : MonoBehaviour
         abAssetManger.ABInitUpdate = new ABInitUpdate();
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), abAssetManger);
 
-        MainManager.Instance.GetManager<IAssetsManager>().OnUpdateCallback = OnUpdateCallback;
+        MainManager.Instance.GetManager<IAssetsManager>().OnInitUpdateComplete = OnUpdateCallback;
     }
    
     /// <summary>

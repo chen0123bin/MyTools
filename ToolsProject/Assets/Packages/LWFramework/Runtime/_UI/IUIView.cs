@@ -15,7 +15,8 @@ namespace LWFramework.UI
         /// </summary>
         int ViewId { get; set; }
         void CreateView(GameObject gameObject);
-        void OnCreateView();
+        
+        //void OnCreateView();
         /// <summary>
         /// 打开View
         /// </summary>

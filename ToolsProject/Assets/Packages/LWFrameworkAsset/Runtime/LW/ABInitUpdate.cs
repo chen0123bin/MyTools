@@ -1,5 +1,6 @@
 ﻿using libx;
 using LWFramework.Core;
+using LWFramework.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,9 +8,24 @@ using UnityEngine;
 
 public class ABInitUpdate 
 {
-    private Action<bool> _onUpdateCallback;
-    public Action<bool> OnUpdateCallback { get => _onUpdateCallback; set => _onUpdateCallback = value; }
-    private GameObject m_MsgGo;
+    private Action<bool> _onInitUpdateComplete;
+    /// <summary>
+    /// 初始化更新完成
+    /// </summary>
+    public Action<bool> OnInitUpdateComplete { get => _onInitUpdateComplete; set => _onInitUpdateComplete = value; }
+    /// <summary>
+    /// 是否自动更新
+    /// </summary>
+    public bool m_AutoUpdate { get; set; } = true;
+    /// <summary>
+    /// 更新提示框
+    /// </summary>
+    public GameObject m_MsgGo { get; set; }
+    /// <summary>
+    /// 更新进度条
+    /// </summary>
+    public GameObject m_ProgressBarGo { get; set; }
+    private LoadAssetBarView m_LoadAssetBarView;
     /// <summary>
     /// 设置参数
     /// </summary>
@@ -21,7 +37,7 @@ public class ABInitUpdate
         Assets.downloadURL = globalConfig.downloadURL;
         Assets.verifyBy = (VerifyBy)globalConfig.verifyBy;
         Assets.searchPaths = globalConfig.searchPaths;
-        Assets.patches4Init = globalConfig.patches4Init;
+        Assets.patches4Init = globalConfig.updatePatches4Init;
         
     }
     public virtual void AssetsInitialize() {
@@ -35,19 +51,32 @@ public class ABInitUpdate
             else
             {
                 Debug.Log("Assets初始化成功");
-                m_MsgGo = GameObject.Instantiate(Resources.Load<GameObject>("UI/MessageBoxView"));
-                 StartUpdate();
-                //MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", go, "是否更新资源?", (flag) =>
-                //{
-                //    if (flag)
-                //    {
-                //        StartUpdate();
-                //    }
-                //    else
-                //    {
-                //        Quit();
-                //    }
-                //});
+                if (m_MsgGo == null) {
+                    m_MsgGo = GameObject.Instantiate(Resources.Load<GameObject>("WidgetUI/MessageBoxView"));
+                }
+                if (m_ProgressBarGo == null)
+                {
+                    m_ProgressBarGo = GameObject.Instantiate(Resources.Load<GameObject>("WidgetUI/LoadAssetBarView"));
+                }
+                MainManager.Instance.GetManager<IUIManager>().OpenView<LoadAssetBarView>("LoadAssetBarView",m_ProgressBarGo);
+                m_LoadAssetBarView = MainManager.Instance.GetManager<IUIManager>().GetView<LoadAssetBarView>();
+                if (m_AutoUpdate)
+                {
+                    StartUpdate();
+                }
+                else {
+                    MessageBoxViewHelp.Instance.OpenMessageBox("ABMessageBoxView", m_MsgGo, "是否更新资源?", (flag) =>
+                    {
+                        if (flag)
+                        {
+                            StartUpdate();
+                        }
+                        else
+                        {
+                            Quit();
+                        }
+                    });
+                }
             }
         });
     }
@@ -88,7 +117,7 @@ public class ABInitUpdate
                 }
                 else
                 {
-                    UpdateAsset(Assets.patches4Init, "提示22222", OnComplete);                    
+                    UpdateAsset(Assets.patches4Init, "初始化更新", OnInitComplete);                    
                 }
             });
         }
@@ -114,7 +143,9 @@ public class ABInitUpdate
                         OnProgress(progress * 1f / size);
                     };
                     handler.onFinished += downloadCallback;
+                    handler.onFinished += OnUpdateComplete;
                     handler.Start();
+                    m_LoadAssetBarView.OpenView();
                 }
                 else
                 {
@@ -126,28 +157,35 @@ public class ABInitUpdate
         else
         {
             downloadCallback?.Invoke();
+            OnUpdateComplete();
         }
     }
     private void OnProgress(float progress)
     {
         Debug.Log("更新进度：" + progress);
+        m_LoadAssetBarView.SetLoadValue(progress);
     }
 
     private void OnMessage(string msg)
     {
         Debug.Log(msg);
+        m_LoadAssetBarView.SetLoadMsg(msg);
     }
 
-    private void OnComplete()
+    private void OnInitComplete()
     {
         OnProgress(1);
         Debug.Log("本地资源版本：" + Assets.localVersions.ver);
         OnMessage("更新完成");
-        OnUpdateCallback?.Invoke(true);
+        OnInitUpdateComplete?.Invoke(true);
+    }
+    private void OnUpdateComplete()
+    {
+        m_LoadAssetBarView.CloseView();
     }
     private void Quit()
     {
-        OnUpdateCallback?.Invoke(false);
+        OnInitUpdateComplete?.Invoke(false);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

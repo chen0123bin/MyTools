@@ -22,6 +22,7 @@ namespace LWFramework.FMS
         /// </summary>
         /// <returns></returns>
         FSMStateMachine GetFSMProcedure();
+       
         /// <summary>
         /// 初始化状态机
         /// </summary>

@@ -27,7 +27,7 @@ public class LWGlobalConfig : ScriptableObject
     public bool development;
     public bool dontDestroyOnLoad = true;
     public string[] searchPaths;
-    public string[] patches4Init;
+    public string[] updatePatches4Init;
     public bool updateAll;
 
     public void ChangeAssetMode() {

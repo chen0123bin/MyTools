@@ -179,6 +179,7 @@ namespace libx
 
         internal void Update()
         {
+           
             if (_paused || isDone)
                 return;
 
@@ -194,7 +195,6 @@ namespace libx
                     --i;
                 }
             }
-
             for (var i = 0; i < _progressing.Count; ++i)
             {
                 var download = _progressing[i];

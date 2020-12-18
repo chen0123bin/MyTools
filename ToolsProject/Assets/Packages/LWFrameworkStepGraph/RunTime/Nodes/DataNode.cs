@@ -1,11 +1,13 @@
 ﻿using LWNode;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
-using Sirenix.Utilities.Editor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using Sirenix.Utilities.Editor;
+#endif
 public class DataNode : BaseStepNode
 {
 
@@ -51,6 +53,7 @@ public class DataNode : BaseStepNode
     }
     public void AddSceneObject()
     {
+#if UNITY_EDITOR      
         m_AddObj = UnityEditor.Selection.activeGameObject;
         if (m_AddObj != null)
         {
@@ -69,9 +72,11 @@ public class DataNode : BaseStepNode
 
         }
         m_AddObj = null;
+#endif
     }
     void RefreshSceneObject()
     {
+#if UNITY_EDITOR
         if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))
         {
             m_SceneObjectNameList.Clear();
@@ -90,7 +95,7 @@ public class DataNode : BaseStepNode
                 }
             }
         }
-       
+#endif
     }
 
     public override void StartTriggerList()

@@ -16,10 +16,10 @@ MonoBehaviour:
   hotfixCodeRunMode: 2
   loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.200.199:8089/ToolsProject/Bundles/
+  downloadURL: http://192.168.200.172:8089/ToolsProject/Bundles/
   development: 0
   dontDestroyOnLoad: 1
   searchPaths: []
-  patches4Init:
-  - HotfixPatch
+  updatePatches4Init:
+  - PlantUpdate
   updateAll: 0

@@ -789,6 +789,7 @@ namespace libx
 
         private static string GetSearchPath(string path, out string assetBundleName)
         {
+            //增加开发者模式 by陈斌
             if (AssetToBundles.TryGetValue(path, out assetBundleName))
             {
                 if (development)

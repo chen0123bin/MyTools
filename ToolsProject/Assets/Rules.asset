@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 82
+  build: 91
   major: 0
   minor: 0
   autoRecord: 1
@@ -21,11 +21,9 @@ MonoBehaviour:
   validateAssetPath: 0
   allAssetsToBuild: 0
   patchesInBuild:
-  - Startup
-  - HotfixPatch
-  - TestScene
+  - PlantUpdate
   scenesInBuild:
-  - {fileID: 102900000, guid: 06c043d5347a510499bd8ff7d6544388, type: 3}
+  - {fileID: 102900000, guid: e9b50fe6b4c7a674f8a00e7124ba91c5, type: 3}
   extension: .bundle
   nameByHash: 0
   options: 256
@@ -54,7 +52,7 @@ MonoBehaviour:
     group: 
     bundle: prefabs_uiroot.bundle
     id: 0
-    groupBy: 2
+    groupBy: 0
   - name: Assets/@Resources/Prefabs/TestChildItem.prefab
     group: 
     bundle: prefabs_testchilditem.bundle
@@ -110,13 +108,97 @@ MonoBehaviour:
     bundle: assets_@resources_sprites.bundle
     id: 0
     groupBy: 3
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/StartView.prefab
+    group: 
+    bundle: ui_startview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/DetailView.prefab
+    group: 
+    bundle: ui_detailview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/Tao.prefab
+    group: 
+    bundle: prefabs_tao.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/PackageView.prefab
+    group: 
+    bundle: ui_packageview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/PingGuo.prefab
+    group: 
+    bundle: prefabs_pingguo.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/XiHongShi.prefab
+    group: 
+    bundle: prefabs_xihongshi.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/PuTao.prefab
+    group: 
+    bundle: prefabs_putao.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/YuMi.prefab
+    group: 
+    bundle: prefabs_yumi.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/ToolView.prefab
+    group: 
+    bundle: ui_toolview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/NanGua.prefab
+    group: 
+    bundle: prefabs_nangua.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/StateView.prefab
+    group: 
+    bundle: ui_stateview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/TipsView.prefab
+    group: 
+    bundle: ui_tipsview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/XiangJiao.prefab
+    group: 
+    bundle: prefabs_xiangjiao.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/XiangRiKui.prefab
+    group: 
+    bundle: prefabs_xiangrikui.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/Li.prefab
+    group: 
+    bundle: prefabs_li.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Prefabs/UI/ResultView.prefab
+    group: 
+    bundle: ui_resultview.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Scenes/PlantGame.unity
+    group: 
+    bundle: scenes_plantgame.bundle
+    id: 0
+    groupBy: 2
+  - name: Assets/@Resources/PlantGame/Scenes/PlantStart.unity
+    group: 
+    bundle: scenes_plantstart.bundle
+    id: 0
+    groupBy: 2
   patches:
-  - name: HotfixPatch
-    assets:
-    - Assets/@Resources/Scenes/HotfixPatch.unity
-    - Assets/@Resources/Hotfix/hotfix.dll.byte
-    - Assets/@Resources/Hotfix/hotfix.dll.pdb
-    - Assets/@Resources/Prefabs/Cube.prefab
   - name: TestScene
     assets:
     - Assets/@Resources/Scenes/TestScene.unity
@@ -132,6 +214,32 @@ MonoBehaviour:
     - Assets/@Resources/Prefabs/UIRoot2.prefab
     - Assets/@Resources/Prefabs/CubeRigidbody.prefab
     - Assets/@Resources/Prefabs/Cube.prefab
+  - name: PlantUpdate
+    assets:
+    - Assets/@Resources/Hotfix/hotfix.dll.pdb
+    - Assets/@Resources/Hotfix/hotfix.dll.byte
+  - name: PlantStart
+    assets:
+    - Assets/@Resources/PlantGame/Prefabs/UI/StartView.prefab
+    - Assets/@Resources/PlantGame/Scenes/PlantStart.unity
+  - name: PlantGame
+    assets:
+    - Assets/@Resources/PlantGame/Prefabs/XiHongShi.prefab
+    - Assets/@Resources/PlantGame/Prefabs/NanGua.prefab
+    - Assets/@Resources/PlantGame/Prefabs/Li.prefab
+    - Assets/@Resources/PlantGame/Prefabs/XiangRiKui.prefab
+    - Assets/@Resources/PlantGame/Prefabs/Tao.prefab
+    - Assets/@Resources/PlantGame/Prefabs/YuMi.prefab
+    - Assets/@Resources/PlantGame/Prefabs/PingGuo.prefab
+    - Assets/@Resources/PlantGame/Prefabs/XiangJiao.prefab
+    - Assets/@Resources/PlantGame/Prefabs/PuTao.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/ResultView.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/ToolView.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/TipsView.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/StateView.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/PackageView.prefab
+    - Assets/@Resources/PlantGame/Prefabs/UI/DetailView.prefab
+    - Assets/@Resources/PlantGame/Scenes/PlantGame.unity
   bundles:
   - assetBundleName: prefabs_testhotfixview.bundle
     assetNames:
@@ -167,4 +275,226 @@ MonoBehaviour:
   - assetBundleName: prefabs_cube.bundle
     assetNames:
     - Assets/@Resources/Prefabs/Cube.prefab
-  currentScene: HotfixPatch
+  - assetBundleName: ui_startview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/StartView.prefab
+  - assetBundleName: ui_detailview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/DetailView.prefab
+  - assetBundleName: prefabs_tao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/Tao.prefab
+  - assetBundleName: ui_packageview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/PackageView.prefab
+  - assetBundleName: prefabs_pingguo.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/PingGuo.prefab
+  - assetBundleName: prefabs_xihongshi.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/XiHongShi.prefab
+  - assetBundleName: prefabs_putao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/PuTao.prefab
+  - assetBundleName: prefabs_yumi.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/YuMi.prefab
+  - assetBundleName: ui_toolview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/ToolView.prefab
+  - assetBundleName: prefabs_nangua.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/NanGua.prefab
+  - assetBundleName: ui_stateview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/StateView.prefab
+  - assetBundleName: ui_tipsview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/TipsView.prefab
+  - assetBundleName: prefabs_xiangjiao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/XiangJiao.prefab
+  - assetBundleName: prefabs_xiangrikui.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/XiangRiKui.prefab
+  - assetBundleName: prefabs_li.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/Li.prefab
+  - assetBundleName: ui_resultview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Prefabs/UI/ResultView.prefab
+  - assetBundleName: scenes_plantgame.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Scenes/PlantGame.unity
+  - assetBundleName: scenes_plantstart.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Scenes/PlantStart.unity
+  - assetBundleName: children_ui_startview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Other/kaishi.png
+    - Assets/@Resources/PlantGame/UI/Other/BG.png
+  - assetBundleName: children_ui_detailview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Other/tishiban.png
+    - Assets/@Resources/PlantGame/UI/State/xiao.png
+  - assetBundleName: children_prefabs_tao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu.png
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu.json
+    - Assets/@Resources/PlantGame/Anima2d/Tao/taoshu.atlas.txt
+  - assetBundleName: children_ui_packageview.bundle
+    assetNames:
+    - "Assets/@Resources/PlantGame/UI/Other/\u79CD\u5B50\u4ED3\u5E932.png"
+  - assetBundleName: children_prefabs_pingguo.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs.png
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs.json
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/PingGuo/pgs_Material.mat
+  - assetBundleName: children_prefabs_xihongshi.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi.png
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi.json
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiHongShi/xihongshi_Material.mat
+  - assetBundleName: children_prefabs_putao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt.json
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/PuTao/pt.png
+  - assetBundleName: children_prefabs_yumi.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi.png
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi.json
+    - Assets/@Resources/PlantGame/Anima2d/YuMi/yumi_Atlas.asset
+  - assetBundleName: children_ui_toolview.bundle
+    assetNames:
+    - "Assets/@Resources/PlantGame/UI/Other/\u65BD\u80A5.png"
+    - "Assets/@Resources/PlantGame/UI/Other/\u9053\u5177\u680F.png"
+    - "Assets/@Resources/PlantGame/UI/Other/\u94F2\u5730.png"
+    - "Assets/@Resources/PlantGame/UI/Other/\u6D47\u6C34.png"
+    - "Assets/@Resources/PlantGame/UI/Other/\u79CD\u5B50.png"
+  - assetBundleName: children_prefabs_nangua.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua.png
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua.json
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/NanGua/nangua_Atlas.asset
+  - assetBundleName: children_ui_stateview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/State/nengling_an.png
+    - Assets/@Resources/PlantGame/UI/State/nengliang.png
+    - Assets/@Resources/PlantGame/UI/State/star.png
+    - Assets/@Resources/PlantGame/UI/State/jiankang.png
+  - assetBundleName: children_ui_tipsview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Other/tishi.PNG
+  - assetBundleName: children_prefabs_xiangjiao.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/New SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/xiangjiaoshu.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/xiangjiaoshu_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/xiangjiaoshu_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/xiangjiaoshu.png
+    - Assets/@Resources/PlantGame/Anima2d/XiangJiao/xiangjiaoshu.json
+  - assetBundleName: children_prefabs_xiangrikui.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui.png
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui_Atlas.asset
+    - Assets/@Resources/PlantGame/Anima2d/XiangRiKui/xiangrikui.json
+  - assetBundleName: children_prefabs_li.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu_Material.mat
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu_SkeletonData.asset
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu.atlas.txt
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu.png
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu.json
+    - Assets/@Resources/PlantGame/Anima2d/Li/lishu_Atlas.asset
+  - assetBundleName: children_ui_resultview.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Result/xingxing.PNG
+    - "Assets/@Resources/PlantGame/UI/Result/\u519C\u4E1A\u5C0F\u5C0F\u767D.png"
+    - Assets/@Resources/PlantGame/UI/FruitIcon/guazi.png
+    - Assets/@Resources/PlantGame/UI/Result/star.mat
+    - Assets/@Resources/PlantGame/UI/Result/tuichu.png
+    - Assets/@Resources/PlantGame/UI/Result/jiesuan.png
+    - Assets/@Resources/PlantGame/UI/Result/jixu.png
+  - assetBundleName: children_scenes_plantgame.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/8.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/2.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/6.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/7.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/River.controller
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/chantu.anim
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/3.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/4.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/6.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/8.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/7.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/2.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/4.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/9.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/5.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/10.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/zhiwu.anim
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/3.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/5.png
+    - Assets/@Resources/PlantGame/Texture/Rain.mat
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/none.anim
+    - Assets/@Resources/PlantGame/Texture/Ye.mat
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/1.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/1.png
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/river.anim
+    - "Assets/@Resources/PlantGame/Texture/\u6C34\u6EF4.png"
+    - Assets/@Resources/PlantGame/Texture/bg_xiao.PNG
+    - Assets/@Resources/PlantGame/Anima2d/ShuiLiu/9.png
+    - Assets/@Resources/PlantGame/Texture/ye.png
+    - Assets/@Resources/PlantGame/Anima2d/ChanTu/Soil.controller
+  - assetBundleName: shared_plantgame_ui_seedicon.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/SeedIcon/guazi.png
+  - assetBundleName: shared_spine-unity_editor_gui.bundle
+    assetNames:
+    - Assets/Examples/PlantGame/Spine/spine-unity/Editor/GUI/AtlasAsset Icon.png
+    - Assets/Examples/PlantGame/Spine/spine-unity/Editor/GUI/SkeletonDataAsset Icon.png
+  - assetBundleName: shared_plantgame_anima2d_maochong.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Anima2d/Maochong/m_0000_1.png
+  - assetBundleName: shared_@resources_plantgame_texture.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/Texture/zacao_2.png
+    - Assets/@Resources/PlantGame/Texture/zacao_1.png
+  - assetBundleName: shared_shaders.bundle
+    assetNames:
+    - Assets/Examples/PlantGame/Spine/spine-unity/Shaders/Spine-Skeleton.shader
+  - assetBundleName: shared_plantgame_ui_state.bundle
+    assetNames:
+    - "Assets/@Resources/PlantGame/UI/State/\u6D47\u6C34_xiao.png"
+    - Assets/@Resources/PlantGame/UI/State/chengshu.png
+    - "Assets/@Resources/PlantGame/UI/State/\u65BD\u80A5_xiao.png"
+  - assetBundleName: shared_plantgame_ui_font.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Font/MSYHBD.TTC
+  - assetBundleName: shared_plantgame_ui_other.bundle
+    assetNames:
+    - Assets/@Resources/PlantGame/UI/Other/mask.png
+  currentScene: PlantStart

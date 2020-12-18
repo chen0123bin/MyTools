@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class ResAssetsManger : IAssetsManager,IManager
 {
     private Action<bool> m_OnUpdateCallback;
-    public Action<bool> OnUpdateCallback {  set => m_OnUpdateCallback= value; }
+    public Action<bool> OnInitUpdateComplete {  set => m_OnUpdateCallback= value; }
 
     public void Init()
     {

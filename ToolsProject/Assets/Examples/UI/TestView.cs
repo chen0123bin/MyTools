@@ -37,8 +37,9 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 			}
 		}
 	}
-    public override void OnCreateView()
+    public override void CreateView(GameObject go)
     {
+        base.CreateView(go);
         _btn1.onClick.AddListener(() => {
             m_Logic.CreateNode();
         });
@@ -47,7 +48,6 @@ public class TestView : BaseLogicUIView<TestViewLogic>
         });
         _pool = new GameObjectPool<TestNodeTemp>(5, _testNodeTemp.gameObject);
         _list = new List<TestNodeTemp>();
-        base.OnCreateView();
 	}
     private void ChooseIndex(int index) {
         LWDebug.Log(_datas[index]);

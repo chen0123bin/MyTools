@@ -1,12 +1,12 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace LWFramework.WebRequest {
+namespace LWFramework.WebRequest
+{
     /// <summary>
     /// Web请求管理器
     /// </summary>
