@@ -1,7 +1,8 @@
 {
     "name": "LWWebRequest",
     "references": [
-        "LW.Runtime"
+        "LW.Runtime",
+        "UniTask"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

@@ -6,7 +6,11 @@
     "author": "chenbin",
     "license": "MIT",
     "unity": "2018.4",
-    "type": "library", 
+    "type": "library",
     "enableLockFile": true,
-    "resolutionStrategy": "highest"
+    "resolutionStrategy": "highest",
+    "dependencies": {
+        "com.cysharp.unitask": "2.0.31"
+    }
+
 }

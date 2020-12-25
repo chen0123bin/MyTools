@@ -7,5 +7,8 @@
     "license": "MIT",
     "unity": "2018.4",
     "enableLockFile": true,
-    "resolutionStrategy": "highest"
+    "resolutionStrategy": "highest",
+    "dependencies": {
+        "com.cysharp.unitask": "2.0.31"
+    }
 }

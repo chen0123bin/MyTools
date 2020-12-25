@@ -1,7 +1,8 @@
 {
     "name": "LWStepGraphRuntime",
     "references": [
-        "LW.Runtime"
+        "LW.Runtime",
+        "UniTask"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
