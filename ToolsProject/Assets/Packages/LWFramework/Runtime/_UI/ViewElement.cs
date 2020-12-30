@@ -83,8 +83,9 @@ public class ViewElement : MonoBehaviour
                 strBuilder.AppendLine();
             }
         }
-        strBuilder.AppendLine("\tpublic override  void OnCreateView()");
+        strBuilder.AppendLine("\tpublic override  void Create(GameObject gameObject)");
         strBuilder.AppendLine("\t{");
+        strBuilder.AppendLine("\t\tbase.Create(gameObject);");
         List<string> buttons = new List<string>();
         //获取ui控件
         if (viewElement)
@@ -106,7 +107,6 @@ public class ViewElement : MonoBehaviour
                 }
             }
         }
-        strBuilder.AppendLine("\t\tbase.OnCreateView();//放置在最底部");
         strBuilder.AppendLine("\t}");
         
 
@@ -273,8 +273,9 @@ public class ViewElement : MonoBehaviour
                 strBuilder.AppendLine();
             }
         }
-        strBuilder.AppendLine("\tpublic override  void OnCreateView()");
+        strBuilder.AppendLine("\tpublic override  void Create(GameObject gameObject)");
         strBuilder.AppendLine("\t{");
+        strBuilder.AppendLine("\t\tbase.Create(gameObject);");
         List<string> buttons = new List<string>();
         //获取ui控件
         if (viewElement)
@@ -296,7 +297,6 @@ public class ViewElement : MonoBehaviour
                 }
             }
         }
-        strBuilder.AppendLine("\t\tbase.OnCreateView();//放置在最底部");
         strBuilder.AppendLine("\t}");
        
 
