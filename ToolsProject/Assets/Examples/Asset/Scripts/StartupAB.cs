@@ -33,7 +33,7 @@ public class StartupAB : MonoBehaviour
     /// <param name="obj"></param>
     private void OnUpdateCallback(bool obj)
     {
-        StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript(LWUtility.GlobalConfig.hotfixCodeRunMode));
+        StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript((HotfixCodeRunMode)LWUtility.GlobalConfig.hotfixCodeRunMode));
     } 
     // Update is called once per frame
     void Update()

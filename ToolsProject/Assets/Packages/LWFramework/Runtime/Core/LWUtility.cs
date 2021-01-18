@@ -48,18 +48,18 @@ namespace LWFramework.Core
         /// </summary>
         public static LWGlobalConfig GlobalConfig { get {
                 if (_lwGlobalConfig == null) {
-                    _lwGlobalConfig = Resources.Load<LWGlobalConfig>("LWGlobalConfig");
-
+                    //优先获取外部配置数据
+                    _lwGlobalConfig = ConfigDataTool.ReadData<LWGlobalConfig>("config");
+                    if (_lwGlobalConfig == null) {
+                        _lwGlobalConfig = Resources.Load<LWGlobalAsset>("LWGlobalAsset").GetLWGlobalConfig();
+                    }                    
 #if UNITY_EDITOR
                     if (_lwGlobalConfig == null) {
                         FileTool.CheckCreateDirectory(Application.dataPath + "/Resources");
-                        var asset = ScriptableObject.CreateInstance(typeof(LWGlobalConfig));
-                        UnityEditor.AssetDatabase.CreateAsset(asset, "Assets/Resources/LWGlobalConfig.asset");
+                        var asset = ScriptableObject.CreateInstance(typeof(LWGlobalAsset));
+                        UnityEditor.AssetDatabase.CreateAsset(asset, "Assets/Resources/LWGlobalAsset.asset");
                         UnityEditor.AssetDatabase.Refresh();
                     }
-#endif
-#if !UNITY_EDITOR
-                   // _lwGlobalConfig.assetBundleMode = true;
 #endif
                 }
                 return _lwGlobalConfig;
@@ -108,53 +108,53 @@ namespace LWFramework.Core
                        Path.DirectorySeparatorChar;
             }
         }
-        /// <summary>
-        /// persistentDataPath  persistentData+平台名称+path
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public static string GetRelativePath4Update(string path)
-        {
-            return updatePath + path;
-        }
-        /// <summary>
-        /// 获取文件下载地址   服务器地址+平台+filename
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        public static string GetDownloadURL(string filename)
-        {
-            return Path.Combine(Path.Combine(LWUtility.downloadURL, GetPlatform()), filename);
-        }
-        /// <summary>
-        /// 获取各个平台的资源路径，运行时一般为StreamingAssets+AssetBundles+平台+文件名
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        public static string GetWebUrlFromDataPath(string filename)
-        {
-            var path = Path.Combine(dataPath, Path.Combine(AssetBundles, GetPlatform())) + Path.DirectorySeparatorChar + filename;
-#if UNITY_IOS || UNITY_EDITOR
-            path = "file://" + path;
-#elif UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-            path = "file:///" + path;
-#endif
-            return path;
-        }
+//        /// <summary>
+//        /// persistentDataPath  persistentData+平台名称+path
+//        /// </summary>
+//        /// <param name="path"></param>
+//        /// <returns></returns>
+//        public static string GetRelativePath4Update(string path)
+//        {
+//            return updatePath + path;
+//        }
+//        /// <summary>
+//        /// 获取文件下载地址   服务器地址+平台+filename
+//        /// </summary>
+//        /// <param name="filename"></param>
+//        /// <returns></returns>
+//        public static string GetDownloadURL(string filename)
+//        {
+//            return Path.Combine(Path.Combine(LWUtility.downloadURL, GetPlatform()), filename);
+//        }
+//        /// <summary>
+//        /// 获取各个平台的资源路径，运行时一般为StreamingAssets+AssetBundles+平台+文件名
+//        /// </summary>
+//        /// <param name="filename"></param>
+//        /// <returns></returns>
+//        public static string GetWebUrlFromDataPath(string filename)
+//        {
+//            var path = Path.Combine(dataPath, Path.Combine(AssetBundles, GetPlatform())) + Path.DirectorySeparatorChar + filename;
+//#if UNITY_IOS || UNITY_EDITOR
+//            path = "file://" + path;
+//#elif UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
+//            path = "file:///" + path;
+//#endif
+//            return path;
+//        }
 
-        public static string GetWebUrlFromStreamingAssets(string filename)
-        {
-            var path = updatePath + filename;
-            if (!File.Exists(path))
-            {
-                path = Application.streamingAssetsPath + "/" + filename;
-            }
-#if UNITY_IOS || UNITY_EDITOR
-			path = "file://" + path;
-#elif UNITY_STANDALONE_WIN
-            path = "file:///" + path;
-#endif
-            return path;
-        }
+//        public static string GetWebUrlFromStreamingAssets(string filename)
+//        {
+//            var path = updatePath + filename;
+//            if (!File.Exists(path))
+//            {
+//                path = Application.streamingAssetsPath + "/" + filename;
+//            }
+//#if UNITY_IOS || UNITY_EDITOR
+//			path = "file://" + path;
+//#elif UNITY_STANDALONE_WIN
+//            path = "file:///" + path;
+//#endif
+//            return path;
+//        }
     }
 }

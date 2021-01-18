@@ -57,5 +57,11 @@ namespace LWFramework.UI
         /// <param name="viewName">View的名称</param>
         /// <param name="uiGameObject">View的实体对象</param>
         void OpenView<T>(string viewName, GameObject uiGameObject = null);
+        /// <summary>
+        /// 绑定viewName跟UI路径，替换掉UIView种的特性路径，绑定的优先级更高
+        /// </summary>
+        /// <param name="viewName">ViewName</param>
+        /// <param name="uiGameObjectPath">对象的路径</param>
+        void BindView(string viewName, string uiGameObjectPath);
     }
 }

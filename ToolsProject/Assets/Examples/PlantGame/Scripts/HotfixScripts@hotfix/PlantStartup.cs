@@ -36,7 +36,7 @@ public class PlantStartup : MonoBehaviour
     private void OnUpdateComplete(bool obj)
     {
         if (obj) {
-            StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript(LWUtility.GlobalConfig.hotfixCodeRunMode));
+            StartCoroutine(MainManager.Instance.GetManager<HotfixManager>().IE_LoadScript((HotfixCodeRunMode)LWUtility.GlobalConfig.hotfixCodeRunMode));
         }
         
     }

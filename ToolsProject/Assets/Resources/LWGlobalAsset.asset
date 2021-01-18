@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e209c419f86144a837313c279bbc5a, type: 3}
-  m_Name: LWGlobalConfig
+  m_Script: {fileID: 11500000, guid: 6444941c841cf944b9311554fa981f5e, type: 3}
+  m_Name: LWGlobalAsset
   m_EditorClassIdentifier: 
   assetMode: 1
   hotfixCodeRunMode: 2
   loggable: 1
   verifyBy: 1
-  downloadURL: http://192.168.200.172:8089/ToolsProject/Bundles/
+  downloadURL: http://192.168.100.112:8089/ToolsProject/Bundles/
   development: 0
-  dontDestroyOnLoad: 1
   searchPaths: []
-  updatePatches4Init:
-  - PlantUpdate
-  updateAll: 0
+  updatePatches4Init: []
+  updateAll: 1

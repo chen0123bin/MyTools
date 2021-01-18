@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03142c330ced64e0ab46cddcd0484ab7, type: 3}
   m_Name: Rules
   m_EditorClassIdentifier: 
-  build: 91
+  build: 92
   major: 0
   minor: 0
   autoRecord: 1
@@ -253,9 +253,6 @@ MonoBehaviour:
   - assetBundleName: prefabs_uiroot2.bundle
     assetNames:
     - Assets/@Resources/Prefabs/UIRoot2.prefab
-  - assetBundleName: prefabs_uiroot.bundle
-    assetNames:
-    - Assets/@Resources/Prefabs/UIRoot.prefab
   - assetBundleName: prefabs_testchilditem.bundle
     assetNames:
     - Assets/@Resources/Prefabs/TestChildItem.prefab

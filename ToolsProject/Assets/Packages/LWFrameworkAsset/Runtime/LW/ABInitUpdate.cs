@@ -31,7 +31,7 @@ public class ABInitUpdate
     /// </summary>
     public void SetConfig() {
         LWGlobalConfig globalConfig = LWUtility.GlobalConfig;
-        Assets.development = globalConfig.development;
+        Assets.development = (globalConfig.assetMode== 1);
         Assets.loggable = globalConfig.loggable;
         Assets.updateAll = globalConfig.updateAll;
         Assets.downloadURL = globalConfig.downloadURL;

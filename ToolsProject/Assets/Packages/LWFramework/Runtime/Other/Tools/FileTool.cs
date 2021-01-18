@@ -246,6 +246,15 @@ public class FileTool
         }
     }
     /// <summary>
+    ///  删除文件
+    /// </summary>
+    /// <param name="fileFullPath"></param>
+    public static void DeleteFile(string fileFullName, string dirPath)
+    {
+        string fileFullPath = Path.Combine(dirPath, fileFullName);
+        DeleteFile(fileFullPath);
+    }
+    /// <summary>
     /// 删除文件夹
     /// </summary>
     /// <param name="dirPath"></param>

@@ -20,6 +20,10 @@ namespace LWFramework.UI {
         /// 所有UI的父节点
         /// </summary>
         private Dictionary<string, Transform> m_UIParentDic;
+        /// <summary>
+        /// 所有的绑定数据
+        /// </summary>
+        private Dictionary<string, string> m_UIBindViewPath;
 
         #region 获取Canvas编辑节点
 
@@ -41,6 +45,7 @@ namespace LWFramework.UI {
         {
             m_UIViewDic = new Dictionary<string, IUIView>();
             m_UIParentDic = new Dictionary<string, Transform>();
+            m_UIBindViewPath = new Dictionary<string, string>();
             //启动之后隐藏编辑层
             EditTransform.gameObject.SetActive(false);
         }
@@ -89,7 +94,12 @@ namespace LWFramework.UI {
         //    LWDebug.Log("UIManager：" + typeof(T).ToString());
         //    return uiView;
         //}
-
+        public void BindView(string viewName, string uiGameObjectPath)
+        {
+            if (!m_UIBindViewPath.ContainsKey(viewName)) {
+                m_UIBindViewPath.Add(viewName, uiGameObjectPath);
+            }
+        }
         /// <summary>
         /// 打开View
         /// </summary>
@@ -110,7 +120,13 @@ namespace LWFramework.UI {
             IUIView uiViewBase;
             if (!m_UIViewDic.TryGetValue(viewName, out uiViewBase))
             {
-                uiViewBase = CreateView<T>(uiGameObject);
+                if (m_UIBindViewPath.ContainsKey(viewName))
+                {
+                    uiViewBase = CreateView<T>(viewName);
+                }
+                else {
+                    uiViewBase = CreateView<T>(uiGameObject);
+                }               
                 m_UIViewDic.Add(viewName, uiViewBase);
             }
             if (!uiViewBase.IsOpen)
@@ -202,15 +218,16 @@ namespace LWFramework.UI {
         private BaseUIView CreateView<T>(GameObject uiGameObject = null)
         {
             BaseUIView uiView = Activator.CreateInstance(typeof(T)) as BaseUIView;
+
             //获取UIViewDataAttribute特性
             var attr = (UIViewDataAttribute)typeof(T).GetCustomAttributes(typeof(UIViewDataAttribute), true).FirstOrDefault();
             if (attr != null)
             {
-                //GameObject uiGameObject = null;
                 //创建UI对象
                 if (uiGameObject == null)
-                {
+                {                   
                     uiGameObject = UIUtility.Instance.CreateViewEntity(attr.m_LoadPath);
+
                 }
                 Transform parent = GetParent(attr.m_FindType, attr.m_Param);
                 if (uiGameObject == null)
@@ -234,6 +251,16 @@ namespace LWFramework.UI {
             }
             LWDebug.Log("UIManager：" + typeof(T).ToString());
             return uiView;
+        }
+        /// <summary>
+        /// 创建一个VIEW
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private BaseUIView CreateView<T>(string viewName)
+        {
+            GameObject uiGameObject = UIUtility.Instance.CreateViewEntity(m_UIBindViewPath[viewName]);
+            return CreateView<T>(uiGameObject);
         }
         /// <summary>
         /// 根据特性 获取父级
@@ -270,6 +297,8 @@ namespace LWFramework.UI {
             }
             return ret;
         }
+
+        
     }
 }
 

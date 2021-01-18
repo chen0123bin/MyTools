@@ -28,7 +28,7 @@ public class LWEditorWindow : OdinMenuEditorWindow
         tree.Add("AB管理", Resources.Load("AssetBuildTool"));
 #endif
         tree.Add("打包规则", AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Rules.asset"));
-        tree.Add("配置", Resources.Load<LWGlobalConfig>("LWGlobalConfig"));
+        tree.Add("配置", Resources.Load<LWGlobalAsset>("LWGlobalAsset"));
         tree.Add("其他", new OtherToolManger());
         tree.AddAllAssetsAtPath("序列化文件", "Assets/LWFramework/Editor", typeof(ScriptableObject), true, true);
 
