@@ -65,16 +65,36 @@ namespace LWFramework.Message
             }
         }
         /// <summary>
-        /// 移除一个消息监听
+        /// 移除消息监听
         /// </summary>
-        /// <param name="type"></param>
-        public void RemoveListener(string type)
+        /// <param name="type">类型</param>
+        /// <param name="handler">消息监听的委托，当为空时移除所有的type类型</param>
+        /// <returns></returns>
+        public void RemoveListener(string type, MessageDelegate.MessageHandler handler = null)
         {
-
             if (dict.ContainsKey(type))
             {
-                dict[type].Clear();
-               dict.Remove(type);
+                if (handler != null)
+                {
+                    for (int i = 0; i < dict[type].Count; i++)
+                    {
+                        if (dict[type][i].Target == handler.Target)
+                        {
+                            dict[type].Remove(dict[type][i]);
+                            i--;
+                        }
+                    }
+                }
+                else
+                {
+                    dict[type].Clear();
+                }
+
+                if (dict[type].Count == 0)
+                {
+                    dict.Remove(type);
+                }
+
             }
             else
             {
