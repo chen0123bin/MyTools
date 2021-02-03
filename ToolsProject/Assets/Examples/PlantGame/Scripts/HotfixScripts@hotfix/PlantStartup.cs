@@ -2,6 +2,7 @@
 using LWFramework.FMS;
 using LWFramework.Message;
 using LWFramework.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,12 +23,16 @@ public class PlantStartup : MonoBehaviour
         abAssetManger.ABInitUpdate = new ABInitUpdate();
         abAssetManger.ABInitUpdate.m_AutoUpdate = false;
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), abAssetManger);
-        MainManager.Instance.GetManager<IAssetsManager>().OnInitUpdateComplete = OnUpdateComplete;
+        MainManager.Instance.GetManager<IAssetsManager>().OnInitUpdateComplete = OnUpdateComplete;     
+
     }
+
+  
+
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
     /// <summary>
     /// 默认资源更新完成

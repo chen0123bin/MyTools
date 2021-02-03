@@ -44,6 +44,7 @@ public class StartupAB : MonoBehaviour
             OnUpdate();
         }
     }
+
    
     void OnDestroy()
     {

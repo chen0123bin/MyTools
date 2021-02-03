@@ -104,7 +104,7 @@ namespace LWFramework.UI {
         /// 打开View
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        public void OpenView<T>()
+        public void OpenView<T>(bool isFirstSibling = false)
         {
             IUIView uiViewBase;
             if (!m_UIViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
@@ -113,9 +113,9 @@ namespace LWFramework.UI {
                 m_UIViewDic.Add(typeof(T).ToString(), uiViewBase);
             }
             if (!uiViewBase.IsOpen)
-                uiViewBase.OpenView();
+                uiViewBase.OpenView(isFirstSibling);
         }
-        public void OpenView<T>(string viewName, GameObject uiGameObject = null)
+        public void OpenView<T>(string viewName, GameObject uiGameObject = null , bool isFirstSibling = false)
         {
             IUIView uiViewBase;
             if (!m_UIViewDic.TryGetValue(viewName, out uiViewBase))

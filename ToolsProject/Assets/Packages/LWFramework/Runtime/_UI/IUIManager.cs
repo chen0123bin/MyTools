@@ -49,14 +49,14 @@ namespace LWFramework.UI
         /// 打开View
         /// </summary>
         /// <typeparam name="T">View的类型（转换成使用typeOf转换）</typeparam>
-        void OpenView<T>();
+        void OpenView<T>(bool isFirstSibling = false );
         /// <summary>
         /// 打开View
         /// </summary>
         /// <typeparam name="T">View的类型</typeparam>
         /// <param name="viewName">View的名称</param>
         /// <param name="uiGameObject">View的实体对象</param>
-        void OpenView<T>(string viewName, GameObject uiGameObject = null);
+        void OpenView<T>(string viewName, GameObject uiGameObject = null,bool isFirstSibling = false);
         /// <summary>
         /// 绑定viewName跟UI路径，替换掉UIView种的特性路径，绑定的优先级更高
         /// </summary>

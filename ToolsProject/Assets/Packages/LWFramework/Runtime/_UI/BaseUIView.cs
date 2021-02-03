@@ -48,10 +48,17 @@ namespace LWFramework.UI
         /// <summary>
         /// 打开view
         /// </summary>
-        public virtual void OpenView() {
-            //_entity.SetActive(true);
+        /// <param name="isFirstSibling">是否置于最前  默认false</param>
+        public virtual void OpenView(bool isFirstSibling = false) {
             m_CanvasGroup.SetActive(true);
+            if (isFirstSibling) {
+                m_Entity.transform.SetAsFirstSibling();
+            }       
             m_IsOpen = true;
+        }
+        public virtual void OpenView()
+        {
+            OpenView(false);
         }
         /// <summary>
         ///关闭view 

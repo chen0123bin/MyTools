@@ -15,12 +15,19 @@ namespace LWFramework.UI
         /// </summary>
         int ViewId { get; set; }
         void CreateView(GameObject gameObject);
-        
+
+  
+        /// <summary>
+        /// 打开view
+        /// </summary>
+        /// <param name="isFirstSibling">是否置于最前  默认false</param>
+        void OpenView();
         //void OnCreateView();
         /// <summary>
-        /// 打开View
+        /// 打开view
         /// </summary>
-        void OpenView();
+        /// <param name="isFirstSibling">是否置于最前  默认false</param>
+        void OpenView(bool isFirstSibling = false);
         /// <summary>
         /// 关闭View
         /// </summary>
