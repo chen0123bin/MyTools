@@ -23,6 +23,7 @@ public class LWGlobalAsset : ScriptableObject
     public HotfixCodeRunMode hotfixCodeRunMode;
     public bool loggable;
     public int verifyBy = 1 ;
+    [InfoBox("结构以（Bundles/）结尾")]
     public string downloadURL;
     [HideInInspector]
     public bool development;//该属性用于适配XASSET 设置时不使用

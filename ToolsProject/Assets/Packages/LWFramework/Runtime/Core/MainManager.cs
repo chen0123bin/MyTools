@@ -122,10 +122,17 @@ namespace LWFramework.Core {
             GetManager<IFSMManager>().InitFSMManager();
             //找到所有的流程管理类
             List<AttributeTypeData> procedureList = GetManager< IFSMManager>().GetFsmClassDataByName(nameof(FSMName.Procedure));
-            //创建一个流程管理状态机       
-            FSMStateMachine stateMachine = new FSMStateMachine(nameof(FSMName.Procedure), procedureList);
-            GetManager<IFSMManager>().RegisterFSM(stateMachine);
-            GetManager<IFSMManager>().GetFSMProcedure().StartFirst();
+            if (procedureList.Count > 0)
+            {
+                //创建一个流程管理状态机       
+                FSMStateMachine stateMachine = new FSMStateMachine(nameof(FSMName.Procedure), procedureList);
+                GetManager<IFSMManager>().RegisterFSM(stateMachine);
+                GetManager<IFSMManager>().GetFSMProcedure().StartFirst();
+            }
+            else {
+                LWDebug.LogWarning("未找到第一个Procedure");
+            }
+           
         }
         /// <summary>
         /// 根据特性去获取对应的所有type
@@ -134,7 +141,7 @@ namespace LWFramework.Core {
         /// <returns></returns>
         public List<AttributeTypeData> GetTypeListByAttr<T>()
         {
-            if (!m_AttrTypeHotfixDic.ContainsKey(typeof(T).FullName))
+            if (m_AttrTypeHotfixDic==null || !m_AttrTypeHotfixDic.ContainsKey(typeof(T).FullName))
             {
                 LWDebug.LogWarning("当前域下找不到这个包含这个特性的类" + typeof(T).FullName);
                 return null;

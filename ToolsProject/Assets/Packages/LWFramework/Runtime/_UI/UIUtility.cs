@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using System.Reflection;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 
 namespace LWFramework.UI {
     public class UIUtility :Singleton<UIUtility>
@@ -25,17 +26,33 @@ namespace LWFramework.UI {
         private  int m_ViewId;
         public int ViewId {
             get => m_ViewId++;
-        }      
+        }
+        /// <summary>
+        /// 所有UI的父节点缓存，每次使用的都记录一次避免多次查找
+        /// </summary>
+        private Dictionary<string, Transform> m_UIParentDicCache = new Dictionary<string, Transform>();
         /// <summary>
         /// 根据ab路径创建一个view 实体
         /// </summary>
         /// <param name="abPath">ab的路径</param>
         /// <returns></returns>
         public GameObject CreateViewEntity(string abPath) {
-            
+           
             GameObject uiGameObject = m_UILoad.LoadUIGameObject(abPath);        
             return uiGameObject;
-        }       
+        }
+
+        /// <summary>
+        /// 根据ab路径创建一个view 实体
+        /// </summary>
+        /// <param name="abPath">ab的路径</param>
+        /// <returns></returns>
+        public async UniTask<GameObject> CreateViewEntityAsync(string abPath)
+        {
+
+            GameObject uiGameObject = await m_UILoad.LoadUIGameObjectAsync(abPath);
+            return uiGameObject;
+        }
         /// <summary>
         /// 根据ab路径获取精灵图片
         /// </summary>
@@ -45,6 +62,44 @@ namespace LWFramework.UI {
         {        
             return m_UILoad.GetSprite(abPath);
         }
+
+        /// <summary>
+        /// 根据特性 获取父级
+        /// </summary>
+        /// <param name="findType">查找的类型</param>
+        /// <param name="param">参数</param>
+        /// <returns></returns>
+        public Transform GetParent( FindType findType, string param)
+        {
+            Transform ret = null;
+            if (m_UIParentDicCache.ContainsKey(param))
+            {
+                ret = m_UIParentDicCache[param];
+            }
+            else if (findType == FindType.Name)
+            {
+                GameObject gameObject = GameObject.Find(param);
+                if (gameObject == null)
+                {
+                    LWDebug.LogError(string.Format("当前没有找到{0}这个GameObject对象", param));
+                }
+                ret = gameObject.transform;
+                m_UIParentDicCache.Add(param, ret);
+            }
+            else if (findType == FindType.Tag)
+            {
+                GameObject gameObject = GameObject.FindGameObjectWithTag(param);
+                if (gameObject == null)
+                {
+                    LWDebug.LogError(string.Format("当前没有找到{0}这个Tag GameObject对象", param));
+                }
+                ret = gameObject.transform;
+                m_UIParentDicCache.Add(param, ret);
+            }
+            return ret;
+        }
+
+
         /// <summary>
         /// 根据特性获取UI对象
         /// </summary>

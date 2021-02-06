@@ -12,6 +12,10 @@ public class ConfigDataTool
            return Application.persistentDataPath;
 #elif UNITY_STANDALONE_WIN
             return LWUtility.ProjectRoot;
+#elif UNITY_EDITOR
+            return LWUtility.ProjectRoot;
+#else 
+            return "";
 #endif
         }
     }
@@ -24,7 +28,7 @@ public class ConfigDataTool
         }
         catch (System.Exception e)
         {
-            LWDebug.LogError(e.StackTrace);
+            LWDebug.LogWarning(ConfigFilePath+ " 中没有config文件，继续使用LWGlobalAsset配置文件");
             return default;
         }        
     }

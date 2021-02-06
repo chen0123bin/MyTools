@@ -52,6 +52,7 @@ namespace LWFramework.Core
                     _lwGlobalConfig = ConfigDataTool.ReadData<LWGlobalConfig>("config");
                     if (_lwGlobalConfig == null) {
                         _lwGlobalConfig = Resources.Load<LWGlobalAsset>("LWGlobalAsset").GetLWGlobalConfig();
+                        LWDebug.Log(_lwGlobalConfig);
                     }                    
 #if UNITY_EDITOR
                     if (_lwGlobalConfig == null) {

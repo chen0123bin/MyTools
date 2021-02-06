@@ -1,4 +1,5 @@
-﻿using LWFramework.Core;
+﻿using Cysharp.Threading.Tasks;
+using LWFramework.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,8 @@ public class UILoadAB : IUILoad
         return uiGameObject;
     }
 
-    public GameObject LoadUIGameObjectAsync(string path)
+
+    UniTask<GameObject> IUILoad.LoadUIGameObjectAsync(string path)
     {
         throw new System.NotImplementedException();
     }

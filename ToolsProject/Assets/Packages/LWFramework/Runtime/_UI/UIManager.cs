@@ -16,10 +16,7 @@ namespace LWFramework.UI {
         /// 所有的view字典
         /// </summary>
         private Dictionary<string, IUIView> m_UIViewDic;
-        /// <summary>
-        /// 所有UI的父节点
-        /// </summary>
-        private Dictionary<string, Transform> m_UIParentDic;
+       
         /// <summary>
         /// 所有的绑定数据
         /// </summary>
@@ -44,7 +41,6 @@ namespace LWFramework.UI {
         public void Init()
         {
             m_UIViewDic = new Dictionary<string, IUIView>();
-            m_UIParentDic = new Dictionary<string, Transform>();
             m_UIBindViewPath = new Dictionary<string, string>();
             //启动之后隐藏编辑层
             EditTransform.gameObject.SetActive(false);
@@ -103,7 +99,8 @@ namespace LWFramework.UI {
         /// <summary>
         /// 打开View
         /// </summary>
-        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="T">view的控制类</typeparam>
+        /// <param name="isFirstSibling">是否放置在最前面</param>
         public void OpenView<T>(bool isFirstSibling = false)
         {
             IUIView uiViewBase;
@@ -115,6 +112,13 @@ namespace LWFramework.UI {
             if (!uiViewBase.IsOpen)
                 uiViewBase.OpenView(isFirstSibling);
         }
+        /// <summary>
+        /// 打开View
+        /// </summary>
+        /// <typeparam name="T">view的控制类</typeparam>
+        /// <param name="viewName">view的名字，用于一个多个页面共用一个类</param>
+        /// <param name="uiGameObject">view的对象，提前创建，优先级高于自己创建</param>
+        /// <param name="isFirstSibling">是否放置在最前面</param>
         public void OpenView<T>(string viewName, GameObject uiGameObject = null , bool isFirstSibling = false)
         {
             IUIView uiViewBase;
@@ -122,7 +126,7 @@ namespace LWFramework.UI {
             {
                 if (m_UIBindViewPath.ContainsKey(viewName))
                 {
-                    uiViewBase = CreateView<T>(viewName);
+                    uiViewBase = CreateView<T>(uiGameObject, m_UIBindViewPath[viewName]);
                 }
                 else {
                     uiViewBase = CreateView<T>(uiGameObject);
@@ -215,7 +219,7 @@ namespace LWFramework.UI {
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        private BaseUIView CreateView<T>(GameObject uiGameObject = null)
+        private BaseUIView CreateView<T>(GameObject uiGameObject = null,string loadPathParam = null)
         {
             BaseUIView uiView = Activator.CreateInstance(typeof(T)) as BaseUIView;
 
@@ -223,13 +227,17 @@ namespace LWFramework.UI {
             var attr = (UIViewDataAttribute)typeof(T).GetCustomAttributes(typeof(UIViewDataAttribute), true).FirstOrDefault();
             if (attr != null)
             {
-                //创建UI对象
-                if (uiGameObject == null)
-                {                   
+                if (uiGameObject == null) {
+                    string loadPath = attr.m_LoadPath;
+                    //创建UI对象
+                    if (loadPathParam != null)
+                    {
+                        loadPath = loadPathParam;
+                    }
                     uiGameObject = UIUtility.Instance.CreateViewEntity(attr.m_LoadPath);
-
                 }
-                Transform parent = GetParent(attr.m_FindType, attr.m_Param);
+              
+                Transform parent = UIUtility.Instance.GetParent(attr.m_FindType, attr.m_Param);
                 if (uiGameObject == null)
                 {
                     LWDebug.LogError("没有找到这个UI对象" + attr.m_LoadPath);
@@ -257,47 +265,13 @@ namespace LWFramework.UI {
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
+        [Obsolete("废弃的写法不用了")]
         private BaseUIView CreateView<T>(string viewName)
         {
             GameObject uiGameObject = UIUtility.Instance.CreateViewEntity(m_UIBindViewPath[viewName]);
             return CreateView<T>(uiGameObject);
         }
-        /// <summary>
-        /// 根据特性 获取父级
-        /// </summary>
-        /// <param name="findType"></param>
-        /// <param name="param"></param>
-        /// <returns></returns>
-        private Transform GetParent(FindType findType, string param)
-        {
-            Transform ret = null;
-            if (m_UIParentDic.ContainsKey(param))
-            {
-                ret = m_UIParentDic[param];
-            }
-            else if (findType == FindType.Name)
-            {
-                GameObject gameObject = GameObject.Find(param);
-                if (gameObject == null)
-                {
-                    LWDebug.LogError(string.Format("当前没有找到{0}这个GameObject对象", param));
-                }
-                ret = gameObject.transform;
-                m_UIParentDic.Add(param, ret);
-            }
-            else if (findType == FindType.Tag)
-            {
-                GameObject gameObject = GameObject.FindGameObjectWithTag(param);
-                if (gameObject == null)
-                {
-                    LWDebug.LogError(string.Format("当前没有找到{0}这个Tag GameObject对象", param));
-                }
-                ret = gameObject.transform;
-                m_UIParentDic.Add(param, ret);
-            }
-            return ret;
-        }
-
+   
         
     }
 }

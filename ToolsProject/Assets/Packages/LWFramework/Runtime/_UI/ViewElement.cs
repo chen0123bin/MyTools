@@ -83,9 +83,9 @@ public class ViewElement : MonoBehaviour
                 strBuilder.AppendLine();
             }
         }
-        strBuilder.AppendLine("\tpublic override  void Create(GameObject gameObject)");
+        strBuilder.AppendLine("\tpublic override  void CreateView(GameObject gameObject)");
         strBuilder.AppendLine("\t{");
-        strBuilder.AppendLine("\t\tbase.Create(gameObject);");
+        strBuilder.AppendLine("\t\tbase.CreateView(gameObject);");
         List<string> buttons = new List<string>();
         //获取ui控件
         if (viewElement)
@@ -273,9 +273,9 @@ public class ViewElement : MonoBehaviour
                 strBuilder.AppendLine();
             }
         }
-        strBuilder.AppendLine("\tpublic override  void Create(GameObject gameObject)");
+        strBuilder.AppendLine("\tpublic override  void CreateView(GameObject gameObject)");
         strBuilder.AppendLine("\t{");
-        strBuilder.AppendLine("\t\tbase.Create(gameObject);");
+        strBuilder.AppendLine("\t\tbase.CreateView(gameObject);");
         List<string> buttons = new List<string>();
         //获取ui控件
         if (viewElement)
