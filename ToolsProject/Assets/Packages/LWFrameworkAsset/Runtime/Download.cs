@@ -211,6 +211,7 @@ namespace libx
                 if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
                 File.Copy(tempPath, filename, true);
+                PlayerPrefs.SetString(filename, hash);
             }
             File.Delete(tempPath); 
         }

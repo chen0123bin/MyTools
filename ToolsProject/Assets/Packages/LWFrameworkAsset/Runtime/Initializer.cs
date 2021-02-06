@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 namespace libx

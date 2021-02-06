@@ -27,7 +27,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -84,10 +83,12 @@ namespace libx
         [Tooltip("构建的版本号")] public int build;
         public int major;
         public int minor;
+        [Tooltip("场景文件夹")]
+        public string[] scenesFolders = new string[] { "Assets/XAsset" };
 
         [Header("自动分包分组配置")]
         [Tooltip("是否自动记录资源的分包分组")]
-        public bool autoRecord = false;
+        public bool autoRecord;
         [Tooltip("按目录自动分组")]
         public string[] autoGroupByDirectories = new string[0];
 
@@ -106,9 +107,9 @@ namespace libx
         [Tooltip("打包AB的选项")] public BuildAssetBundleOptions options = BuildAssetBundleOptions.ChunkBasedCompression;
 
         [Header("缓存数据")]
-        [Tooltip("所有要打包的资源"), Sirenix.OdinInspector.TableList()] public List<AssetBuild> assets = new List<AssetBuild>();
-        [Tooltip("所有分包"), Sirenix.OdinInspector.TableList()] public List<PatchBuild> patches = new List<PatchBuild>();
-        [Tooltip("所有打包的资源"), Sirenix.OdinInspector.TableList()] public List<BundleBuild> bundles = new List<BundleBuild>();
+        [Tooltip("所有要打包的资源")] public List<AssetBuild> assets = new List<AssetBuild>();
+        [Tooltip("所有分包")] public List<PatchBuild> patches = new List<PatchBuild>();
+        [Tooltip("所有打包的资源")] public List<BundleBuild> bundles = new List<BundleBuild>();
 
         public string currentScene;
 
@@ -288,51 +289,18 @@ namespace libx
                 case GroupBy.Filename:
                     {
                         var assetName = Path.GetFileNameWithoutExtension(asset);
-                        var directoryName = Path.GetDirectoryName(asset);
-                        var sb = new StringBuilder(assetName + "_");
-                        var dir = new DirectoryInfo(directoryName);
-                        int max = 1, i = 0;
-                        while (i < max)
-                        {
-                            if (dir == null)
-                            {
-                                break;
-                            }
-
-                            sb.Insert(0, dir.Name + "_");
-                            dir = dir.Parent;
-                            ++i;
-                        }
-
-                        group = sb.ToString();
+                        var directoryName = Path.GetDirectoryName(asset).Replace("\\", "/").Replace("/", "_"); 
+                        group = directoryName + "_" + assetName;
                     }
                     break;
                 case GroupBy.Directory:
                     {
-                        var directoryName = Path.GetDirectoryName(asset);
-                        var sb = new StringBuilder();
-                        var dir = new DirectoryInfo(directoryName);
-                        int max = 3, i = 0;
-                        while (i < max)
-                        {
-                            if (dir == null)
-                            {
-                                break;
-                            }
-
-                            sb.Insert(0, dir.Name + "_");
-                            dir = dir.Parent;
-                            if (dir.FullName == System.Environment.CurrentDirectory)
-                            {
-                                break;
-                            }
-                            ++i;
-                        }
-
-                        group = sb.ToString();
+                        var directoryName = Path.GetDirectoryName(asset).Replace("\\", "/").Replace("/", "_"); 
+                        group = directoryName;
                         break;
                     }
             }
+            
             if (isChildren)
             {
                 return "children_" + group;

@@ -50,7 +50,9 @@ public class AssetBuildTool : ScriptableObject
     [FoldoutGroup("查看"), Button("查看Versions")]
     private static void ViewVersions()
     {
-        BuildScript.ViewVersions();
+        var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
+        if (string.IsNullOrEmpty(path)) return;
+        BuildScript.ViewVersions(path);
     }
     [FoldoutGroup("查看"), Button("打开Bundles文件夹")]
     private static void ViewBundles()

@@ -41,7 +41,7 @@ namespace libx
             var sceneAssets = new List<string>();
             var rules = BuildScript.GetBuildRules();
 
-            foreach (var guid in AssetDatabase.FindAssets("t:Scene", new[] { "Assets" }))
+            foreach (var guid in AssetDatabase.FindAssets("t:Scene", rules.scenesFolders))
             {
                 var assetPath = AssetDatabase.GUIDToAssetPath(guid); 
                 sceneAssets.Add(assetPath);  
@@ -101,7 +101,7 @@ namespace libx
             Assets.onAssetLoaded += rules.OnLoadAsset;
             Assets.onAssetUnloaded += rules.OnUnloadAsset;   
             rules.BeginSample();
-            //EditorBuildSettings.scenes = scenes; 
+            EditorBuildSettings.scenes = scenes; 
             EditorApplication.playModeStateChanged += EditorApplicationOnplayModeStateChanged; 
         }
 

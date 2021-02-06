@@ -106,17 +106,24 @@ namespace libx
         public string hash;
         public string crc;
         public int id { get; set; }
+        public byte location { get; set; }
 
         public bool Equals(BundleRef other)
         {
             return name == other.name &&
                    len == other.len &&
-                   hash.Equals(other.hash, StringComparison.OrdinalIgnoreCase) &&
+                   location == other.location &&
                    crc.Equals(other.crc, StringComparison.OrdinalIgnoreCase);
+        }
+        
+        public bool EqualsWithContent(BundleRef other)
+        {
+            return len == other.len && crc.Equals(other.crc, StringComparison.OrdinalIgnoreCase);
         }
 
         public void Serialize(BinaryWriter writer)
         {
+            writer.Write(location);
             writer.Write(len);
             writer.Write(name);
             writer.Write(hash);
@@ -131,6 +138,7 @@ namespace libx
 
         public void Deserialize(BinaryReader reader)
         {
+            location = reader.ReadByte();
             len = reader.ReadInt64();
             name = reader.ReadString();
             hash = reader.ReadString();
@@ -145,24 +153,23 @@ namespace libx
 
         public override string ToString()
         {
-            return string.Format("id={0}, name={1}, hash={2}, crc={3}, children={4}", id, name, hash, crc,
-                string.Join(",", Array.ConvertAll(children, input => input.ToString())));
+            return string.Format("id={0}, name={1}, len={2}, location={3}, hash={4}, crc={5}, children={6}", id, name, len,
+                    location, hash, crc, string.Join(",", Array.ConvertAll(children, input => input.ToString())));
         }
     }
 
     public class Versions
     {
-        public string ver;
+        public string ver = new Version(0, 0, 0).ToString();
         public string[] activeVariants = new string[0];
         public string[] dirs = new string[0];
         public List<AssetRef> assets = new List<AssetRef>();
         public List<BundleRef> bundles = new List<BundleRef>();
-        public List<Patch> patches = new List<Patch>();
-        public List<string> patchesInBuild = new List<string>();
-        public bool allAssetsToBuild;
+        public List<Patch> patches = new List<Patch>(); 
 
         private readonly Dictionary<string, BundleRef> _bundles = new Dictionary<string, BundleRef>();
         private readonly Dictionary<string, Patch> _patches = new Dictionary<string, Patch>();
+        public bool outside { get; set; }
 
         public override string ToString()
         {
@@ -172,9 +179,7 @@ namespace libx
             sb.AppendLine("dirs:\n" + string.Join("\n", dirs));
             sb.AppendLine("assets:\n" + string.Join("\n", assets.ConvertAll(input => input.ToString()).ToArray()));
             sb.AppendLine("bundles:\n" + string.Join("\n", bundles.ConvertAll(input => input.ToString()).ToArray()));
-            sb.AppendLine("patches:\n" + string.Join("\n", patches.ConvertAll(input => input.ToString()).ToArray()));
-            sb.AppendLine("patchesInBuild:\n" +
-                          string.Join(",", patchesInBuild.ConvertAll(input => input.ToString()).ToArray()));
+            sb.AppendLine("patches:\n" + string.Join("\n", patches.ConvertAll(input => input.ToString()).ToArray())); 
             return sb.ToString();
         }
 
@@ -185,24 +190,7 @@ namespace libx
             {
                 if (file.Equals(bundle))
                 {
-                    if (patchesInBuild.Count == 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        foreach (var item in patchesInBuild)
-                        {
-                            Patch patch;
-                            if (_patches.TryGetValue(item, out patch))
-                            {
-                                if (patch.files.Contains(file.id))
-                                {
-                                    return true;
-                                }
-                            }
-                        }
-                    }
+                    return true;
                 }
             }
 
@@ -212,28 +200,7 @@ namespace libx
         public BundleRef GetBundle(string name)
         {
             BundleRef file;
-            if (_bundles.TryGetValue(name, out file))
-            {
-                if (patchesInBuild.Count == 0)
-                {
-                    return file;
-                }
-                else
-                {
-                    foreach (var item in patchesInBuild)
-                    {
-                        Patch patch;
-                        if (_patches.TryGetValue(item, out patch))
-                        {
-                            if (patch.files.Contains(file.id))
-                            {
-                                return file;
-                            }
-                        }
-                    }
-                }
-            }
-
+            _bundles.TryGetValue(name, out file);
             return file;
         }
 
@@ -255,32 +222,17 @@ namespace libx
 
             return list;
         }
-        
+
         public List<BundleRef> GetFilesInBuild()
-        {
-            if (allAssetsToBuild)
-            {
-                return bundles;
-            }
+        { 
             var list = new List<BundleRef>();
-            foreach (var patchName in patchesInBuild)
+            foreach (var bundle in bundles)
             {
-                Patch patch;
-                if (_patches.TryGetValue(patchName, out patch))
+                if (bundle.location == 1)
                 {
-                    if (patch.files.Count > 0)
-                    {
-                        foreach (var file in patch.files)
-                        {
-                            var item = bundles[file];
-                            if (!list.Contains(item))
-                            {
-                                list.Add(item);
-                            }
-                        }
-                    }
+                    list.Add(bundle);
                 }
-            } 
+            }
             return list;
         }
 
@@ -306,11 +258,7 @@ namespace libx
 
             writer.Write(patches.Count);
             foreach (var patch in patches)
-                patch.Serialize(writer);
-
-            writer.Write(patchesInBuild.Count);
-            foreach (var patch in patchesInBuild)
-                writer.Write(patch);
+                patch.Serialize(writer); 
         }
 
         public void Deserialize(BinaryReader reader)
@@ -344,6 +292,10 @@ namespace libx
                 var file = new BundleRef();
                 file.Deserialize(reader);
                 file.id = bundles.Count;
+                if (outside)
+                {
+                    file.location = 1;
+                }
                 bundles.Add(file);
                 _bundles[file.name] = file;
             }
@@ -355,14 +307,7 @@ namespace libx
                 patch.Deserialize(reader);
                 patches.Add(patch);
                 _patches[patch.name] = patch;
-            }
-
-            count = reader.ReadInt32();
-            for (var i = 0; i < count; i++)
-            {
-                var patch = reader.ReadString();
-                patchesInBuild.Add(patch);
-            }
+            } 
         }
 
         public void Save(string path)

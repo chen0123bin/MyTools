@@ -175,7 +175,7 @@ public class ABInitUpdate
     private void OnInitComplete()
     {
         OnProgress(1);
-        Debug.Log("本地资源版本：" + Assets.localVersions.ver);
+        Debug.Log("本地资源版本：" + Assets.currentVersions.ver);
         OnMessage("更新完成");
         OnInitUpdateComplete?.Invoke(true);
     }

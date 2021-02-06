@@ -44,8 +44,8 @@ namespace libx
             {
                 var text = names[i];
                 if (EditorUtility.DisplayCancelableProgressBar(
-                    string.Format("Clear Bundles {0}/{1}", i, names.Length), text,
-                    i * 1f / names.Length))
+                        string.Format("Clear Bundles {0}/{1}", i, names.Length), text,
+                        i * 1f / names.Length))
                     break;
 
                 AssetDatabase.RemoveAssetBundleName(text, true);
@@ -244,23 +244,42 @@ namespace libx
             {
                 var item = rules.patches[i];
                 patches.Add(new Patch
-                {
-                    name = item.name,
-                    files = getFiles(item.assets),
-                });
-            }
+                    {
+                        name = item.name,
+                        files = getFiles(item.assets),
+                    });
+            } 
 
-            var versions = new Versions();
-            if (!rules.allAssetsToBuild)
-            {
-                versions.patchesInBuild.AddRange(rules.patchesInBuild);
-            }
+            var versions = new Versions(); 
             versions.activeVariants = manifest.GetAllAssetBundlesWithVariant();
             versions.dirs = dirs.ToArray();
             versions.assets = assets;
             versions.bundles = bundles;
             versions.patches = patches;
             versions.ver = ver;
+
+            if (rules.allAssetsToBuild)
+            {
+                bundles.ForEach(obj => obj.location = 1);
+            }
+            else
+            {
+                foreach (var patchName in rules.patchesInBuild)
+                {
+                    var patch = versions.patches.Find((Patch item) => { return item.name.Equals(patchName); });
+                    if (patch != null)
+                    {
+                        foreach (var file in patch.files)
+                        {
+                            if (file >= 0 && file < bundles.Count)
+                            {
+                                bundles[file].location = 1; 
+                            }
+                        } 
+                    } 
+                } 
+            }
+
             versions.Save(outputPath + "/" + Assets.Versions);
         }
 
@@ -290,9 +309,7 @@ namespace libx
             return asset.bundle;
         }
 
-        private static List<BundleRef> GetBundles(AssetBundleManifest manifest,
-            IEnumerable<string> allBundles,
-            IDictionary<string, int> bundle2Ids)
+        private static List<BundleRef> GetBundles(AssetBundleManifest manifest, IEnumerable<string> allBundles, IDictionary<string, int> bundle2Ids)
         {
             var bundles = new List<BundleRef>();
             foreach (var bundle in allBundles)
@@ -304,14 +321,14 @@ namespace libx
                     using (var stream = File.OpenRead(path))
                     {
                         bundles.Add(new BundleRef
-                        {
-                            id = bundle2Ids[bundle],
-                            name = bundle,
-                            children = Array.ConvertAll(children, input => bundle2Ids[input]),
-                            len = stream.Length,
-                            hash = manifest.GetAssetBundleHash(bundle).ToString(),
-                            crc = Utility.GetCRC32Hash(stream)
-                        });
+                            {
+                                id = bundle2Ids[bundle],
+                                name = bundle,
+                                children = Array.ConvertAll(children, input => bundle2Ids[input]),
+                                len = stream.Length,
+                                hash = manifest.GetAssetBundleHash(bundle).ToString(),
+                                crc = Utility.GetCRC32Hash(stream)
+                            });
                     }
                 }
                 else
@@ -362,7 +379,7 @@ namespace libx
                 case BuildTarget.WebGL:
                 case BuildTarget.iOS:
                     return "";
-                // Add more build targets for your own.
+            // Add more build targets for your own.
                 default:
                     Debug.Log("Target not implemented.");
                     return null;
@@ -389,11 +406,11 @@ namespace libx
 
         public void OnPreprocessBuild(BuildTarget target, string path)
         {
-            ResetScenes();
+            SetupScenesInBuild();
             CopyAssets();
         }
 
-        private static void ResetScenes()
+        private static void SetupScenesInBuild()
         {
             var levels = GetLevelsFromBuildSettings();
             var scenes = new EditorBuildSettingsScene[levels.Length];
@@ -414,44 +431,26 @@ namespace libx
             }
             Directory.CreateDirectory(dir);
             var sourceDir = outputPath;
-            var versions = Assets.LoadVersions(Path.Combine(sourceDir, Assets.Versions));
-            var bundles = new List<BundleRef>();
-            var rules = GetBuildRules();
-            if (!rules.allAssetsToBuild)
+            var versions = Assets.LoadVersions(Path.Combine(sourceDir, Assets.Versions)); 
+            foreach (var file in versions.bundles)
             {
-                var patches = rules.patchesInBuild;
-                foreach (var patch in patches)
+                if (file.location == 1)
                 {
-                    var files = versions.GetFiles(patch);
-                    foreach (var file in files)
+                    var destFile = Path.Combine(dir, file.name);
+                    var destDir = Path.GetDirectoryName(destFile);
+                    if (!Directory.Exists(destDir) && !string.IsNullOrEmpty(destDir))
                     {
-                        if (!bundles.Exists(x => x.name.Equals(file.name)))
-                        {
-                            bundles.Add(file);
-                        }
+                        Directory.CreateDirectory(destDir);
                     }
-                }
+                    File.Copy(Path.Combine(sourceDir, file.name), destFile);
+                } 
             }
-            else
-            {
-                bundles.AddRange(versions.bundles);
-            }
-            foreach (var file in bundles)
-            {
-                var destFile = Path.Combine(dir, file.name);
-                var destDir = Path.GetDirectoryName(destFile);
-                if (!Directory.Exists(destDir) && !string.IsNullOrEmpty(destDir))
-                {
-                    Directory.CreateDirectory(destDir);
-                }
-                File.Copy(Path.Combine(sourceDir, file.name), destFile);
-            }
-            File.Copy(Path.Combine(sourceDir, Assets.Versions), Path.Combine(dir, Assets.Versions));
+            File.Copy(Path.Combine(sourceDir, Assets.Versions), Path.Combine(dir, Assets.Versions)); 
         }
 
-        public static void ViewVersions()
+        public static void ViewVersions(string path)
         {
-            var versions = Assets.LoadVersions(Path.Combine(outputPath, Assets.Versions));
+            var versions = Assets.LoadVersions(path);
             var txt = "versions.txt";
             File.WriteAllText(txt, versions.ToString());
             EditorUtility.OpenWithDefaultApp(txt);

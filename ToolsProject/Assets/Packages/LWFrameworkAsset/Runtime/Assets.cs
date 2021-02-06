@@ -32,7 +32,6 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Networking;
 using Object = UnityEngine.Object;
-using Version = System.Version;
 
 namespace libx
 {
@@ -40,15 +39,13 @@ namespace libx
     {
         public const string Bundles = "Bundles";
         public const string Versions = "versions.bundle";
-        private const string KVersions = "versions";
+        private const string KVersions = "version";
         private const string TAG = "[Assets]";
 
-        public static Func<string, Type, Object> assetLoader = null;
-        public static Action<string> onAssetLoaded = null;
-        public static Action<string> onAssetUnloaded = null;
-        public static Func<Versions> versionsLoader = null;
-
-        public static Func<string> getPlatormName = null;
+        public static Func<string, Type, Object> assetLoader { get; set; }
+        public static Action<string> onAssetLoaded { get; set; }
+        public static Action<string> onAssetUnloaded { get; set; }
+        public static Func<Versions> versionsLoader { get; set; }
 
         private static void Log(string s)
         {
@@ -91,26 +88,6 @@ namespace libx
             return assets.ToArray();
         }
 
-        private static bool WriteVersion(string file)
-        {
-            if (File.Exists(file))
-            {
-                var ver = File.ReadAllText(file);
-                var v1 = new Version(ver);
-                var v2 = new Version(localVersions.ver);
-                if (v2 > v1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         public static void Initialize(Action<string> completed = null)
         {
             var instance = FindObjectOfType<Assets>();
@@ -136,7 +113,6 @@ namespace libx
                 platform = GetPlatformForAssetBundles(Application.platform);
             }
 
-
             if (Application.platform == RuntimePlatform.OSXEditor ||
                 Application.platform == RuntimePlatform.OSXPlayer ||
                 Application.platform == RuntimePlatform.IPhonePlayer)
@@ -151,37 +127,15 @@ namespace libx
 
             var onLoadVersions = new Action<Versions>(versions =>
             {
-                localVersions = versions;
-
-                var file = updatePath + "ver";
-                if (!development && WriteVersion(file))
-                {
-                    var filesInBuild = localVersions.GetFilesInBuild();
-                    foreach (var bundle in filesInBuild)
-                    {
-                        var path = string.Format("{0}{1}", updatePath, bundle.name);
-                        if (File.Exists(path))
-                        {
-                            File.Delete(path);
-                        }
-                    }
-
-                    File.WriteAllText(file, localVersions.ver);
-                    PlayerPrefs.SetString(KVersions, localVersions.ver);
-                }
-
-                ReloadVersions(localVersions);
-                
-                localVersions.ver = PlayerPrefs.GetString(KVersions, localVersions.ver);
-                
+                currentVersions = versions;
+                ReloadVersions(currentVersions);
                 Log("Initialize");
                 LogFormat("Development:{0}", development);
                 LogFormat("Platform:{0}", platform);
                 LogFormat("UpdatePath:{0}", updatePath);
                 LogFormat("DownloadURL:{0}", downloadURL);
                 LogFormat("UpdateUnusedAssetsImmediate:{0}", updateUnusedAssetsImmediate);
-                LogFormat("Version:{0}", localVersions.ver);
-
+                LogFormat("Version:{0}", currentVersions.ver);
                 if (completed != null)
                     completed(null);
             });
@@ -193,7 +147,7 @@ namespace libx
             }
             else
             {
-                var filename = string.Format("{0}{1}", updatePath, Versions);
+                var filename = string.Format("{0}buildInVersions.bundle", updatePath);
                 var request = Download(GetLocalURL(Versions), filename);
                 request.SendWebRequest().completed += operation =>
                 {
@@ -204,12 +158,43 @@ namespace libx
                     }
                     else
                     {
-                        onLoadVersions(LoadVersions(filename));
+                        // 处理覆盖安装的 case
+                        buildinVersions = LoadVersions(filename);
+                        if (OverlayInstallation(buildinVersions.ver))
+                        {
+                            onLoadVersions(buildinVersions);
+                            var filesInBuild = buildinVersions.GetFilesInBuild();
+                            foreach (var bundle in filesInBuild)
+                            {
+                                var path = string.Format("{0}{1}", updatePath, bundle.name);
+                                if (File.Exists(path))
+                                {
+                                    File.Delete(path);
+                                }
+                            }
+                            PlayerPrefs.SetString(KVersions, buildinVersions.ver);
+                        }
+                        else
+                        {
+                            var path = GetDownloadURL(Versions);
+                            onLoadVersions(File.Exists(path) ? LoadVersions(path) : buildinVersions);
+                        }
                     }
-
                     request.Dispose();
                 };
             }
+        }
+
+        private static bool OverlayInstallation(string version)
+        {
+            var innerVersion = PlayerPrefs.GetString(KVersions);
+            if (string.IsNullOrEmpty(innerVersion))
+            {
+                return true;
+            }
+            var v1 = new System.Version(version);
+            var v2 = new System.Version(innerVersion);
+            return v1 > v2;
         }
 
         private static void ReloadVersions(Versions versions)
@@ -230,7 +215,7 @@ namespace libx
                     AssetToBundles[path] = bundles[item.bundle].name;
                 else
                     AssetToBundles[path] = string.Empty;
-            } 
+            }
             ActiveVariants.AddRange(activeVariants);
         }
 
@@ -244,21 +229,20 @@ namespace libx
             {
                 if (string.IsNullOrEmpty(request.error))
                 {
-                    serverVersions = LoadVersions(Application.temporaryCachePath + "/" + Versions);
-                    ReloadVersions(serverVersions);
-                    PlayerPrefs.SetString(KVersions, serverVersions.ver); 
-                    localVersions.ver = serverVersions.ver;
+                    currentVersions = LoadVersions(Application.temporaryCachePath + "/" + Versions, true);
+                    ReloadVersions(currentVersions);
+                    PlayerPrefs.SetString(KVersions, currentVersions.ver);
                     RemoveUnusedAssets();
                 }
 
                 if (completed != null)
                     completed(request.error);
-                
+
                 request.Dispose();
             };
         }
 
-        public static Versions LoadVersions(string filename)
+        public static Versions LoadVersions(string filename, bool outside = false)
         {
             if (!File.Exists(filename))
                 return new Versions();
@@ -268,6 +252,7 @@ namespace libx
                 {
                     var reader = new BinaryReader(stream);
                     var ver = new Versions();
+                    ver.outside = outside;
                     ver.Deserialize(reader);
                     return ver;
                 }
@@ -285,16 +270,18 @@ namespace libx
             {
                 return DownloadAll(out handler);
             }
-
             var bundles = new List<BundleRef>();
             foreach (var patch in patches)
             {
-                var newFiles = GetNewFiles(patch);
-                foreach (var file in newFiles)
-                    if (!bundles.Exists(x => x.name.Equals(file.name)))
-                        bundles.Add(file);
+                var saved = PlayerPrefs.GetString(patch, string.Empty);
+                if (! saved.Equals(currentVersions.ver))
+                {
+                    var newFiles = GetNewFiles(patch);
+                    foreach (var file in newFiles)
+                        if (!bundles.Exists(x => x.name.Equals(file.name)))
+                            bundles.Add(file);
+                } 
             }
-
             if (bundles.Count > 0)
             {
                 var downloader = new Downloader();
@@ -302,9 +289,15 @@ namespace libx
                     downloader.AddDownload(GetDownloadURL(item.name), updatePath + item.name, item.crc, item.len);
                 Downloaders.Add(downloader);
                 handler = downloader;
+                handler.onFinished += () =>
+                {
+                    foreach (var item in patches)
+                    {
+                        PlayerPrefs.SetString(item, currentVersions.ver);
+                    }
+                };
                 return true;
             }
-
             handler = null;
             return false;
         }
@@ -312,9 +305,9 @@ namespace libx
         public static bool DownloadAll(out Downloader handler)
         {
             var bundles = new List<BundleRef>();
-            for (var i = 0; i < serverVersions.bundles.Count; i++)
+            for (var i = 0; i < currentVersions.bundles.Count; i++)
             {
-                var bundle = serverVersions.bundles[i];
+                var bundle = currentVersions.bundles[i];
                 if (IsNew(bundle))
                 {
                     bundles.Add(bundle);
@@ -352,7 +345,7 @@ namespace libx
             Assert.IsNotNull(path, "path != null");
             string assetBundleName;
             path = GetSearchPath(path, out assetBundleName);
-            var asset = new SceneAssetAsyncRequest(path, additive) {assetBundleName = assetBundleName};
+            var asset = new SceneAssetAsyncRequest(path, additive) { assetBundleName = assetBundleName };
             LogFormat("LoadSceneAsync:{0}", path);
             asset.Load();
             asset.Retain();
@@ -413,40 +406,56 @@ namespace libx
         private static UnityWebRequest Download(string url, string filename)
         {
             var request = UnityWebRequest.Get(url);
+            Log("Download::"+url);
             request.downloadHandler = new DownloadHandlerFile(filename);
             return request;
         }
 
-        public static Versions localVersions { get; private set; }
+        /// <summary>
+        /// StreamingAssets 内的版本
+        /// </summary>
+        public static Versions buildinVersions { get; private set; }
 
-        public static Versions serverVersions { get; private set; }
+        /// <summary>
+        /// 服务器的版本
+        /// </summary>
+        public static Versions currentVersions { get; private set; }
 
         private static bool IsNew(BundleRef bundle)
         {
-            if (localVersions != null)
-                if (localVersions.Contains(bundle))
+            if (buildinVersions != null)
+                if (buildinVersions.Contains(bundle))
                     return false;
 
-            var path = updatePath + bundle.name;
-            if (!File.Exists(updatePath + bundle.name))
+            var path = string.Format("{0}{1}", updatePath, bundle.name);
+            var info = new FileInfo(path);
+            if (!info.Exists)
                 return true;
 
-            using (var stream = File.OpenRead(path))
+            // 直接读取 PlayerPrefs 中保存的内容，该值在 Download.Copy 方法中写入
+            var comparison = StringComparison.OrdinalIgnoreCase;
+            var ver = PlayerPrefs.GetString(path);
+            if (ver.Equals(bundle.crc, comparison))
             {
-                if (stream.Length != bundle.len)
-                    return true;
-                if (verifyBy != VerifyBy.CRC)
-                    return false;
-                var comparison = StringComparison.OrdinalIgnoreCase;
-                var crc = Utility.GetCRC32Hash(stream);
-                return !crc.Equals(bundle.crc, comparison);
+                return false;
             }
+
+            return true;
+            // using (var stream = File.OpenRead(path))
+            // {
+            //     if (stream.Length != bundle.len)
+            //         return true;
+            //     if (verifyBy != VerifyBy.CRC)
+            //         return false;
+            //     var crc = Utility.GetCRC32Hash(stream);
+            //     return !crc.Equals(bundle.crc, comparison);
+            // }
         }
 
         private static List<BundleRef> GetNewFiles(string patch)
         {
             var list = new List<BundleRef>();
-            var files = serverVersions.GetFiles(patch);
+            var files = currentVersions.GetFiles(patch);
             foreach (var file in files)
                 if (IsNew(file))
                     list.Add(file);
@@ -657,15 +666,9 @@ namespace libx
 
         public static string platform
         {
-            get
-            {
-                return _platform;
-            }
+            get { return _platform; }
 
-            set
-            {
-                _platform = value;
-            }
+            set { _platform = value; }
         }
 
         public static string DumpAssets()
@@ -729,7 +732,6 @@ namespace libx
         private static AssetRequest LoadAsset(string path, Type type, bool async)
         {
             Assert.IsNotNull(path, "path != null");
-
             var isWebURL = path.StartsWith("http://", StringComparison.Ordinal) ||
                            path.StartsWith("https://", StringComparison.Ordinal) ||
                            path.StartsWith("file://", StringComparison.Ordinal) ||
@@ -741,7 +743,7 @@ namespace libx
             {
                 path = GetSearchPath(path, out assetBundleName);
             }
-
+          
             AssetRequest request;
             if (AssetRequests.TryGetValue(path, out request))
             {
@@ -771,7 +773,6 @@ namespace libx
             }
 
             LogFormat("LoadAsset:{0}", path);
-
             request.name = path;
             request.url = path;
             request.assetType = type;
@@ -875,7 +876,7 @@ namespace libx
         internal static void UnloadBundle(BundleRequest bundle)
         {
             bundle.Release();
-        } 
+        }
 
         internal static BundleRequest LoadBundle(string assetBundleName, bool asyncMode)
         {
@@ -923,7 +924,7 @@ namespace libx
                 bundle.Load();
                 LoadingBundles.Add(bundle);
                 LogFormat("LoadBundle: {0}", url);
-            } 
+            }
 
             bundle.Retain();
             return bundle;
@@ -936,15 +937,15 @@ namespace libx
             if (File.Exists(updatePath + bundleName))
                 return updatePath;
 
-            if (serverVersions != null)
+            if (currentVersions != null)
             {
-                var server = serverVersions.GetBundle(bundleName);
+                var server = currentVersions.GetBundle(bundleName);
                 if (server != null)
                 {
-                    var local = localVersions.GetBundle(bundleName);
+                    var local = buildinVersions.GetBundle(bundleName);
                     if (local != null)
-                    {
-                        if (!local.Equals(server))
+                    { 
+                        if (!local.EqualsWithContent(server))
                         {
                             return GetDownloadURL(string.Empty);
                         }
@@ -959,6 +960,7 @@ namespace libx
         {
             var max = MAX_BUNDLES_PERFRAME;
             if (ToloadBundles.Count > 0 && max > 0 && LoadingBundles.Count < max)
+            {
                 for (var i = 0; i < Math.Min(max - LoadingBundles.Count, ToloadBundles.Count); ++i)
                 {
                     var item = ToloadBundles[i];
@@ -968,8 +970,16 @@ namespace libx
                         LoadingBundles.Add(item);
                         ToloadBundles.RemoveAt(i);
                         --i;
+                        LogFormat("Remove {0} from to load bundles by init state.", item.url);
+                    }
+                    else if (item.loadState == LoadState.Loaded)
+                    {
+                        ToloadBundles.RemoveAt(i);
+                        --i;
+                        LogFormat("Remove {0} from to load bundles by loaded state.", item.url);
                     }
                 }
+            }
 
             for (var i = 0; i < LoadingBundles.Count; ++i)
             {
