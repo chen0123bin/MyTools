@@ -25,7 +25,7 @@ public class LWGlobalAsset : ScriptableObject
     public int verifyBy = 1 ;
     [InfoBox("结构以（Bundles/）结尾")]
     public string downloadURL;
-    [HideInInspector]
+   // [HideInInspector]
     public bool development;//该属性用于适配XASSET 设置时不使用
     public string[] searchPaths;
     public string[] updatePatches4Init;

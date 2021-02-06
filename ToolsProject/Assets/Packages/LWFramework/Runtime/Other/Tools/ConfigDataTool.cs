@@ -11,11 +11,11 @@ public class ConfigDataTool
 #if UNITY_ANDROID
            return Application.persistentDataPath;
 #elif UNITY_STANDALONE_WIN
-            return LWUtility.ProjectRoot;
+            return LWUtility.ProjectRoot;            
+#elif UNITY_WEBGL 
+            return Application.streamingAssetsPath;
 #elif UNITY_EDITOR
             return LWUtility.ProjectRoot;
-#else 
-            return "";
 #endif
         }
     }

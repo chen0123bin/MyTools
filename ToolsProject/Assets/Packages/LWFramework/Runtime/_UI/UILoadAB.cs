@@ -19,9 +19,9 @@ public class UILoadAB : IUILoad
         return uiGameObject;
     }
 
-
     UniTask<GameObject> IUILoad.LoadUIGameObjectAsync(string path)
     {
+        LWDebug.LogError("UILoadAB不支持异步加载,请编写自定义加载器");
         throw new System.NotImplementedException();
     }
 }

@@ -15,12 +15,12 @@ namespace LWFramework.UI {
         /// <summary>
         /// 所有的view字典
         /// </summary>
-        private Dictionary<string, IUIView> m_UIViewDic;
-       
+        protected Dictionary<string, IUIView> m_UIViewDic;
+
         /// <summary>
         /// 所有的绑定数据
         /// </summary>
-        private Dictionary<string, string> m_UIBindViewPath;
+        protected Dictionary<string, string> m_UIBindViewPath;
 
         #region 获取Canvas编辑节点
 
@@ -271,8 +271,12 @@ namespace LWFramework.UI {
             GameObject uiGameObject = UIUtility.Instance.CreateViewEntity(m_UIBindViewPath[viewName]);
             return CreateView<T>(uiGameObject);
         }
-   
-        
+
+        public virtual void OpenViewAsync<T>(bool isFirstSibling = false)
+        {
+            LWDebug.LogError("不支持异步打开View");
+            throw new NotImplementedException();
+        }
     }
 }
 

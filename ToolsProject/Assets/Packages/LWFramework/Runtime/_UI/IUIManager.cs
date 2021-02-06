@@ -58,6 +58,11 @@ namespace LWFramework.UI
         /// <param name="uiGameObject">View的实体对象</param>
         void OpenView<T>(string viewName, GameObject uiGameObject = null,bool isFirstSibling = false);
         /// <summary>
+        /// 使用异步的方式打开UI
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        void OpenViewAsync<T>(bool isFirstSibling = false);
+        /// <summary>
         /// 绑定viewName跟UI路径，替换掉UIView种的特性路径，绑定的优先级更高
         /// </summary>
         /// <param name="viewName">ViewName</param>
