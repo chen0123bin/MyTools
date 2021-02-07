@@ -9,7 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 using libx;
 
-[FSMTypeAttribute(nameof(FSMName.Procedure), false)]
+[FSMTypeAttribute(nameof(FSMName.Procedure), true)]
 public class TestStartProcedure : BaseFSMState
 {
     public override void OnEnter(BaseFSMState lastState)

@@ -68,10 +68,15 @@ public class LWGlobalAsset : ScriptableObject
     public void CreateJson() {
         ConfigDataTool.Create("config", GetLWGlobalConfig());
     }
+    [Button("删除外部配置数据")]
+    public void DeleteJson()
+    {
+        ConfigDataTool.Create("config", GetLWGlobalConfig());
+    }
     [Button("测试查看DownloadURL")]
     public void TestJson()
     {
-        LWDebug.Log(ConfigDataTool.ReadData<LWGlobalConfig>("config").downloadURL);
+        ConfigDataTool.Delete("config");
     }
 }
 public class LWGlobalConfig

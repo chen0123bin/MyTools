@@ -19,27 +19,54 @@ public class ConfigDataTool
 #endif
         }
     }
-    public static T ReadData<T>(string fileName) {       
+    /// <summary>
+    /// 读取文件
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="fileName">文件名</param>
+    /// <param name="isEnc">是否加密</param>
+    /// <returns></returns>
+    public static T ReadData<T>(string fileName,bool isEnc = true) {       
         try
         {
-            string encDataStr = FileTool.ReadFromFile(fileName, ConfigFilePath);
-            string dataStr = AESTool.AesDecrypt(encDataStr);
+            string dataStr = FileTool.ReadFromFile(fileName, ConfigFilePath);
+            if (isEnc) {
+                dataStr = AESTool.AesDecrypt(dataStr);
+            }           
             return JsonMapper.ToObject<T>(dataStr);
         }
         catch (System.Exception e)
         {
-            LWDebug.LogWarning(ConfigFilePath+ " 中没有config文件，继续使用LWGlobalAsset配置文件");
-            LWDebug.LogError(e.Message);
+            LWDebug.LogWarning($"{ConfigFilePath}:路径中没用 {fileName}文件");
+            LWDebug.LogWarning(e.Message);
             return default;
         }        
     }
-    public static void Create(string fileName,object data) {
+
+    /// <summary>
+    /// 创建文件
+    /// </summary>
+    /// <param name="fileName">文件名</param>
+    /// <param name="data">数据对象</param>
+    /// <param name="isEnc">是否加密</param>
+    public static void Create(string fileName,object data, bool isEnc = true) {
         string dataStr =  JsonMapper.ToJson(data);
-        string encDataStr = AESTool.AesEncrypt(dataStr);
+        if (isEnc) {
+            dataStr = AESTool.AesEncrypt(dataStr);
+        }       
         if (FileTool.ExistsFile(fileName, ConfigFilePath)) {
             FileTool.DeleteFile(fileName, ConfigFilePath);
         }
         FileTool.CreateFile(fileName, ConfigFilePath);
-        FileTool.WriteToFile(fileName, encDataStr, ConfigFilePath);
+        FileTool.WriteToFile(fileName, dataStr, ConfigFilePath);
+    }
+    /// <summary>
+    /// 删除文件
+    /// </summary>
+    public static void Delete(string fileName) {
+        if (FileTool.ExistsFile(fileName, ConfigFilePath))
+        {
+            FileTool.DeleteFile(fileName, ConfigFilePath);
+        }
     }
 }

@@ -36,13 +36,13 @@ namespace libx
 {
     public static class MenuItems
     {
-        [MenuItem("XASSET/Copy Bundles")]
+        //[MenuItem("XASSET/Copy Bundles")]
         private static void CopyBundles()
         {
             BuildScript.CopyAssets();
         }
 
-        [MenuItem("XASSET/Build/Bundles")]
+        //[MenuItem("XASSET/Build/Bundles")]
         private static void BuildBundles()
         {
             var watch = new Stopwatch();
@@ -53,7 +53,7 @@ namespace libx
             Debug.Log("BuildBundles " + watch.ElapsedMilliseconds + " ms.");
         }
 
-        [MenuItem("XASSET/Build/Player")]
+       // [MenuItem("XASSET/Build/Player")]
         private static void BuildPlayer()
         {
             var watch = new Stopwatch();
@@ -63,7 +63,7 @@ namespace libx
             Debug.Log("BuildPlayer " + watch.ElapsedMilliseconds + " ms.");
         }
 
-        [MenuItem("XASSET/Build/Rules")]
+        //[MenuItem("XASSET/Build/Rules")]
         private static void BuildRules()
         {
             var watch = new Stopwatch();
@@ -73,7 +73,7 @@ namespace libx
             Debug.Log("BuildRules " + watch.ElapsedMilliseconds + " ms.");
         }
 
-        [MenuItem("XASSET/View/Versions")]
+       // [MenuItem("XASSET/View/Versions")]
         private static void ViewVersions()
         {
             var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
@@ -81,25 +81,25 @@ namespace libx
             BuildScript.ViewVersions(path);
         }
 
-        [MenuItem("XASSET/View/Bundles")]
+       // [MenuItem("XASSET/View/Bundles")]
         private static void ViewBundles()
         {
             EditorUtility.OpenWithDefaultApp(Assets.Bundles);
         }
 
-        [MenuItem("XASSET/View/Download")]
+       // [MenuItem("XASSET/View/Download")]
         private static void ViewDownload()
         {
             EditorUtility.OpenWithDefaultApp(Application.persistentDataPath);
         }
 
-        [MenuItem("XASSET/View/Temp")]
+        //[MenuItem("XASSET/View/Temp")]
         private static void ViewTemp()
         {
             EditorUtility.OpenWithDefaultApp(Application.temporaryCachePath);
         }
 
-        [MenuItem("XASSET/View/CRC")]
+        //[MenuItem("XASSET/View/CRC")]
         private static void GetCRC()
         {
             var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
@@ -112,7 +112,7 @@ namespace libx
             }
         }
 
-        [MenuItem("XASSET/View/MD5")]
+        //[MenuItem("XASSET/View/MD5")]
         private static void GetMD5()
         {
             var path = EditorUtility.OpenFilePanel("OpenFile", Environment.CurrentDirectory, "");
@@ -125,7 +125,7 @@ namespace libx
             }
         }
 
-        [MenuItem("XASSET/Dump Assets")]
+        //[MenuItem("XASSET/Dump Assets")]
         private static void DumpAssets()
         {
             var path = EditorUtility.SaveFilePanel("DumpAssets", null, "dump", "txt");
@@ -135,7 +135,7 @@ namespace libx
             EditorUtility.OpenWithDefaultApp(path);
         }
 
-        [MenuItem("XASSET/Take Screenshot")]
+       // [MenuItem("XASSET/Take Screenshot")]
         private static void Screenshot()
         {
             var path = EditorUtility.SaveFilePanel("截屏", null, "screenshot_", "png");
@@ -144,7 +144,7 @@ namespace libx
             ScreenCapture.CaptureScreenshot(path);
         }
 
-        [MenuItem("Assets/ToJson")]
+      //  [MenuItem("Assets/ToJson")]
         private static void ToJson()
         {
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
@@ -160,31 +160,31 @@ namespace libx
             EditorGUIUtility.systemCopyBuffer = path;
         }
 
-        [MenuItem("Assets/GroupBy/None")]
+        //[MenuItem("Assets/GroupBy/None")]
         private static void GroupByNone()
         {
             GroupAssets(GroupBy.None);
         }
 
-        [MenuItem("Assets/GroupBy/Filename")]
+       // [MenuItem("Assets/GroupBy/Filename")]
         private static void GroupByFilename()
         {
             GroupAssets(GroupBy.Filename);
         }
 
-        [MenuItem("Assets/GroupBy/Directory")]
+       // [MenuItem("Assets/GroupBy/Directory")]
         private static void GroupByDirectory()
         {
             GroupAssets(GroupBy.Directory);
         }
 
-        [MenuItem("Assets/GroupBy/Explicit/shaders")]
+        //[MenuItem("Assets/GroupBy/Explicit/shaders")]
         private static void GroupByExplicitShaders()
         {
             GroupAssets(GroupBy.Explicit, "shaders");
         }
 
-        [MenuItem("Assets/PatchBy/CurrentScene")]
+        //[MenuItem("Assets/PatchBy/CurrentScene")]
         private static void PatchAssets()
         {
             var selection = Selection.GetFiltered<Object>(SelectionMode.DeepAssets);
