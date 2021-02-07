@@ -1,6 +1,4 @@
-﻿using LWFramework.Asset;
-using LWFramework.Asset.Editor;
-using LWFramework.Core;
+﻿using LWFramework.Core;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
@@ -76,60 +74,60 @@ public class LWEditorWindow : OdinMenuEditorWindow
 }
 
 
-public class ABManager
-{
-    [FolderPath]
-    public string ResPath = "Assets/Res/Runtime";
-    [EnumToggleButtons]
-    [EnumPaging]
-    public ABBuildTarget abBuildTarget = BuildABScript.GetABBuildTarget();
+//public class ABManager
+//{
+//    [FolderPath]
+//    public string ResPath = "Assets/Res/Runtime";
+//    [EnumToggleButtons]
+//    [EnumPaging]
+//    public ABBuildTarget abBuildTarget = BuildABScript.GetABBuildTarget();
 
-    [Button("标记文件")]
-    public void MarkAssetsBtn()
-    {
-        BuildABScript.MarkAssets(ResPath);
-        GUIUtility.ExitGUI();
-    }
-    [Button("清空标记文件")]
-    public void ClearMarkAssetsBtn()
-    {
-        BuildABScript.MarkAssets(ResPath, true);
-        AssetDatabase.RemoveUnusedAssetBundleNames();
-    }
+//    [Button("标记文件")]
+//    public void MarkAssetsBtn()
+//    {
+//        BuildABScript.MarkAssets(ResPath);
+//        GUIUtility.ExitGUI();
+//    }
+//    [Button("清空标记文件")]
+//    public void ClearMarkAssetsBtn()
+//    {
+//        BuildABScript.MarkAssets(ResPath, true);
+//        AssetDatabase.RemoveUnusedAssetBundleNames();
+//    }
 
-    [Button("生成配置")]
-    public void CreateManifestBtn()
-    {
-        BuildABScript.BuildManifest();
-    }
-    [Button("打包AB资源", ButtonSizes.Medium)]
-    public void CreateABBtn()
-    {
-        BuildABScript.BuildManifest();
-        //避免报错
-        EditorApplication.delayCall += () => { BuildABScript.BuildAssetBundles(BuildABScript.GetBuildTarget(abBuildTarget)); };
-    }
-    [Button("拷贝资源到StreamingAssets", ButtonSizes.Medium)]
-    public void CopyAB2SABtn()
-    {
-        BuildABScript.CopyAssetBundlesTo(FileTool.CombinePaths(Application.streamingAssetsPath, LWUtility.AssetBundles));
-        AssetDatabase.Refresh();
-    }
+//    [Button("生成配置")]
+//    public void CreateManifestBtn()
+//    {
+//        BuildABScript.BuildManifest();
+//    }
+//    [Button("打包AB资源", ButtonSizes.Medium)]
+//    public void CreateABBtn()
+//    {
+//        BuildABScript.BuildManifest();
+//        //避免报错
+//        EditorApplication.delayCall += () => { BuildABScript.BuildAssetBundles(BuildABScript.GetBuildTarget(abBuildTarget)); };
+//    }
+//    [Button("拷贝资源到StreamingAssets", ButtonSizes.Medium)]
+//    public void CopyAB2SABtn()
+//    {
+//        BuildABScript.CopyAssetBundlesTo(FileTool.CombinePaths(Application.streamingAssetsPath, LWUtility.AssetBundles));
+//        AssetDatabase.Refresh();
+//    }
 
-    [Button("打开Persistent文件夹")]
-    public void OpenPersistentPath()
-    {
-        string path = Application.persistentDataPath.Replace("/", "\\");
-        System.Diagnostics.Process.Start("explorer.exe", path);
-    }
-    [Button("打开AB文件夹")]
-    public void OpenABPath()
-    {
-        string path = System.Environment.CurrentDirectory.Replace("/", "\\") + "\\AssetBundles";
-        System.Diagnostics.Process.Start("explorer.exe", path);
-    }
+//    [Button("打开Persistent文件夹")]
+//    public void OpenPersistentPath()
+//    {
+//        string path = Application.persistentDataPath.Replace("/", "\\");
+//        System.Diagnostics.Process.Start("explorer.exe", path);
+//    }
+//    [Button("打开AB文件夹")]
+//    public void OpenABPath()
+//    {
+//        string path = System.Environment.CurrentDirectory.Replace("/", "\\") + "\\AssetBundles";
+//        System.Diagnostics.Process.Start("explorer.exe", path);
+//    }
 
-}
+//}
 
 public class DLLManager
 {

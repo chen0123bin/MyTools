@@ -3,7 +3,6 @@ using UnityEngine;
 using LWFramework.UI;
 using UnityEngine.UI;
 using LWFramework.Core;
-using LWFramework.Asset;
 using LWFramework;
 
 [UIViewData("Assets/@Resources/Prefabs/TestHotfixView.prefab", FindType.Name, "LWFramework/Canvas/Normal")]
