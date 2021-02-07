@@ -9,11 +9,11 @@ public class TestView : BaseLogicUIView<TestViewLogic>
 {
 
 	[UIElement("Btn1")]
-    private Button _btn1;
+    private Button _btn1=null;
 	[UIElement("Btn2")]
-    private Button _btn2;
+    private Button _btn2 =null;
 	[UIElement("Lyt/TestNodeTemp")]
-    private Transform _testNodeTemp;
+    private Transform _testNodeTemp = null;
 	private GameObjectPool<TestNodeTemp> _pool;
 	private List<TestNodeTemp> _list;
 	private string[] _datas;

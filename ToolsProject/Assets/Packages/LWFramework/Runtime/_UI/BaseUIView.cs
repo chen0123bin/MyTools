@@ -49,17 +49,12 @@ namespace LWFramework.UI
         /// 打开view
         /// </summary>
         /// <param name="isFirstSibling">是否置于最前  默认false</param>
-        public virtual void OpenView(bool isFirstSibling = false) {
-            m_CanvasGroup.SetActive(true);
-            if (isFirstSibling) {
-                m_Entity.transform.SetAsFirstSibling();
-            }       
-            m_IsOpen = true;
-        }
         public virtual void OpenView()
         {
-            OpenView(false);
+            m_CanvasGroup.SetActive(true);
+            m_IsOpen = true;
         }
+       
         /// <summary>
         ///关闭view 
         /// </summary>
@@ -79,6 +74,17 @@ namespace LWFramework.UI
         {
             m_ViewData.Clear();
             GameObject.Destroy(m_Entity);
+        }
+        /// <summary>
+        /// 设置view层级
+        /// </summary>
+        /// <param name="isLastSibling">是否置于最前 默认false</param>
+        public virtual void SetViewLastSibling(bool isLastSibling = false)
+        {
+            if (isLastSibling)
+            {
+                m_Entity.transform.SetAsLastSibling();
+            }
         }
         public virtual void ResetView() { 
         }

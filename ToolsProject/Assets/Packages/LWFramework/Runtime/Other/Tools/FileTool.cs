@@ -120,26 +120,28 @@ public class FileTool
             return File.Exists(fileFullPath);
     }
     /// <summary>
-    /// 检测路径是否存在
+    /// 检测文件夹是否存在
     /// </summary>
-    /// <param name="fileFullPath">文件夹路径</param>
-    public static void CheckCreateDirectory(string fileFullPath)
+    /// <param name="dirPath">文件夹路径</param>
+    public static void CheckCreateDirectory(string dirPath)
     {
-        var dirPath = Path.GetDirectoryName(fileFullPath);
+        //var dirPath = Path.GetDirectoryName(fileFullPath);
         if (!Directory.Exists(dirPath))
         {
             Directory.CreateDirectory(dirPath);
         }
     }
     /// <summary>
-    /// 检测文件夹是否存在
+    ///  检测文件夹是否存在
     /// </summary>
-    public static bool ExistsPath(string path)
+    /// <param name="dirPath">文件夹路径</param>
+    /// <returns></returns>
+    public static bool ExistsPath(string dirPath)
     {
-        if (path == null || path.Length == 0)
+        if (dirPath == null || dirPath.Length == 0)
             return false;
         else
-            return Directory.Exists(path);
+            return Directory.Exists(dirPath);
     }
     /// <summary>
     /// 写入内容
@@ -248,7 +250,8 @@ public class FileTool
     /// <summary>
     ///  删除文件
     /// </summary>
-    /// <param name="fileFullPath"></param>
+    /// <param name="fileFullName">文件.后缀名</param>
+    /// <param name="dirPath">文件夹路径</param>
     public static void DeleteFile(string fileFullName, string dirPath)
     {
         string fileFullPath = Path.Combine(dirPath, fileFullName);

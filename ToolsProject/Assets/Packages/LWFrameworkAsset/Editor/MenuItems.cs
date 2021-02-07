@@ -153,7 +153,7 @@ namespace libx
             AssetDatabase.Refresh();
         }
 
-        [MenuItem("Assets/Copy Path")]
+        //[MenuItem("Assets/Copy Path")]
         private static void CopyPath()
         {
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);

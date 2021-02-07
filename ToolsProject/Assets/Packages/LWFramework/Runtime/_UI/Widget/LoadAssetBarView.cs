@@ -6,11 +6,11 @@ using UnityEngine;
 public class LoadAssetBarView : BaseUIView 
 {
     [UIElement("TxtLoadMsg")]
-    private Text m_TxtLoadMsg;
+    private Text m_TxtLoadMsg = null;
     [UIElement("TxtLoadValue")]
-	private Text m_TxtLoadValue;
+	private Text m_TxtLoadValue = null;
 	[UIElement("ImgLoadBar")]
-	private Image m_ImgLoadBar;
+	private Image m_ImgLoadBar = null;
 	public override  void CreateView(GameObject go)
 	{
 		base.CreateView(go);

@@ -29,6 +29,7 @@ public class ConfigDataTool
         catch (System.Exception e)
         {
             LWDebug.LogWarning(ConfigFilePath+ " 中没有config文件，继续使用LWGlobalAsset配置文件");
+            LWDebug.LogError(e.Message);
             return default;
         }        
     }

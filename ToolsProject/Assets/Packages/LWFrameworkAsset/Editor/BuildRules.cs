@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -44,9 +45,12 @@ namespace libx
     public class AssetBuild
     {
         public string name;
+        [TableColumnWidth(50,Resizable = false)]
         public string group;
         public string bundle = string.Empty;
+        [TableColumnWidth(40, Resizable = false)]
         public int id;
+        [TableColumnWidth(70, Resizable = false)]
         public GroupBy groupBy = GroupBy.Filename;
     }
 
@@ -78,38 +82,41 @@ namespace libx
         private readonly Dictionary<string, HashSet<string>> _tracker = new Dictionary<string, HashSet<string>>();
         private readonly Dictionary<string, string> _asset2Bundles = new Dictionary<string, string>();
         private readonly Dictionary<string, string> _unexplicits = new Dictionary<string, string>();
-
-        [Header("版本号")]
-        [Tooltip("构建的版本号")] public int build;
+        [TabGroup("基础信息"), Tooltip("构建的版本号")]
+        public int build;
+        [TabGroup("基础信息")]
         public int major;
+        [TabGroup("基础信息")]
         public int minor;
-        [Tooltip("场景文件夹")]
+        [TabGroup("基础信息"), Tooltip("场景文件夹")]
         public string[] scenesFolders = new string[] { "Assets/XAsset" };
-
-        [Header("自动分包分组配置")]
-        [Tooltip("是否自动记录资源的分包分组")]
+        [TabGroup("基础信息"), Header("自动分包分组配置"), Tooltip("是否自动记录资源的分包分组")]
         public bool autoRecord;
-        [Tooltip("按目录自动分组")]
+        [TabGroup("基础信息"), Tooltip("按目录自动分组")]
         public string[] autoGroupByDirectories = new string[0];
-
-        [Header("编辑器提示选项")]
-        [Tooltip("检查加载路径大小写是否存在")]
+        /////////////////////////////////////////////////////////////////////////////////////
+        [TabGroup("打包配置"), Header("编辑器提示选项"),Tooltip("检查加载路径大小写是否存在")]
         public bool validateAssetPath;
+        [TabGroup("打包配置"), Header("首包内容配置"),Tooltip("是否整包")] 
+        public bool allAssetsToBuild;
+        [TabGroup("打包配置"), Tooltip("首包包含的分包")] 
+        public string[] patchesInBuild = new string[0];
+        [TabGroup("打包配置"), Tooltip("BuildPlayer的时候被打包的场景")] 
+        public SceneAsset[] scenesInBuild = new SceneAsset[0];
 
-        [Header("首包内容配置")]
-        [Tooltip("是否整包")] public bool allAssetsToBuild;
-        [Tooltip("首包包含的分包")] public string[] patchesInBuild = new string[0];
-        [Tooltip("BuildPlayer的时候被打包的场景")] public SceneAsset[] scenesInBuild = new SceneAsset[0];
-
-        [Header("AB打包配置")]
-        [Tooltip("AB的扩展名")] public string extension = "";
+        [TabGroup("打包配置"), Header("AB打包配置"),Tooltip("AB的扩展名")] 
+        public string extension = "";
+        [TabGroup("打包配置")]
         public bool nameByHash;
-        [Tooltip("打包AB的选项")] public BuildAssetBundleOptions options = BuildAssetBundleOptions.ChunkBasedCompression;
-
-        [Header("缓存数据")]
-        [Tooltip("所有要打包的资源")] public List<AssetBuild> assets = new List<AssetBuild>();
-        [Tooltip("所有分包")] public List<PatchBuild> patches = new List<PatchBuild>();
-        [Tooltip("所有打包的资源")] public List<BundleBuild> bundles = new List<BundleBuild>();
+        [TabGroup("打包配置"), Tooltip("打包AB的选项")]
+        public BuildAssetBundleOptions options = BuildAssetBundleOptions.ChunkBasedCompression;
+        ///////////////////////////////////////////////////////////////////////
+        [TabGroup("缓存数据"), Header("缓存数据"), Tooltip("所有要打包的资源"),TableList(ShowIndexLabels = true, ShowPaging= true,NumberOfItemsPerPage = 15, MaxScrollViewHeight = 200,MinScrollViewHeight = 150)]
+        public List<AssetBuild> assets = new List<AssetBuild>();
+        [TabGroup("缓存数据"), Tooltip("所有分包")] 
+        public List<PatchBuild> patches = new List<PatchBuild>();
+        [TabGroup("缓存数据"), Tooltip("所有打包的资源")] 
+        public List<BundleBuild> bundles = new List<BundleBuild>();
 
         public string currentScene;
 

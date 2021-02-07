@@ -24,10 +24,10 @@ namespace LWFramework.UI
         void OpenView();
         //void OnCreateView();
         /// <summary>
-        /// 打开view
+        /// 设置页面的层级
         /// </summary>
         /// <param name="isFirstSibling">是否置于最前  默认false</param>
-        void OpenView(bool isFirstSibling = false);
+        void SetViewLastSibling(bool isFirstSibling = false);
         /// <summary>
         /// 关闭View
         /// </summary>

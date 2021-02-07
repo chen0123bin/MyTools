@@ -46,8 +46,8 @@ public class WebRequesetExample : MonoBehaviour
     }
     class JsonTestData
     {
-        public string name;
-        public string url;
-        public int page;
+        public string name = "";
+        public string url = "";
+        public int page = 0;
     }
 }

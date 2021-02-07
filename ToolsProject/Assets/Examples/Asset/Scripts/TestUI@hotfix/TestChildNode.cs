@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class TestChildNode : BaseUINode
 {
     [UIElement("HeadImg")]
-    private Image _HeadImg;
+    private Image _HeadImg = null;
     [UIElement("NameText")]
-    private Text _NameText;
+    private Text _NameText = null;
     public string NameText {
         set {
             _NameText.text = value;

@@ -100,8 +100,8 @@ namespace LWFramework.UI {
         /// 打开View
         /// </summary>
         /// <typeparam name="T">view的控制类</typeparam>
-        /// <param name="isFirstSibling">是否放置在最前面</param>
-        public void OpenView<T>(bool isFirstSibling = false)
+        /// <param name="isLastSibling">是否放置在最前面</param>
+        public void OpenView<T>(bool isLastSibling = false)
         {
             IUIView uiViewBase;
             if (!m_UIViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
@@ -110,7 +110,8 @@ namespace LWFramework.UI {
                 m_UIViewDic.Add(typeof(T).ToString(), uiViewBase);
             }
             if (!uiViewBase.IsOpen)
-                uiViewBase.OpenView(isFirstSibling);
+                uiViewBase.OpenView();
+            uiViewBase.SetViewLastSibling(isLastSibling);
         }
         /// <summary>
         /// 打开View
@@ -118,8 +119,8 @@ namespace LWFramework.UI {
         /// <typeparam name="T">view的控制类</typeparam>
         /// <param name="viewName">view的名字，用于一个多个页面共用一个类</param>
         /// <param name="uiGameObject">view的对象，提前创建，优先级高于自己创建</param>
-        /// <param name="isFirstSibling">是否放置在最前面</param>
-        public void OpenView<T>(string viewName, GameObject uiGameObject = null , bool isFirstSibling = false)
+        /// <param name="isLastSibling">是否放置在最前面</param>
+        public void OpenView<T>(string viewName, GameObject uiGameObject = null , bool isLastSibling = false)
         {
             IUIView uiViewBase;
             if (!m_UIViewDic.TryGetValue(viewName, out uiViewBase))
@@ -135,6 +136,7 @@ namespace LWFramework.UI {
             }
             if (!uiViewBase.IsOpen)
                 uiViewBase.OpenView();
+            uiViewBase.SetViewLastSibling(isLastSibling);
         }
         /// <summary>
         /// 关闭View

@@ -79,7 +79,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName));
+                strBuilder.AppendFormat("\tprivate {0} {1} = null;", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -154,7 +154,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName));
+                strBuilder.AppendFormat("\tprivate {0} {1} = null;", componentName, ConvertName(childName));
                 strBuilder.AppendLine();
             }
         }
@@ -269,7 +269,7 @@ public class ViewElement : MonoBehaviour
                 string componentName = GetComponetName(item);
                 strBuilder.AppendFormat("\t[UIElement(\"{0}\")]", GetParentPath(gameObject, item, ""));
                 strBuilder.AppendLine();
-                strBuilder.AppendFormat("\tprivate {0} {1};", componentName, ConvertName(childName) );
+                strBuilder.AppendFormat("\tprivate {0} {1} = null;", componentName, ConvertName(childName) );
                 strBuilder.AppendLine();
             }
         }

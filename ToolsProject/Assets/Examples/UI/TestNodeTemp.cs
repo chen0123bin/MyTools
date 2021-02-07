@@ -6,9 +6,9 @@ using System;
 public class TestNodeTemp : BaseUINode 
 {
     [UIElement("Button")]
-    private Button m_Btn;
+    private Button m_Btn = null;
     [UIElement("Text")]
-    private Text m_Text;
+    private Text m_Text = null;
 
     private Action m_OnClick;
     public Action OnClick { set => m_OnClick = value; get => m_OnClick; }

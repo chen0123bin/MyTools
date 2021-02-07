@@ -51,16 +51,18 @@ namespace LWFramework.Core
                     //优先获取外部配置数据
                     _lwGlobalConfig = ConfigDataTool.ReadData<LWGlobalConfig>("config");
                     if (_lwGlobalConfig == null) {
-                        _lwGlobalConfig = Resources.Load<LWGlobalAsset>("LWGlobalAsset").GetLWGlobalConfig();
-                    }                    
+                        LWGlobalAsset lwGlobalAsset = Resources.Load<LWGlobalAsset>("LWGlobalAsset");
 #if UNITY_EDITOR
-                    if (_lwGlobalConfig == null) {
-                        FileTool.CheckCreateDirectory(Application.dataPath + "/Resources");
-                        var asset = ScriptableObject.CreateInstance(typeof(LWGlobalAsset));
-                        UnityEditor.AssetDatabase.CreateAsset(asset, "Assets/Resources/LWGlobalAsset.asset");
-                        UnityEditor.AssetDatabase.Refresh();
-                    }
+                        if (lwGlobalAsset == null) {
+                            FileTool.CheckCreateDirectory(Application.dataPath + "/Resources");
+                            lwGlobalAsset = (LWGlobalAsset)ScriptableObject.CreateInstance(typeof(LWGlobalAsset));
+                            UnityEditor.AssetDatabase.CreateAsset(lwGlobalAsset, "Assets/Resources/LWGlobalAsset.asset");
+                            UnityEditor.AssetDatabase.Refresh();                    
+                        }
 #endif
+                        _lwGlobalConfig = lwGlobalAsset.GetLWGlobalConfig();
+                    }                    
+
                 }
                 return _lwGlobalConfig;
             } 

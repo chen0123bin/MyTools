@@ -8,17 +8,17 @@ public class MessageBoxView : BaseUIView
 {
 
 	[UIElement("ImgBox/LytBtns/BtnCancel/TxtCancel")]
-	private Text _txtCancel;
+	private Text _txtCancel = null;
 	[UIElement("ImgBox/LytBtns/BtnConfirm/TxtConfirm")]
-    private Text _txtConfirm;
+    private Text _txtConfirm = null;
 	[UIElement("ImgBox/LytBtns/BtnCancel")]
-    private Button _btnCancel;
+    private Button _btnCancel = null;
 	[UIElement("ImgBox/LytBtns/BtnConfirm")]
-    private Button _btnConfirm;
+    private Button _btnConfirm = null;
 	[UIElement("ImgBox/TxtMsg")]
-    private Text _txtMsg;
+    private Text _txtMsg = null;
     [UIElement("ImgBox/TxtTitle")]
-    private Text _txtTitle;
+    private Text _txtTitle = null;
     /// <summary>
     /// 按钮点击操作
     /// </summary>
