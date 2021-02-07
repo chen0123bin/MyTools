@@ -29,10 +29,16 @@ public class ResAssetsManger : IAssetsManager,IManager
     {      
         return (T)(object)Resources.Load(ConverResPath(path), typeof(T));
     }
-
     public T LoadAsync<T>(string path,Type type)
     {
+        ResourceRequest request = Resources.LoadAsync(ConverResPath(path), type);      
         return  (T)(object)Resources.LoadAsync(ConverResPath(path), type);
+    }
+    public async UniTask<T> LoadAsync<T>(string path)
+    {
+        ResourceRequest request = Resources.LoadAsync(ConverResPath(path));
+        await UniTask.WaitUntil(() => request.isDone);
+        return (T)(object)request.asset;
     }
     public void Unload<T>(T param) where T: UnityEngine.Object
     {

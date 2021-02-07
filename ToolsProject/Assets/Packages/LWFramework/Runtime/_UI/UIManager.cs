@@ -38,7 +38,7 @@ namespace LWFramework.UI {
         }
 
         #endregion
-        public void Init()
+        public virtual void Init()
         {
             m_UIViewDic = new Dictionary<string, IUIView>();
             m_UIBindViewPath = new Dictionary<string, string>();

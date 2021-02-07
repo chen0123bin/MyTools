@@ -160,31 +160,31 @@ namespace libx
             EditorGUIUtility.systemCopyBuffer = path;
         }
 
-        //[MenuItem("Assets/GroupBy/None")]
+        [MenuItem("Assets/GroupBy/None")]
         private static void GroupByNone()
         {
             GroupAssets(GroupBy.None);
         }
 
-       // [MenuItem("Assets/GroupBy/Filename")]
+        [MenuItem("Assets/GroupBy/Filename")]
         private static void GroupByFilename()
         {
             GroupAssets(GroupBy.Filename);
         }
 
-       // [MenuItem("Assets/GroupBy/Directory")]
+        [MenuItem("Assets/GroupBy/Directory")]
         private static void GroupByDirectory()
         {
             GroupAssets(GroupBy.Directory);
         }
 
-        //[MenuItem("Assets/GroupBy/Explicit/shaders")]
+        [MenuItem("Assets/GroupBy/Explicit/shaders")]
         private static void GroupByExplicitShaders()
         {
             GroupAssets(GroupBy.Explicit, "shaders");
         }
 
-        //[MenuItem("Assets/PatchBy/CurrentScene")]
+        [MenuItem("Assets/PatchBy/CurrentScene")]
         private static void PatchAssets()
         {
             var selection = Selection.GetFiltered<Object>(SelectionMode.DeepAssets);

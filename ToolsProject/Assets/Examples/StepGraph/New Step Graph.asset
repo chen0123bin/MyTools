@@ -166,7 +166,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  m_IsShowData: 0
+  m_IsShowData: 1
   enter: 0
   exit: 0
   m_Remark: 2322
@@ -213,23 +213,17 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 3|SC_ChangeRot, LWStepGraphRuntime
+      Data: 3|StepControllerChangeRot, LWStepGraphRuntime
     - Name: m_Remark
       Entry: 6
       Data: 
     - Name: m_ObjName
-      Entry: 1
-      Data: Cube
+      Entry: 6
+      Data: 
     - Name: m_RotTime
       Entry: 4
-      Data: 4
-    - Name: m_EulerArray
-      Entry: 7
-      Data: 4|UnityEngine.Vector3[], UnityEngine.CoreModule
-    - Name: 
-      Entry: 12
-      Data: 5
-    - Name: 
+      Data: 0
+    - Name: m_BeginEuler
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
@@ -244,7 +238,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
+    - Name: m_EndEuler
       Entry: 7
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
@@ -252,61 +246,10 @@ MonoBehaviour:
       Data: 0
     - Name: 
       Entry: 4
-      Data: 280
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: 360
-    - Name: 
-      Entry: 4
       Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 540
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 716.8
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -362,7 +305,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  m_IsShowData: 0
+  m_IsShowData: 1
   enter: 0
   exit: 0
   m_Remark: 2322
@@ -379,7 +322,17 @@ MonoBehaviour:
       Entry: 6
       Data: 
     - Name: m_StepControllerList
-      Entry: 6
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[IStepController, LWStepGraphRuntime]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
 --- !u!114 &114684968801944674
 MonoBehaviour:

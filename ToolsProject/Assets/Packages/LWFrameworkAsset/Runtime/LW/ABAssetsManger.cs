@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LWFramework.Core;
+using Cysharp.Threading.Tasks;
 
 public class ABAssetsManger : IAssetsManager,IManager
 {
@@ -36,6 +37,12 @@ public class ABAssetsManger : IAssetsManager,IManager
         AssetRequest assetRequest = Assets.LoadAssetAsync(path, type);
         object ret = (object)assetRequest;
         return (T)ret;
+    }
+    public async UniTask<T> LoadAsync<T>(string path)
+    {
+        AssetRequest request = Assets.LoadAssetAsync(path, typeof(T)); 
+        await UniTask.WaitUntil(() => request.isDone);
+        return (T)(object)request.asset;
     }
 
     public void Unload<T>(T param) where T : UnityEngine.Object

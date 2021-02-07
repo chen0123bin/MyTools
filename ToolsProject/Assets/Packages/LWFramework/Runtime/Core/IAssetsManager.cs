@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,13 +22,20 @@ public interface IAssetsManager
     /// <returns></returns>
     T Load<T>(string path);
     /// <summary>
-    /// 一步加载资源
+    /// 异步加载资源
     /// </summary>
     /// <typeparam name="T">返回值类型</typeparam>
     /// <param name="path">路径</param>
     /// <param name="type">资源类型</param>
     /// <returns></returns>
     T LoadAsync<T>(string path, Type type);
+    /// <summary>
+    /// UniTask异步加载资源
+    /// </summary>
+    /// <typeparam name="T">资源类型</typeparam>
+    /// <param name="path">路径</param>
+    /// <returns></returns>
+    UniTask<T> LoadAsync<T>(string path);
     /// <summary>
     /// Res释放资源
     /// </summary>
