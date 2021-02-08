@@ -5,11 +5,13 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using Cysharp.Threading.Tasks;
+using System.Xml.Linq;
+using System.Linq;
 
 /// <summary>
 /// 步骤控制器，处理位移，延迟位移
 /// </summary>
-public class StepControllerChangePosiDeley: BaseStepObjectController
+public class SC_ChangePosiDeley: BaseStepObjectController
 {
    
     [LabelText("延迟时间"), LabelWidth(90)]
@@ -52,5 +54,35 @@ public class StepControllerChangePosiDeley: BaseStepObjectController
         m_Target = StepRuntimeData.Instance.FindGameObject(m_ObjName).transform;
         m_PosiArray[m_PosiArray.Length - 1] = m_Target.localPosition;
     }
+    public override XElement ToXml()
+    {
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        control.Add(new XAttribute("TimeDeley", $"{m_TimeDeley}"));
+        control.Add(new XAttribute("MoveTime", $"{m_MoveTime}"));
 
+        XElement datas = new XElement("Datas");
+        control.Add(datas);
+        for (int i = 0; i < m_PosiArray.Length; i++)
+        {
+
+            XElement posi = VectorUtil.Vector3ToXml("Position", m_PosiArray[i]);
+            datas.Add(posi);
+        }
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_TimeDeley = float.Parse(xElement.Attribute("TimeDeley").Value);
+        m_MoveTime = float.Parse(xElement.Attribute("MoveTime").Value);
+        List<XElement> dataList = xElement.Element("Datas").Elements("Position").ToList();
+        m_PosiArray = new Vector3[dataList.Count];
+        for (int i = 0; i < dataList.Count; i++)
+        {
+            m_PosiArray[i] = VectorUtil.XmlToVector3(dataList[i]);
+        }
+    }
 }

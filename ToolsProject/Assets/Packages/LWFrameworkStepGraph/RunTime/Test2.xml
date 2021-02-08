@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Manager>
+	<Models>
+		<Model Name="PromptCube" Path="Assets/AssetBundles/SceneModel/Common/PromptCube.prefab">
+			<Position x="-0.412" y="-2.63" z="-0.655" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="0.1" y="0.1" z="0.1" />
+		</Model>
+		<Model Name="PromptSphere" Path="Assets/AssetBundles/SceneModel/Common/PromptSphere.prefab">
+			<Position x="-0.412" y="-2.63" z="-0.655" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="0.1" y="0.1" z="0.1" />
+		</Model>
+
+		<Model Name="EquipmentParent" Path="Assets/AssetBundles/SceneModel/Common/EquipmentParent.prefab">
+			<Position x="0" y="0" z="0" />
+			<Rotation x="0" y="0" z="0" />
+			<Scale x="1" y="1" z="1" />
+		</Model>
+		
+	</Models>
+	<Chapters>
+		<Chapter Remark="第一章节：取材">
+      <Step Id="1" ScriptName="StepXml" Remark="2231123">
+        <Triggers>
+          <Trigger ScriptName="ST_MouseDown" ObjectName="Sphere" ResultId="0" />
+        </Triggers>
+        <Controls>
+          <Control ScriptName="SC_ChangePosi" ObjectName="Sphere" MoveTime="1">
+            <Datas>
+              <Position x="1.009" y="0.94" z="0" />
+              <Position x="1.009" y="0.94" z="0" />
+              <Position x="-0.584" y="0.94" z="0" />
+            </Datas>
+          </Control>
+        </Controls>
+      </Step>
+		</Chapter>
+	</Chapters>
+
+
+</Manager>
+

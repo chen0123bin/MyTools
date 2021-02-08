@@ -6,6 +6,8 @@ using DG.Tweening;
 using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
+using System.Xml.Linq;
+
 namespace LWNode.LWStepGraph
 {
     public class StepNode : BaseStepNode
@@ -36,7 +38,7 @@ namespace LWNode.LWStepGraph
             {
                 m_StepTriggerList[i].TriggerBegin();
                 m_StepTriggerList[i].TiggerActionCompleted = OnTiggerActionCompleted;
-                m_StepTriggerList[i].CurrStepGraph = m_StepGraph;
+                m_StepTriggerList[i].CurrStepManager = m_StepManager;
                
             }
         }
@@ -46,7 +48,7 @@ namespace LWNode.LWStepGraph
             for (int i = 0; m_StepTriggerList != null && i < m_StepTriggerList.Count; i++)
             {
                 m_StepTriggerList[i].TiggerActionCompleted = null;
-                m_StepTriggerList[i].CurrStepGraph = null;
+                m_StepTriggerList[i].CurrStepManager = null;
                 m_StepTriggerList[i].TriggerEnd();
             }
         }
@@ -59,7 +61,7 @@ namespace LWNode.LWStepGraph
             {
                 m_StepControllerList[i].ControllerBegin();
                 m_StepControllerList[i].ControllerExecuteCompleted = OnControllerExecuteCompleted;
-                m_StepControllerList[i].CurrStepGraph = m_StepGraph;
+                m_StepControllerList[i].CurrStepGraph = m_StepManager;
             }
             //如果没有触发器直接开始执行控制器
             if (m_StepTriggerList == null || m_StepTriggerList.Count == 0)
@@ -88,7 +90,7 @@ namespace LWNode.LWStepGraph
             //如果没有控制器直接进入下一步
             if (m_StepControllerList == null || m_StepControllerList.Count == 0)
             {
-                m_StepGraph.MoveNext();
+                m_StepManager.MoveNext();
             }
         
         }
@@ -98,11 +100,29 @@ namespace LWNode.LWStepGraph
             m_CompletedCount++;
             if (m_CompletedCount == m_StepControllerList.Count)
             {
-                m_StepGraph.MoveNext();
+                m_StepManager.MoveNext();
             }
         }
-
-       
-
+        public override XElement ToXml()
+        {
+            XElement node = new XElement("Node");
+            node.Add(new XAttribute("Index", $"{1}"));
+            node.Add(new XAttribute("ScriptName", $"StepXml"));
+            node.Add(new XAttribute("Remark", $"{m_Remark}"));
+            XElement triggers = new XElement("Triggers");
+            XElement controls = new XElement("Controls");
+            node.Add(triggers);
+            node.Add(controls);
+            for (int i = 0; i < m_StepTriggerList.Count; i++)
+            {
+                triggers.Add(m_StepTriggerList[i].ToXml());
+            }
+            for (int i = 0; i < m_StepControllerList.Count; i++)
+            {
+                controls.Add(m_StepControllerList[i].ToXml());
+            }
+            Debug.Log(node);
+            return node;
+        }
     }
 }

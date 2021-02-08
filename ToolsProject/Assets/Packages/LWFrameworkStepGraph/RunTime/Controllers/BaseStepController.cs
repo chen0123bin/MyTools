@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -15,7 +16,7 @@ public abstract class BaseStepController:IStepController
 
     protected Action m_ControllerExecuteCompleted;
 
-    protected StepGraph m_CurrStepGraph;
+    protected IStepManager m_CurrStepGraph;
     /// <summary>
     /// 当前控制器执行完成的回调
     /// </summary>
@@ -23,12 +24,19 @@ public abstract class BaseStepController:IStepController
     /// <summary>
     /// 当前的Graph
     /// </summary>
-    public StepGraph CurrStepGraph { get => m_CurrStepGraph; set => m_CurrStepGraph = value; }
+    public IStepManager CurrStepGraph { get => m_CurrStepGraph; set => m_CurrStepGraph = value; }
     public string Remark { get => m_Remark; }
 
     public abstract void ControllerBegin();
     public abstract void ControllerEnd();
     public abstract void ControllerExecute();
 
-
+    public virtual void InputXml(XElement xElement)
+    {
+    }
+    public virtual XElement ToXml()
+    {
+        XElement control = new XElement("Control");      
+        return control;
+    }
 }

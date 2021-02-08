@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System.Xml.Linq;
+using System.Linq;
 #if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
 #endif
@@ -39,8 +41,38 @@ public class SC_ChangePosi: BaseStepObjectController
             m_ControllerExecuteCompleted?.Invoke();
         });     
     }
+    public override XElement ToXml()
+    {
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        control.Add(new XAttribute("MoveTime", $"{m_MoveTime}"));
+        
+        XElement datas = new XElement("Datas");
+        control.Add(datas);
+        for (int i = 0; i < m_PosiArray.Length; i++)
+        {
+           
+            XElement posi = VectorUtil.Vector3ToXml("Position", m_PosiArray[i]);
+            datas.Add(posi);
+        }
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_MoveTime = float.Parse(xElement.Attribute("MoveTime").Value);
+        
+        List<XElement> posiList = xElement.Element("Datas").Elements("Position").ToList();
+        m_PosiArray = new Vector3[posiList.Count];
+        for (int i = 0; i < posiList.Count; i++)
+        {
+            m_PosiArray[i] = VectorUtil.XmlToVector3(posiList[i]);
+        }
+    }
 #if UNITY_EDITOR
-    
+
     public void SetValue()
     {
         if (SirenixEditorGUI.ToolbarButton(EditorIcons.Refresh))

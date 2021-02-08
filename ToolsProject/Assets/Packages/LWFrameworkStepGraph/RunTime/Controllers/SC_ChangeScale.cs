@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System.Xml.Linq;
+using System.Linq;
 #if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
 #endif
@@ -66,4 +68,33 @@ public class SC_ChangeScale: BaseStepObjectController
         m_ScaleArray[m_ScaleArray.Length - 1] = m_Target.localScale;
     }
 #endif
+    public override XElement ToXml()
+    {
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        control.Add(new XAttribute("ChangeTime", $"{m_ChangeTime}"));
+
+        XElement datas = new XElement("Datas");
+        control.Add(datas);
+        for (int i = 0; i < m_ScaleArray.Length; i++)
+        {
+
+            XElement posi = VectorUtil.Vector3ToXml("Scale", m_ScaleArray[i]);
+            datas.Add(posi);
+        }
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_ChangeTime = float.Parse(xElement.Attribute("ChangeTime").Value);
+        List<XElement> dataList = xElement.Element("Datas").Elements("Scale").ToList();
+        m_ScaleArray = new Vector3[dataList.Count];
+        for (int i = 0; i < dataList.Count; i++)
+        {
+            m_ScaleArray[i] = VectorUtil.XmlToVector3(dataList[i]);
+        }
+    }
 }

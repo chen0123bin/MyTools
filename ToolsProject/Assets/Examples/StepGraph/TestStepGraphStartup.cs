@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class TestStepGraphStartup : MonoBehaviour
 {
-    public StepGraph m_StepGraph;
+    public StepGraphManager m_StepGraph;
+    public TextAsset xmlAsset;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,10 @@ public class TestStepGraphStartup : MonoBehaviour
         MainManager.Instance.AddManager(typeof(GlobalMessageManager).ToString(), new GlobalMessageManager());
         MainManager.Instance.AddManager(typeof(IHighlightingManager).ToString(), new HighlightingPlusManager());
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
-        m_StepGraph.StartNode();
+        //m_StepGraph.StartStep();
+
+        StepXmlManager stepXmlManager = new StepXmlManager(xmlAsset.text);
+        stepXmlManager.StartStep();
     }
 
     // Update is called once per frame

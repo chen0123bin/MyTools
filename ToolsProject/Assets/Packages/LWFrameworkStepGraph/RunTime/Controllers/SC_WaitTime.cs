@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using Cysharp.Threading.Tasks;
+using System.Xml.Linq;
 
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
@@ -33,5 +34,19 @@ public class SC_WaitTime : BaseStepController
     {
         await UniTask.Delay(TimeSpan.FromSeconds(m_EndWaitTime), ignoreTimeScale: false);
         m_ControllerExecuteCompleted?.Invoke();
+    }
+
+    public override XElement ToXml()
+    {
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("EndWaitTime", $"{m_EndWaitTime}"));
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_EndWaitTime = float.Parse( xElement.Attribute("EndWaitTime").Value);
+
     }
 }

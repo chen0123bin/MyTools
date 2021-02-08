@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System.Xml.Linq;
 
 /// <summary>
 /// 步骤控制器，主要用于处理各种步骤中的变化效果
 /// </summary>
-public class SC_Active : BaseStepController
+public class SC_Active : BaseStepObjectController
 {
-    [LabelText("控制对象"), LabelWidth(70), ValueDropdown("GetSceneObjectList"), HorizontalGroup]
-    public string m_ObjName;
+   
     [LabelText("开始Active"), LabelWidth(90)]
     public bool m_BeginActive;
     [LabelText("结束Active"), LabelWidth(90)]
@@ -30,12 +30,21 @@ public class SC_Active : BaseStepController
     {
         m_ControllerExecuteCompleted?.Invoke();
     }
-
-#if UNITY_EDITOR
-    [Button("选中"), HorizontalGroup(30)]
-    public void ChooseObj()
+    public override XElement ToXml()
     {
-        UnityEditor.Selection.activeObject = StepRuntimeData.Instance.FindGameObject(m_ObjName);
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        control.Add(new XAttribute("BeginActive", $"{m_BeginActive}"));
+        control.Add(new XAttribute("EndActive", $"{m_EndActive}"));
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
     }
-#endif
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_BeginActive = xElement.Attribute("BeginActive").Value=="true"?true:false;
+        m_EndActive = xElement.Attribute("EndActive").Value == "true" ? true : false;
+       
+    }
 }

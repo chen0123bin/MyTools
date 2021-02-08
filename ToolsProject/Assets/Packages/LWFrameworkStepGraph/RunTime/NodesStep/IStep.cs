@@ -1,31 +1,22 @@
 ﻿/// <summary>
 /// 节点，控制Step的流程
 /// </summary>
-public interface IStepNode
+public interface IStep : IConverXmlGraph
 {
+    IStepManager StepManager { get; set; }
     StepNodeState CurrState { get; set; }
-    IStepNode PrevNode { get; set; }
-
-    // string Remark { get; set; }
-    /// <summary>
-    /// 下一步
-    /// </summary>
-    //  void MoveNext();
-    /// <summary>
-    /// 上一步
-    /// </summary>
-    //  void MovePrev();
-
+    IStep PrevNode { get; set; }
+    IStep NextNode { get; set; }
     /// <summary>
     /// 获取下一节点
     /// </summary>
     /// <returns>StepNode</returns>
-    IStepNode GetNextNode();
+   // IStep GetNextNode();
     /// <summary>
     /// 获取上一节点
     /// </summary>
     /// <returns>StepNode</returns>
-    IStepNode GetPrevNode();
+   // IStep GetPrevNode();
     /// <summary>
     /// 进入节点,启动所有控制器
     /// </summary>
@@ -45,5 +36,5 @@ public interface IStepNode
     /// <summary>
     /// 设置自身未当前运行的节点
     /// </summary>
-    void SetCurrent();
+    void SetSelfCurrent();
 }

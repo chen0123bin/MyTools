@@ -16,7 +16,7 @@ MonoBehaviour:
   major: 0
   minor: 0
   scenesFolders:
-  - Assets/XAsset
+  - Assets/@Resources/Scenes
   autoRecord: 1
   autoGroupByDirectories:
   - Assets/@Resources/Sprites

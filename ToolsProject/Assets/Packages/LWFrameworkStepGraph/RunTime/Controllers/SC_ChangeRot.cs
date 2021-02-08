@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System.Xml.Linq;
+using System.Linq;
 #if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
 #endif
@@ -83,4 +85,34 @@ public class SC_ChangeRot : BaseStepObjectController
         m_EulerArray[m_EulerArray.Length - 1] = m_Target.localEulerAngles;
     }
 #endif
+
+    public override XElement ToXml()
+    {
+        XElement control = new XElement("Control");
+        control.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        control.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        control.Add(new XAttribute("RotTime", $"{m_RotTime}"));
+
+        XElement datas = new XElement("Datas");
+        control.Add(datas);
+        for (int i = 0; i < m_EulerArray.Length; i++)
+        {
+
+            XElement posi = VectorUtil.Vector3ToXml("Euler", m_EulerArray[i]);
+            datas.Add(posi);
+        }
+        control.Add(new XAttribute("Remark", $"{m_Remark}"));
+        return control;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_RotTime = float.Parse(xElement.Attribute("RotTime").Value);
+        List<XElement> dataList = xElement.Element("Datas").Elements("Euler").ToList();
+        m_EulerArray = new Vector3[dataList.Count];
+        for (int i = 0; i < dataList.Count; i++)
+        {
+            m_EulerArray[i] = VectorUtil.XmlToVector3(dataList[i]);
+        }
+    }
 }

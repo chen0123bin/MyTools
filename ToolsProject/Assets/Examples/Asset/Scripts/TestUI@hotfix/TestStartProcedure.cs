@@ -33,8 +33,10 @@ public class TestStartProcedure : BaseFSMState
     }
     async void Test() {
         AssetRequest asset = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<AssetRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
+
         await Cysharp.Threading.Tasks.UniTask.WaitUntil(() => asset.isDone);
 
+        GameObject cube2 = GameObject.Instantiate(asset.asset, Vector3.zero, Quaternion.identity) as GameObject;
 
     }
     void LoadSceneComplete() {

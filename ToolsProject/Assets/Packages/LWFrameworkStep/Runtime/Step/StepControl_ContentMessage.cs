@@ -6,65 +6,70 @@ using System;
 using System.Xml.Linq;
 using LWFramework.Message;
 using LWFramework.Core;
-
-public class StepControl_ContentMessage : StepControl_Base
+namespace LWFrameworkStep
 {
-    private string oldMessageType;
-    private string oldInitValue;
-    private string newMessageType;
-    private string newInitValue;
-    // Use this for initialization
-
-    public override void StepStart()
+    public class StepControl_ContentMessage : StepControl_Base
     {
-        base.StepStart();
-        if (oldMessageType != "None") {
-            Message msg = MessagePool.GetMessage(oldMessageType);
+        private string oldMessageType;
+        private string oldInitValue;
+        private string newMessageType;
+        private string newInitValue;
+        // Use this for initialization
 
-            SetMsg(oldInitValue, msg);
-            MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
+        public override void StepStart()
+        {
+            base.StepStart();
+            if (oldMessageType != "None")
+            {
+                Message msg = MessagePool.GetMessage(oldMessageType);
+
+                SetMsg(oldInitValue, msg);
+                MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
+            }
+
         }
-       
-    }
-    public override void StepEnd()
-    {
-        //Debug.Log(newMessageType);
-        if (newMessageType != "None") {
-            Message msg = MessagePool.GetMessage(newMessageType);
-            SetMsg(newInitValue, msg);
-            MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
-        } 
-      
-        base.StepEnd();
-    }
+        public override void StepEnd()
+        {
+            //Debug.Log(newMessageType);
+            if (newMessageType != "None")
+            {
+                Message msg = MessagePool.GetMessage(newMessageType);
+                SetMsg(newInitValue, msg);
+                MainManager.Instance.GetManager<GlobalMessageManager>().Dispatcher(msg);
+            }
+
+            base.StepEnd();
+        }
 
 
-    void SetMsg(string xmlStr, Message msg) {
-        if (xmlStr == "") return;
-        string[] xmlValues = xmlStr.Split(';');
-        for (int i = 0; i < xmlValues.Length; i++)
+        void SetMsg(string xmlStr, Message msg)
+        {
+            if (xmlStr == "") return;
+            string[] xmlValues = xmlStr.Split(';');
+            for (int i = 0; i < xmlValues.Length; i++)
+            {
+
+                string[] filed = xmlValues[i].Split('=');
+                msg[filed[0]] = filed[1];
+            }
+        }
+
+        public override void InitEnd(object xmlData)
         {
 
-            string[] filed = xmlValues[i].Split('=');
-            msg[filed[0]] = filed[1];
+            base.InitEnd(xmlData);
+            XElement value = (XElement)xmlData;
+            newMessageType = value.Element("ContentMessage").Attribute("MessageType").Value;
+            newInitValue = value.Element("ContentMessage").Attribute("InitValue").Value;
         }
-    }
+        public void InitStart(object xmlData)
+        {
+            XElement value = (XElement)xmlData;
+            oldMessageType = value.Element("ContentMessage").Attribute("MessageType").Value;
+            oldInitValue = value.Element("ContentMessage").Attribute("InitValue").Value;
 
-    public override void InitEnd(object xmlData)
-    {
 
-        base.InitEnd(xmlData);
-        XElement value = (XElement)xmlData;
-        newMessageType = value.Element("ContentMessage").Attribute("MessageType").Value;
-        newInitValue = value.Element("ContentMessage").Attribute("InitValue").Value;
-    }
-    public void InitStart(object xmlData)
-    {
-        XElement value = (XElement)xmlData;
-        oldMessageType = value.Element("ContentMessage").Attribute("MessageType").Value;
-        oldInitValue = value.Element("ContentMessage").Attribute("InitValue").Value;
-       
+        }
 
     }
-
 }

@@ -9,11 +9,11 @@ using UnityEngine;
 [NodeWidth(300)]
 public class SearchNode : Node
 {
-    private StepGraph m_StepGraph;
+    private StepGraphManager m_StepGraph;
     // Use this for initialization
     protected override void Init() {
 		base.Init();
-        m_StepGraph = graph as StepGraph;
+        m_StepGraph = graph as StepGraphManager;
     }
 
 	// Return the correct value of an output port when requested

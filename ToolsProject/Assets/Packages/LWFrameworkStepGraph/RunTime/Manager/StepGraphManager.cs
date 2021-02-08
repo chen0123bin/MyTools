@@ -7,18 +7,19 @@ using LWNode;
 using LWNode.LWStepGraph;
 
 [CreateAssetMenu]
-public class StepGraph : LWNodeGraph {
+public class StepGraphManager : LWNodeGraph,IManager, IStepManager
+{
     private DataNode m_DataNode;
     [HideInInspector, SerializeField]
     public List<string> m_ObjectArray;
     /// <summary>
     /// 当前Graph全部执行完成
     /// </summary>
-    public Action StepGraphCompleted { get; set; }
+    public Action StepAllCompleted { get; set; }
     /// <summary>
     /// 当前进行中的步骤
     /// </summary>
-    public IStepNode CurrStepNode { get; set; }
+    public IStep CurrStepNode { get; set; }
     /// <summary>
     /// 对象数据节点
     /// </summary>
@@ -41,10 +42,11 @@ public class StepGraph : LWNodeGraph {
             return m_DataNode;
         }        
     }
+    
     /// <summary>
     /// 开始节点
     /// </summary>
-    public void StartNode() {
+    public void StartStep() {
         foreach (var item in nodes)
         {
             if (item.GetType() == typeof(StartNode)) {
@@ -59,15 +61,15 @@ public class StepGraph : LWNodeGraph {
     public void MoveNext() {
         CurrStepNode.StopTriggerList();
         CurrStepNode.StopControllerList();
-        IStepNode stepNode = CurrStepNode.GetNextNode();
+        IStep stepNode = CurrStepNode.NextNode;
         if (stepNode != null)
         {
             stepNode.PrevNode = CurrStepNode;
             CurrStepNode = stepNode;
-            stepNode.SetCurrent();
+            stepNode.SetSelfCurrent();
         }
         else {
-            StepGraphCompleted?.Invoke();
+            StepAllCompleted?.Invoke();
         }
     }
     /// <summary>
@@ -76,14 +78,28 @@ public class StepGraph : LWNodeGraph {
     public void MovePrev() {
         CurrStepNode.StartControllerList();
         CurrStepNode.StopTriggerList();
-        IStepNode stepNode = CurrStepNode.GetPrevNode();
+        IStep stepNode = CurrStepNode.PrevNode;
         if (stepNode != null)
         {
             CurrStepNode = stepNode;
             stepNode.StopControllerList();
-            stepNode.SetCurrent();
+            stepNode.SetSelfCurrent();
         }
        
     }
 
+    public void Init()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Update()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IStep GetNextStepByIndex(int index)
+    {
+        throw new NotImplementedException();
+    }
 }

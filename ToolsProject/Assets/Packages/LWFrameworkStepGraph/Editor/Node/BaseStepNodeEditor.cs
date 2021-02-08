@@ -16,7 +16,7 @@ public class BaseStepNodeEditor : NodeEditor {
     public override void OnHeaderGUI() {
 		GUI.color = Color.white;
         BaseStepNode node = target as BaseStepNode;
-        StepGraph graph = node.graph as StepGraph;
+        StepGraphManager graph = node.graph as StepGraphManager;
 		if (graph.CurrStepNode != null && graph.CurrStepNode.Equals(node)) {
 			
 			switch (graph.CurrStepNode.CurrState)

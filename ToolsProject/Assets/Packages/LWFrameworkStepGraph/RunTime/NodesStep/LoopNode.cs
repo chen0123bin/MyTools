@@ -24,7 +24,7 @@ namespace LWNode.LWStepGraph {
         public override void StartTriggerList()
         {
             m_NextIndex += m_AddValue;
-            m_StepGraph.MoveNext();
+            m_StepManager.MoveNext();
         }
 
         public override void StopTriggerList()

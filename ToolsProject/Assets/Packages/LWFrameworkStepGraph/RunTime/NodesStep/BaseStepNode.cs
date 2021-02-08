@@ -6,8 +6,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LWNode;
+using System.Xml.Linq;
+
 [NodeWidth(300), ShowOdinSerializedPropertiesInInspector]
-public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackReceiver, ISupportsPrefabSerialization
+public abstract class BaseStepNode : Node, IStep, ISerializationCallbackReceiver, ISupportsPrefabSerialization
 {
     [HideInInspector]
     public bool m_IsShowData = true;
@@ -18,9 +20,14 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     [LabelText("描述")]
     public string m_Remark;
     /// <summary>
-    /// 步骤Graph
+    /// 步骤管理器
     /// </summary>
-    protected StepGraph m_StepGraph;
+    protected IStepManager m_StepManager;
+
+    public IStepManager StepManager
+    {
+        get => m_StepManager; set => m_StepManager = value;
+    }
     /// <summary>
     /// 下一步骤的脚标
     /// </summary>
@@ -32,15 +39,33 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     /// </summary>
     public StepNodeState CurrState { get => m_CurrState; set => m_CurrState = value; }
   
-    protected IStepNode m_PrevNode;
+    protected IStep m_PrevNode;
+    protected IStep m_NextNode;
     /// <summary>
     /// 上一节点
     /// </summary>
-    public IStepNode PrevNode { get => m_PrevNode; set => m_PrevNode = value; }
+    public IStep PrevNode { get => m_PrevNode; set => m_PrevNode = value; }
+    /// <summary>
+    /// 下一节点
+    /// </summary>
+    public IStep NextNode {
+        set => m_NextNode = value; 
+        get {
+            NodePort exitPort = GetOutputPort("exit");
+            if (!exitPort.IsConnected)
+            {
+                Debug.LogWarning("exit端口未连接");
+                m_StepManager.StepAllCompleted?.Invoke();
+                return null;
+            }
+            IStep node = exitPort.GetConnection(m_NextIndex).node as IStep;
+            return node;
+        }
+    }
     protected override void Init()
     {
         base.Init();
-        m_StepGraph = graph as StepGraph;
+        m_StepManager = graph as StepGraphManager;
     }
     public override object GetValue(NodePort port)
     {
@@ -95,7 +120,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
 
    // }
     //[Button("设置当前")]
-    public void SetCurrent()
+    public void SetSelfCurrent()
     {
        // m_StepGraph.CurrStep = this;
         StartControllerList();
@@ -114,25 +139,16 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     {
         m_CurrState = StepNodeState.Complete;
     }
-   
-   
 
-    public IStepNode GetNextNode()
+    public virtual XElement ToXml()
     {
-        NodePort exitPort = GetOutputPort("exit");
-        if (!exitPort.IsConnected)
-        {
-            Debug.LogWarning("exit端口未连接");
-            m_StepGraph.StepGraphCompleted?.Invoke();
-            return null;
-        }
-        IStepNode node = exitPort.GetConnection(m_NextIndex).node as IStepNode;
-        return node;
+        LWDebug.LogWarning($"{this}未实现ToXml函数");
+        return null;
     }
 
-    public IStepNode GetPrevNode()
+    public virtual void InputXml(XElement xElement)
     {
-        return m_PrevNode;       
+        LWDebug.LogWarning($"{this}未实现InputXml函数");
     }
 
     #region 序列号标准代码
@@ -150,6 +166,7 @@ public abstract class BaseStepNode : Node, IStepNode, ISerializationCallbackRece
     }
 
   
+
     #endregion
 
 }

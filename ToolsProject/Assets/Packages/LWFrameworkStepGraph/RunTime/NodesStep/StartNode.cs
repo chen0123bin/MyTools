@@ -15,11 +15,11 @@ namespace LWNode.LWStepGraph
         /// <summary>
         /// 步骤Graph
         /// </summary>
-        private StepGraph m_StepGraph;
+        private StepGraphManager m_StepGraph;
         // Use this for initialization
         protected override void Init() {
 		    base.Init();
-            m_StepGraph = graph as StepGraph;
+            m_StepGraph = graph as StepGraphManager;
 
       
         }
@@ -30,9 +30,9 @@ namespace LWNode.LWStepGraph
                 Debug.LogWarning("exit端口未连接");
                 return;
             }      
-            IStepNode node = exitPort.GetConnection(0).node as IStepNode;
+            IStep node = exitPort.GetConnection(0).node as IStep;
             m_StepGraph.CurrStepNode = node;
-            node.SetCurrent();
+            node.SetSelfCurrent();
         }
         // Return the correct value of an output port when requested
         public override object GetValue(NodePort port) {

@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class ST_MouseDown : BaseStepObjectTrigger
@@ -54,6 +55,18 @@ public class ST_MouseDown : BaseStepObjectTrigger
         }
        
     }
-
    
+    public override XElement ToXml()
+    {
+        XElement trigger = new XElement("Trigger");
+        trigger.Add(new XAttribute("ScriptName", $"{this.GetType()}"));
+        trigger.Add(new XAttribute("ObjectName", $"{m_ObjName}"));
+        trigger.Add(new XAttribute("m_ResultIndex", $"{m_ResultIndex}"));
+        return trigger;
+    }
+    public override void InputXml(XElement xElement)
+    {
+        m_ObjName = xElement.Attribute("ObjectName").Value;
+        m_ResultIndex = int.Parse( xElement.Attribute("m_ResultIndex").Value);
+    }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
-[CustomNodeGraphEditor(typeof(StepGraph))]
+[CustomNodeGraphEditor(typeof(StepGraphManager))]
 public class StepGraphEditor : NodeGraphEditor
 {
     private ReorderableList m_ObjectArray;
