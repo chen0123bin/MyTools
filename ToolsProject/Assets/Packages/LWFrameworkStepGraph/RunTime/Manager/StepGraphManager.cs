@@ -120,6 +120,7 @@ public class StepGraphManager : LWNodeGraph,IManager, IStepManager
       
 
         config.Save(path);
+        UnityEditor.AssetDatabase.Refresh();
     }
    
 #endif
