@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LWNode;
 using LWNode.LWStepGraph;
+using System.Xml.Linq;
 
 [CreateAssetMenu]
 public class StepGraphManager : LWNodeGraph,IManager, IStepManager
@@ -102,4 +103,24 @@ public class StepGraphManager : LWNodeGraph,IManager, IStepManager
     {
         throw new NotImplementedException();
     }
+
+#if UNITY_EDITOR
+    [Button("导出xml文件")]
+    public void ExportXml() {
+        string path = UnityEditor.EditorUtility.SaveFilePanel("新增步骤配置文件", Application.dataPath , "Step", "xml");
+        XElement config = new XElement("Manager");
+        foreach (var item in nodes)
+        {
+            if (item.GetType() == typeof(StepNode))
+            {
+                StepNode stepNode = (StepNode)item;
+                config.Add(stepNode.ToXml());
+            }
+        }
+      
+
+        config.Save(path);
+    }
+   
+#endif
 }
