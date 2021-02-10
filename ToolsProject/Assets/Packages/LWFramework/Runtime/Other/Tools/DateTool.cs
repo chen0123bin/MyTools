@@ -44,4 +44,27 @@ public class DateTool
 
         return compNum;
     }
+    /// <summary>
+    /// 将秒数转化为时分秒
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <returns></returns>
+    public static string Sec2HMS(long duration)
+    {
+        TimeSpan ts = new TimeSpan(0, 0, Convert.ToInt32(duration));
+        string str = "";
+        if (ts.Hours > 0)
+        {
+            str = string.Format("{0:00}", ts.Hours) + ":" + string.Format("{0:00}", ts.Minutes) + ":" + string.Format("{0:00}", ts.Seconds);
+        }
+        if (ts.Hours == 0 && ts.Minutes > 0)
+        {
+            str = "00:" + string.Format("{0:00}", ts.Minutes) + ":" + string.Format("{0:00}", ts.Seconds);
+        }
+        if (ts.Hours == 0 && ts.Minutes == 0)
+        {
+            str = "00:00:" + string.Format("{0:00}", ts.Seconds);
+        }
+        return str;
+    }
 }

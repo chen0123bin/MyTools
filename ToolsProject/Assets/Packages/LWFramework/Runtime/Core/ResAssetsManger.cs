@@ -46,7 +46,7 @@ public class ResAssetsManger : IAssetsManager,IManager
         Resources.UnloadAsset(param);
     }
 
-    public void LoadScene(string scenePath,bool additive, Action loadComplete = null)
+    public void LoadSceneAsync(string scenePath,bool additive, Action loadComplete = null)
     {
         string sceneName = scenePath.Substring(scenePath.LastIndexOf("/") + 1, (scenePath.LastIndexOf(".") - scenePath.LastIndexOf("/") - 1));
         AsyncOperation asyncOperation =  SceneManager.LoadSceneAsync(sceneName, additive?LoadSceneMode.Additive: LoadSceneMode.Single);
@@ -54,6 +54,18 @@ public class ResAssetsManger : IAssetsManager,IManager
         {
             loadComplete?.Invoke();
         };
+        
+    }
+    public T GetRequest<T,K>(string path)
+    {
+        ResourceRequest request = Resources.LoadAsync(ConverResPath(path),typeof(K));
+        return (T)(object)request;
+    }
+    public T GetSceneRequest<T>(string scenePath, bool additive)
+    {
+        string sceneName = scenePath.Substring(scenePath.LastIndexOf("/") + 1, (scenePath.LastIndexOf(".") - scenePath.LastIndexOf("/") - 1));
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName, additive ? LoadSceneMode.Additive : LoadSceneMode.Single);
+        return (T)(object)asyncOperation;
     }
     private string ConverResPath(string path) {
         int startIndex = path.IndexOf("Resources") + "Resources".Length + 1;
@@ -66,4 +78,11 @@ public class ResAssetsManger : IAssetsManager,IManager
     {
         LWDebug.LogWarning("Res模式下没用UpdatePatchAsset");
     }
+
+    public void UpdatePatchAndLoadSceneAsync(string scenePath, bool additive, Action loadComplete = null)
+    {
+        LWDebug.LogWarning("Res模式下没用UpdatePatchAndLoadSceneAsync");
+    }
+
+    
 }

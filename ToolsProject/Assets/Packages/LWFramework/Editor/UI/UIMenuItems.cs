@@ -16,6 +16,7 @@ public class UIMenuItems
         GameObject viewObj = new GameObject("View", typeof(RectTransform), typeof(CanvasGroup));      
         viewObj.transform.SetParent((Selection.activeObject as GameObject).transform, false);       
         Selection.activeObject = viewObj;
+        viewObj.layer = LayerMask.NameToLayer("UI");
     }
 
     //重写Create->UI->Text事件  

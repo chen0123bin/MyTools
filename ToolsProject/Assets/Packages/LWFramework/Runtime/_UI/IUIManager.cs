@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace LWFramework.UI
 {
@@ -61,7 +62,7 @@ namespace LWFramework.UI
         /// 使用异步的方式打开UI
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        void OpenViewAsync<T>(bool isFirstSibling = false);
+        UniTask<T> OpenViewAsync<T>(bool isFirstSibling = false);
         /// <summary>
         /// 绑定viewName跟UI路径，替换掉UIView种的特性路径，绑定的优先级更高
         /// </summary>

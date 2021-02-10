@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LitJson;
 using LWFramework.Core;
+using Cysharp.Threading.Tasks;
 
 public class ConfigDataTool
 {
@@ -42,7 +43,7 @@ public class ConfigDataTool
             return default;
         }        
     }
-
+   
     /// <summary>
     /// 创建文件
     /// </summary>

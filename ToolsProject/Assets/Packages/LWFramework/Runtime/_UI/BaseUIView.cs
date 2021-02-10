@@ -41,10 +41,11 @@ namespace LWFramework.UI
             m_ViewData.OnViewDataChange = OnViewDataChange;
             //OnCreateView();
         }
-        //public virtual void OnCreateView() { 
-        
-        //}
-        public virtual void OnViewDataChange(string dataName) { }
+        /// <summary>
+        /// 内部处理ViewData中数据改变后的逻辑
+        /// </summary>
+        /// <param name="dataKey">改变的数值的key</param>
+        protected virtual void OnViewDataChange(object dataKey) { }
         /// <summary>
         /// 打开view
         /// </summary>

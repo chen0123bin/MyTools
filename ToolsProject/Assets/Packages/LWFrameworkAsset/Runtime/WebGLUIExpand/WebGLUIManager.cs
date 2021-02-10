@@ -16,7 +16,7 @@ public class WebGLUIManager : UIManager
         UIUtility.Instance.CustomUILoad = new WebGLUILoad();
         base.Init();
     }
-    public async override void OpenViewAsync<T>(bool isLastSibling = false)
+    public override async UniTask<T> OpenViewAsync<T>(bool isLastSibling = false)
     {
         IUIView uiViewBase;
         if (!m_UIViewDic.TryGetValue(typeof(T).ToString(), out uiViewBase))
@@ -24,11 +24,13 @@ public class WebGLUIManager : UIManager
             uiViewBase = await CreateView<T>();
             m_UIViewDic.Add(typeof(T).ToString(), uiViewBase);
         }
+        await UniTask.WaitUntil(() => uiViewBase != null);
         if (!uiViewBase.IsOpen)
             uiViewBase.OpenView();
         uiViewBase.SetViewLastSibling(isLastSibling);
+        return (T)uiViewBase;
     }
-
+   
     /// <summary>
     /// 创建一个VIEW
     /// </summary>

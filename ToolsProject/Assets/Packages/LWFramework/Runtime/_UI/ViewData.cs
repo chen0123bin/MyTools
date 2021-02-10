@@ -6,32 +6,43 @@ namespace LWFramework.UI {
     
     public class ViewData 
     {           
-        private Hashtable _data = new Hashtable();
-        private Action<string> _onDataChange;
+        private Hashtable m_Data = new Hashtable();
+        private Action<object> m_OnDataChange;
         /// <summary>
         /// 数据发生变化的处理
         /// </summary>
-        public Action<string> OnViewDataChange {
+        public Action<object> OnViewDataChange {
             set {
-                _onDataChange = value;
+                m_OnDataChange = value;
             }
         }
-        public T Get<T>(string name)
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        /// <typeparam name="T">数据的类型</typeparam>
+        /// <param name="key">数据的key</param>
+        /// <returns></returns>
+        public T Get<T>(object key)
         {
-            return (T)this[name];
+            return (T)this[key];
         }
-        public object this[string name]
+        /// <summary>
+        /// 设置数据
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public object this[object key]
         {
             get
             {
-                return _data != null && _data.ContainsKey(name) ? _data[name] : null;
+                return m_Data != null && m_Data.ContainsKey(key) ? m_Data[key] : null;
             }
             set
             {
-                if (_data != null)
+                if (m_Data != null)
                 {
-                    _data[name] = value;
-                    _onDataChange?.Invoke(name);                  
+                    m_Data[key] = value;
+                    m_OnDataChange?.Invoke(key);                  
                 }
             }
         }
@@ -39,7 +50,7 @@ namespace LWFramework.UI {
         /// 清空数据
         /// </summary>
         public void Clear() {
-            _data.Clear();
+            m_Data.Clear();
         }
        
     }
