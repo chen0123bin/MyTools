@@ -220,6 +220,8 @@ public class ViewElement : MonoBehaviour
             return "InputField";
         else if (null != gameObject.GetComponent<Button>())
             return "Button";
+        else if (null != gameObject.GetComponent<Dropdown>())
+            return "Dropdown";
         else if (null != gameObject.GetComponent<Image>())
             return "Image";
         else if (null != gameObject.GetComponent<Text>())

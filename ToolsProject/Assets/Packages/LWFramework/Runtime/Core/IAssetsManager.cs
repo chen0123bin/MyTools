@@ -19,8 +19,8 @@ public interface IAssetsManager
     /// <param name="path">路径</param>
     /// <param name="type">资源类型</param>
     /// <returns></returns>
-    [Obsolete]
-    T LoadAsync<T>(string path, Type type);
+    // [Obsolete]
+    // T LoadAsync<T>(string path, Type type);
     /// <summary>
     /// UniTask异步加载资源
     /// </summary>

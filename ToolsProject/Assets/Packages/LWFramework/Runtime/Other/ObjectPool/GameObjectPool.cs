@@ -33,9 +33,10 @@ namespace LWFramework {
             else {
                 ret = (T)Activator.CreateInstance(typeof(T));
                 GameObject go = GameObject.Instantiate(m_Template, m_Template.transform.parent, false);
-                ret.Create(go);               
-                
+                ret.Create(go);
+               
             }
+            m_UseList.Add(ret);
             ret.SetActive(true);
             return ret;
         }

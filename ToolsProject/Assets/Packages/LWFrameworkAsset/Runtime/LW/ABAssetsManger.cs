@@ -32,12 +32,12 @@ public class ABAssetsManger : IAssetsManager,IManager
         return (T)(object)assetRequest.asset;
     }
 
-    public T LoadAsync<T>(string path, Type type)
-    {
-        AssetRequest assetRequest = Assets.LoadAssetAsync(path, type);
-        object ret = (object)assetRequest;
-        return (T)ret;
-    }
+    //public T LoadAsync<T>(string path, Type type)
+    //{
+    //    AssetRequest assetRequest = Assets.LoadAssetAsync(path, type);
+    //    object ret = (object)assetRequest;
+    //    return (T)ret;
+    //}
     public async UniTask<T> LoadAsync<T>(string path)
     {
         AssetRequest request = Assets.LoadAssetAsync(path, typeof(T)); 

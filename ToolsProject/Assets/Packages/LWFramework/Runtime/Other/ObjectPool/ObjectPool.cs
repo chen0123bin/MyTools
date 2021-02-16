@@ -10,7 +10,7 @@ namespace LWFramework
     public class ObjectPool<T> : BaseObjectPool<T> where T : class, IPoolObject,new()
     {
         protected List<T> m_PoolList = new List<T>();
-
+        protected List<T> m_UseList = new List<T>();
         public int CurrentSize
         {
             get
@@ -46,14 +46,16 @@ namespace LWFramework
         /// <returns></returns>
         public override T Spawn()
         {
-            while (m_PoolList.Count > 0)
+            T ret;
+            if (m_PoolList.Count > 0)
             {
                 var ins = m_PoolList[0];
                 m_PoolList.RemoveAt(0);
-                return ins;
+                ret = ins;
             }
-            var ins1 = new T();
-            return ins1;
+            ret = new T();
+            m_UseList.Add(ret);
+            return ret;
         }
 
         /// <summary>
@@ -70,7 +72,7 @@ namespace LWFramework
             else
             {
                 p_Obj.Release();
-                m_PoolList.Remove(p_Obj);
+                m_PoolList.Remove(p_Obj);            
             }
         }
 
@@ -88,10 +90,11 @@ namespace LWFramework
         /// </summary>
         public override void UnspawnAll()
         {
-            foreach (var obj in m_PoolList)
+            foreach (var obj in m_UseList)
             {
                 Unspawn(obj);
             }
+            m_UseList.Clear();
         }
         /// <summary>
         /// 清空对象池
@@ -103,6 +106,7 @@ namespace LWFramework
                 obj.Release();
             }
             m_PoolList.Clear();
+            m_UseList.Clear();
         }
     }
 }

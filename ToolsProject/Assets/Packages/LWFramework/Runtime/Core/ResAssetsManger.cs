@@ -29,11 +29,11 @@ public class ResAssetsManger : IAssetsManager,IManager
     {      
         return (T)(object)Resources.Load(ConverResPath(path), typeof(T));
     }
-    public T LoadAsync<T>(string path,Type type)
-    {
-        ResourceRequest request = Resources.LoadAsync(ConverResPath(path), type);      
-        return  (T)(object)Resources.LoadAsync(ConverResPath(path), type);
-    }
+    //public T LoadAsync<T>(string path,Type type)
+    //{
+    //    ResourceRequest request = Resources.LoadAsync(ConverResPath(path), type);      
+    //    return  (T)(object)Resources.LoadAsync(ConverResPath(path), type);
+    //}
     public async UniTask<T> LoadAsync<T>(string path)
     {
         ResourceRequest request = Resources.LoadAsync(ConverResPath(path));

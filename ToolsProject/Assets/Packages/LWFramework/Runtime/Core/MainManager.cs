@@ -10,7 +10,10 @@ namespace LWFramework.Core {
     /// </summary>
    // [ManagerClass(ManagerType.Main)]
     public class MainManager : Singleton<MainManager>, IManager
-    {  
+    {
+        private Type m_FirstFSMState;
+        //外部设置第一个启动的状态
+        public Type FirstFSMState { set => m_FirstFSMState = value; }
         //热更DLL中所有的type
         private List<Type> m_TypeHotfixArray;
         //管理热更中的所有的Type
@@ -127,7 +130,14 @@ namespace LWFramework.Core {
                 //创建一个流程管理状态机       
                 FSMStateMachine stateMachine = new FSMStateMachine(nameof(FSMName.Procedure), procedureList);
                 GetManager<IFSMManager>().RegisterFSM(stateMachine);
-                GetManager<IFSMManager>().GetFSMProcedure().StartFirst();
+                if (m_FirstFSMState != null)
+                {
+                    GetManager<IFSMManager>().GetFSMProcedure().SwitchState(m_FirstFSMState);
+                }
+                else {
+                    GetManager<IFSMManager>().GetFSMProcedure().StartFirst();
+                }
+                
             }
             else {
                 LWDebug.LogWarning("未找到第一个Procedure");
