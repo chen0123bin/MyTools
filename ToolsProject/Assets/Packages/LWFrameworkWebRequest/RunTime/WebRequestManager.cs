@@ -40,6 +40,7 @@ namespace LWFramework.WebRequest
         {
         }
         #region 注册接口  不使用
+        /*
         /// <summary>
         /// 注册接口（获取 string）
         /// </summary>
@@ -254,6 +255,20 @@ namespace LWFramework.WebRequest
                 LWDebug.LogError("发起网络请求失败：不存在名为 " + interfaceName + " 的网络接口！");
             }
         }
+        private void SendRequestPostForm(string interfaceName, WWWForm form)
+        {
+            _ = SendRequestPostForm(WebInterfaces[interfaceName], form);
+        }
+        private void SendRequestPostJson(string interfaceName, string jsonData)
+        {
+
+            _ = SendRequestPostJson(WebInterfaces[interfaceName], jsonData);
+        }
+        private void SendRequestGet(string interfaceName, params string[] parameter)
+        {
+            _ = SendRequestGet(WebInterfaces[interfaceName], parameter);
+        }
+        **/
         #endregion    不使用
         /// <summary>
         /// 发起网络数据请求，当前方法不需要注册
@@ -266,7 +281,7 @@ namespace LWFramework.WebRequest
             WebInterfaceGetString wi = m_StrPool.Spawn();
             wi.Url = interfaceUrl;
             wi.Handler = handler;
-            _ = SendRequestPostForm(wi, form);
+            SendRequestPostForm(wi, form).Forget();
         }
 
         /// <summary>
@@ -274,15 +289,26 @@ namespace LWFramework.WebRequest
         /// </summary>
         /// <param name="interfaceUrl">请求地址</param>
         /// <param name="handler">回调函数</param>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">Json数据</param>
         public void SendRequestUrl(string interfaceUrl, Action<string> handler, string parameter)
         {
             WebInterfaceGetString wi = m_StrPool.Spawn();
             wi.Url = interfaceUrl;
             wi.Handler = handler;
-            _ = SendRequestPostJson(wi, parameter);
+            SendRequestPostJson(wi, parameter).Forget();
         }
-
+        /// <summary>
+        /// 发起网络数据请求，当前方法不需要注册
+        /// </summary>
+        /// <param name="interfaceUrl">请求地址</param>
+        /// <param name="handler">回调函数</param>
+        public void SendRequestUrl(string interfaceUrl, Action<string> handler)
+        {
+            WebInterfaceGetString wi = m_StrPool.Spawn();
+            wi.Url = interfaceUrl;
+            wi.Handler = handler;
+            SendRequestGet(wi).Forget();
+        }
         /// <summary>
         /// 发起网络数据请求，当前方法不需要注册
         /// </summary>
@@ -293,7 +319,7 @@ namespace LWFramework.WebRequest
             WebInterfaceGetTexture2D wi = m_TexPool.Spawn();
             wi.Url = interfaceUrl;
             wi.Handler = handler;
-            _ = SendRequestGet(wi);
+            SendRequestGet(wi).Forget();
         }
         /// <summary>
         /// 发起网络数据请求，当前方法不需要注册
@@ -305,7 +331,7 @@ namespace LWFramework.WebRequest
             WebInterfaceGetAudioClip wi = m_AudioPool.Spawn();
             wi.Url = interfaceUrl;
             wi.Handler = handler;
-            _ = SendRequestGet(wi);
+            SendRequestGet(wi).Forget();
         }
         
         private async UniTaskVoid SendRequestGet(BaseWebInterface wi, params string[] parameter)
@@ -434,18 +460,6 @@ namespace LWFramework.WebRequest
         }
 
 
-        private void SendRequestPostForm(string interfaceName, WWWForm form)
-        {
-            _ = SendRequestPostForm(WebInterfaces[interfaceName], form);
-        }
-        private void SendRequestPostJson(string interfaceName, string jsonData)
-        {
-
-            _ = SendRequestPostJson(WebInterfaces[interfaceName], jsonData);
-        }
-        private void SendRequestGet(string interfaceName, params string[] parameter)
-        {
-            _ = SendRequestGet(WebInterfaces[interfaceName], parameter);
-        }
+     
     }
 }

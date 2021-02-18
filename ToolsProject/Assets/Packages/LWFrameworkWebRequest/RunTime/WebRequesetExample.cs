@@ -17,15 +17,15 @@ public class WebRequesetExample : MonoBehaviour
         MainManager.Instance.AddManager(typeof(IAssetsManager).ToString(), new ResAssetsManger());
         MainManager.Instance.AddManager(typeof(IWebRequestManager).ToString(), new WebRequestManager());
 
-        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC);
-        MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
-        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC");
-        MainManager.Instance.GetManager<IWebRequestManager>().SendRequest("ABC2");
+        //MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC", "http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC);
+        //MainManager.Instance.GetManager<IWebRequestManager>().RegisterInterface("ABC2", "http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/abc.txt", RespABC);
+        MainManager.Instance.GetManager<IWebRequestManager>().SendRequestUrl("http://192.168.100.112:8089/ToolsProject/Bundles/tt.png", RespABC2);
     }
     private void OnDisable()
     {
-        MainManager.Instance.GetManager<IWebRequestManager>().UnRegisterInterface("ABC");
-        MainManager.Instance.GetManager<IWebRequestManager>().UnRegisterInterface("ABC2");
+        //MainManager.Instance.GetManager<IWebRequestManager>().UnRegisterInterface("ABC");
+       // MainManager.Instance.GetManager<IWebRequestManager>().UnRegisterInterface("ABC2");
     }
     private void RespABC(string obj)
     {
