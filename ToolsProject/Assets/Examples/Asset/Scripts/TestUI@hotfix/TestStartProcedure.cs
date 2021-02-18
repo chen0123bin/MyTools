@@ -12,18 +12,15 @@ using libx;
 [FSMTypeAttribute(nameof(FSMName.Procedure), true)]
 public class TestStartProcedure : BaseFSMState
 {
-    public override void OnEnter(BaseFSMState lastState)
+    public async override void OnEnter(BaseFSMState lastState)
     {
         LWDebug.Log("进入流程 状态机OnEnterOnEnterOnEnterOnEnterOnEnter222222222222222");
-        MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/TestScene.unity", true, LoadSceneComplete);
-        AssetRequest asset = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<AssetRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
+        MainManager.Instance.GetManager<IAssetsManager>().LoadSceneAsync("Assets/@Resources/Scenes/TestScene.unity", true, LoadSceneComplete);
+        GameObject go = await MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<GameObject>("Assets/@Resources/Prefabs/Cube.prefab");
 
 
+        GameObject cube2 = GameObject.Instantiate(go, Vector3.zero, Quaternion.identity) as GameObject;
        
-        asset.completed += (a) =>
-        {
-            GameObject cube2 = GameObject.Instantiate(a.asset, Vector3.zero, Quaternion.identity) as GameObject;
-        };
 
         //ResourceRequest resourceRequest = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<ResourceRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
         //resourceRequest.completed += (o) =>
@@ -31,18 +28,11 @@ public class TestStartProcedure : BaseFSMState
         //    GameObject cube = GameObject.Instantiate(resourceRequest.asset, Vector3.zero, Quaternion.identity) as GameObject;
         //};
     }
-    async void Test() {
-        AssetRequest asset = MainManager.Instance.GetManager<IAssetsManager>().LoadAsync<AssetRequest>("Assets/@Resources/Prefabs/Cube.prefab", typeof(GameObject));
-
-        await Cysharp.Threading.Tasks.UniTask.WaitUntil(() => asset.isDone);
-
-        GameObject cube2 = GameObject.Instantiate(asset.asset, Vector3.zero, Quaternion.identity) as GameObject;
-
-    }
-    void LoadSceneComplete() {
+  
+     void LoadSceneComplete() {
         MainManager.Instance.GetManager<IUIManager>().OpenView<TestHotfixView>();
         GameObject.Find("Canvas").AddComponent(typeof(TestHotfixMono));
-        MainManager.Instance.GetManager<IAssetsManager>().LoadScene("Assets/@Resources/Scenes/HotfixPatch.unity", true);
+        MainManager.Instance.GetManager<IAssetsManager>().LoadSceneAsync("Assets/@Resources/Scenes/HotfixPatch.unity", true);
         GameObject go = MainManager.Instance.GetManager<IAssetsManager>().Load<GameObject>("Assets/@Resources/Prefabs/CubeRigidbody.prefab");
         GameObject cube = GameObject.Instantiate(go, Vector3.zero, Quaternion.identity) as GameObject;
         PhysicsEventListener.Get(cube).onTriggerEnter = OnMonoEventAction2;

@@ -45,10 +45,6 @@ public class ABAssetsManger : IAssetsManager,IManager
         
         return (T)(object)request.asset;
     }
-    public UniTask<T> LoadRequestAsync<T>(string path)
-    {
-        throw new NotImplementedException();
-    }
 
     public void Unload<T>(T param) where T : UnityEngine.Object
     {
